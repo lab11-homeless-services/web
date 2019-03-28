@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, NavLink } from 'react-router-dom'
 import './App.css';
+import LandingView from './views/landingView'
+import CategoriesView from './views/categoriesView'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+        spanish: false
+    }
+  }
+
+  setSpanish = () => {
+    if (this.state.spanish === false) {
+      this.setState({
+        spanish: true
+      })
+    } else {
+      this.setState({
+        spanish: false
+      })
+    }
+    
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Route exact path='/' render={props => ( <LandingView  {...props} setSpanish={this.setSpanish} spanish={this.state.spanish}/>)}/>
+      <Route path='/home' render={props => ( <CategoriesView  {...props} setSpanish={this.setSpanish} spanish={this.state.spanish}/>)} />
       </div>
     );
   }
