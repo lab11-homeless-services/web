@@ -1,8 +1,9 @@
-import React from 'react'
-import SearchBar from '../components/searchBar'
-import { Link } from 'react-router-dom'
+import React, { Fragment } from "react";
+import SearchBar from "../components/searchBar";
+import { Link } from "react-router-dom";
 
 class LandingView extends React.Component {
+
    
     render() {
         console.log(this.props.spanish)
@@ -16,6 +17,7 @@ class LandingView extends React.Component {
             </div>
         )
     }
+
 }
 
-export default LandingView
+export default LandingView;
