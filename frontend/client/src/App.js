@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
+import './App.css';
+import LandingView from './views/landingView'
+import CategoriesView from './views/categoriesView'
+=======
 import React, { Component } from "react";
 import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 import LandingView from "./views/landingView";
 import CategoriesView from "./views/categoriesView";
+>>>>>>> master
 
 class App extends Component {
   constructor() {
