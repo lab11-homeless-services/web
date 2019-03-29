@@ -6,11 +6,11 @@ class Header extends React.Component {
     
 
     render() {
-        console.log(this.props)
+        console.log(this.props.spanish)
         return(
             <div>
                 
-                {this.props.spanish === true ? <div>Inicio</div> : <div>Home</div>}
+                <Link to='/home'>{this.props.spanish === true ? <div>Inicio</div> : <div>Home</div>}</Link>
                 <SearchBar />
                 <div onClick={this.props.setSpanish}>{ this.props.spanish === true ? <p>English</p> : <p>Español?</p>}</div>
             </div>
