@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
           name="searchInput"
           type="text"
           value={this.state.searchInput}
-          placeholder="search for resources you need?"
+          placeholder="Search for Resources"
         />
       </div>
     );
