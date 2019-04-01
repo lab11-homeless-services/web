@@ -15,7 +15,6 @@ class LandingView extends React.Component {
           <Link to="/home">
             <div onClick={this.props.setSpanish}>Español?</div>
           </Link>
-          <div>Is this Test Div working and Testing Travis? Let's hope...</div>
         </div>
       </div>
     );
