@@ -9,6 +9,4 @@ deploy:
   skip_cleanup: true
   provider: firebase
   token:
-    secure: $FIREBASE_TOKEN
-after_success:
-  - firebase deploy --project empact-e511a --token $FIREBASE_TOKEN
+    secure: "1/qYKtoM3mB7O6XJutBL_BNEXSbWNTdsV1q4bTu4dG--fhcZZ3vzEcIpXH9jx1J-Jw"
