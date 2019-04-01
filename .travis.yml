@@ -5,8 +5,5 @@ script:
   - echo "Deploy!!"
 install:
   - npm install -g firebase-tools
-deploy:
-  skip_cleanup: true
-  provider: firebase
-  token:
-    secure: "1/qYKtoM3mB7O6XJutBL_BNEXSbWNTdsV1q4bTu4dG--fhcZZ3vzEcIpXH9jx1J-Jw"
+after_success:
+  - firebase deploy --project empact-e511a --token "1/qYKtoM3mB7O6XJutBL_BNEXSbWNTdsV1q4bTu4dG--fhcZZ3vzEcIpXH9jx1J-Jw"
