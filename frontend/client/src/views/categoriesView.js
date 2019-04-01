@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
+import ListOfCats from '../components/ListOfCategories'
 
 class CategoriesView extends React.Component {
     render() {
@@ -7,6 +8,7 @@ class CategoriesView extends React.Component {
         return(
             <div>
                 <Header {...this.props}/>
+                <ListOfCats />
             </div>
         )
     }
