@@ -3,6 +3,7 @@ import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 import LandingView from "./views/landingView";
 import CategoriesView from "./views/categoriesView";
+import SubCategoryView from './views/subCategoryView'
 import {StateProvider} from './state/state'
 
 class App extends Component {
@@ -42,6 +43,10 @@ class App extends Component {
           <Route
             path="/home"
             render={props => (<CategoriesView {...props}/>)}
+          />
+          <Route
+            path='/subcats'
+            render={props => (<SubCategoryView {...props}/>)}
           />
         </div>
       </StateProvider>
