@@ -5,6 +5,7 @@ const singleResourceView = () => {
     return(
         <div>
             <Header />
+            single test
         </div>
     );
 }

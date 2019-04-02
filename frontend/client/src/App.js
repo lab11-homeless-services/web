@@ -42,15 +42,17 @@ class App extends Component {
             render={props => (<LandingView {...props}/>)}
           />
           <Route
+            exact
             path="/home"
             render={props => (<CategoriesView {...props}/>)}
           />
           <Route
-            path='/subcats'
+            exact
+            path='/home/:id'
             render={props => (<SubCategoryView {...props}/>)}
           />
           <Route 
-            path='/singleresource'
+            path='home/:id/:id'
             render={props => (<SingleResourceView {...props} />)}
           />
         </div>

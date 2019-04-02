@@ -1,6 +1,7 @@
 import React from 'react'
 import useFetch from '../functions/useFetch'
 import { useStateValue } from '../state/state'
+import { Link } from 'react-router-dom'
 
 const ListOfCats = () => {
     const [{language}] = useStateValue()
@@ -31,7 +32,9 @@ const ListOfCats = () => {
                 <div>
                     {categoriesEng.category_name.map(category => (
                         <div>
-                            {category}
+                            <Link to={`/home/${category}`}>
+                                {category}
+                            </Link>
                         </div>
                     ))}
                 </div>
