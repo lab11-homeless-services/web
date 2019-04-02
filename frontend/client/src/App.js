@@ -3,7 +3,8 @@ import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 import LandingView from "./views/landingView";
 import CategoriesView from "./views/categoriesView";
-import SubCategoryView from './views/subCategoryView'
+import SubCategoryView from './views/subCategoryView';
+import SingleResourceView from './views/singleResourceView';
 import {StateProvider} from './state/state'
 
 class App extends Component {
@@ -47,6 +48,10 @@ class App extends Component {
           <Route
             path='/subcats'
             render={props => (<SubCategoryView {...props}/>)}
+          />
+          <Route 
+            path='/singleresource'
+            render={props => (<SingleResourceView {...props} />)}
           />
         </div>
       </StateProvider>
