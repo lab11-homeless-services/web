@@ -5,6 +5,8 @@ import ShelterNearestYou from "../components/ShelterNearestYou";
 import { GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 
 import CurrentLocation from "../components/Map";
+require("dotenv").config();
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
 class CategoriesView extends React.Component {
   state = {
@@ -53,5 +55,5 @@ class CategoriesView extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyCFRdnaN4rYlUqsHxsHFiaW4d9K0Akbzuw"
+  API_KEY
 })(CategoriesView);
