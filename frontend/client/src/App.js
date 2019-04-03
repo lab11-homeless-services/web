@@ -47,12 +47,11 @@ class App extends Component {
             render={props => (<CategoriesView {...props}/>)}
           />
           <Route
-            exact
             path='/home/:id'
             render={props => (<SubCategoryView {...props}/>)}
           />
           <Route 
-            path='home/:id/:id'
+            path='/home/:id/:id'
             render={props => (<SingleResourceView {...props} />)}
           />
         </div>
