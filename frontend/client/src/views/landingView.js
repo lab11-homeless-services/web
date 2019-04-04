@@ -23,8 +23,8 @@ import { useStateValue } from '../state/state'
 // }
 
 const LandingView = () => {
-  const [{language}, dispatch] = useStateValue()
-  console.log(language)
+  const [{spanish}, dispatch] = useStateValue()
+  console.log(spanish)
   return (
     <div>
          <SearchBar />
@@ -33,7 +33,7 @@ const LandingView = () => {
              <div>English</div>
            </Link>
            <Link to="/home">
-             <div spanish={language.spanish}
+             <div spanish={spanish.spanish}
 
              onClick={() => dispatch({
                 type: 'setSpanish',
