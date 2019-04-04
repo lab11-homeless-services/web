@@ -5,7 +5,8 @@ import ListOfResources from './ListOfResources'
 
 const TabNav = (props) => {
     let id = props.match.params.id
-    id = id.replace(/\s+/g, '-')
+    id = id.replace(/\s+/g, '_')
+
     console.log(id)
     console.log(props)
     const subCats = useFetch(`https://empact-e511a.firebaseio.com/${id}.json`);
