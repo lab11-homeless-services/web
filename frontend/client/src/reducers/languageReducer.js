@@ -1,4 +1,3 @@
-import React from 'react'
 
 const languageReducer = (state, action) => {
     switch (action.type) {
