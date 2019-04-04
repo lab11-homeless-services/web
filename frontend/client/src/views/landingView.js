@@ -24,7 +24,7 @@ import { useStateValue } from '../state/state'
 
 const LandingView = () => {
   const [{spanish}, dispatch] = useStateValue()
-  // console.log(spanish)
+
   return (
     <div>
          <SearchBar />

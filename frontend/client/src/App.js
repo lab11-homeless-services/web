@@ -10,6 +10,7 @@ import languageReducer from './reducers/languageReducer'
 import SingleResourceView from './views/singleResourceView';
 import * as firebase from 'firebase';
 
+
 class App extends Component {
 
   render() {

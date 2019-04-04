@@ -7,8 +7,6 @@ const TabNav = (props) => {
     let id = props.match.params.id
     id = id.replace(/\s+/g, '_')
 
-    // console.log(id)
-    // console.log(props)
     const subCats = useFetch(`https://empact-e511a.firebaseio.com/${id}.json`);
     // console.log('subCats', subCats)
     // console.log('props', props.match.params.id)

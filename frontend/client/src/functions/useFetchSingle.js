@@ -8,6 +8,7 @@ export default function useFetchSingle(url) {
         try {
             const response = await axios.get(url)
             // console.log(response.data)
+
             const data = await response.data
             setData(data)
         } catch(error) {

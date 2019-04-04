@@ -19,3 +19,4 @@ const SingleResourceView = props => {
 }
 
 export default SingleResourceView;
+
