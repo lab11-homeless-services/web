@@ -11,5 +11,5 @@ export const StateProvider = ({ reducer, initialState, children }) => (
     {children}
   </StateContext.Provider>
 );
-
+//exports a hook giving access to StateContext(reducers, state)
 export const useStateValue = () => useContext(StateContext);

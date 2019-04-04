@@ -8,18 +8,18 @@ import { InstantSearch,
   ClearRefinements,
   RefinementList,
   Configure, } from 'react-instantsearch-dom';
-  const searchClient = algoliasearch(
-    process.env.ALGOLIA_API_KEY
-  );
-  const index = client.initIndex('empact');
+  // const searchClient = algoliasearch(
+  //   process.env.ALGOLIA_API_KEY
+  // );
+  //const index = client.initIndex('empact');
 
-fetch('https://empact-e511a.firebaseio.com/.json')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(empact) {
-    index.addObjects(empact)
-  });
+// fetch('https://empact-e511a.firebaseio.com/.json')
+//   .then(function(response) {
+//     return response.json();
+//   })
+//   .then(function(empact) {
+//     index.addObjects(empact)
+//   });
 
 class SearchBar extends React.Component {
   render() {
