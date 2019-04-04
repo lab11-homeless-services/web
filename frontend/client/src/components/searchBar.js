@@ -1,17 +1,19 @@
 import React from "react";
-import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch,
+import algoliasearch from "algoliasearch/lite";
+import {
+  InstantSearch,
   Hits,
   SearchBox,
   Pagination,
   Highlight,
   ClearRefinements,
   RefinementList,
-  Configure, } from 'react-instantsearch-dom';
-  // const searchClient = algoliasearch(
-  //   process.env.ALGOLIA_API_KEY
-  // );
-  //const index = client.initIndex('empact');
+  Configure
+} from "react-instantsearch-dom";
+// const searchClient = algoliasearch(
+//   process.env.ALGOLIA_API_KEY
+// );
+//const index = client.initIndex('empact');
 
 // fetch('https://empact-e511a.firebaseio.com/.json')
 //   .then(function(response) {

@@ -6,16 +6,15 @@ import { GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 
 import CurrentLocation from "../components/Map";
 
-require("dotenv").config();
-const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
-
 class CategoriesView extends React.Component {
+  //Initial State for info window, marker, and selected place
   state = {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {}
   };
 
+  //On a click, the marker appears, place is selected, info window is visible
   onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
@@ -23,6 +22,7 @@ class CategoriesView extends React.Component {
       showingInfoWindow: true
     });
 
+  // Info window closes and marker is no longer visible
   onClose = props => {
     if (this.state.showingInfoWindow) {
       this.setState({
@@ -56,5 +56,5 @@ class CategoriesView extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  API_KEY
+  apiKey: ""
 })(CategoriesView);
