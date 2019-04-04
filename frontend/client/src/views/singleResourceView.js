@@ -1,22 +1,27 @@
-import React from 'react';
-import useFetchSingle from '../functions/useFetchSingle';
+import React from "react";
+import useFetchSingle from "../functions/useFetchSingle";
 
 const SingleResourceView = props => {
-    const newStuff = props.location.pathname.split('/');
-    const category = newStuff[2];
-    const subCat = newStuff[3];
-    const singleResource = newStuff[4];
+  //Splits path name at backslash
+  const paths = props.location.pathname.split("/");
 
-    const resource = useFetchSingle(`https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`);
+  //Accesses each piece of the pathname from the array createdabove
+  const category = paths[2];
+  const subCat = paths[3];
+  const singleResource = paths[4];
 
-    return(
-        <div>
-            <p>{resource.name}</p>
-            <p>{resource.address}</p>
-            <p>{resource.city}</p>
-        </div>
-    );
-}
+  //Fetching a Single Resource
+  const resource = useFetchSingle(
+    `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
+  );
+
+  return (
+    <div>
+      <p>{resource.name}</p>
+      <p>{resource.address}</p>
+      <p>{resource.city}</p>
+    </div>
+  );
+};
 
 export default SingleResourceView;
-
