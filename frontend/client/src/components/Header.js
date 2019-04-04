@@ -4,17 +4,16 @@ import { Link } from 'react-router-dom'
 import { useStateValue } from '../state/state'
 
 const Header = () => {
-    const [{language}, dispatch] = useStateValue()
+    const [{spanish}, dispatch] = useStateValue()
     return(
         <div>
-            <Link to='/home'>{language.spanish === true ? <div>Inicio</div> : <div>Home</div>}</Link>
+            <Link to='/home'>{spanish.spanish === true ? <div>Inicio</div> : <div>Home</div>}</Link>
             <SearchBar />
             <div
                 onClick={() => dispatch({
                 type: 'setSpanish',
-                language
-            })}>{language.spanish === true ? <p>English</p> : <p>Español?</p>}</div>
-            {console.log(language.spanish)}
+                spanish
+            })}>{spanish.spanish === true ? <p>English</p> : <p>Español?</p>}</div>
         </div>
     ) 
 }
