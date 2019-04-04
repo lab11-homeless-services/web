@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { Link } from 'react-router-dom'
 import useFetch from '../functions/useFetch';
 import ListOfResources from './ListOfResources'
 
 const TabNav = (props) => {
     let id = props.match.params.id
-    id = id.replace(/\s+/g, '-')
-    console.log(id)
+    id = id.replace(/\s+/g, '_')
+
     const subCats = useFetch(`https://empact-e511a.firebaseio.com/${id}.json`);
     // console.log('subCats', subCats)
     // console.log('props', props.match.params.id)
+    
 
     return(
 

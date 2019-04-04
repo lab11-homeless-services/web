@@ -1,22 +1,22 @@
 import React from 'react';
-import Header from '../components/Header';
-import useFetch from '../functions/useFetch'
+import useFetchSingle from '../functions/useFetchSingle';
 
-const singleResourceView = (props) => {
-    console.log(props.location.pathname)
-    const newStuff = props.location.pathname.split('/')
-    console.log(newStuff[2], newStuff[3])
-    const listOfResources = useFetch(`https://empact-e511a.firebaseio.com/${newStuff[2]}/${newStuff[3]}.json`)
-    console.log(listOfResources)
+const SingleResourceView = props => {
+    const newStuff = props.location.pathname.split('/');
+    const category = newStuff[2];
+    const subCat = newStuff[3];
+    const singleResource = newStuff[4];
+
+    const resource = useFetchSingle(`https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`);
+
     return(
         <div>
-            {listOfResources.map(resource => (
-                <div>
-                    {resource.name}
-                </div>
-            ))}
+            <p>{resource.name}</p>
+            <p>{resource.address}</p>
+            <p>{resource.city}</p>
         </div>
     );
 }
 
-export default singleResourceView;
+export default SingleResourceView;
+
