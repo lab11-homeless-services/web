@@ -4,37 +4,27 @@ import "./App.css";
 import LandingView from "./views/landingView";
 import CategoriesView from "./views/categoriesView";
 import SubCategoryView from './views/subCategoryView';
-import SingleResourceView from './views/singleResourceView';
+import SubCategoryList from './views/subCategoryList';
 import {StateProvider} from './state/state'
+import languageReducer from './reducers/languageReducer'
+import ListOfResources from "./components/ListOfResources";
+import SingleResourceView from './views/singleResourceView';
 
 class App extends Component {
   render() {
     const initialState = {
-      language: {
-        spanish: false
-      }
+        spanish: false,
     }
 
-    const reducer = (state, action) => {
-      switch (action.type) {
-        case 'setSpanish':
-        if (state.language.spanish === false) {
-          return {
-            ...state,
-            language: {spanish: true}
-          }
-        }
-          return {
-            ...state,
-            language: {spanish: false}
-          }
-          default: 
-            return state
-        }
-      }
+
+    const mainReducer = ( {spanish} , action) => ({
+      spanish: languageReducer(spanish, action),
+    });
+
+  
     
     return (
-      <StateProvider initialState={initialState} reducer={reducer}>
+      <StateProvider initialState={initialState} reducer={mainReducer}>
         <div className="App">
           <Route
             exact
@@ -47,12 +37,15 @@ class App extends Component {
             render={props => (<CategoriesView {...props}/>)}
           />
           <Route
-            exact
             path='/home/:id'
             render={props => (<SubCategoryView {...props}/>)}
           />
           <Route 
-            path='home/:id/:id'
+            path='/home/:id/:id'
+            render={props => (<SubCategoryList {...props} />)}
+          />
+          <Route
+            path='/home/:id/:id/:id'
             render={props => (<SingleResourceView {...props} />)}
           />
         </div>

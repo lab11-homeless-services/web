@@ -3,7 +3,6 @@ import Header from '../components/Header'
 import TabNav from '../components/TabNavigator'
 
 const subCategoryView = (props) => {
-
     return(
         <div>
             <Header />

@@ -1,13 +1,11 @@
 import React from 'react';
-import Header from '../components/Header';
 
-const singleResourceView = () => {
+const SingleResourceView = props => {
     return(
         <div>
-            <Header />
-            single test
+
         </div>
     );
 }
 
-export default singleResourceView;
+export default SingleResourceView;
