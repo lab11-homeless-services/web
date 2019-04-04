@@ -1,13 +1,12 @@
-import React, { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function useFetchSingle(url) {
     const [data, setData] = useState([])
-    console.log(url)
+   
     async function getResources() {
         try {
             const response = await axios.get(url)
-            console.log(response.data)
             const data = await response.data
             setData(data)
         } catch(error) {
@@ -15,7 +14,9 @@ export default function useFetchSingle(url) {
         }
         
     }
-    useLayoutEffect(() => {
+    //calls once - checks current props === return 
+    //runs as CDU on state
+    useEffect(() => {
         getResources()
     },[url])
     return data
