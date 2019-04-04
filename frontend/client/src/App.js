@@ -9,9 +9,16 @@ import {StateProvider} from './state/state'
 import languageReducer from './reducers/languageReducer'
 import ListOfResources from "./components/ListOfResources";
 import SingleResourceView from './views/singleResourceView';
+import * as firebase from 'firebase';
 
 class App extends Component {
+
   render() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyCAq8hud84J37D5gyYY0KscH4kY85Y61II',                        
+      databaseURL: 'https://empact-e511a.firebaseio.com/',
+    });
+
     const initialState = {
         spanish: false,
     }
