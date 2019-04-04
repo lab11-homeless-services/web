@@ -3,13 +3,11 @@ import useFetchSingle from '../functions/useFetchSingle';
 
 const SingleResourceView = props => {
     const newStuff = props.location.pathname.split('/');
-    console.log('newStuff', newStuff);
     const category = newStuff[2];
     const subCat = newStuff[3];
     const singleResource = newStuff[4];
 
     const resource = useFetchSingle(`https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`);
-    console.log('resource', resource);
 
     return(
         <div>
@@ -21,5 +19,3 @@ const SingleResourceView = props => {
 }
 
 export default SingleResourceView;
-
-//firebase.database().ref("child/path")

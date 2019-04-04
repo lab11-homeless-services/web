@@ -1,5 +1,5 @@
-import React, { useState, Component } from "react";
-import { Route, NavLink } from "react-router-dom";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import "./App.css";
 import LandingView from "./views/landingView";
 import CategoriesView from "./views/categoriesView";
@@ -7,7 +7,6 @@ import SubCategoryView from './views/subCategoryView';
 import SubCategoryList from './views/subCategoryList';
 import {StateProvider} from './state/state'
 import languageReducer from './reducers/languageReducer'
-import ListOfResources from "./components/ListOfResources";
 import SingleResourceView from './views/singleResourceView';
 import * as firebase from 'firebase';
 
