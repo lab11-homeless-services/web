@@ -3,15 +3,15 @@ import React from 'react'
 const languageReducer = (state, action) => {
     switch (action.type) {
       case 'setSpanish':
-      if (state.language.spanish === false) {
+      if (state.spanish === false) {
         return {
           ...state,
-          language: {spanish: true}
+          spanish: true
         }
       }
         return {
           ...state,
-          language: {spanish: false}
+          spanish: false
         }
         default: 
           return state
