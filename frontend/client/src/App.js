@@ -48,7 +48,7 @@ class App extends Component {
             render={props => <SubCategoryView {...props} />}
           />
           <Route
-            path="/home/:id/:id"
+            exact path="/home/:id/:id"
             render={props => <SubCategoryList {...props} />}
           />
           <Route
@@ -57,6 +57,7 @@ class App extends Component {
           />
         </div>
       </StateProvider>
+      
     );
   }
 }
