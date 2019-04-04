@@ -1,11 +1,15 @@
-import React, {createContext, useContext, useReducer} from 'react'
+//this is the magic
 
-export const StateContext = createContext()
+import React, { createContext, useContext, useReducer } from "react";
 
-export const StateProvider = ({reducer, initialState, children}) => (
-    <StateContext.Provider value={useReducer(reducer, initialState)}>
-        {children}
-    </StateContext.Provider>
-)
+export const StateContext = createContext();
+// allows us to create Context objects to create providers and consumers
+// StateProvider lets us hold the context object StateContext
+// the .Provider provides us w/ state, lets us consume components, change state, and pass changes to children
+export const StateProvider = ({ reducer, initialState, children }) => (
+  <StateContext.Provider value={useReducer(reducer, initialState)}>
+    {children}
+  </StateContext.Provider>
+);
 
-export const useStateValue = () => useContext(StateContext)
+export const useStateValue = () => useContext(StateContext);
