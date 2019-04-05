@@ -20,6 +20,7 @@ const SingleResourceView = props => {
       <p>{resource.name}</p>
       <p>{resource.address}</p>
       <p>{resource.city}</p>
+      <p>{resource.services}</p>
     </div>
   );
 };
