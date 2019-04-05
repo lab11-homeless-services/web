@@ -35,7 +35,7 @@ class CategoriesView extends React.Component {
   render() {
     return (
       <div>
-        {/* <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
+        <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
           <Marker onClick={this.onMarkerClick} name={"current location"} />
           <InfoWindow
             marker={this.state.activeMarker}
@@ -46,7 +46,7 @@ class CategoriesView extends React.Component {
               <h4>{this.state.selectedPlace.name}</h4>
             </div>
           </InfoWindow>
-        </CurrentLocation> */}
+        </CurrentLocation>
         <Header {...this.props} />
         <ListOfCats />
         <ShelterNearestYou {...this.props} />
@@ -56,5 +56,5 @@ class CategoriesView extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ""
+  apiKey: "AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
 })(CategoriesView);
