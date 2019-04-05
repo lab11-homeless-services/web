@@ -15,14 +15,33 @@ const SingleResourceView = props => {
     `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
   );
 
-  return (
-    <div>
-      <p>{resource.name}</p>
-      <p>{resource.address}</p>
-      <p>{resource.city}</p>
-      <p>{resource.services}</p>
-    </div>
-  );
+
+  if (resource.details && resource.services !== undefined) {
+    return (
+      <div>
+        <p>{resource.name}</p>
+        <p>{resource.address}</p>
+        <p>{resource.city}</p>
+        <h4>Details</h4>
+        {resource.details.map(detail => (
+          <p>{detail}</p>
+        ))}
+        <h4>Services</h4>
+        {resource.services.map(service => (
+          <p>{service}</p>
+        ))}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <p>{resource.name}</p>
+        <p>{resource.address}</p>
+        <p>{resource.city}</p>
+      </div>
+    );
+  }
+
 };
 
 export default SingleResourceView;
