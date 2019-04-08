@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../state/state";
 
 const LandingView = () => {
+  //Gains access to reducers and state
   const [{ spanish }, dispatch] = useStateValue();
 
   return (
