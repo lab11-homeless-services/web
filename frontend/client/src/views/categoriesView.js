@@ -131,6 +131,45 @@ class CategoriesView extends React.Component {
   }
 
   render() {
+    const { google } = this.props;
+
+    var origin1 = new google.maps.LatLng(55.930385, -3.118425);
+    var origin2 = "Greenwich, England";
+    var destinationA = "Stockholm, Sweden";
+    var destinationB = new google.maps.LatLng(50.087692, 14.42115);
+
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix(
+      {
+        origins: [origin1, origin2],
+        destinations: [destinationA, destinationB],
+        travelMode: "DRIVING"
+      },
+      callback
+    );
+
+    function callback(response, status) {
+      // See Parsing the Results for
+      // the basics of a callback function.
+      console.log(response);
+    }
+
+    // let origin = new google.maps.LatLng(
+    //   this.state.currentLocation.lat,
+    //   this.state.currentLocation.lng
+    // );
+    // let destination = new google.maps.LatLng(40.745377, -73.981306);
+
+    // google.maps.DistanceMatrixService(
+    //   { origin: origin, destination: destination, travelMode: "TRANSIT" },
+    //   (res, status) => {
+    //     if (status === "OK") {
+    //       console.log("distances", res);
+    //     } else {
+    //       console.log("status", status);
+    //     }
+    //   }
+    // );
     const style = Object.assign({}, mapStyles.map);
     console.log(this.props);
     console.log("state", this.state);
