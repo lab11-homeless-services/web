@@ -1,23 +1,42 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import Header from "../components/Header";
 import ListOfCats from "../components/ListOfCategories";
 import ShelterNearestYou from "../components/ShelterNearestYou";
 import { GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 
-import CurrentLocation from "../components/Map";
+const mapStyles = {
+  map: {
+    position: "absolute",
+    left: "700px",
+    top: "300px",
+    width: "40%",
+    height: "50%"
+  }
+};
 
 class CategoriesView extends React.Component {
-  //Initial State for info window, marker, and selected place
-  state = {
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {}
-  };
+  constructor(props) {
+    super(props);
+    //Initial State for info window, marker, and selected place
+    this.state = {
+      currentLocation: {
+        lat: 40.785091,
+        lng: -73.968285
+      },
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+      centerAroundCurrentLocation: false,
+      visible: true,
+      zoom: 14
+    };
+  }
 
   //On a click, the marker appears, place is selected, info window is visible
   onMarkerClick = (props, marker, e) =>
     this.setState({
-      selectedPlace: props,
+      selectedPlace: this.state.selectedPlace,
       activeMarker: marker,
       showingInfoWindow: true
     });
@@ -31,11 +50,99 @@ class CategoriesView extends React.Component {
       });
     }
   };
+  //loadMap() function is only called after the component has been rendered
+  //and grabs a reference to the DOM component to where we want our map to be placed.
+
+  loadMap() {
+    if (this.props.google) {
+      // checks if google is available
+      const { google } = this.props;
+      const maps = google.maps;
+
+      const mapRef = this.refs.map;
+
+      // reference to the actual DOM element
+      const node = ReactDOM.findDOMNode(mapRef);
+
+      let { zoom } = this.state;
+      const { lat, lng } = this.state.currentLocation;
+      const center = new maps.LatLng(lat, lng);
+      this.setState({
+        centerAroundCurrentLocation: true
+      });
+      const mapConfig = Object.assign(
+        {},
+        {
+          center: center,
+          zoom: zoom
+        }
+      );
+
+      // maps.Map() is constructor that instantiates the map
+      this.map = new maps.Map(node, mapConfig);
+    }
+  }
+
+  //when the map has already loaded, componentDidMount() will set a call-
+  //back to fetch the current location.
+
+  componentDidMount() {
+    if (navigator && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        const coords = pos.coords;
+        this.setState({
+          currentLocation: {
+            lat: coords.latitude,
+            lng: coords.longitude
+          }
+        });
+      });
+    }
+    this.loadMap();
+  }
+
+  //Check if map API is loaded, check if the browser's current location
+  //is provided and recenter the map to it.
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.google !== this.props.google) {
+      this.loadMap();
+    }
+    if (prevState.currentLocation !== this.state.currentLocation) {
+      this.recenterMap();
+    }
+  }
+
+  //recenterMap() function only gets called when the currentLocation in the
+  //component's state is updated and uses the .panTo() method on the google.maps.Map
+  //instance to change the center of the map.
+
+  recenterMap() {
+    const map = this.map;
+    const current = this.state.currentLocation;
+
+    const google = this.props.google;
+    const maps = google.maps;
+
+    if (map) {
+      let center = new maps.LatLng(current.lat, current.lng);
+      map.panTo(center);
+    }
+  }
 
   render() {
+    const style = Object.assign({}, mapStyles.map);
+    console.log(this.props);
+    console.log("state", this.state);
+
     return (
       <div>
-        <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
+        <div>
+          <div style={style} ref="map">
+            Loading map...
+          </div>
+        </div>
+        <div>
           <Marker onClick={this.onMarkerClick} name={"current location"} />
           <InfoWindow
             marker={this.state.activeMarker}
@@ -43,13 +150,12 @@ class CategoriesView extends React.Component {
             onClose={this.onClose}
           >
             <div>
-              <h4>{this.state.selectedPlace.name}</h4>
+              <h4>{this.state.selectedPlace}</h4>
             </div>
           </InfoWindow>
-        </CurrentLocation>
+        </div>
         <Header {...this.props} />
         <ListOfCats />
-        <ShelterNearestYou {...this.props} />
       </div>
     );
   }

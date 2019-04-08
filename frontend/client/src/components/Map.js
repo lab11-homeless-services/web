@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Script from "react-load-script";
 
 const mapStyles = {
   map: {
@@ -12,7 +11,7 @@ const mapStyles = {
   }
 };
 
-export class CurrentLocation extends React.Component {
+class CurrentLocation extends React.Component {
   constructor(props) {
     super(props);
 
@@ -132,6 +131,7 @@ export class CurrentLocation extends React.Component {
     );
   }
 }
+
 export default CurrentLocation;
 
 CurrentLocation.defaultProps = {
