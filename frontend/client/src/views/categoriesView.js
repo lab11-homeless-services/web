@@ -1,15 +1,19 @@
+
 import React, {useReducer, useEffect, useContext, useState} from "react";
+
 import ReactDOM from "react-dom";
 import Header from "../components/Header";
 import ListOfCats from "../components/ListOfCategories";
 import ShelterNearestYou from "../components/ShelterNearestYou";
 // import { GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
+
 import useFetch from '../functions/useFetch'
 import { GoogleMapProvider, InfoWindow, MapBox , Marker, GoogleMapContext} from '@googlemap-react/core'
 import latlngDist from 'latlng-distance'
 import { GoogleApiWrapper } from 'google-maps-react'
 import axios from 'axios'
 import ListOfResources from "../components/ListOfResources";
+
 
 const mapStyles = {
   map: {
@@ -21,15 +25,15 @@ const mapStyles = {
   }
 };
 
-const CategoriesView = (props) => {
+const CategoriesView = props => {
   const [state, setState] = useReducer(
-    
-    (state, newState) => ({...state, ...newState}),
+    (state, newState) => ({ ...state, ...newState }),
     {
       currentLocation: {
         lat: 40.785091,
         lon: -73.968285
       },
+      distance: "",
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
@@ -38,6 +42,7 @@ const CategoriesView = (props) => {
       zoom: 14,
       timeTravel: ''
     }
+
   )
   let listOfShelters = []
     function fether(url) {
@@ -86,11 +91,12 @@ const CategoriesView = (props) => {
 
   const sortArrayOfObjects = (arr, key) => {
     return arr.sort((a, b) => {
-        return a[key] - b[key];
+      return a[key] - b[key];
     });
   };
 
   sortArrayOfObjects(newShelters, "distance");
+
 
   const firstShelter = newShelters[0]
   const { google } = props;
@@ -101,16 +107,18 @@ const CategoriesView = (props) => {
     let destination = new google.maps.LatLng(firstShelter.latitude, firstShelter.longitude);
     let origin = new google.maps.LatLng(state.currentLocation.lat, state.currentLocation.lon);
   
+
     let service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
-    {
-      origins: [origin],
-      destinations: [destination],
-      travelMode: "DRIVING",
-      unitSystem: google.maps.UnitSystem.IMPERIAL
-    },
+      {
+        origins: [origin],
+        destinations: [destination],
+        travelMode: "DRIVING",
+        unitSystem: google.maps.UnitSystem.IMPERIAL
+      },
       callback
     );
+
     async function callback(response, status) {
         // See Parsing the Results for
         // the basics of a callback function.
@@ -126,17 +134,18 @@ const CategoriesView = (props) => {
 
   
   return(
+
     <GoogleMapProvider>
-    <div>
+      {console.log(props)}
+      <div>
         <div>
-          <div style={style}>
-            Loading map...
-          </div>
+          <div style={style}>Loading map...</div>
         </div>
         <Header />
         <ListOfCats />
       </div>
       <MapBox
+
       style={style}
       apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
       opts={{
@@ -150,12 +159,11 @@ const CategoriesView = (props) => {
       <p>{newShelters[0].name}</p>
     </div> : <div>Loading Shelters</div> }
     
-    </GoogleMapProvider>
-  )
-  }
-  
-  export default GoogleApiWrapper({
-    apiKey: "AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
-  })(CategoriesView)
-  
 
+    </GoogleMapProvider>
+  );
+};
+
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
+})(CategoriesView);
