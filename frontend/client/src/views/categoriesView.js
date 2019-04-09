@@ -41,7 +41,7 @@ const CategoriesView = (props) => {
  
   
   let listOfShelters = []
-  useEffect(() => {
+ 
     if (navigator && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(pos => {
         
@@ -55,8 +55,7 @@ const CategoriesView = (props) => {
       });
       
     }
-    return listOfShelters
-  }, [])
+
 
   listOfShelters = useFetch(`https://empact-e511a.firebaseio.com/shelters/all.json`)
   console.log(listOfShelters)
@@ -92,7 +91,8 @@ const CategoriesView = (props) => {
   console.log(state.currentLocation)
   const { google } = props;
 
-
+  
+  let travelTime = ''
   if (firstShelter !== undefined) {
     let destination = new google.maps.LatLng(firstShelter.latitude, firstShelter.longitude);
     let origin = new google.maps.LatLng(state.currentLocation.lat, state.currentLocation.lon);
@@ -108,16 +108,19 @@ const CategoriesView = (props) => {
     },
       callback
     );
-  
-    function callback(response, status) {
+    async function callback(response, status) {
         // See Parsing the Results for
         // the basics of a callback function.
-        console.log(response)
-    console.log(response.rows[0].elements[0].distance.text);
+    console.log(response)
+    console.log(response.rows[0].elements[0].duration.text);
+    travelTime = response.rows[0].elements[0].duration.text
+    await window.localStorage.setItem('time', travelTime)
     }
   }
 
   
+
+  const time = window.localStorage.getItem('time')
   
   return(
     <GoogleMapProvider>
@@ -138,7 +141,9 @@ const CategoriesView = (props) => {
         zoom: 14,
       }}
     />
+    {travelTime.length > 0 ? <div>{travelTime}</div> : 'Travel Time Loading'}
     {newShelters.length > 0 ? <div>
+      <p>{time}</p>
       <p>Closest Shelter</p>
       <p>{newShelters[0].name}</p>
     </div> : <div>Loading Shelters</div> }
