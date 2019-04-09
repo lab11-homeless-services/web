@@ -1,4 +1,4 @@
-import React, {useReducer, useEffect, useContext} from "react";
+import React, {useReducer, useEffect, useContext, useState} from "react";
 import ReactDOM from "react-dom";
 import Header from "../components/Header";
 import ListOfCats from "../components/ListOfCategories";
@@ -8,6 +8,8 @@ import useFetch from '../functions/useFetch'
 import { GoogleMapProvider, InfoWindow, MapBox , Marker, GoogleMapContext} from '@googlemap-react/core'
 import latlngDist from 'latlng-distance'
 import { GoogleApiWrapper } from 'google-maps-react'
+import axios from 'axios'
+import ListOfResources from "../components/ListOfResources";
 
 const mapStyles = {
   map: {
@@ -33,32 +35,39 @@ const CategoriesView = (props) => {
       selectedPlace: {},
       centerAroundCurrentLocation: false,
       visible: true,
-      zoom: 14
+      zoom: 14,
+      timeTravel: ''
     }
   )
-
-
- 
-  
   let listOfShelters = []
- 
-    if (navigator && navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(pos => {
-        
-        const coords = pos.coords;
-        setState({
-          currentLocation: {
-            lat: coords.latitude,
-            lon: coords.longitude,
-          }
-        });
-      });
+    function fether(url) {
+      const [data, setData] = useState([])
+      async function getResources() {
+          const response = await axios.get(url)
+          const data = await response.data
+          setData(data)
+      }
+      useEffect(() => {
+        getResources()
+        if (navigator && navigator.geolocation) {
       
+          navigator.geolocation.getCurrentPosition(pos => {
+            
+            const coords = pos.coords;
+            setState({
+              currentLocation: {
+                lat: coords.latitude,
+                lon: coords.longitude,
+              }
+            });
+          });
+          
+        }
+      },[])
+    return data
     }
-
-
-  listOfShelters = useFetch(`https://empact-e511a.firebaseio.com/shelters/all.json`)
-  console.log(listOfShelters)
+  
+    listOfShelters = fether(`https://empact-e511a.firebaseio.com/shelters/all.json`)
 
   const style = Object.assign({}, mapStyles.map);
 
@@ -69,10 +78,7 @@ const CategoriesView = (props) => {
     const lat = Number(listOfShelters[i].latitude)
     const lon = Number(listOfShelters[i].longitude)
     const point = {lat, lon}
-    console.log('shelter', point)
-    console.log('current', state.currentLocation)
     const dist = latlngDist.distanceDiffInKm(point, state.currentLocation )
-    console.log('distance', dist)
     const shelter = Object.assign(listOfShelters[i], {distance: dist, id: id, latitude: lat, longitude: lon})
     newShelters.push(shelter)
     id++
@@ -87,8 +93,6 @@ const CategoriesView = (props) => {
   sortArrayOfObjects(newShelters, "distance");
 
   const firstShelter = newShelters[0]
-
-  console.log(state.currentLocation)
   const { google } = props;
 
   
@@ -96,7 +100,6 @@ const CategoriesView = (props) => {
   if (firstShelter !== undefined) {
     let destination = new google.maps.LatLng(firstShelter.latitude, firstShelter.longitude);
     let origin = new google.maps.LatLng(state.currentLocation.lat, state.currentLocation.lon);
-    console.log('coordinates', destination, origin)
   
     let service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
@@ -111,16 +114,16 @@ const CategoriesView = (props) => {
     async function callback(response, status) {
         // See Parsing the Results for
         // the basics of a callback function.
-    console.log(response)
-    console.log(response.rows[0].elements[0].duration.text);
-    travelTime = response.rows[0].elements[0].duration.text
-    await window.localStorage.setItem('time', travelTime)
+  
+    if(response && response.rows.length) {
+      setState({
+        timeTravel: response.rows[0].elements[0].duration.text
+      })
+    }
     }
   }
 
-  
 
-  const time = window.localStorage.getItem('time')
   
   return(
     <GoogleMapProvider>
@@ -141,9 +144,8 @@ const CategoriesView = (props) => {
         zoom: 14,
       }}
     />
-    {travelTime.length > 0 ? <div>{travelTime}</div> : 'Travel Time Loading'}
+    {state.timeTravel.length > 0 ? <div>{state.timeTravel}</div> : 'Travel Time Loading'}
     {newShelters.length > 0 ? <div>
-      <p>{time}</p>
       <p>Closest Shelter</p>
       <p>{newShelters[0].name}</p>
     </div> : <div>Loading Shelters</div> }
