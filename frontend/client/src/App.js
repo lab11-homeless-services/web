@@ -41,14 +41,14 @@ class App extends Component {
           <Route
             exact
             path="/home"
-            render={props => <CategoriesView {...props} google={window.google} />}
+            render={props => <CategoriesView {...props} />}
           />
           <Route
             path="/home/:id"
             render={props => <SubCategoryView {...props} />}
           />
           <Route
-            exact path="/home/:id/:id"
+            path="/home/:id/:id"
             render={props => <SubCategoryList {...props} />}
           />
           <Route
@@ -57,7 +57,6 @@ class App extends Component {
           />
         </div>
       </StateProvider>
-      
     );
   }
 }

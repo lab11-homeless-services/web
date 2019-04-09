@@ -1,7 +1,9 @@
-import React from "react";
-import SearchBar from "./searchBar";
-import { Link } from "react-router-dom";
-import { useStateValue } from "../state/state";
+
+import React from 'react'
+import SearchBar from './Search/searchBar'
+import { Link } from 'react-router-dom'
+import { useStateValue } from '../state/state'
+
 
 const Header = () => {
   //Gains access to reducers and state
