@@ -1,31 +1,33 @@
 import React from "react";
-// import indexSheltersToElastic from './searchfunc';
-// import algoliasearch from "algoliasearch/lite";
-// import {
-//   InstantSearch,
-//   Hits,
-//   SearchBox,
-//   Pagination,
-//   Highlight,
-//   ClearRefinements,
-//   RefinementList,
-//   Configure
-// } from "react-instantsearch-dom";
-// const searchClient = algoliasearch(
-//   process.env.ALGOLIA_API_KEY
-// );
-//const index = client.initIndex('empact');
+//import axios from "axios";
+//import algoliasearch from "algoliasearch";
 
-// fetch('https://empact-e511a.firebaseio.com/.json')
+// var client = algoliasearch("QD6TWFQZCN", '028bde3e8ce26fd3245e84b3807905b9');
+// var index = client.initIndex('empact');
+
+// axios.get('https://empact-e511a.firebaseio.com/.json')
 //   .then(function(response) {
-//     return response.json();
+//     return response;
 //   })
 //   .then(function(empact) {
-//     index.addObjects(empact)
+//     index.addObjects([empact])
 //   });
-//functions.https.onRequest((request, response) => console.log('https request', request));
+// // functions.https.onRequest((request, response) => console.log('https request', request));
+
+// index
+//   .search({
+//     query: 'query string'
+//   })
+//   .then(function(responses) {
+//     console.log(responses);
+//   });
+
 
 class SearchBar extends React.Component {
+
+
+
+
   render() {
     return (
       <form   >
@@ -41,6 +43,6 @@ class SearchBar extends React.Component {
     );
   }
 }
-//onChange= "indexSheltersToElastic"
+
 
 export default SearchBar;
