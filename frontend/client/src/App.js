@@ -41,7 +41,7 @@ class App extends Component {
           <Route
             exact
             path="/home"
-            render={props => <CategoriesView {...props} />}
+            render={props => <CategoriesView {...props} google={window.google} />}
           />
           <Route
             path="/home/:id"
