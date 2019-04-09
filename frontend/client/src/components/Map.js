@@ -4,12 +4,14 @@ import ReactDOM from "react-dom";
 const mapStyles = {
   map: {
     position: "absolute",
-    width: "50%",
+    left: "700px",
+    top: "300px",
+    width: "40%",
     height: "50%"
   }
 };
 
-export class CurrentLocation extends React.Component {
+class CurrentLocation extends React.Component {
   constructor(props) {
     super(props);
 
@@ -129,6 +131,7 @@ export class CurrentLocation extends React.Component {
     );
   }
 }
+
 export default CurrentLocation;
 
 CurrentLocation.defaultProps = {
