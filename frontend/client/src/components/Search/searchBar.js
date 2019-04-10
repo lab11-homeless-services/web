@@ -1,4 +1,5 @@
 import React from "react";
+// import indexSheltersToElastic from './searchfunc';
 // import algoliasearch from "algoliasearch/lite";
 // import {
 //   InstantSearch,
@@ -22,11 +23,12 @@ import React from "react";
 //   .then(function(empact) {
 //     index.addObjects(empact)
 //   });
+//functions.https.onRequest((request, response) => console.log('https request', request));
 
 class SearchBar extends React.Component {
   render() {
     return (
-      <form>
+      <form   >
         <input
           type="search"
           autoComplete="off"
@@ -39,5 +41,6 @@ class SearchBar extends React.Component {
     );
   }
 }
+//onChange= "indexSheltersToElastic"
 
 export default SearchBar;
