@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import SearchBar from "../components/Search/searchBar";
+import React from "react";
+import SearchBar from "../components/searchBar";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../state/state";
 
