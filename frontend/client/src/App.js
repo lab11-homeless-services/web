@@ -4,9 +4,9 @@ import { Route } from "react-router-dom";
 import * as firebase from "firebase";
 //views
 import LandingView from "./views/landingView";
-import CategoriesView from "./views/categoriesView";
-import SubCategoryView from "./views/subCategoryView";
-import SingleResourceView from "./views/singleResourceView";
+import CategoriesView from "./views/CategoriesView";
+import SubCategoryView from "./views/SubCategoryView";
+import SingleResourceView from "./views/SingleResourceView";
 import SubCategoryList from "./views/subCategoryList";
 //State
 import { StateProvider } from "./state/state";
