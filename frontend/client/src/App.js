@@ -37,7 +37,11 @@ class App extends Component {
       // gives access to reducers to interact w/ state throughout app
       <StateProvider initialState={initialState} reducer={mainReducer}>
         <div className="App">
-          <Route exact path="/" render={props => <LandingView {...props} />} />
+          <Route 
+            exact 
+            path="/" 
+            render={props => <LandingView {...props} />} 
+          />
           <Route
             exact
             path="/home"
