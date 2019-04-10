@@ -16,7 +16,8 @@ const SingleResourceView = props => {
   );
 
 
-  if (resource.details && resource.services !== undefined || null) {
+  if(resource.details !== undefined || null){
+    if(resource.services !== undefined || null){
     return (
       <div>
         <p>{resource.name}</p>
@@ -41,7 +42,7 @@ const SingleResourceView = props => {
       </div>
     );
   }
-
+  }
 };
 
 export default SingleResourceView;
