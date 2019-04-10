@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import SheltersNearestYou from "../components/ShelterNearestYou";
+import SheltersNearestYou from '../components/ShelterNearestYou';
 
 const CategoriesView = props => {
-  return (
+  return(
     <div>
       <SheltersNearestYou />
     </div>
   );
-};
+}
 
 export default CategoriesView;
