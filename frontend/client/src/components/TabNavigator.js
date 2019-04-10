@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useFetch from "../../functions/useFetch";
+import useFetch from "../functions/useFetch";
 import ListOfResources from "./ListOfResources";
 
 const TabNav = props => {
