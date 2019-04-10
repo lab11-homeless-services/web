@@ -138,7 +138,6 @@ const SheltersNearestYou = props => {
 
   return (
     <GoogleMapProvider>
-      {console.log(props)}
       <div>
         <div>
           <div style={style}>Loading map...</div>
