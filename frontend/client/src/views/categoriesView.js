@@ -44,7 +44,6 @@ const CategoriesView = props => {
   );
 
   let listOfShelters = [];
-
   if (navigator && navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(pos => {
       const coords = pos.coords;
