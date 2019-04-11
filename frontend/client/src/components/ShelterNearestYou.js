@@ -22,6 +22,7 @@ const ShelterNearestCard = styled.div`
   justify-content: space-around;
 `;
 
+
 const mapStyles = {
   map: {
     // left: "500px",
