@@ -7,7 +7,7 @@ import LandingView from "./views/landingView";
 import CategoriesView from "./views/categoriesView";
 import SubCategoryView from "./views/subCategoryView";
 import SingleResourceView from "./views/singleResourceView";
-import SubCategoryList from "./views/subCategoryList";
+import SubCategoryList from "./views/SubCategoryList";
 //State
 import { StateProvider } from "./state/state";
 import languageReducer from "./reducers/languageReducer";
