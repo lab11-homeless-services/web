@@ -8,7 +8,6 @@ import styled from "styled-components";
 
 const InfoContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   width: 100%;
   border: 1px solid red;
   max-width: 1200px;
