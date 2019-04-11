@@ -7,7 +7,7 @@ import LandingView from "./views/landingView";
 import CategoriesView from "./views/categoriesView";
 import SubCategoryView from "./views/subCategoryView";
 import SingleResourceView from "./views/singleResourceView";
-import SubCategoryList from "./views/SubCategoryList";
+import SubCategoryList from "./views/subCategoryList";
 //State
 import { StateProvider } from "./state/state";
 import languageReducer from "./reducers/languageReducer";
@@ -30,6 +30,7 @@ class App extends Component {
     const mainReducer = ({ spanish }, action) => ({
       spanish: languageReducer(spanish, action)
     });
+    
 
     return (
       // App must be wrapped in StateProvider to approximate Redux functionality
