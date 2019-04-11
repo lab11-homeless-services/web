@@ -1,48 +1,56 @@
 import React from "react";
-//import axios from "axios";
-//import algoliasearch from "algoliasearch";
+import algoliasearch from "algoliasearch/lite";
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 
-// var client = algoliasearch("QD6TWFQZCN", '028bde3e8ce26fd3245e84b3807905b9');
-// var index = client.initIndex('empact');
+const searchClient = algoliasearch(
+  "QD6TWFQZCN",
+  "028bde3e8ce26fd3245e84b3807905b9"
+);
 
-// axios.get('https://empact-e511a.firebaseio.com/.json')
-//   .then(function(response) {
-//     return response;
-//   })
-//   .then(function(empact) {
-//     index.addObjects([empact])
-//   });
-// // functions.https.onRequest((request, response) => console.log('https request', request));
-
-// index
-//   .search({
-//     query: 'query string'
-//   })
-//   .then(function(responses) {
-//     console.log(responses);
-//   });
-
+const hitCom = props => {
+  console.log(props);
+  return <div>{props.hit.name}</div>;
+};
 
 class SearchBar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      searchEnabled: false
+    };
+  }
 
+  enableSearch = e => {
+    e.preventDefault();
+    this.setState({
+      searchEnabled: true
+    });
+  };
 
-
+  disableSearch = e => {
+    e.preventDefault();
+    this.setState({
+      searchEnabled: false
+    });
+  };
 
   render() {
     return (
-      <form   >
-        <input
-          type="search"
-          autoComplete="off"
-          autoCapitalize="off"
-          spellCheck="false"
-          maxLength="255"
-          placeholder="Search for Resources"
-        />
-      </form>
+      <div>
+        {this.state.searchEnabled === true ? (
+          <div>
+            <InstantSearch indexName="empact" searchClient={searchClient}>
+              <div onClick={this.disableSearch}>CLOSE SEARCH</div>
+              <SearchBox />
+              <Hits hitComponent={hitCom} />
+            </InstantSearch>
+          </div>
+        ) : (
+          <div onClick={this.enableSearch}>Search Bar</div>
+        )}
+      </div>
     );
   }
 }
-
 
 export default SearchBar;
