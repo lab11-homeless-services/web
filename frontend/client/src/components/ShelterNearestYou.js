@@ -10,9 +10,6 @@ import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import latlngDist from "latlng-distance";
 
-import Header from "../components/Header";
-import ListOfCats from "../components/ListOfCategories";
-
 const mapStyles = {
   map: {
     position: "absolute",
@@ -144,17 +141,11 @@ const SheltersNearestYou = props => {
   }
 
   return (
-    <GoogleMapProvider>
-<<<<<<< Updated upstream
-=======
-      {console.log(state)}
->>>>>>> Stashed changes
+    <GoogleMapProvider
       <div>
         <div>
           <div style={style}>Loading map...</div>
         </div>
-        <Header />
-        <ListOfCats />
       </div>
       <MapBox
         style={style}

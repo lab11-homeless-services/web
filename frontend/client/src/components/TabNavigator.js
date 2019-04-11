@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useFetch from "../../functions/useFetch";
-import ListOfResources from "./ListOfResources";
+import useFetch from "../functions/useFetch";
 
 const TabNav = props => {
   let id = props.match.params.id;
@@ -18,7 +17,6 @@ const TabNav = props => {
         return (
           <div>
             <Link to={`/home/${id}/${subCat}`}>{subCat}</Link>
-            <ListOfResources id={id} subCat={subCat} props={props} />
           </div>
         );
       })}

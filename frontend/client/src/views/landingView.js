@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "../components/searchBar";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../state/state";
+import Footer from "../components/Footer";
 
 const LandingView = () => {
   //Gains access to reducers and state
@@ -28,6 +29,7 @@ const LandingView = () => {
           </div>
         </Link>
       </div>
+      <Footer />
     </div>
   );
 };

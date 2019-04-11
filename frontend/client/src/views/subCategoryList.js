@@ -1,5 +1,6 @@
 import React from "react";
-import ResourceList from "../components/SelectedSubCatList";
+
+import ResourceList from "../components/ResourceList";
 
 const singleResourceView = props => {
   return (

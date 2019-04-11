@@ -4,9 +4,9 @@ import { Route } from "react-router-dom";
 import * as firebase from "firebase";
 //views
 import LandingView from "./views/landingView";
-import CategoriesView from "./views/CategoriesView";
-import SubCategoryView from "./views/SubCategoryView";
-import SingleResourceView from "./views/SingleResourceView";
+import CategoriesView from "./views/categoriesView";
+import SubCategoryView from "./views/subCategoryView";
+import SingleResourceView from "./views/singleResourceView";
 import SubCategoryList from "./views/subCategoryList";
 //State
 import { StateProvider } from "./state/state";
@@ -37,7 +37,11 @@ class App extends Component {
       // gives access to reducers to interact w/ state throughout app
       <StateProvider initialState={initialState} reducer={mainReducer}>
         <div className="App">
-          <Route exact path="/" render={props => <LandingView {...props} />} />
+          <Route 
+            exact 
+            path="/" 
+            render={props => <LandingView {...props} />} 
+          />
           <Route
             exact
             path="/home"
