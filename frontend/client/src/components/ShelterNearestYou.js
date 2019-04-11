@@ -9,14 +9,25 @@ import {
 import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import latlngDist from "latlng-distance";
+import styled from "styled-components";
+
+const ShelterNearestCard = styled.div`
+  border: 1px solid black;
+  border-radius: 3px;
+  height: 400px;
+  width: 500px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-around;
+`;
 
 const mapStyles = {
   map: {
-    position: "absolute",
-    left: "700px",
-    top: "300px",
+    // left: "500px",
+    // top: "200px",
     width: "40%",
-    height: "50%"
+    height: "75%"
   }
 };
 
@@ -141,37 +152,41 @@ const SheltersNearestYou = props => {
   }
 
   return (
-    <GoogleMapProvider>
-      <div>
+    <ShelterNearestCard>
+      <GoogleMapProvider>
+        {/* <div>
+          <div>
+            <div style={style}>Loading map...</div>
+          </div>
+        </div> */}
+        <MapBox
+          style={style}
+          apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
+          opts={{
+            center: {
+              lat: state.resourceLocation.lat,
+              lng: state.resourceLocation.lon
+            },
+            zoom: 14
+          }}
+        />
         <div>
-          <div style={style}>Loading map...</div>
+          {state.timeTravel.length > 0 ? (
+            <div>{state.timeTravel}</div>
+          ) : (
+            "Travel Time Loading"
+          )}
+          {newShelters.length > 0 ? (
+            <div>
+              <p>Closest Shelter</p>
+              <p>{newShelters[0].name}</p>
+            </div>
+          ) : (
+            <div>Loading Shelters</div>
+          )}
         </div>
-      </div>
-      <MapBox
-        style={style}
-        apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
-        opts={{
-          center: {
-            lat: state.resourceLocation.lat,
-            lng: state.resourceLocation.lon
-          },
-          zoom: 14
-        }}
-      />
-      {state.timeTravel.length > 0 ? (
-        <div>{state.timeTravel}</div>
-      ) : (
-        "Travel Time Loading"
-      )}
-      {newShelters.length > 0 ? (
-        <div>
-          <p>Closest Shelter</p>
-          <p>{newShelters[0].name}</p>
-        </div>
-      ) : (
-        <div>Loading Shelters</div>
-      )}
-    </GoogleMapProvider>
+      </GoogleMapProvider>
+    </ShelterNearestCard>
   );
 };
 

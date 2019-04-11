@@ -4,12 +4,23 @@ import Header from "../components/Header.js";
 import ListOfCats from "../components/ListOfCategories.js";
 import SheltersNearestYou from "../components/ShelterNearestYou";
 import Footer from "../components/Footer";
+import styled from "styled-components";
+
+const InfoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid red;
+`;
+
 const CategoriesView = props => {
   return (
     <div>
       <Header />
-      <ListOfCats />
-      <SheltersNearestYou />
+      <InfoContainer>
+        <ListOfCats />
+        <SheltersNearestYou />
+      </InfoContainer>
       <Footer />
     </div>
   );
