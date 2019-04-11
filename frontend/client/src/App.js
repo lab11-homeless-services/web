@@ -48,10 +48,12 @@ class App extends Component {
             render={props => <CategoriesView {...props} />}
           />
           <Route
+            exact
             path="/home/:id"
             render={props => <SubCategoryView {...props} />}
           />
           <Route
+            exact
             path="/home/:id/:id"
             render={props => <SubCategoryList {...props} />}
           />
