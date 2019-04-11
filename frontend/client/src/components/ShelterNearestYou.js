@@ -9,7 +9,6 @@ import {
 import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import latlngDist from "latlng-distance";
-// import { GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 
 const mapStyles = {
   map: {
@@ -29,7 +28,10 @@ const SheltersNearestYou = props => {
         lat: 40.785091,
         lon: -73.968285
       },
-      distance: "",
+      resourceLocation: {
+        lat: "",
+        lon: ""
+      },
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
@@ -123,11 +125,16 @@ const SheltersNearestYou = props => {
 
     async function callback(response, status) {
       // See Parsing the Results for
-      // the basics of a callback function.
+      // the basics of a callback function..
 
       if (response && response.rows.length) {
+        console.log(response.destinationAddresses);
         setState({
-          timeTravel: response.rows[0].elements[0].duration.text
+          timeTravel: response.rows[0].elements[0].duration.text,
+          resourceLocation: {
+            lat: firstShelter.latitude,
+            lon: firstShelter.longitude
+          }
         });
       }
     }
@@ -135,7 +142,6 @@ const SheltersNearestYou = props => {
 
   return (
     <GoogleMapProvider>
-      {console.log(props)}
       <div>
         <div>
           <div style={style}>Loading map...</div>
@@ -146,8 +152,8 @@ const SheltersNearestYou = props => {
         apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
         opts={{
           center: {
-            lat: state.currentLocation.lat,
-            lng: state.currentLocation.lon
+            lat: state.resourceLocation.lat,
+            lng: state.resourceLocation.lon
           },
           zoom: 14
         }}
