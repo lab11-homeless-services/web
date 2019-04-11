@@ -32,6 +32,7 @@ const LanguageSelection = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  box-shadow: 1px 3px #00000020;
 `;
 
 const Header = () => {
