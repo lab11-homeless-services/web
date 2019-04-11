@@ -22,6 +22,11 @@ const CategoryButton = styled.div`
   background-color: #4A4A4A;
   margin: 10px 10px 10px 10px;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-decoration: none;
 `;
 
 const ListOfCats = () => {
