@@ -6,14 +6,14 @@ import styled from 'styled-components';
 
 const ListOfCatsContainer = styled.div`
   width: 37%;
-  margin: 70px 0 25px 10px;
+  border: 1px solid red;
 `;
 
 const CategoryButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin: 20px 0 0 0;
+  margin-left: 10%;
 `;
 
 const CategoryButton = styled.div`
@@ -29,9 +29,10 @@ const CategoryButton = styled.div`
 `;
 
 const CategoryButtonsHeader = styled.h2`
-  margin-left: 10px;
+  margin-left: 12%;
   font-size: 20px;
   font-weight: bold;
+  margin-top: 10%;
 `;
 
 const ListOfCats = () => {

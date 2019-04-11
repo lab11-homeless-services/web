@@ -15,19 +15,20 @@ const ShelterNearestCard = styled.div`
   border: 1px solid black;
   border-radius: 3px;
   height: 400px;
-  width: 500px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  justify-content: space-around;
+  margin-left: 0%;
 `;
+
+const Info = styled.div`
+  width: 40%;
+`
 
 
 const mapStyles = {
   map: {
-    // left: "500px",
-    // top: "200px",
-    width: "40%",
+    width: "500px",
     height: "75%"
   }
 };
@@ -192,6 +193,7 @@ const SheltersNearestYou = props => {
             zoom: 14
           }}
         />
+        <Info>
         {newShelters.length > 0 ? (
           <div>
             <p>SHELTER NEAREST TO YOU</p>
@@ -220,6 +222,8 @@ const SheltersNearestYou = props => {
           <div>Loading Info</div>
         )}
         <div>View Map</div>
+        </Info>
+        
       </GoogleMapProvider>
     </ShelterNearestCard>
   );
