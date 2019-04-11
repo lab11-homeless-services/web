@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const ListOfCatsContainer = styled.div`
   width: 37%;
-  margin: 75px 0 25px 10px;
+  margin: 70px 0 25px 10px;
 `;
 
 const CategoryButtonContainer = styled.div`
@@ -26,7 +26,12 @@ const CategoryButton = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 12px;
-  text-decoration: none;
+`;
+
+const CategoryButtonsHeader = styled.h2`
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 const ListOfCats = () => {
@@ -57,7 +62,7 @@ const ListOfCats = () => {
     if (test !== undefined) {
       return (
         <ListOfCatsContainer>
-          <h2>WHAT DO YOU NEED HELP WITH?</h2>
+          <CategoryButtonsHeader>WHAT DO YOU NEED HELP WITH?</CategoryButtonsHeader>
           <CategoryButtonContainer>
             {categoriesEng.category_name.map(category => (
               <CategoryButton>
