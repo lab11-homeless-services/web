@@ -49,7 +49,8 @@ const SheltersNearestYou = props => {
       centerAroundCurrentLocation: false,
       visible: true,
       zoom: 14,
-      timeTravel: ""
+      walkingTime: "",
+      transitTime: ""
     }
   );
   let listOfShelters = [];
@@ -112,7 +113,6 @@ const SheltersNearestYou = props => {
   const firstShelter = newShelters[0];
   const { google } = props;
 
-  let travelTime = "";
   if (firstShelter !== undefined) {
     let destination = new google.maps.LatLng(
       firstShelter.latitude,
@@ -128,10 +128,21 @@ const SheltersNearestYou = props => {
       {
         origins: [origin],
         destinations: [destination],
-        travelMode: "DRIVING",
+        travelMode: "WALKING",
         unitSystem: google.maps.UnitSystem.IMPERIAL
       },
       callback
+    );
+
+    let nextService = new google.maps.DistanceMatrixService();
+    nextService.getDistanceMatrix(
+      {
+        origins: [origin],
+        destinations: [destination],
+        travelMode: "TRANSIT",
+        unitSystem: google.maps.UnitSystem.IMPERIAL
+      },
+      otherCallback
     );
 
     async function callback(response, status) {
@@ -139,9 +150,8 @@ const SheltersNearestYou = props => {
       // the basics of a callback function..
 
       if (response && response.rows.length) {
-        console.log(response.destinationAddresses);
         setState({
-          timeTravel: response.rows[0].elements[0].duration.text,
+          walkingTime: response.rows[0].elements[0].duration.text,
           resourceLocation: {
             lat: firstShelter.latitude,
             lon: firstShelter.longitude
@@ -149,8 +159,19 @@ const SheltersNearestYou = props => {
         });
       }
     }
-  }
 
+    async function otherCallback(response, status) {
+      // See Parsing the Results for
+      // the basics of a callback function..
+
+      if (response && response.rows.length) {
+        setState({
+          transitTime: response.rows[0].elements[0].duration.text
+        });
+      }
+    }
+  }
+  console.log(newShelters);
   return (
     <ShelterNearestCard>
       <GoogleMapProvider>
@@ -170,21 +191,34 @@ const SheltersNearestYou = props => {
             zoom: 14
           }}
         />
+        {newShelters.length > 0 ? (
+          <div>
+            <p>SHELTER NEAREST TO YOU</p>
+            <p>{newShelters[0].name}</p>
+            <p>{firstShelter.address}</p>
+          </div>
+        ) : (
+          <div>Loading Shelters</div>
+        )}
         <div>
-          {state.timeTravel.length > 0 ? (
-            <div>{state.timeTravel}</div>
+          {state.walkingTime.length && state.transitTime.length > 0 ? (
+            <div>
+              <div>Walking: {state.walkingTime}</div>
+              <div>Transit: {state.transitTime}</div>
+            </div>
           ) : (
             "Travel Time Loading"
           )}
-          {newShelters.length > 0 ? (
-            <div>
-              <p>Closest Shelter</p>
-              <p>{newShelters[0].name}</p>
-            </div>
-          ) : (
-            <div>Loading Shelters</div>
-          )}
         </div>
+        {newShelters.length > 0 ? (
+          <div>
+            <p>{firstShelter.phone}</p>
+            <p>{firstShelter.hours}</p>
+          </div>
+        ) : (
+          <div>Loading Info</div>
+        )}
+        <div>View Map</div>
       </GoogleMapProvider>
     </ShelterNearestCard>
   );
