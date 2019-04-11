@@ -13,8 +13,8 @@
     "google-distance": "^1.0.1",
     "google-distance-matrix": "^1.1.1",
     "google-maps-react": "^2.0.2",
-    "lodash": "^4.17.11",
     "latlng-distance": "^1.0.2",
+    "lodash": "^4.17.11",
     "node-distance-matrix": "^1.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -25,7 +25,8 @@
     "react-scripts": "2.1.8",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "ruby": "^0.6.1"
+    "ruby": "^0.6.1",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
