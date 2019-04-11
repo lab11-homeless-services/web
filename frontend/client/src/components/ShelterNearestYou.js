@@ -150,12 +150,12 @@ const SheltersNearestYou = props => {
       // the basics of a callback function..
 
       if (response && response.rows.length) {
-        setState({
-          walkingTime: response.rows[0].elements[0].duration.text,
+          setState({
           resourceLocation: {
             lat: firstShelter.latitude,
             lon: firstShelter.longitude
-          }
+          },
+          walkingTime: response.rows[0].elements[0].duration.text,
         });
       }
     }
@@ -164,8 +164,8 @@ const SheltersNearestYou = props => {
       // See Parsing the Results for
       // the basics of a callback function..
 
-      if (response && response.rows.length) {
-        setState({
+      if (response && response.rows.length > 0 && response.rows[0].elements[0].status !== "ZERO_RESULTS") {
+         setState({
           transitTime: response.rows[0].elements[0].duration.text
         });
       }
