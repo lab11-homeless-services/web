@@ -15,8 +15,7 @@ const SingleResourceView = props => {
     `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
   );
 
-
-  if(resource.details !== undefined && resource.services !== undefined ){
+  if (resource.details !== undefined && resource.services !== undefined) {
     return (
       <div>
         <p>{resource.name}</p>
