@@ -125,7 +125,7 @@ const SheltersNearestYou = props => {
 
     async function callback(response, status) {
       // See Parsing the Results for
-      // the basics of a callback function.
+      // the basics of a callback function..
 
       if (response && response.rows.length) {
         console.log(response.destinationAddresses);
