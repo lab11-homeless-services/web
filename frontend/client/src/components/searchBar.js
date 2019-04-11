@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 
@@ -9,7 +10,14 @@ const searchClient = algoliasearch(
 
 const hitCom = props => {
   console.log(props);
-  return <div>{props.hit.name}</div>;
+  return (
+    <Link to={`/home/shelters/all/${props.hit.linkId}`}>
+      <div>
+          <div>{props.hit.name}</div>
+      </div>
+    </Link>
+    ) ;
+
 };
 
 class SearchBar extends React.Component {
