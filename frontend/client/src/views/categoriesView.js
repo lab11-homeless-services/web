@@ -11,6 +11,8 @@ const InfoContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   border: 1px solid red;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const CategoriesView = props => {
