@@ -30,6 +30,7 @@ class App extends Component {
     const mainReducer = ({ spanish }, action) => ({
       spanish: languageReducer(spanish, action)
     });
+    
 
     return (
       // App must be wrapped in StateProvider to approximate Redux functionality
@@ -48,10 +49,12 @@ class App extends Component {
             render={props => <CategoriesView {...props} />}
           />
           <Route
+            exact
             path="/home/:id"
             render={props => <SubCategoryView {...props} />}
           />
           <Route
+            exact
             path="/home/:id/:id"
             render={props => <SubCategoryList {...props} />}
           />

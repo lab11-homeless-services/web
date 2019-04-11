@@ -54,7 +54,7 @@ const SheltersNearestYou = props => {
     }
   );
   let listOfShelters = [];
-  function fether(url) {
+  function fetcher(url) {
     const [data, setData] = useState([]);
     async function getResources() {
       const response = await axios.get(url);
@@ -78,7 +78,7 @@ const SheltersNearestYou = props => {
     return data;
   }
 
-  listOfShelters = fether(
+  listOfShelters = fetcher(
     `https://empact-e511a.firebaseio.com/shelters/all.json`
   );
 

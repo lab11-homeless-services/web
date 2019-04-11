@@ -1,13 +1,15 @@
 import React from "react";
 
-import ResourceList from "../components/ResourceList";
+import ResourceList from "../components/ResourceList"
+import TabNavforSubView from '../components/TabNavforSubView'
 
-const singleResourceView = props => {
+const SubCategoryList = props => {
   return (
     <div>
+      <TabNavforSubView props={props}/>
       <ResourceList props={props} />
     </div>
   );
 };
 
-export default singleResourceView;
+export default SubCategoryList;
