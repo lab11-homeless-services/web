@@ -3,14 +3,14 @@ import React from "react";
 import Header from "../components/Header.js";
 import ListOfCats from "../components/ListOfCategories.js";
 import SheltersNearestYou from "../components/ShelterNearestYou";
-
+import Footer from "../components/Footer";
 const CategoriesView = props => {
   return (
     <div>
       <Header />
       <ListOfCats />
       <SheltersNearestYou />
-      {/* will want a footer component as well */}
+      <Footer />
     </div>
   );
 };
