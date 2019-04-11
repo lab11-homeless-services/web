@@ -30,6 +30,7 @@ class App extends Component {
     const mainReducer = ({ spanish }, action) => ({
       spanish: languageReducer(spanish, action)
     });
+    
 
     return (
       // App must be wrapped in StateProvider to approximate Redux functionality

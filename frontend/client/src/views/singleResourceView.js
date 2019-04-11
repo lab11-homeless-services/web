@@ -1,6 +1,6 @@
 import React from "react";
 import useFetchSingle from "../functions/useFetchSingle";
-
+import TabNavforSubView from '../components/TabNavforSubView'
 const SingleResourceView = props => {
   //Splits path name at backslash
   const paths = props.location.pathname.split("/");
@@ -15,29 +15,39 @@ const SingleResourceView = props => {
     `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
   );
 
+  
+
   if (resource.details && resource.services ) {
     return (
       <div>
-        <p>{resource.name}</p>
-        <p>{resource.address}</p>
-        <p>{resource.city}</p>
-        <h4>Details</h4>
-        {resource.details.map(detail => (
-          <p>{detail}</p>
-        ))}
-        <h4>Services</h4>
-        {resource.services.map(service => (
-          <p>{service}</p>
-        ))}
+        <TabNavforSubView props={props}/>
+        <div>
+          <p>{resource.name}</p>
+          <p>{resource.address}</p>
+          <p>{resource.city}</p>
+          <h4>Details</h4>
+          {resource.details.map(detail => (
+            <p>{detail}</p>
+          ))}
+          <h4>Services</h4>
+          {resource.services.map(service => (
+            <p>{service}</p>
+          ))}
+        </div>
       </div>
+      
     );
   } else {
     return (
       <div>
-        <p>{resource.name}</p>
-        <p>{resource.address}</p>
-        <p>{resource.city}</p>
+        <TabNavforSubView props={props}/>
+        <div>
+          <p>{resource.name}</p>
+          <p>{resource.address}</p>
+          <p>{resource.city}</p>
+        </div>
       </div>
+      
     );
   }
 };
