@@ -7,7 +7,6 @@ const ResourceList = props => {
   let [listOfResources] = useState([]);
 
   const paths = props.props.location.pathname.split("/");
-  console.log(paths)
   let category = paths[2];
   let subCat = paths[3];
   let url = `https://empact-e511a.firebaseio.com/${category}/${subCat}.json`;

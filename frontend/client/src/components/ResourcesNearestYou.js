@@ -5,8 +5,6 @@ import latlngDist from "latlng-distance";
 import styled from "styled-components";
 
 const ResourcesNearestYou = props => {
-    console.log('resource props', props);
-
     const paths = props.props.location.pathname.split('/');
     let category = paths[2];
     category = category.replace(/\s+/g, "_");
@@ -60,8 +58,6 @@ const ResourcesNearestYou = props => {
         `https://empact-e511a.firebaseio.com/${category}/all.json`
       );
     
-      console.log(listOfResources)
-    
       let newResources = [];
       let id = 0;
     
@@ -87,7 +83,6 @@ const ResourcesNearestYou = props => {
       };
     
       sortArrayOfObjects(newResources, "distance")
-      console.log(newResources)
       let list = []
       for (let i = 0; i < 3; i++) {
         list.push(newResources[i])
