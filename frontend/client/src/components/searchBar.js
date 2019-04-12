@@ -16,7 +16,7 @@ const FakeSearchInput = styled.input`
   padding-left: 15px;
   font-size: 14px;
   border-radius: 2px;
-  box-shadow: 0px 0px 4px 2px #00000050;
+  box-shadow: 1px 2px 4px 2px #00000050;
   color: #9b9b9b;
 `;
 
@@ -37,7 +37,7 @@ const FakeSearchButton = styled.div`
   border-radius: 2px;
   color: white;
   margin: 0 70px 0 5px;
-  box-shadow: 0px 0px 4px 2px #00000050;
+  box-shadow: 1px 2px 4px 2px #00000050;
 `;
 
 const InstantSearchContainer = styled.div`
