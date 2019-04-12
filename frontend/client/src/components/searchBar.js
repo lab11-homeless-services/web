@@ -11,12 +11,12 @@ const searchClient = algoliasearch(
 );
 
 const FakeSearchInput = styled.input`
-  width: 355px;
-  height: 43px;
-  padding-left: 10px;
-  font-size: 11px;
+  width: 500px;
+  height: 60px;
+  padding-left: 15px;
+  font-size: 14px;
   border-radius: 2px;
-  box-shadow: 1px 3px #00000020;
+  box-shadow: 0px 0px 4px 2px #00000050;
   color: #9b9b9b;
 `;
 
@@ -27,17 +27,17 @@ const FakeSearchInputContainer = styled.div`
 `;
 
 const FakeSearchButton = styled.div`
-  width: 90px;
-  height: 43px;
+  width: 125px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 16px;
   background-color: #656176;
   border-radius: 2px;
   color: white;
-  margin: 0 20px 0 5px;
-  box-shadow: 1px 3px #00000020;
+  margin: 0 70px 0 5px;
+  box-shadow: 0px 0px 4px 2px #00000050;
 `;
 
 const InstantSearchContainer = styled.div`
@@ -45,7 +45,6 @@ const InstantSearchContainer = styled.div`
 `;
 
 const hitCom = props => {
-  console.log(props);
   return (
     <Link to={`/home/shelters/all/${props.hit.linkId}`}>
       <div>
