@@ -40,8 +40,6 @@ const DetailsButton = styled.div`
 `;
 
 const ResourcesNearestYou = props => {
-  console.log("resource props", props);
-
   const paths = props.props.location.pathname.split("/");
   let category = paths[2];
   category = category.replace(/\s+/g, "_");
