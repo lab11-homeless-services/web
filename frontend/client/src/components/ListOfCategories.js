@@ -1,7 +1,7 @@
 import React from "react";
 import useFetch from "../functions/useFetch";
 import { useStateValue } from "../state/state";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 
 const ListOfCatsContainer = styled.div`
@@ -13,26 +13,28 @@ const CategoryButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin-left: 10%;
+  margin-bottom: 25%;
 `;
 
 const CategoryButton = styled.div`
-  width: 100px;
-  height: 65px;
+  width: 140px;
+  height: 90px;
   background-color: #4A4A4A;
-  margin: 10px 10px 10px 10px;
+  margin: 4% 4% 5px 10px;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
+  text-align: center;
+  border: 1px solid white;
+  box-shadow: 0px 0px 4px 2px #00000050;
 `;
 
 const CategoryButtonsHeader = styled.h2`
-  margin-left: 12%;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
-  margin-top: 10%;
+  margin: 19% 0 5% 2%;
 `;
 
 const ListOfCats = () => {
@@ -67,7 +69,7 @@ const ListOfCats = () => {
           <CategoryButtonContainer>
             {categoriesEng.category_name.map(category => (
               <CategoryButton>
-                <Link to={`/home/${category}`}>{category.toUpperCase()}</Link>
+                <NavLink to={`/home/${category}`}>{category.toUpperCase()}</NavLink>
               </CategoryButton>
             ))}
           </CategoryButtonContainer>
