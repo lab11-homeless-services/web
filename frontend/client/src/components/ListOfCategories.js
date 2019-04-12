@@ -13,6 +13,7 @@ const CategoryButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 25%;
 `;
 
 const CategoryButton = styled.div`
