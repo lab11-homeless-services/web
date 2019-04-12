@@ -83,10 +83,10 @@ const ListOfCats = () => {
                 thing++
                 return(
                   <CategoryButton>
-                    <Link key={index} to={`/home/${category}`}>
+                    <NavLink key={index} to={`/home/${category}`}>
                       <img src={images[thing]} alt={`${category}`}/>
                       <p>{category.toUpperCase()}</p>
-                    </Link>
+                    </NavLink>
                   </CategoryButton>
                 )
               }
