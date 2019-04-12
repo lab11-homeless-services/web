@@ -11,6 +11,7 @@ const subCategoryView = props => {
       <Header />
       <TabNav match={props.match} />
       <ResourcesNearestYou props={props} />
+      <h1>subCategoryView</h1>
       <Footer />
     </div>
   );
