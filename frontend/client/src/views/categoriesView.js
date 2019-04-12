@@ -10,7 +10,7 @@ const InfoContainer = styled.div`
   display: flex;
   width: 100%;
   border: 1px solid red;
-  max-width: 1200px;
+  max-width: 75%;
   margin: 0 auto;
 `;
 
