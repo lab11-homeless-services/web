@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const ListOfCatsContainer = styled.div`
   width: 37%;
+  border: 1px solid red;
 `;
 
 const CategoryButtonContainer = styled.div`
