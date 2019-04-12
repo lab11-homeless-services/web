@@ -201,8 +201,8 @@ const SheltersNearestYou = props => {
           apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
           opts={{
             center: {
-              lat: state.resourceLocation.lat,
-              lng: state.resourceLocation.lon
+              lat: Number(state.resourceLocation.lat),
+              lng: Number(state.resourceLocation.lon)
             },
             zoom: 14
           }}
@@ -212,8 +212,8 @@ const SheltersNearestYou = props => {
           opts={{
             content: newShelters.length > 0 ? newShelters[0].name : null,
             position: {
-              lat: state.resourceLocation.lat,
-              lng: state.resourceLocation.lon
+              lat: Number(state.resourceLocation.lat),
+              lng: Number(state.resourceLocation.lon)
             }
           }}
           visible
@@ -222,8 +222,8 @@ const SheltersNearestYou = props => {
           id="marker"
           opts={{
             position: {
-              lat: state.resourceLocation.lat,
-              lng: state.resourceLocation.lon
+              lat: Number(state.resourceLocation.lat),
+              lng: Number(state.resourceLocation.lon)
             }
           }}
         />

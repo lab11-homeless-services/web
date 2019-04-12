@@ -8,7 +8,7 @@ import { useStateValue } from '../state/state'
 
 const HeaderContainer = styled.div`
   width: 100%;
-  height: 70px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,23 +16,23 @@ const HeaderContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 125px;
+  width: 175px;
   height: 50px;
-  margin-left: 10px;
+  margin-left: 15px;
 `;
 
 const LanguageSelection = styled.div`
   background-color: #ffffff;
   color: #656176;
-  width: 95px;
-  height: 25px;
-  margin-right: 15px;
+  width: 129px;
+  height: 35px;
+  margin-right: 23px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  box-shadow: 1px 3px #00000020;
+  font-size: 18px;
+  box-shadow: 0px 0px 4px 2px #00000050;
 `;
 
 const Header = () => {
