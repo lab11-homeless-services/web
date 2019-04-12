@@ -14,7 +14,6 @@ import image8 from '../img/employment.png'
 
 const ListOfCatsContainer = styled.div`
   width: 37%;
-  border: 1px solid red;
 `;
 
 const CategoryButtonContainer = styled.div`
@@ -36,7 +35,7 @@ const CategoryButton = styled.div`
   font-size: 12px;
   text-align: center;
   border: 1px solid white;
-  box-shadow: 0px 0px 4px 2px #00000050;
+  box-shadow: 1px 2px 4px 2px #00000050;
 `;
 
 const CategoryButtonsHeader = styled.h2`

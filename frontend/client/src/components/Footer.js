@@ -16,21 +16,22 @@ bottom: 0;
 const FooterText = styled.p`
   margin-right: 50px;
   padding: 5px;
+  font-size: 13px;
 `;
 const Footer = () => {
   return (
     <FooterBar>
       <FooterText>
-        <i class="fas fa-book-reader" /> About Us
+        <i class="fas fa-book-reader" /> ABOUT US
       </FooterText>
       <FooterText>
-        <i class="fas fa-user-friends" /> Volunteer
+        <i class="fas fa-user-friends" /> VOLUNTEER
       </FooterText>
       <FooterText>
-        <i class="far fa-handshake" /> Our Partners
+        <i class="far fa-handshake" /> OUR PARTNERS
       </FooterText>
       <FooterText>
-        <i class="far fa-envelope" /> Contact Us
+        <i class="far fa-envelope" /> CONTACT US
       </FooterText>
     </FooterBar>
   );
