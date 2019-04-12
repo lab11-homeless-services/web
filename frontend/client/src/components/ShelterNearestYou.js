@@ -11,23 +11,22 @@ import axios from "axios";
 import latlngDist from "latlng-distance";
 import styled from "styled-components";
 import ViewDetailsButton from "../components/ViewDetailsButton.js";
+import { Link } from "react-router-dom";
 
 const ShelterNearestCard = styled.div`
-  border: 1px solid black;
-  border-radius: 3px;
-  height: 400px;
+  border-radius: 2px;
+  height: 415px;
+  width: 850px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin-left: 0%;
+  margin: 12% 0 0 2%;
+  box-shadow: 1px 2px 4px 2px #00000050;
 `;
-
 
 const Info = styled.div`
   width: 40%;
-`
-
-
+`;
 
 const mapStyles = {
   map: {
@@ -180,7 +179,16 @@ const SheltersNearestYou = props => {
       }
     }
   }
-  // console.log(newShelters);
+
+  const openMap = e => {
+    const name = firstShelter.name.split(" ").join("+");
+    const address = firstShelter.address.split(" ").join("+");
+
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${name}+${address}`
+    );
+  };
+
   return (
     <ShelterNearestCard>
       <GoogleMapProvider>
@@ -194,46 +202,65 @@ const SheltersNearestYou = props => {
           apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
           opts={{
             center: {
-              lat: state.resourceLocation.lat,
-              lng: state.resourceLocation.lon
+              lat: Number(state.resourceLocation.lat),
+              lng: Number(state.resourceLocation.lon)
             },
             zoom: 14
           }}
         />
+        <InfoWindow
+          anchorId="marker"
+          opts={{
+            content: newShelters.length > 0 ? newShelters[0].name : null,
+            position: {
+              lat: Number(state.resourceLocation.lat),
+              lng: Number(state.resourceLocation.lon)
+            }
+          }}
+          visible
+        />
+        <Marker
+          id="marker"
+          opts={{
+            position: {
+              lat: Number(state.resourceLocation.lat),
+              lng: Number(state.resourceLocation.lon)
+            }
+          }}
+        />
         <Info>
-        {newShelters.length > 0 ? (
-          <div>
-            <p>SHELTER NEAREST TO YOU</p>
-            <p>{newShelters[0].name}</p>
-            <p>{firstShelter.address}</p>
-          </div>
-        ) : (
-          <div>Loading Shelters</div>
-        )}
-        <div>
-          {state.walkingTime.length && state.transitTime.length > 0 ? (
+          {newShelters.length > 0 ? (
             <div>
-              <div>Walking: {state.walkingTime}</div>
-              <div>Transit: {state.transitTime}</div>
+              <p>SHELTER NEAREST TO YOU</p>
+              <p>{newShelters[0].name}</p>
+              <p>{firstShelter.address}</p>
             </div>
           ) : (
-            "Travel Time Loading"
+            <div>Loading Shelters</div>
           )}
-        </div>
-        {newShelters.length > 0 ? (
           <div>
-            <p>{firstShelter.phone}</p>
-            <p>{firstShelter.hours}</p>
+            {state.walkingTime.length && state.transitTime.length > 0 ? (
+              <div>
+                <div>Walking: {state.walkingTime}</div>
+                <div>Transit: {state.transitTime}</div>
+              </div>
+            ) : (
+              "Travel Time Loading"
+            )}
           </div>
-        ) : (
-          <div>Loading Info</div>
-        )}
-        {newShelters.length > 0 ? (
-          <ViewDetailsButton props={newShelters[0].id} />
-        ) : null}
-        <div>View Map</div>
+          {newShelters.length > 0 ? (
+            <div>
+              <p>{firstShelter.phone}</p>
+              <p>{firstShelter.hours}</p>
+            </div>
+          ) : (
+            <div>Loading Info</div>
+          )}
+          {newShelters.length > 0 ? (
+            <ViewDetailsButton props={newShelters[0].id} />
+          ) : null}
+          <div onClick={() => openMap()}>View Map</div>
         </Info>
-        
       </GoogleMapProvider>
     </ShelterNearestCard>
   );

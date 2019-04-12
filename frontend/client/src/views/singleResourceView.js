@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useReducer } from "react";
 import useFetchSingle from "../functions/useFetchSingle";
 import Header from "../components/Header.js";
 import TabNavforSubView from "../components/TabNavforSubView";
 const SingleResourceView = props => {
+  const [state, setState] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      showingDetails: true,
+      showingServices: false
+    }
+  );
+
+
   //Splits path name at backslash
   const paths = props.location.pathname.split("/");
 
@@ -16,6 +25,26 @@ const SingleResourceView = props => {
     `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
   );
 
+  const showServices = e => {
+    e.preventDefault()
+    setState({
+      ...state,
+      showingDetails: false,
+      showingServices: true
+    })
+  }
+
+  const showDetails = e => {
+    e.preventDefault()
+    setState({
+      ...state,
+      showingDetails: true,
+      showingServices: false
+    })
+  }
+  
+
+
   if (resource.details && resource.services) {
     return (
       <div>
@@ -25,14 +54,14 @@ const SingleResourceView = props => {
           <p>{resource.name}</p>
           <p>{resource.address}</p>
           <p>{resource.city}</p>
-          <h4>Details</h4>
-          {resource.details.map(detail => (
+          <h4 onClick={showDetails}>Details</h4>
+          {state.showingDetails === true ? resource.details.map(detail => (
             <p>{detail}</p>
-          ))}
-          <h4>Services</h4>
-          {resource.services.map(service => (
+          )) : null}
+          <h4 onClick={showServices}>Services</h4>
+          {state.showingServices === true ? resource.services.map(service => (
             <p>{service}</p>
-          ))}
+          )) : null}
         </div>
       </div>
     );
