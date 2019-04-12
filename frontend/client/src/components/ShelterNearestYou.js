@@ -22,12 +22,9 @@ const ShelterNearestCard = styled.div`
   margin-left: 0%;
 `;
 
-
 const Info = styled.div`
   width: 40%;
-`
-
-
+`;
 
 const mapStyles = {
   map: {
@@ -180,7 +177,6 @@ const SheltersNearestYou = props => {
       }
     }
   }
-  // console.log(newShelters);
   return (
     <ShelterNearestCard>
       <GoogleMapProvider>
@@ -200,40 +196,59 @@ const SheltersNearestYou = props => {
             zoom: 14
           }}
         />
+        <InfoWindow
+          anchorId="marker"
+          opts={{
+            content: newShelters.length > 0 ? newShelters[0].name : null,
+            position: {
+              lat: state.resourceLocation.lat,
+              lng: state.resourceLocation.lon
+            }
+          }}
+          visible
+        />
+        <Marker
+          id="marker"
+          opts={{
+            position: {
+              lat: state.resourceLocation.lat,
+              lng: state.resourceLocation.lon
+            }
+          }}
+        />
         <Info>
-        {newShelters.length > 0 ? (
-          <div>
-            <p>SHELTER NEAREST TO YOU</p>
-            <p>{newShelters[0].name}</p>
-            <p>{firstShelter.address}</p>
-          </div>
-        ) : (
-          <div>Loading Shelters</div>
-        )}
-        <div>
-          {state.walkingTime.length && state.transitTime.length > 0 ? (
+          {newShelters.length > 0 ? (
             <div>
-              <div>Walking: {state.walkingTime}</div>
-              <div>Transit: {state.transitTime}</div>
+              <p>SHELTER NEAREST TO YOU</p>
+              <p>{newShelters[0].name}</p>
+              <p>{firstShelter.address}</p>
             </div>
           ) : (
-            "Travel Time Loading"
+            <div>Loading Shelters</div>
           )}
-        </div>
-        {newShelters.length > 0 ? (
           <div>
-            <p>{firstShelter.phone}</p>
-            <p>{firstShelter.hours}</p>
+            {state.walkingTime.length && state.transitTime.length > 0 ? (
+              <div>
+                <div>Walking: {state.walkingTime}</div>
+                <div>Transit: {state.transitTime}</div>
+              </div>
+            ) : (
+              "Travel Time Loading"
+            )}
           </div>
-        ) : (
-          <div>Loading Info</div>
-        )}
-        {newShelters.length > 0 ? (
-          <ViewDetailsButton props={newShelters[0].id} />
-        ) : null}
-        <div>View Map</div>
+          {newShelters.length > 0 ? (
+            <div>
+              <p>{firstShelter.phone}</p>
+              <p>{firstShelter.hours}</p>
+            </div>
+          ) : (
+            <div>Loading Info</div>
+          )}
+          {newShelters.length > 0 ? (
+            <ViewDetailsButton props={newShelters[0].id} />
+          ) : null}
+          <div>View Map</div>
         </Info>
-        
       </GoogleMapProvider>
     </ShelterNearestCard>
   );
