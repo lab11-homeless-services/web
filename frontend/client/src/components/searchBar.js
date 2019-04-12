@@ -45,7 +45,6 @@ const InstantSearchContainer = styled.div`
 `;
 
 const hitCom = props => {
-  console.log(props);
   return (
     <Link to={`/home/shelters/all/${props.hit.linkId}`}>
       <div>
