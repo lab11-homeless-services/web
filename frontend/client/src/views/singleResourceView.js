@@ -1,6 +1,7 @@
 import React from "react";
 import useFetchSingle from "../functions/useFetchSingle";
-import TabNavforSubView from '../components/TabNavforSubView'
+import Header from "../components/Header.js";
+import TabNavforSubView from "../components/TabNavforSubView";
 const SingleResourceView = props => {
   //Splits path name at backslash
   const paths = props.location.pathname.split("/");
@@ -15,12 +16,11 @@ const SingleResourceView = props => {
     `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
   );
 
-  
-
-  if (resource.details && resource.services ) {
+  if (resource.details && resource.services) {
     return (
       <div>
-        <TabNavforSubView props={props}/>
+        <Header />
+        <TabNavforSubView props={props} />
         <div>
           <p>{resource.name}</p>
           <p>{resource.address}</p>
@@ -35,19 +35,18 @@ const SingleResourceView = props => {
           ))}
         </div>
       </div>
-      
     );
   } else {
     return (
       <div>
-        <TabNavforSubView props={props}/>
+        <Header />
+        <TabNavforSubView props={props} />
         <div>
           <p>{resource.name}</p>
           <p>{resource.address}</p>
           <p>{resource.city}</p>
         </div>
       </div>
-      
     );
   }
 };

@@ -10,6 +10,7 @@ import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import latlngDist from "latlng-distance";
 import styled from "styled-components";
+import ViewDetailsButton from "../components/ViewDetailsButton.js";
 
 const ShelterNearestCard = styled.div`
   border: 1px solid black;
@@ -21,9 +22,11 @@ const ShelterNearestCard = styled.div`
   margin-left: 0%;
 `;
 
+
 const Info = styled.div`
   width: 40%;
 `
+
 
 
 const mapStyles = {
@@ -152,12 +155,12 @@ const SheltersNearestYou = props => {
       // the basics of a callback function..
 
       if (response && response.rows.length) {
-          setState({
+        setState({
           resourceLocation: {
             lat: firstShelter.latitude,
             lon: firstShelter.longitude
           },
-          walkingTime: response.rows[0].elements[0].duration.text,
+          walkingTime: response.rows[0].elements[0].duration.text
         });
       }
     }
@@ -166,14 +169,18 @@ const SheltersNearestYou = props => {
       // See Parsing the Results for
       // the basics of a callback function..
 
-      if (response && response.rows.length > 0 && response.rows[0].elements[0].status !== "ZERO_RESULTS") {
-         setState({
+      if (
+        response &&
+        response.rows.length > 0 &&
+        response.rows[0].elements[0].status !== "ZERO_RESULTS"
+      ) {
+        setState({
           transitTime: response.rows[0].elements[0].duration.text
         });
       }
     }
   }
-  console.log(newShelters);
+  // console.log(newShelters);
   return (
     <ShelterNearestCard>
       <GoogleMapProvider>
@@ -221,6 +228,9 @@ const SheltersNearestYou = props => {
         ) : (
           <div>Loading Info</div>
         )}
+        {newShelters.length > 0 ? (
+          <ViewDetailsButton props={newShelters[0].id} />
+        ) : null}
         <div>View Map</div>
         </Info>
         

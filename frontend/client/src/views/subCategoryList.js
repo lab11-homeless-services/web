@@ -1,12 +1,13 @@
 import React from "react";
-
-import ResourceList from "../components/ResourceList"
-import TabNavforSubView from '../components/TabNavforSubView'
+import Header from "../components/Header.js";
+import ResourceList from "../components/ResourceList";
+import TabNavforSubView from "../components/TabNavforSubView";
 
 const SubCategoryList = props => {
   return (
     <div>
-      <TabNavforSubView props={props}/>
+      <Header />
+      <TabNavforSubView props={props} />
       <ResourceList props={props} />
     </div>
   );

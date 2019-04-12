@@ -133,6 +133,7 @@ table {
 
 .App {
   /* max-width: 1024px; */
+  font-family: "SF Pro Display", sans-serif;
   margin: 0 auto;
 } 
 .tabcontainer {
