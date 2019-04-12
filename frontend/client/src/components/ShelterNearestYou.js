@@ -11,6 +11,7 @@ import axios from "axios";
 import latlngDist from "latlng-distance";
 import styled from "styled-components";
 import ViewDetailsButton from "../components/ViewDetailsButton.js";
+import { Link } from "react-router-dom";
 
 const ShelterNearestCard = styled.div`
   border: 1px solid black;
@@ -177,6 +178,16 @@ const SheltersNearestYou = props => {
       }
     }
   }
+
+  const openMap = e => {
+    const name = firstShelter.name.split(" ").join("+");
+    const address = firstShelter.address.split(" ").join("+");
+
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${name}+${address}`
+    );
+  };
+
   return (
     <ShelterNearestCard>
       <GoogleMapProvider>
@@ -247,7 +258,7 @@ const SheltersNearestYou = props => {
           {newShelters.length > 0 ? (
             <ViewDetailsButton props={newShelters[0].id} />
           ) : null}
-          <div>View Map</div>
+          <div onClick={() => openMap()}>View Map</div>
         </Info>
       </GoogleMapProvider>
     </ShelterNearestCard>
