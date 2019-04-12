@@ -14,13 +14,14 @@ import ViewDetailsButton from "../components/ViewDetailsButton.js";
 import { Link } from "react-router-dom";
 
 const ShelterNearestCard = styled.div`
-  border: 1px solid black;
-  border-radius: 3px;
-  height: 400px;
+  border-radius: 2px;
+  height: 415px;
+  width: 850px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin-left: 0%;
+  margin: 12% 0 0 2%;
+  box-shadow: 1px 2px 4px 2px #00000050;
 `;
 
 const Info = styled.div`
