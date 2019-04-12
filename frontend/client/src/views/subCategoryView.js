@@ -6,7 +6,6 @@ import TabNav from "../components/TabNavigator";
 import ResourcesNearestYou from "../components/ResourcesNearestYou";
 
 const subCategoryView = props => {
-  console.log("subCat props", props);
   return (
     <div>
       <Header />

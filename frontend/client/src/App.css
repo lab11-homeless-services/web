@@ -134,4 +134,16 @@ table {
 .App {
   /* max-width: 1024px; */
   margin: 0 auto;
+} 
+.tabcontainer {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  justify-items: space-around;
+  border: rebeccapurple solid 2px;
+}
+.chVqBe {
+  border: orange
 }
