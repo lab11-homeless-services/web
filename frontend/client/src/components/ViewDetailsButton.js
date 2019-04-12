@@ -10,7 +10,7 @@ const DetailsButton = styled.div`
   background-color: #414361;
   border-radius: 5px;
   height: 25px;
-  width: 100%;
+  width: 75%;
   margin-top: 10px;
 `;
 
