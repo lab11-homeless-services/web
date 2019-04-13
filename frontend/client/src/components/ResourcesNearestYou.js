@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import latlngDist from "latlng-distance";
-//import styled from "styled-components";
+import styled from "styled-components";
 
 const ResourcesNearestYouContainer = styled.div`
   margin: 100px auto;
