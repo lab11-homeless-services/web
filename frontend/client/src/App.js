@@ -30,7 +30,6 @@ class App extends Component {
     const mainReducer = ({ spanish }, action) => ({
       spanish: languageReducer(spanish, action)
     });
-    
 
     return (
       // App must be wrapped in StateProvider to approximate Redux functionality
@@ -38,11 +37,7 @@ class App extends Component {
       // gives access to reducers to interact w/ state throughout app
       <StateProvider initialState={initialState} reducer={mainReducer}>
         <div className="App">
-          <Route 
-            exact 
-            path="/" 
-            render={props => <LandingView {...props} />} 
-          />
+          <Route exact path="/" render={props => <LandingView {...props} />} />
           <Route
             exact
             path="/home"
