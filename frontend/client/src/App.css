@@ -135,7 +135,14 @@ table {
   font-family: "SF Pro Display", sans-serif;
   margin: 0 auto;
 } 
+.subcatbtn {
+  width: 100px;
+  text-align: end;
+  height: 30px;
+  margin: 20px;
+  border: #9B9B9B solid 1px;
 
+}
 .tablinks {
   text-decoration: none;
   font-size: .75rem;
@@ -143,17 +150,16 @@ table {
 }
 
 .back2cat {
-  padding-right: 50px;
+  height: 25px;
+  padding: 5px;
   font-size: .5rem;
   letter-spacing: 1px;
+  margin-right: 50px;
   margin-left: 10px;
 }
 .right-arrow {
   display: flex;
 }
 .fa-arrow-right {
-  margin: 30px -20px 30px 40px;
-}
-.fa-arrow-left {
-
+  margin: 30px 0 30px 30px;
 }
