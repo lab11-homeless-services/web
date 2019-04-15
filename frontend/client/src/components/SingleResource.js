@@ -1,19 +1,15 @@
-import React, { useReducer, useEffect, useContext, useState } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import {
   GoogleMapProvider,
   InfoWindow,
   MapBox,
-  Marker,
-  GoogleMapContext
+  Marker
 } from "@googlemap-react/core";
 import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
-import latlngDist from "latlng-distance";
 import styled from "styled-components";
-import ViewDetailsButton from "../components/ViewDetailsButton.js";
-import { Link } from "react-router-dom";
 
-const ShelterNearestCard = styled.div`
+const SingleResourceCard = styled.div`
   border: 1px solid black;
   border-radius: 3px;
   height: 400px;
@@ -21,10 +17,17 @@ const ShelterNearestCard = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   margin-left: 0%;
+  width: 100%;
 `;
 
 const Info = styled.div`
   width: 40%;
+  border: 1px solid green;
+`;
+
+const DetailsServices = styled.div`
+  border: 1px solid red;
+  width: 30%;
 `;
 
 const mapStyles = {
@@ -197,7 +200,7 @@ const SingleResource = props => {
   };
 
   return (
-    <ShelterNearestCard>
+    <SingleResourceCard>
       <GoogleMapProvider>
         {/* <div>
           <div>
@@ -235,12 +238,25 @@ const SingleResource = props => {
             }
           }}
         />
-        <Info>
-          {resource.details && resource.services ? (
+        <div>
+          <Info>
+            <p>{resource.name}</p>
+            <p>{resource.address}</p>
+            <p>{resource.city}</p>
             <div>
-              <p>{resource.name}</p>
-              <p>{resource.address}</p>
-              <p>{resource.city}</p>
+              {state.walkingTime.length && state.transitTime.length > 0 ? (
+                <div>
+                  <div>Walking: {state.walkingTime}</div>
+                  <div>Transit: {state.transitTime}</div>
+                </div>
+              ) : (
+                "Travel Time Loading"
+              )}
+            </div>
+            <div onClick={() => openMap()}>View Map</div>
+          </Info>
+          {resource.details && resource.services ? (
+            <DetailsServices>
               <h4 onClick={showDetails}>Details</h4>
               {state.showingDetails === true
                 ? resource.details.map(detail => <p>{detail}</p>)
@@ -249,28 +265,11 @@ const SingleResource = props => {
               {state.showingServices === true
                 ? resource.services.map(service => <p>{service}</p>)
                 : null}
-            </div>
-          ) : (
-            <div>
-              <p>{resource.name}</p>
-              <p>{resource.address}</p>
-              <p>{resource.city}</p>
-            </div>
-          )}
-          <div>
-            {state.walkingTime.length && state.transitTime.length > 0 ? (
-              <div>
-                <div>Walking: {state.walkingTime}</div>
-                <div>Transit: {state.transitTime}</div>
-              </div>
-            ) : (
-              "Travel Time Loading"
-            )}
-          </div>
-          <div onClick={() => openMap()}>View Map</div>
-        </Info>
+            </DetailsServices>
+          ) : null}
+        </div>
       </GoogleMapProvider>
-    </ShelterNearestCard>
+    </SingleResourceCard>
   );
 };
 
