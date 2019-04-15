@@ -1,8 +1,104 @@
 import React from "react";
 import SearchBar from "../components/searchBar";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useStateValue } from "../state/state";
-import Footer from "../components/Footer";
+import styled from "styled-components";
+
+import touch from '../img/touch.png';
+import landingImage from '../img/cta_image.png';
+import logo from '../img/logo.png';
+
+const LandingViewContainer = styled.div`
+  width: 1366px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+`;
+
+const LandingSearchContainer = styled.div`
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  padding: 4% 0 0 3%;
+`;
+
+const LandingImageContainer = styled.div`
+  width: 48%;
+`;
+
+const LandingHeader = styled.h1`
+  font-size: 18px;
+  margin: 20% 0 0 2%;
+`;
+
+const LandingSearchInput = styled.div`
+  margin: 15% 0 0 2%;
+`;
+
+const LandingLanguageSelectionContainer = styled.div`
+  width: 485px;
+  display: flex;
+  justify-content: space-between;
+  margin: 21% 0 0 11%;
+`;
+
+const LandingLanguageSelectionButton = styled.div`
+  width: 200px;
+  height: 75px;
+  background-color: #414361;
+  border-radius: 4px;
+  box-shadow: 1px 2px 4px 2px #00000050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  color: white;
+`;
+
+const LandingLanguageImage = styled.img`
+  width: 30px;
+  height: 35px;
+  margin-left: 20px;
+`;
+
+const LogoContainer = styled.div`
+  height: 40%;
+  width: 100%;
+  background-color: #414361;
+  border-radius: 4px 65px 0 0;
+  display: flex;
+  align-items: center;
+`;
+
+const LandingCTAImg = styled.img`
+  height: 79%;
+  width: 100%;
+  border-radius: 0 0 16px 4px;
+`;
+
+const LandingLogoImg = styled.img`
+  width: 275px;
+  margin: 0 0 0 7%;
+`;
+
+const LandingNavBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+`;
+
+const LandingNavBarText = styled.p`
+  color: #414361;
+  font-size: 12px;
+`;
+
+const LandingFooter = styled.div`
+  background-color: #414361;
+  width: 100%;
+  height: 30px;
+  position: fixed;
+  bottom: 0;
+`;
 
 const LandingView = () => {
   //Gains access to reducers and state
@@ -10,26 +106,57 @@ const LandingView = () => {
 
   return (
     <div>
-      <SearchBar />
-      <div className="language">
-        <Link to="/home">
-          <div>English</div>
-        </Link>
-        <Link to="/home">
-          <div
-            spanish={spanish.spanish}
-            onClick={() =>
-              dispatch({
-                type: "setSpanish",
-                language: true
-              })
-            }
-          >
-            Español?
-          </div>
-        </Link>
-      </div>
-      <Footer />
+    <LandingViewContainer>
+      <LandingImageContainer>
+        <LogoContainer>
+          <LandingLogoImg src={logo} />
+        </LogoContainer>
+        <LandingCTAImg src={landingImage} alt="" />
+      </LandingImageContainer>
+      <LandingSearchContainer>
+        <LandingNavBar>
+          <LandingNavBarText>
+            <i class="fas fa-book-reader fa-lg" /> ABOUT US
+          </LandingNavBarText>
+          <LandingNavBarText>
+            <i class="fas fa-user-friends fa-lg" /> VOLUNTEER
+          </LandingNavBarText>
+          <LandingNavBarText>
+            <i class="far fa-handshake fa-lg" /> OUR PARTNERS
+          </LandingNavBarText>
+          <LandingNavBarText>
+            <i class="far fa-envelope fa-lg" /> CONTACT US
+          </LandingNavBarText>
+        </LandingNavBar>
+        <LandingHeader>Search and find resources...</LandingHeader>
+        <LandingSearchInput>
+          <SearchBar />
+        </LandingSearchInput>
+        <LandingLanguageSelectionContainer className="language">
+          <NavLink to="/home">
+            <LandingLanguageSelectionButton>
+              <p>English</p>
+              <LandingLanguageImage src={touch} />
+            </LandingLanguageSelectionButton>
+          </NavLink>
+          <NavLink to="/home">
+            <LandingLanguageSelectionButton
+              spanish={spanish.spanish}
+              onClick={() =>
+                dispatch({
+                  type: "setSpanish",
+                  language: true
+                })
+              }
+            >
+              <p>Español?</p>
+              <LandingLanguageImage src={touch} />
+            </LandingLanguageSelectionButton>
+          </NavLink>
+        </LandingLanguageSelectionContainer>
+      </LandingSearchContainer>
+    </LandingViewContainer>
+    <LandingFooter />
     </div>
   );
 };
