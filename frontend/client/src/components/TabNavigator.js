@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useFetch from "../functions/useFetch";
+import styled from 'styled-components';
 
 const TabNav = props => {
     let id = props.match.params.id;
@@ -10,16 +11,35 @@ const TabNav = props => {
 
     // Use fetch returns an Object, so Object.keys is used to map over the object's keys
     return (
-      <div>
+      <TabContainer>
+      <a>Back to Categories</a>
       {Object.keys(subCats).map(subCat => {
+        console.log("tabs", Object.keys)
         return (
-          <div>
-            <Link to={`/home/${id}/${subCat}`}>{subCat}</Link>
-          </div>
-        );
+            <Tabs className="test">
+              <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat}</NavLink>
+            </Tabs>
+          );
       })}
-    </div>
+    </TabContainer>
   );
 };
 
 export default TabNav;
+
+const Tabs = styled.div` 
+  padding: 10px 3px 10px 25px;
+  margin: 0 60px;
+  background-color: white; 
+  border: #9B9B9B solid 1px;
+`;
+
+const TabContainer = styled.div`
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  justify-items: space-around;
+  border: rebeccapurple solid 2px;
+`
