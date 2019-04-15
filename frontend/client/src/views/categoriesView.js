@@ -9,7 +9,6 @@ import styled from "styled-components";
 const InfoContainer = styled.div`
   display: flex;
   width: 1366px;
-  max-width: 75%;
   margin: 0 auto;
 `;
 
