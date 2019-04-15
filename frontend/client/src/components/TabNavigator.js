@@ -29,6 +29,7 @@ const TabNav = props => {
       <TabContainer>
         <i class="fas fa-arrow-left"></i>
         <Link to="/home" className="back2cat">Back to Categories</Link>
+
       {Object.keys(subCats).map(subCat => {
         if (subCat === 'all') {
           return(
@@ -43,9 +44,12 @@ const TabNav = props => {
         }
         console.log("tabs", Object.keys)
         return (
+          <div className='subcatbtn'>
             <Tabs className="test">
               <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
             </Tabs>
+          </div>
+            
           );
       })}
     </TabContainer>
@@ -55,20 +59,18 @@ const TabNav = props => {
 export default TabNav;
 
 const Tabs = styled.div` 
-  padding: 10px 3px 10px 25px;
-  margin: 0 60px;
-  background-color: white; 
-  border: #9B9B9B solid 1px;
+  background-color: white;
+  padding: 6px; 
 `;
 
+
 const TabContainer = styled.div`
-  width: 100%;
+  width: 93%;
   height: 90px;
+  margin-top: 18px;
   display: flex;
   justify-content: center;
   align-items: center; 
-  justify-items: space-around;
-  border: rebeccapurple solid 2px;
 `
 const MainCatBTN = styled.div`
   width: 70px;
