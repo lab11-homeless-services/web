@@ -48,7 +48,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Link to="/home">
+      <Link to="/">
       <Logo src={logo} />
         {/* {spanish.spanish === true ? <div>Inicio</div> : <div>Home</div>} */}
       </Link>
