@@ -1,13 +1,8 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useFetch from "../functions/useFetch";
 import styled from 'styled-components';
 import BreadcrumbMainCat from '../components/BreadcrumbMainCat'
-
-const JobCat = styled.div`
-  margin-left: 7%;
-  margin-top: 2%;
-`
 
 const TabNav = props => {
     let id = props.match.params.id;
@@ -16,20 +11,12 @@ const TabNav = props => {
     const subCats = useFetch(`https://empact-e511a.firebaseio.com/${id}.json`);
 
     // Use fetch returns an Object, so Object.keys is used to map over the object's keys
-    if(id === 'jobs') {
-      return (
-      <JobCat>
-        <i class="fas fa-arrow-left"></i>
-        <Link to="/home" className="back2catJobs">Back to Categories</Link>
-      </JobCat>
-      ) 
-    }
-
     return (
       <TabContainer>
         <i class="fas fa-arrow-left"></i>
-        <Link to="/home" className="back2cat">Back to Categories</Link>
-
+        <div className='back2cat'>
+          <a>Back to Categories</a>
+        </div>
       {Object.keys(subCats).map(subCat => {
         if (subCat === 'all') {
           return(
@@ -37,7 +24,7 @@ const TabNav = props => {
               <MainCatBTN>
               <BreadcrumbMainCat cat={id}/>
               </MainCatBTN>
-              {id === "jobs" ? null : <i class="fas fa-arrow-right"></i>}
+              <i class="fas fa-arrow-right"></i>
             </div>
             
           )
@@ -46,7 +33,7 @@ const TabNav = props => {
         return (
           <div className='subcatbtn'>
             <Tabs className="test">
-              <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+              <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat}</NavLink>
             </Tabs>
           </div>
             
@@ -61,16 +48,19 @@ export default TabNav;
 const Tabs = styled.div` 
   background-color: white;
   padding: 6px; 
+  box-shadow: 1px 1px 1px 1px #00000050;
+
 `;
 
 
 const TabContainer = styled.div`
-  width: 93%;
+  width: 100%;
   height: 90px;
   margin-top: 18px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center; 
+  margin-left: 50px;
 `
 const MainCatBTN = styled.div`
   width: 70px;
@@ -80,6 +70,6 @@ const MainCatBTN = styled.div`
   font-size: 12px;
   text-align: center;
   border: 1px solid white;
-  margin-left: 90px;
+  margin-left: 10px;
   box-shadow: 1px 2px 4px 2px #00000050;
 `;
