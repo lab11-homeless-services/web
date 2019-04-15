@@ -27,7 +27,7 @@ const CategoryButton = styled.div`
   width: 140px;
   height: 90px;
   background-color: #4A4A4A;
-  margin: 4% 4% 5px 10px;
+  margin: 4% 3% 5px 10px;
   border-radius: 10px;
   display: flex;
   justify-content: center;
