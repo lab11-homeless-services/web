@@ -32,7 +32,7 @@ const FakeSearchButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 15px;
   background-color: #656176;
   border-radius: 2px;
   color: white;

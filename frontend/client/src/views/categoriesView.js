@@ -8,8 +8,7 @@ import styled from "styled-components";
 
 const InfoContainer = styled.div`
   display: flex;
-  width: 100%;
-  max-width: 75%;
+  width: 1366px;
   margin: 0 auto;
 `;
 
