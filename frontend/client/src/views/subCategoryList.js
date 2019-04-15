@@ -8,7 +8,6 @@ const SubCategoryList = props => {
     <div>
       <Header />
       <TabNavforSubView props={props} />
-      <h1>TabNavforSubView</h1>
       <ResourceList props={props} />
     </div>
   );
