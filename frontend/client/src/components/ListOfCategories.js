@@ -24,10 +24,10 @@ const CategoryButtonContainer = styled.div`
 `;
 
 const CategoryButton = styled.div`
-  width: 140px;
-  height: 90px;
+  width: 130px;
+  height: 85px;
   background-color: #4A4A4A;
-  margin: 4% 4% 5px 10px;
+  margin: 3% 3% 3% 4%;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -39,9 +39,9 @@ const CategoryButton = styled.div`
 `;
 
 const CategoryButtonsHeader = styled.h2`
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
-  margin: 19% 0 5% 2%;
+  margin: 19% 0 4% 4%;
 `;
 const images = [image1, image2, image3, image4, image5, image6, image7, image8 ]
 

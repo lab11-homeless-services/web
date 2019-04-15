@@ -15,12 +15,12 @@ import { Link } from "react-router-dom";
 
 const ShelterNearestCard = styled.div`
   border-radius: 2px;
-  height: 415px;
-  width: 850px;
+  height: 63%;
+  width: 800px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin: 12% 0 0 2%;
+  margin: 12% 0 0 4%;
   box-shadow: 1px 2px 4px 2px #00000050;
 `;
 
