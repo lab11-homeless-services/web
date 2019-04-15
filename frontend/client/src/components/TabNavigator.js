@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import useFetch from "../functions/useFetch";
 import styled from 'styled-components';
+import BreadcrumbMainCat from '../components/BreadcrumbMainCat'
 
 const TabNav = props => {
     let id = props.match.params.id;
@@ -14,6 +15,11 @@ const TabNav = props => {
       <TabContainer>
       <a>Back to Categories</a>
       {Object.keys(subCats).map(subCat => {
+        if (subCat === 'all') {
+          return(
+            <BreadcrumbMainCat cat={id}/>
+          )
+        }
         console.log("tabs", Object.keys)
         return (
             <Tabs className="test">

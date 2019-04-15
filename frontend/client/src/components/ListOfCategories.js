@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 import image6 from '../img/education.png'
 import image1 from '../img/shelter.png'
-import image2 from '../img/food.png'
-import image3 from '../img/health-care.png'
+import image3 from '../img/food.png'
+import image2 from '../img/health-care.png'
 import image7 from '../img/legal.png'
 import image5 from '../img/outreach.png'
 import image4 from '../img/hygiene.png'
