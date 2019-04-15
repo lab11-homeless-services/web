@@ -142,5 +142,18 @@ table {
   text-align: right; 
 }
 
- 
+.back2cat {
+  padding-right: 50px;
+  font-size: .5rem;
+  letter-spacing: 1px;
+  margin-left: 10px;
+}
+.right-arrow {
+  display: flex;
+}
+.fa-arrow-right {
+  margin: 30px -20px 30px 40px;
+}
+.fa-arrow-left {
 
+}
