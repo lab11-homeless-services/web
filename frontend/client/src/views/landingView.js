@@ -1,12 +1,16 @@
 import React from "react";
 import SearchBar from "../components/searchBar";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useStateValue } from "../state/state";
 import styled from "styled-components";
+
 import touch from '../img/touch.png';
+import landingImage from '../img/cta_image.png';
+import logo from '../img/logo.png';
 
 const LandingViewContainer = styled.div`
   width: 1366px;
+  height: 100%;
   margin: 0 auto;
   display: flex;
 `;
@@ -20,7 +24,6 @@ const LandingSearchContainer = styled.div`
 
 const LandingImageContainer = styled.div`
   width: 48%;
-  border: 1px solid red;
 `;
 
 const LandingHeader = styled.h1`
@@ -58,14 +61,30 @@ const LandingLanguageImage = styled.img`
   margin-left: 20px;
 `;
 
-const LandingLanguageLink = styled.a`
+const LogoContainer = styled.div`
+  height: 40%;
+  width: 100%;
+  background-color: #414361;
+  border-radius: 4px 65px 0 0;
+  display: flex;
+  align-items: center;
+`;
 
+const LandingCTAImg = styled.img`
+  height: 79%;
+  width: 100%;
+  border-radius: 0 0 16px 4px;
+`;
+
+const LandingLogoImg = styled.img`
+  width: 275px;
+  margin: 0 0 0 7%;
 `;
 
 const LandingNavBar = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 96%;
+  width: 95%;
 `;
 
 const LandingNavBarText = styled.p`
@@ -89,7 +108,10 @@ const LandingView = () => {
     <div>
     <LandingViewContainer>
       <LandingImageContainer>
-        <img src="" alt="" />
+        <LogoContainer>
+          <LandingLogoImg src={logo} />
+        </LogoContainer>
+        <LandingCTAImg src={landingImage} alt="" />
       </LandingImageContainer>
       <LandingSearchContainer>
         <LandingNavBar>
@@ -111,13 +133,13 @@ const LandingView = () => {
           <SearchBar />
         </LandingSearchInput>
         <LandingLanguageSelectionContainer className="language">
-          <Link to="/home">
+          <NavLink to="/home">
             <LandingLanguageSelectionButton>
               <p>English</p>
               <LandingLanguageImage src={touch} />
             </LandingLanguageSelectionButton>
-          </Link>
-          <Link to="/home">
+          </NavLink>
+          <NavLink to="/home">
             <LandingLanguageSelectionButton
               spanish={spanish.spanish}
               onClick={() =>
@@ -130,7 +152,7 @@ const LandingView = () => {
               <p>Español?</p>
               <LandingLanguageImage src={touch} />
             </LandingLanguageSelectionButton>
-          </Link>
+          </NavLink>
         </LandingLanguageSelectionContainer>
       </LandingSearchContainer>
     </LandingViewContainer>
