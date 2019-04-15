@@ -84,7 +84,7 @@ const ListOfCats = () => {
                   <CategoryButton>
                     <NavLink key={index} to={`/home/${category}`}>
                       <img src={images[thing]} alt={`${category}`}/>
-                      <p>{category.toUpperCase()}</p>
+                      <p>{category.replace(/_/g, ' ').toUpperCase()}</p>
                     </NavLink>
                   </CategoryButton>
                 )

@@ -44,7 +44,7 @@ const TabNav = props => {
         console.log("tabs", Object.keys)
         return (
             <Tabs className="test">
-              <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat}</NavLink>
+              <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
             </Tabs>
           );
       })}

@@ -162,6 +162,7 @@ table {
 .fa-arrow-right {
   margin: 30px -20px 30px 40px;
 }
-.fa-arrow-left {
 
+a {
+  text-decoration: none;
 }
