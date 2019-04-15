@@ -148,6 +148,14 @@ table {
   letter-spacing: 1px;
   margin-left: 10px;
 }
+
+.back2catJobs {
+  padding-right: 50px;
+  font-size: .8rem;
+  letter-spacing: 1px;
+  margin-left: 10px;
+}
+
 .right-arrow {
   display: flex;
 }
