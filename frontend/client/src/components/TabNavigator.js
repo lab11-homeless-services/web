@@ -13,11 +13,18 @@ const TabNav = props => {
     // Use fetch returns an Object, so Object.keys is used to map over the object's keys
     return (
       <TabContainer>
-      <a>Back to Categories</a>
+        <i class="fas fa-arrow-left"></i>
+        <a className="back2cat">Back to Categories</a>
       {Object.keys(subCats).map(subCat => {
         if (subCat === 'all') {
           return(
-            <BreadcrumbMainCat cat={id}/>
+            <div className='right-arrow'>
+              <MainCatBTN>
+              <BreadcrumbMainCat cat={id}/>
+              </MainCatBTN>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            
           )
         }
         console.log("tabs", Object.keys)
@@ -49,3 +56,14 @@ const TabContainer = styled.div`
   justify-items: space-around;
   border: rebeccapurple solid 2px;
 `
+const MainCatBTN = styled.div`
+  width: 70px;
+  height: 70px;
+  background-color: #414361;
+  border-radius: 10px;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid white;
+  margin-left: 90px;
+  box-shadow: 1px 2px 4px 2px #00000050;
+`;
