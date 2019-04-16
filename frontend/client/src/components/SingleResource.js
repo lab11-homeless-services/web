@@ -60,6 +60,7 @@ const PrintButton = styled.div`
   font-weight: bold;
   font-size: 1.2rem;
   width: 120px;
+  cursor: pointer;
 `;
 
 const PreviousButton = styled.div`
@@ -72,6 +73,20 @@ const PreviousButton = styled.div`
   padding: 10px;
   font-size: 1.2rem;
   width: 200px;
+  cursor: pointer;
+`;
+
+const ViewMap = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #4a4a4a;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 145px;
+  cursor: pointer;
 `;
 
 const ButtonsDiv = styled.div`
@@ -93,6 +108,7 @@ const ServiceButton = styled.div`
   color: #4a4a4a;
   background: #cbccd1;
   border-radius: 2px;
+  cursor: pointer;
 `;
 
 const ServiceList = styled.div`
@@ -317,7 +333,10 @@ const SingleResource = props => {
               {resource.hours}
             </InfoText>
           </div>
-          <div onClick={() => openMap()}>View Map</div>
+          <ViewMap onClick={() => openMap()}>
+            <i class="fas fa-location-arrow" />
+            View Map
+          </ViewMap>
         </Info>
         {resource.details && resource.services ? (
           <DetailsServices>
