@@ -24,7 +24,11 @@ const LandingSearchContainer = styled.div`
 
 const LandingImageContainer = styled.div`
   width: 48%;
+
+  margin-left: -10%;
+  margin-right: 10%;
   height: 100vh;
+
 `;
 
 const LandingHeader = styled.h1`
