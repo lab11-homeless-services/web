@@ -237,3 +237,11 @@ table {
 .display-none {
   display: none;
 }
+
+.fa-search {
+  position: absolute;
+  color: grey;
+  top: 37%;
+  right: 3%;
+  font-size: 1.6rem;
+}
