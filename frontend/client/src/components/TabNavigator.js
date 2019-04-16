@@ -97,7 +97,6 @@ const TabContainer = styled.div`
   display: flex;
   justify-content: left;
   align-items: center; 
-  margin-left: 50px;
 `
 const MainCatBTN = styled.div`
   width: 70px;
