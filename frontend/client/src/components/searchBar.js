@@ -7,6 +7,7 @@ import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 
 import "../App.css";
 
+
 const searchClient = algoliasearch(
   "QD6TWFQZCN",
   "028bde3e8ce26fd3245e84b3807905b9"
@@ -49,24 +50,30 @@ const InstantSearchContainer = styled.div`
 const SearchBoxContainer = styled.div`
   display: flex;
   justify-content: center;
-  border: 1px solid green;
+  width: 75%;
+  margin-left: 12.5%
 `;
 
 const SearchResultsContainer = styled.div`
-  margin: 30px 0 0 0;
   padding: 5% 0 0 0;
   height: 83vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  border: 1px solid red;
+  padding-left: 10%;
+  // display: flex;
+  // justify-content: center;
 `;
+
+const StyledHit = styled.div`
+  margin-bottom: 2%;
+  font-size: 1.6rem;
+  color: white;
+`
 
 const hitCom = props => {
   return (
     <Link to={`/home/shelters/all/${props.hit.linkId}`}>
       <div>
-        <div>{props.hit.name}</div>
+        <StyledHit>{props.hit.name}</StyledHit>
       </div>
     </Link>
   );
@@ -99,7 +106,7 @@ class SearchBar extends React.Component {
       <div>
         <main>
           <Modal show={this.state.searchEnabled} close={this.disableSearch}>
-            <InstantSearchContainer>
+            <InstantSearchContainer className="mainSearch">
               <InstantSearch indexName="empact" searchClient={searchClient}>
                 <SearchBoxContainer>
                   <SearchBox />
