@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 
+import '../App.css';
+
 const searchClient = algoliasearch(
   "QD6TWFQZCN",
   "028bde3e8ce26fd3245e84b3807905b9"
@@ -106,7 +108,7 @@ const Modal = ({ close, show, children }) => {
     <div className={showHideClassName}>
       <section className='modal-main'>
         {children}
-        <button onClick={close}>Close</button>
+        <div className='closeButton' onClick={close}>X</div>
       </section>
     </div>
   );
