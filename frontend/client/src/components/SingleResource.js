@@ -10,30 +10,78 @@ import axios from "axios";
 import styled from "styled-components";
 
 const SingleResourceCard = styled.div`
-  border: 1px solid black;
   border-radius: 3px;
-  height: 400px;
+  height: 501px;
   display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  margin-left: 0%;
+  margin: 0 auto;
   width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 0.25px solid black;
+  box-shadow: 1px 1px 3px 1px #ccc;
+  border-radius: 3px;
+  padding: 2%;
 `;
 
 const Info = styled.div`
-  width: 40%;
-  border: 1px solid green;
+  height: 400px;
+  width: 32%;
+  color: #4a4a4a;
+  padding-top: 45px;
+`;
+
+const Title = styled.div`
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 31px;
 `;
 
 const DetailsServices = styled.div`
   border: 1px solid red;
-  width: 30%;
+  height: 400px;
+  width: 32%;
+`;
+
+const PrintButton = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  background-color: #414361;
+  border-radius: 3px;
+  box-shadow: 0px 1px 3px 1px #ccc;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 120px;
+`;
+
+const PreviousButton = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #4a4a4a;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 200px;
+`;
+
+const ButtonsDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const InfoText = styled.div`
+  padding-bottom: 30px;
 `;
 
 const mapStyles = {
   map: {
-    width: "500px",
-    height: "75%"
+    width: "406px",
+    height: "363px"
   }
 };
 
@@ -207,6 +255,46 @@ const SingleResource = props => {
             <div style={style}>Loading map...</div>
           </div>
         </div> */}
+        <Info>
+          <Title>{resource.name}</Title>
+          <InfoText>
+            <i class="fas fa-map-marker-alt" />
+            {resource.address}
+          </InfoText>
+
+          <div className="travel-time">
+            {state.walkingTime.length && state.transitTime.length > 0 ? (
+              <InfoText>
+                <i class="fas fa-bus" />
+                {state.transitTime}
+                <i class="fas fa-walking" /> {state.walkingTime}
+              </InfoText>
+            ) : (
+              "Travel Time Loading"
+            )}
+          </div>
+          <div className="info-hours">
+            <InfoText>
+              <i class="fas fa-phone" />
+              {resource.phone}
+              <i class="fas fa-clock" />
+              {resource.hours}
+            </InfoText>
+          </div>
+          <div onClick={() => openMap()}>View Map</div>
+        </Info>
+        {resource.details && resource.services ? (
+          <DetailsServices>
+            <h4 onClick={showDetails}>Details</h4>
+            {state.showingDetails === true
+              ? resource.details.map(detail => <p>{detail}</p>)
+              : null}
+            <h4 onClick={showServices}>Services</h4>
+            {state.showingServices === true
+              ? resource.services.map(service => <p>{service}</p>)
+              : null}
+          </DetailsServices>
+        ) : null}
         <MapBox
           style={style}
           apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
@@ -238,36 +326,16 @@ const SingleResource = props => {
             }
           }}
         />
-        <div>
-          <Info>
-            <p>{resource.name}</p>
-            <p>{resource.address}</p>
-            <p>{resource.city}</p>
-            <div>
-              {state.walkingTime.length && state.transitTime.length > 0 ? (
-                <div>
-                  <div>Walking: {state.walkingTime}</div>
-                  <div>Transit: {state.transitTime}</div>
-                </div>
-              ) : (
-                "Travel Time Loading"
-              )}
-            </div>
-            <div onClick={() => openMap()}>View Map</div>
-          </Info>
-          {resource.details && resource.services ? (
-            <DetailsServices>
-              <h4 onClick={showDetails}>Details</h4>
-              {state.showingDetails === true
-                ? resource.details.map(detail => <p>{detail}</p>)
-                : null}
-              <h4 onClick={showServices}>Services</h4>
-              {state.showingServices === true
-                ? resource.services.map(service => <p>{service}</p>)
-                : null}
-            </DetailsServices>
-          ) : null}
-        </div>
+        <ButtonsDiv>
+          <PreviousButton>
+            <i class="fas fa-arrow-left" />
+            Previous Page
+          </PreviousButton>
+          <PrintButton>
+            <i class="fas fa-print" />
+            PRINT
+          </PrintButton>
+        </ButtonsDiv>
       </GoogleMapProvider>
     </SingleResourceCard>
   );

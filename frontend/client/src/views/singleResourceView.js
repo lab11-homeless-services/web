@@ -5,10 +5,10 @@ import SingleResource from "../components/SingleResource";
 import styled from "styled-components";
 
 const SingleResourceContainer = styled.div`
-  width: 100%;
+  max-width: 1366px;
+  width: 94%;
   display: flex;
-  justify-content: center;
-  border: 1px solid blue;
+  margin: 0 auto;
 `;
 
 const SingleResourceView = props => {

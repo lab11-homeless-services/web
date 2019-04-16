@@ -134,35 +134,55 @@ table {
 .App {
   font-family: "SF Pro Display", sans-serif;
   margin: 0 auto;
-} 
+}
+.subcatbtn {
+  width: 100px;
+  text-align: end;
+  height: 30px;
+  margin: 20px;
+  border: #9b9b9b solid 1px;
+}
 
 .tablinks {
   text-decoration: none;
-  font-size: .75rem;
-  text-align: right; 
+  font-size: 0.75rem;
+  text-align: right;
 }
 
 .back2cat {
-  padding-right: 50px;
-  font-size: .5rem;
+  height: 25px;
+  padding: 10px 5px 0 5px;
+  font-size: 0.6rem;
   letter-spacing: 1px;
+  margin-right: 50px;
   margin-left: 10px;
 }
 
 .back2catJobs {
   padding-right: 50px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   letter-spacing: 1px;
   margin-left: 10px;
 }
 
 .right-arrow {
   display: flex;
+  justify-content: flex-start;
 }
 .fa-arrow-right {
-  margin: 30px -20px 30px 40px;
+  margin: 30px 0 30px 30px;
 }
 
-a {
-  text-decoration: none;
+.fas {
+  padding-right: 4%;
+  font-size: 1.3rem;
+}
+
+.travel-time .fa-walking {
+  padding-left: 11%;
+  font-size: 1.7rem;
+}
+
+.info-hours .fa-clock {
+  padding-left: 10%;
 }

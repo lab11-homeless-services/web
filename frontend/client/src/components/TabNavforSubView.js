@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import useFetch from "../functions/useFetch";
+import styled from "styled-components";
 
 
 const TabNavforSubView = props => {
@@ -8,7 +9,11 @@ const TabNavforSubView = props => {
    const cat = path[2]
    const subCats = useFetch(`https://empact-e511a.firebaseio.com/${cat}.json`)
     return(
-        <div>
+        <TabContainer>
+        <i class="fas fa-arrow-left"></i>
+        <div className='back2cat'>
+          <a>Back to Categories</a>
+        </div>
             {Object.keys(subCats).map(subCat => {
                 return (
                 <div>
@@ -16,8 +21,17 @@ const TabNavforSubView = props => {
                 </div>
                 );
             })}
-       </div>
+       </TabContainer>
     )
 }
 
 export default TabNavforSubView
+
+const TabContainer = styled.div`
+  width: 100%;
+  height: 90px;
+  margin-top: 18px;
+  display: flex;
+  justify-content: left;
+  align-items: center; 
+`

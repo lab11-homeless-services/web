@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import logo from '../img/logo.png';
+import touch from '../img/touch.png';
 
 import SearchBar from './searchBar'
 import { Link } from 'react-router-dom'
@@ -35,13 +36,19 @@ const LanguageSelection = styled.div`
   box-shadow: 1px 2px 4px 2px #00000050;
 `;
 
+const LanguageSelectionImage = styled.img`
+  height: 20px;
+  width: 15px;
+  margin-left: 5px;
+`;
+
 const Header = () => {
   //Gains access to reducers and state
   const [{ spanish }, dispatch] = useStateValue();
 
   return (
     <HeaderContainer>
-      <Link to="/home">
+      <Link to="/">
       <Logo src={logo} />
         {/* {spanish.spanish === true ? <div>Inicio</div> : <div>Home</div>} */}
       </Link>
@@ -55,6 +62,7 @@ const Header = () => {
         }
       >
         {spanish.spanish === true ? <p>English</p> : <p>Español?</p>}
+        <LanguageSelectionImage src={touch} />
       </LanguageSelection>
     </HeaderContainer>
   );
