@@ -32,7 +32,7 @@ const Info = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding-bottom: 31px;
 `;
@@ -105,10 +105,28 @@ const ServiceButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4a4a4a;
-  background: #cbccd1;
+  color: #fff;
+  background: #414361;
   border-radius: 2px;
   cursor: pointer;
+  background: ${state =>
+    state.showingServices === true ? "#414361" : "#d0d2d6"};
+  color: ${state => (state.showingServices === true ? "#fff" : "#4a4a4a")};
+`;
+
+const DetailsButton = styled.div`
+  width: 50%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #414361;
+  border-radius: 2px;
+  cursor: pointer;
+  background: ${state =>
+    state.showingDetails === true ? "#414361" : "#d0d2d6"};
+  color: ${state => (state.showingDetails === true ? "#fff" : "#4a4a4a")};
 `;
 
 const ServiceList = styled.div`
@@ -138,7 +156,6 @@ const mapStyles = {
 };
 
 const SingleResource = props => {
-  console.log("SR props", props);
   const [state, setState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -245,7 +262,6 @@ const SingleResource = props => {
         response.rows.length > 0 &&
         response.rows[0].elements[0].status !== "ZERO_RESULTS"
       ) {
-        console.log("res", resource);
         setState({
           resourceLocation: {
             lat: Number(resource.latitude),
@@ -286,7 +302,9 @@ const SingleResource = props => {
     setState({
       ...state,
       showingDetails: false,
-      showingServices: true
+      showingServices: true,
+      active: true,
+      inactive: false
     });
   };
 
@@ -295,7 +313,9 @@ const SingleResource = props => {
     setState({
       ...state,
       showingDetails: true,
-      showingServices: false
+      showingServices: false,
+      active: true,
+      inactive: false
     });
   };
 
@@ -341,8 +361,20 @@ const SingleResource = props => {
         {resource.details && resource.services ? (
           <DetailsServices>
             <DetailsTitles>
-              <ServiceButton onClick={showServices}>Services</ServiceButton>
-              <ServiceButton onClick={showDetails}>Details</ServiceButton>
+              <ServiceButton
+                showingDetails={state.showingDetails}
+                showingServices={state.showingServices}
+                onClick={showServices}
+              >
+                Services
+              </ServiceButton>
+              <DetailsButton
+                showingDetails={state.showingDetails}
+                showingServices={state.showingServices}
+                onClick={showDetails}
+              >
+                Details
+              </DetailsButton>
             </DetailsTitles>
             {state.showingDetails === true
               ? resource.details.map((detail, i) => (
