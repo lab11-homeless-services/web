@@ -173,7 +173,12 @@ table {
   margin: 30px 0 30px 30px;
 }
 
-.fas {
+.fa-map-marker-alt {
+  padding-right: 4%;
+  font-size: 1.3rem;
+}
+
+.fa-bus {
   padding-right: 4%;
   font-size: 1.3rem;
 }
@@ -181,10 +186,17 @@ table {
 .travel-time .fa-walking {
   padding-left: 11%;
   font-size: 1.7rem;
+  padding-right: 4%;
 }
 
 .info-hours .fa-clock {
   padding-left: 10%;
+  font-size: 1.3rem;
+}
+
+.info-hours .fa-phone {
+  padding-right: 4%;
+  font-size: 1.3rem;
 }
 
 /* =========================== Search Modal ========================== */
@@ -223,4 +235,12 @@ table {
 
 .display-none {
   display: none;
+}
+
+.fa-search {
+  position: absolute;
+  color: grey;
+  top: 37%;
+  right: 3%;
+  font-size: 1.6rem;
 }

@@ -37,9 +37,14 @@ const Title = styled.div`
 `;
 
 const DetailsServices = styled.div`
-  border: 1px solid red;
-  height: 400px;
+  height: 361px;
   width: 32%;
+  margin-right: 3%;
+`;
+
+const DetailsTitles = styled.div`
+  display: flex;
+  padding-bottom: 7px;
 `;
 
 const PrintButton = styled.div`
@@ -76,6 +81,36 @@ const ButtonsDiv = styled.div`
 
 const InfoText = styled.div`
   padding-bottom: 30px;
+`;
+
+const ServiceButton = styled.div`
+  width: 50%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a4a4a;
+  background: #cbccd1;
+  border-radius: 2px;
+`;
+
+const ServiceList = styled.div`
+  display: flex;
+  margin: 7px 0;
+  color: #4a4a4a;
+  align-items: center;
+  padding: 5px 0;
+`;
+
+const ListNumber = styled.div`
+  padding: 8px 15px;
+  background: #656176
+  color: white;
+`;
+const ListText = styled.div`
+  background: #f3f3f5;
+  padding: 8px 2%;
+  width: 100%;
 `;
 
 const mapStyles = {
@@ -285,13 +320,25 @@ const SingleResource = props => {
         </Info>
         {resource.details && resource.services ? (
           <DetailsServices>
-            <h4 onClick={showDetails}>Details</h4>
+            <DetailsTitles>
+              <ServiceButton onClick={showServices}>Services</ServiceButton>
+              <ServiceButton onClick={showDetails}>Details</ServiceButton>
+            </DetailsTitles>
             {state.showingDetails === true
-              ? resource.details.map(detail => <p>{detail}</p>)
+              ? resource.details.map((detail, i) => (
+                  <ServiceList>
+                    <ListNumber>{i + 1}</ListNumber>
+                    <ListText>{detail}</ListText>
+                  </ServiceList>
+                ))
               : null}
-            <h4 onClick={showServices}>Services</h4>
             {state.showingServices === true
-              ? resource.services.map(service => <p>{service}</p>)
+              ? resource.services.map((service, i) => (
+                  <ServiceList>
+                    <ListNumber>{i + 1}</ListNumber>
+                    <ListText>{service}</ListText>
+                  </ServiceList>
+                ))
               : null}
           </DetailsServices>
         ) : null}

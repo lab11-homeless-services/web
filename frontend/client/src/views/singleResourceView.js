@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header.js";
 import TabNavforSubView from "../components/TabNavforSubView";
 import SingleResource from "../components/SingleResource";
+import Footer from "../components/Footer";
 import styled from "styled-components";
 
 const SingleResourceContainer = styled.div`
@@ -19,6 +20,7 @@ const SingleResourceView = props => {
       <SingleResourceContainer>
         <SingleResource props={props} />
       </SingleResourceContainer>
+      <Footer />
     </div>
   );
 };
