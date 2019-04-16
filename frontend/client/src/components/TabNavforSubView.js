@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useFetch from "../functions/useFetch";
 import styled from "styled-components";
 
@@ -12,12 +12,12 @@ const TabNavforSubView = props => {
         <TabContainer>
         <i class="fas fa-arrow-left"></i>
         <div className='back2cat'>
-          <a>Back to Categories</a>
+          <NavLink to={`/home/`}>Back to Categories</NavLink>
         </div>
             {Object.keys(subCats).map(subCat => {
                 return (
                 <div>
-                    <Link to={`/home/${cat}/${subCat}`}>{subCat}</Link>
+                    <NavLink to={`/home/${cat}/${subCat}`}>{subCat}</NavLink>
                 </div>
                 );
             })}
