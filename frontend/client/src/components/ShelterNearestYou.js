@@ -137,7 +137,7 @@ const SheltersNearestYou = props => {
       },
       callback
     );
-
+    
     let nextService = new google.maps.DistanceMatrixService();
     nextService.getDistanceMatrix(
       {
@@ -146,8 +146,7 @@ const SheltersNearestYou = props => {
         travelMode: "TRANSIT",
         unitSystem: google.maps.UnitSystem.IMPERIAL
       },
-      otherCallback
-    );
+      otherCallback);
 
     async function callback(response, status) {
       // See Parsing the Results for
