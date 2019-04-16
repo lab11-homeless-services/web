@@ -16,22 +16,25 @@ import { Link } from "react-router-dom";
 const ShelterNearestCard = styled.div`
   border-radius: 2px;
   height: 63%;
-  width: 800px;
+  width: 112%;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   margin: 12% 0 0 4%;
   box-shadow: 1px 2px 8px 1px #00000050;
+  padding-right: 2%
 `;
 
-const Info = styled.div`
-  width: 40%;
+const ShelterInfoContainer = styled.div`
+  width: 65%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const mapStyles = {
   map: {
-    width: "500px",
-    height: "75%"
+    width: "485px",
+    height: "85%"
   }
 };
 
@@ -227,7 +230,7 @@ const SheltersNearestYou = props => {
             }
           }}
         />
-        <Info>
+        <ShelterInfoContainer>
           {newShelters.length > 0 ? (
             <div>
               <p>SHELTER NEAREST TO YOU</p>
@@ -259,7 +262,7 @@ const SheltersNearestYou = props => {
             <ViewDetailsButton props={newShelters[0].id} />
           ) : null}
           <div onClick={() => openMap()}>View Map</div>
-        </Info>
+        </ShelterInfoContainer>
       </GoogleMapProvider>
     </ShelterNearestCard>
   );
