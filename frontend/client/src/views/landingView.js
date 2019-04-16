@@ -24,11 +24,7 @@ const LandingSearchContainer = styled.div`
 
 const LandingImageContainer = styled.div`
   width: 48%;
-
-  margin-left: -10%;
-  margin-right: 10%;
   height: 100vh;
-
 `;
 
 const LandingHeader = styled.h1`
@@ -97,10 +93,10 @@ const LandingNavBar = styled.div`
 
 const LandingNavBarText = styled.div`
   color: #414361;
-  font-size: 12px;
+  font-size: .7rem;
   display: flex;
   p {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 `;
 
