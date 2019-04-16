@@ -13,6 +13,7 @@ const LandingViewContainer = styled.div`
   height: 100vh;
   margin: 0 auto;
   display: flex;
+  overflow-x: hidden;
 `;
 
 const LandingSearchContainer = styled.div`
@@ -24,11 +25,7 @@ const LandingSearchContainer = styled.div`
 
 const LandingImageContainer = styled.div`
   width: 48%;
-
-  margin-left: -10%;
-  margin-right: 10%;
   height: 100vh;
-
 `;
 
 const LandingHeader = styled.h1`
@@ -95,9 +92,13 @@ const LandingNavBar = styled.div`
   margin-top: 8%;
 `;
 
-const LandingNavBarText = styled.p`
+const LandingNavBarText = styled.div`
   color: #414361;
-  font-size: 12px;
+  font-size: .7rem;
+  display: flex;
+  p {
+    margin-left: 10px;
+  }
 `;
 
 const LandingFooter = styled.div`
@@ -124,16 +125,20 @@ const LandingView = () => {
         <LandingSearchContainer>
           <LandingNavBar>
             <LandingNavBarText>
-              <i class="fas fa-book-reader fa-lg" /> ABOUT US
+              <i class="fas fa-book-reader fa-lg" /> 
+              <p>ABOUT US</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="fas fa-user-friends fa-lg" /> VOLUNTEER
+              <i class="fas fa-user-friends fa-lg" /> 
+              <p>VOLUNTEER</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="far fa-handshake fa-lg" /> OUR PARTNERS
+              <i class="far fa-handshake fa-lg" /> 
+              <p>OUR PARTNERS</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="far fa-envelope fa-lg" /> CONTACT US
+              <i class="far fa-envelope fa-lg" /> 
+              <p>CONTACT US</p>
             </LandingNavBarText>
           </LandingNavBar>
           <LandingHeader>Search and find resources...</LandingHeader>
