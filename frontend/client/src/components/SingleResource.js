@@ -6,6 +6,7 @@ import {
   Marker
 } from "@googlemap-react/core";
 import { GoogleApiWrapper } from "google-maps-react";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -426,10 +427,12 @@ const SingleResource = props => {
           }}
         />
         <ButtonsDiv>
-          <PreviousButton>
-            <i class="fas fa-arrow-left" />
-            Previous Page
-          </PreviousButton>
+          <NavLink to={`/home/${category}`}>
+            <PreviousButton>
+              <i class="fas fa-arrow-left" />
+              Previous Page
+            </PreviousButton>
+          </NavLink>
           <PrintButton>
             <i class="fas fa-print" />
             PRINT
