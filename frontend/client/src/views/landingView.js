@@ -5,7 +5,7 @@ import { useStateValue } from "../state/state";
 import styled from "styled-components";
 
 import touch from "../img/touch.png";
-import landingImage from "../img/cta_image.png";
+import landingImage from "../img/ctaLandingView.png";
 import logo from "../img/logo.png";
 
 const LandingViewContainer = styled.div`
@@ -19,20 +19,23 @@ const LandingSearchContainer = styled.div`
   width: 52%;
   display: flex;
   flex-direction: column;
-  padding: 4% 0 0 3%;
+  padding-left: 3%;
 `;
 
 const LandingImageContainer = styled.div`
   width: 48%;
+  height: 100vh;
 `;
 
 const LandingHeader = styled.h1`
   font-size: 18px;
   margin: 20% 0 0 2%;
+  width: 100%;
 `;
 
 const LandingSearchInput = styled.div`
   margin: 15% 0 0 2%;
+  width: 100%;
 `;
 
 const LandingLanguageSelectionContainer = styled.div`
@@ -85,6 +88,7 @@ const LandingNavBar = styled.div`
   display: flex;
   justify-content: space-between;
   width: 95%;
+  margin-top: 8%;
 `;
 
 const LandingNavBarText = styled.p`

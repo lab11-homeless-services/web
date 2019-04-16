@@ -186,3 +186,60 @@ table {
 .info-hours .fa-clock {
   padding-left: 10%;
 }
+
+/* =========================== Search Modal ========================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 20%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding-bottom: 15px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  background-color: #F0FFFF;
+}
+
+.modal-main p {
+  font-size: 16px;
+}
+
+.modal-main button {
+  width: 75px;
+  height: 25px;
+  border: none;
+  border-radius: 6px;
+  background-color: slategrey;
+  color: white;
+  margin: 0 10px 0 10px;
+}
+
+.modal-main button:hover {
+  color: slategray;
+  background-color: white;
+  border: 1px solid slategray
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+i {
+  margin-left: 225px;
+}

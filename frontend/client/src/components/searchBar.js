@@ -58,7 +58,7 @@ class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchEnabled: false
+      searchEnabled: false,
     };
   }
 
@@ -79,23 +79,37 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        {this.state.searchEnabled === true ? (
+      <main>
+        <Modal show={this.state.searchEnabled} close={this.disableSearch}>
           <InstantSearchContainer>
             <InstantSearch indexName="empact" searchClient={searchClient}>
-              <div onClick={this.disableSearch}>CLOSE SEARCH</div>
               <SearchBox />
               <Hits hitComponent={hitCom} />
             </InstantSearch>
           </InstantSearchContainer>
-        ) : (
+        </Modal>
           <FakeSearchInputContainer onClick={this.enableSearch}>
             <FakeSearchInput placeholder= 'search for resources you need' />
             <FakeSearchButton>SEARCH</FakeSearchButton>
           </FakeSearchInputContainer>
-        )}
+      </main>
       </div>
     );
   }
 }
+
+
+const Modal = ({ close, show, children }) => {
+  const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+
+  return (
+    <div className={showHideClassName}>
+      <section className='modal-main'>
+        {children}
+        <button onClick={close}>Close</button>
+      </section>
+    </div>
+  );
+};
 
 export default SearchBar;
