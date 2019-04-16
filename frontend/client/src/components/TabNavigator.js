@@ -15,7 +15,7 @@ const TabNav = props => {
       <TabContainer>
         <i class="fas fa-arrow-left"></i>
         <div className='back2cat'>
-          <a>Back to Categories</a>
+          <NavLink to={`/home/`}>Back to Categories</NavLink>
         </div>
       {Object.keys(subCats).map(subCat => {
         if (subCat === '_all' ) {
@@ -52,7 +52,7 @@ const TabNav = props => {
       <TabContainer>
         <i class="fas fa-arrow-left"></i>
         <div className='back2cat'>
-          <a>Back to Categories</a>
+          <NavLink to={`/home/`}>Back to Categories</NavLink>
         </div>
       {Object.keys(subCats).map(subCat => {
         if (subCat === 'all' ) {
