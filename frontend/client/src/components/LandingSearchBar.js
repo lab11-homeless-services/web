@@ -13,7 +13,7 @@ const searchClient = algoliasearch(
 );
 
 const FakeSearchInput = styled.input`
-  width: 475px;
+  width: 100%;
   height: 65px;
   padding-left: 15px;
   font-size: 14px;
@@ -36,7 +36,7 @@ const FakeInputContainer = styled.div`
 `;
 
 const FakeSearchButton = styled.div`
-  width: 125px;
+  width: 19%;
   height: 65px;
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@ const FakeSearchButton = styled.div`
   background-color: #414361;
   border-radius: 2px;
   color: white;
-  margin: 0 0 0 15px;
+  margin: 0 0 0 2%;
   box-shadow: 2px 4px 10px 2px #00000050;
 `;
 
