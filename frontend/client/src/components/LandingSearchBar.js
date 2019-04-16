@@ -30,9 +30,9 @@ const FakeSearchInputContainer = styled.div`
 `;
 
 const FakeInputContainer = styled.div`
-    position: relative;
-    width: 475px;
-    height: 65px;
+  position: relative;
+  width: 475px;
+  height: 65px;
 `;
 
 const FakeSearchButton = styled.div`
@@ -56,24 +56,28 @@ const InstantSearchContainer = styled.div`
 const SearchBoxContainer = styled.div`
   display: flex;
   justify-content: center;
-  border: 1px solid green;
+  width: 75%;
+  margin-left: 12.5%;
 `;
 
 const SearchResultsContainer = styled.div`
-  margin: 30px 0 0 0;
   padding: 5% 0 0 0;
   height: 83vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  border: 1px solid red;
+  padding-left: 10%;
+`;
+
+const StyledHit = styled.div`
+  margin-bottom: 2%;
+  font-size: 1.6rem;
+  color: white;
 `;
 
 const hitCom = props => {
   return (
     <Link to={`/home/shelters/all/${props.hit.linkId}`}>
       <div>
-        <div>{props.hit.name}</div>
+        <StyledHit>{props.hit.name}</StyledHit>
       </div>
     </Link>
   );
@@ -106,7 +110,7 @@ class SearchBar extends React.Component {
       <div>
         <main>
           <Modal show={this.state.searchEnabled} close={this.disableSearch}>
-            <InstantSearchContainer>
+            <InstantSearchContainer className="landingSearch">
               <InstantSearch indexName="empact" searchClient={searchClient}>
                 <SearchBoxContainer>
                   <SearchBox />
@@ -119,8 +123,8 @@ class SearchBar extends React.Component {
           </Modal>
           <FakeSearchInputContainer onClick={this.enableSearch}>
             <FakeInputContainer>
-            <FakeSearchInput placeholder="search for resources you need" />
-            <i class="fas fa-search fa-lg"></i>
+              <FakeSearchInput placeholder="search for resources you need" />
+              <i class="fas fa-search fa-lg" />
             </FakeInputContainer>
             <FakeSearchButton>SEARCH</FakeSearchButton>
           </FakeSearchInputContainer>
@@ -135,7 +139,7 @@ const Modal = ({ close, show, children }) => {
 
   return (
     <div className={showHideClassName}>
-      <section className="modal-main">
+      <section className="modal-landing">
         {children}
         <div className="closeButton" onClick={close}>
           X
