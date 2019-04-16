@@ -7,7 +7,6 @@ import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 
 import "../App.css";
 
-
 const searchClient = algoliasearch(
   "QD6TWFQZCN",
   "028bde3e8ce26fd3245e84b3807905b9"
@@ -51,7 +50,7 @@ const SearchBoxContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 75%;
-  margin-left: 12.5%
+  margin-left: 12.5%;
 `;
 
 const SearchResultsContainer = styled.div`
@@ -59,15 +58,13 @@ const SearchResultsContainer = styled.div`
   height: 83vh;
   width: 100vw;
   padding-left: 10%;
-  // display: flex;
-  // justify-content: center;
 `;
 
 const StyledHit = styled.div`
   margin-bottom: 2%;
   font-size: 1.6rem;
   color: white;
-`
+`;
 
 const hitCom = props => {
   return (
