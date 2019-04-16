@@ -14,6 +14,7 @@ const SingleResourceCard = styled.div`
   height: 501px;
   display: flex;
   margin: 0 auto;
+  margin-bottom: 100px;
   width: 100%;
   align-items: center;
   flex-wrap: wrap;
@@ -115,7 +116,7 @@ const ListText = styled.div`
 
 const mapStyles = {
   map: {
-    width: "406px",
+    width: "384px",
     height: "363px"
   }
 };
