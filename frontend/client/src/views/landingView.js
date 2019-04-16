@@ -13,6 +13,7 @@ const LandingViewContainer = styled.div`
   height: 100vh;
   margin: 0 auto;
   display: flex;
+  overflow-x: hidden;
 `;
 
 const LandingSearchContainer = styled.div`
