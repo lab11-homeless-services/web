@@ -16,19 +16,93 @@ import { Link } from "react-router-dom";
 const ShelterNearestCard = styled.div`
   border-radius: 2px;
   height: 63%;
-  width: 112%;
+  width: 96%;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin: 12% 0 0 4%;
+  margin: 13% 0 0 5%;
   box-shadow: 1px 2px 8px 1px #00000050;
-  padding-right: 2%
+  padding-right: 2%;
 `;
 
 const ShelterInfoContainer = styled.div`
   width: 65%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  h3 {
+    color: #414361;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 5% 0 0 3%;
+  }
+  h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 6% 0 0 3%;
+  }
+`;
+
+const ShelterAddress = styled.div`
+  display: flex;
+  margin: 8% 0 0 3%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  p {
+    margin-top: 1%;
+  }
+`;
+
+const TransportationInfoContainer = styled.div`
+  display: flex;
+  margin: 4% 0 0 3%;
+  p {
+    margin: 2% 0 0 2%;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-left: 5%;
+  }
+`;
+
+const TransitInfo = styled.div`
+  display: flex;
+  width: 33%;
+  border-right: 1px solid lightgrey;
+  p {
+    margin-left: 10%;
+  }
+`;
+
+const WalkingInfo = styled.div`
+  display: flex;
+  width: 50%;
+  margin-left: 2%;
+`;
+
+const PhoneHoursContainer = styled.div`
+  margin: 5% 0 0 3%;
+  display: flex;
+  p {
+    font-size: .7rem;
+    margin: 2% 0 0 10%;
+    font-weight: bold;
+  }
+`;
+
+const PhoneInfo = styled.div`
+  width: 45%;
+  display: flex;
+  border-right: 1px solid lightgrey;;
+`;
+
+const HoursInfo = styled.div`
+  display: flex;
+  margin: 0 0 0 4%;
+`;
+
+const ShelterInfoButtons = styled.div`
+  display: flex;
+  margin: 18% 0 0 3%;
 `;
 
 const mapStyles = {
@@ -140,7 +214,7 @@ const SheltersNearestYou = props => {
       },
       callback
     );
-    
+
     let nextService = new google.maps.DistanceMatrixService();
     nextService.getDistanceMatrix(
       {
@@ -149,7 +223,8 @@ const SheltersNearestYou = props => {
         travelMode: "TRANSIT",
         unitSystem: google.maps.UnitSystem.IMPERIAL
       },
-      otherCallback);
+      otherCallback
+    );
 
     async function callback(response, status) {
       // See Parsing the Results for
@@ -233,35 +308,52 @@ const SheltersNearestYou = props => {
         <ShelterInfoContainer>
           {newShelters.length > 0 ? (
             <div>
-              <p>SHELTER NEAREST TO YOU</p>
-              <p>{newShelters[0].name}</p>
-              <p>{firstShelter.address}</p>
+              <h3>SHELTER NEAREST TO YOU</h3>
+              <h4>{newShelters[0].name}</h4>
+              <ShelterAddress>
+                <i class="fas fa-map-marker-alt" />
+                <p>{firstShelter.address}</p>
+              </ShelterAddress>
             </div>
           ) : (
             <div>Loading Shelters</div>
           )}
           <div>
             {state.walkingTime.length && state.transitTime.length > 0 ? (
-              <div>
-                <div>Walking: {state.walkingTime}</div>
-                <div>Transit: {state.transitTime}</div>
-              </div>
+              <TransportationInfoContainer>
+                <TransitInfo>
+                  <i class="fas fa-bus" />
+                  <p>Transit: {state.transitTime}</p>
+                </TransitInfo>
+                <WalkingInfo>
+                  <i class="fas fa-walking" />
+                  <p>Walking: {state.walkingTime}</p>
+                </WalkingInfo>
+              </TransportationInfoContainer>
             ) : (
               "Travel Time Loading"
             )}
           </div>
           {newShelters.length > 0 ? (
-            <div>
-              <p>{firstShelter.phone}</p>
-              <p>{firstShelter.hours}</p>
-            </div>
+            <PhoneHoursContainer>
+              <PhoneInfo>
+                <i class="fas fa-phone" />
+                <p>{firstShelter.phone}</p>
+              </PhoneInfo>
+              <HoursInfo>
+                <i class="fas fa-clock" />
+                <p>{firstShelter.hours}</p>
+              </HoursInfo>
+            </PhoneHoursContainer>
           ) : (
             <div>Loading Info</div>
           )}
+          <ShelterInfoButtons>
           {newShelters.length > 0 ? (
             <ViewDetailsButton props={newShelters[0].id} />
           ) : null}
           <div onClick={() => openMap()}>View Map</div>
+          </ShelterInfoButtons>
         </ShelterInfoContainer>
       </GoogleMapProvider>
     </ShelterNearestCard>
