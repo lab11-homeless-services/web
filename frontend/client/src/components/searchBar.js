@@ -1,11 +1,11 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 
-import '../App.css';
+import "../App.css";
 
 const searchClient = algoliasearch(
   "QD6TWFQZCN",
@@ -43,24 +43,40 @@ const FakeSearchButton = styled.div`
 `;
 
 const InstantSearchContainer = styled.div`
-  margin-top: 100px;
+  margin: 50px 0 0 0;
+`;
+
+const SearchBoxContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  border: 1px solid green;
+`;
+
+const SearchResultsContainer = styled.div`
+  margin: 30px 0 0 0;
+  padding: 5% 0 0 0;
+  height: 83vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  border: 1px solid red;
 `;
 
 const hitCom = props => {
   return (
     <Link to={`/home/shelters/all/${props.hit.linkId}`}>
       <div>
-          <div>{props.hit.name}</div>
+        <div>{props.hit.name}</div>
       </div>
     </Link>
-    ) ;
+  );
 };
 
 class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchEnabled: false,
+      searchEnabled: false
     };
   }
 
@@ -81,34 +97,39 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-      <main>
-        <Modal show={this.state.searchEnabled} close={this.disableSearch}>
-          <InstantSearchContainer>
-            <InstantSearch indexName="empact" searchClient={searchClient}>
-              <SearchBox />
-              <Hits hitComponent={hitCom} />
-            </InstantSearch>
-          </InstantSearchContainer>
-        </Modal>
+        <main>
+          <Modal show={this.state.searchEnabled} close={this.disableSearch}>
+            <InstantSearchContainer>
+              <InstantSearch indexName="empact" searchClient={searchClient}>
+                <SearchBoxContainer>
+                  <SearchBox />
+                </SearchBoxContainer>
+                <SearchResultsContainer>
+                  <Hits hitComponent={hitCom} />
+                </SearchResultsContainer>
+              </InstantSearch>
+            </InstantSearchContainer>
+          </Modal>
           <FakeSearchInputContainer onClick={this.enableSearch}>
-            <FakeSearchInput placeholder= 'search for resources you need' />
+            <FakeSearchInput placeholder="search for resources you need" />
             <FakeSearchButton>SEARCH</FakeSearchButton>
           </FakeSearchInputContainer>
-      </main>
+        </main>
       </div>
     );
   }
 }
 
-
 const Modal = ({ close, show, children }) => {
-  const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+  const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHideClassName}>
-      <section className='modal-main'>
+      <section className="modal-main">
         {children}
-        <div className='closeButton' onClick={close}>X</div>
+        <div className="closeButton" onClick={close}>
+          X
+        </div>
       </section>
     </div>
   );
