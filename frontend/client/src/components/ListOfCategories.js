@@ -36,6 +36,10 @@ const CategoryButton = styled.div`
   text-align: center;
   border: 1px solid white;
   box-shadow: 1px 2px 4px 2px #00000050;
+  p {
+    color: white;
+    margin-top: 7%;
+  }
 `;
 
 const CategoryButtonsHeader = styled.h2`
@@ -43,6 +47,10 @@ const CategoryButtonsHeader = styled.h2`
   font-weight: bold;
   margin: 19% 0 4% 4%;
 `;
+
+const StyledImage = styled.img`
+ width: 40px;
+`
 const images = [image1, image2, image3, image4, image5, image6, image7, image8 ]
 
 const ListOfCats = () => {
@@ -83,7 +91,7 @@ const ListOfCats = () => {
                 return(
                   <CategoryButton>
                     <NavLink key={index} to={`/home/${category}`}>
-                      <img src={images[thing]} alt={`${category}`}/>
+                      <StyledImage src={images[thing]} alt={`${category}`}/>
                       <p>{category.replace(/_/g, ' ').toUpperCase()}</p>
                     </NavLink>
                   </CategoryButton>
