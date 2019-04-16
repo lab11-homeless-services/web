@@ -91,9 +91,13 @@ const LandingNavBar = styled.div`
   margin-top: 8%;
 `;
 
-const LandingNavBarText = styled.p`
+const LandingNavBarText = styled.div`
   color: #414361;
   font-size: 12px;
+  display: flex;
+  p {
+    margin-left: 5px;
+  }
 `;
 
 const LandingFooter = styled.div`
@@ -120,16 +124,20 @@ const LandingView = () => {
         <LandingSearchContainer>
           <LandingNavBar>
             <LandingNavBarText>
-              <i class="fas fa-book-reader fa-lg" /> ABOUT US
+              <i class="fas fa-book-reader fa-lg" /> 
+              <p>ABOUT US</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="fas fa-user-friends fa-lg" /> VOLUNTEER
+              <i class="fas fa-user-friends fa-lg" /> 
+              <p>VOLUNTEER</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="far fa-handshake fa-lg" /> OUR PARTNERS
+              <i class="far fa-handshake fa-lg" /> 
+              <p>OUR PARTNERS</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="far fa-envelope fa-lg" /> CONTACT US
+              <i class="far fa-envelope fa-lg" /> 
+              <p>CONTACT US</p>
             </LandingNavBarText>
           </LandingNavBar>
           <LandingHeader>Search and find resources...</LandingHeader>
