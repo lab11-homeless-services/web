@@ -6,6 +6,43 @@ import BreadcrumbMainCat from '../components/BreadcrumbMainCat'
 
 const TabNav = props => {
     let id = props.match.params.id;
+
+   if(id.includes('outreach')) {
+    id = id.replace(/\s+/g, "_");
+    const subCats = useFetch(`https://empact-e511a.firebaseio.com/${id}.json`);
+    // Use fetch returns an Object, so Object.keys is used to map over the object's keys
+    return (
+      <TabContainer>
+        <i class="fas fa-arrow-left"></i>
+        <div className='back2cat'>
+          <a>Back to Categories</a>
+        </div>
+      {Object.keys(subCats).map(subCat => {
+        if (subCat === '_all' ) {
+          return(
+            <div className='right-arrow'>
+              <MainCatBTN>
+              <BreadcrumbMainCat cat={id}/>
+              </MainCatBTN>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            
+          )
+        }
+        console.log("tabs", Object.keys)
+        return (
+          <div className='subcatbtn'>
+            <Tabs className="test">
+              <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat}</NavLink>
+            </Tabs>
+          </div>
+            
+          );
+      })}
+    </TabContainer>
+    );
+   }
+
     id = id.replace(/\s+/g, "_");
 
     const subCats = useFetch(`https://empact-e511a.firebaseio.com/${id}.json`);
@@ -18,7 +55,7 @@ const TabNav = props => {
           <a>Back to Categories</a>
         </div>
       {Object.keys(subCats).map(subCat => {
-        if (subCat === 'all') {
+        if (subCat === 'all' ) {
           return(
             <div className='right-arrow'>
               <MainCatBTN>

@@ -89,13 +89,78 @@ const ResourcesNearestYou = props => {
     return data;
   }
 
-  listOfResources = fetcher(
-    `https://empact-e511a.firebaseio.com/${category}/all.json`
+  if (category === "outreach_services") {
+    listOfResources = fetcher(
+      `https://empact-e511a.firebaseio.com/${category}/_all.json`
+    );
+
+    let newResources = [];
+  let id = 0;
+
+  for (let i = 0; i < listOfResources.length; i++) {
+    const lat = Number(listOfResources[i].latitude);
+    const lon = Number(listOfResources[i].longitude);
+    const point = { lat, lon };
+    const dist = latlngDist.distanceDiffInKm(point, state.currentLocation);
+    const resource = Object.assign(listOfResources[i], {
+      distance: dist,
+      id: id,
+      latitude: lat,
+      longitude: lon
+    });
+    newResources.push(resource);
+    id++;
+  }
+
+  const sortArrayOfObjects = (arr, key) => {
+    return arr.sort((a, b) => {
+      return a[key] - b[key];
+    });
+  };
+
+  sortArrayOfObjects(newResources, "distance");
+  console.log(newResources);
+  let list = [];
+  for (let i = 0; i < 3; i++) {
+    list.push(newResources[i]);
+  }
+
+  return (
+    <ResourcesNearestYouContainer>
+      {list.map(item => {
+        console.log("item", item);
+        if (item && item.name) {
+          return (
+            <ResourcesNearestYouCard>
+              <ResourceCardDetail>{item.name}</ResourceCardDetail>
+              <ResourceCardDetail>
+                <i class="fas fa-map-marker-alt" /> {item.address}
+              </ResourceCardDetail>
+              <ResourceCardDetail>
+                <i class="fas fa-phone" /> {item.phone}
+              </ResourceCardDetail>
+              <ResourceCardDetail>
+                <i class="fas fa-clock" /> {item.hours}
+              </ResourceCardDetail>
+              <Link to={`/home/${category}/_all/${item.id}`}>
+                <DetailsButton>
+                  <i class="fas fa-external-link-alt" /> View Details
+                </DetailsButton>
+              </Link>
+            </ResourcesNearestYouCard>
+          );
+        } else {
+          return <div>Loading</div>;
+        }
+      })}
+    </ResourcesNearestYouContainer>
   );
 
-  console.log(listOfResources);
-
-  let newResources = [];
+  } else {
+    listOfResources = fetcher(
+      `https://empact-e511a.firebaseio.com/${category}/all.json`
+    );
+    let newResources = [];
   let id = 0;
 
   for (let i = 0; i < listOfResources.length; i++) {
@@ -156,6 +221,8 @@ const ResourcesNearestYou = props => {
       })}
     </ResourcesNearestYouContainer>
   );
+};
+  
 };
 
 export default ResourcesNearestYou;
