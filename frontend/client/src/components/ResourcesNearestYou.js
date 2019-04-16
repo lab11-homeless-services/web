@@ -142,7 +142,7 @@ const ResourcesNearestYou = props => {
               <ResourceCardDetail>
                 <i class="fas fa-clock" /> {item.hours}
               </ResourceCardDetail>
-              <Link to={`/home/${category}/all/${item.id}`}>
+              <Link to={`/home/${category}/_all/${item.id}`}>
                 <DetailsButton>
                   <i class="fas fa-external-link-alt" /> View Details
                 </DetailsButton>
