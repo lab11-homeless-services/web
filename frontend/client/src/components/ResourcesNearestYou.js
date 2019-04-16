@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useContext, useState } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import latlngDist from "latlng-distance";
