@@ -21,7 +21,7 @@ const ShelterNearestCard = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   margin: 12% 0 0 4%;
-  box-shadow: 1px 2px 4px 2px #00000050;
+  box-shadow: 1px 2px 8px 1px #00000050;
 `;
 
 const Info = styled.div`

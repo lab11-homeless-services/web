@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "../components/searchBar";
+import LandingSearchBar from "../components/LandingSearchBar";
 import { NavLink } from "react-router-dom";
 import { useStateValue } from "../state/state";
 import styled from "styled-components";
@@ -138,7 +138,7 @@ const LandingView = () => {
           </LandingNavBar>
           <LandingHeader>Search and find resources...</LandingHeader>
           <LandingSearchInput>
-            <SearchBar />
+            <LandingSearchBar />
           </LandingSearchInput>
           <LandingLanguageSelectionContainer className="language">
             <NavLink to="/home">
