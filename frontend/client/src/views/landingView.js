@@ -99,10 +99,10 @@ const LandingLanguageImage = styled.img`
 `;
 
 const LogoContainer = styled.div`
-  height: 31%;
+  height: 25%;
   width: 100%;
   background-color: #414361;
-  border-radius: 4px 65px 0 0;
+  border-radius: 4px 60px 0 0;
   display: flex;
   align-items: center;
   @media (max-width: 600px) {
@@ -113,7 +113,7 @@ const LogoContainer = styled.div`
 `;
 
 const LandingCTAImg = styled.img`
-  height: 55%;
+  height: 68%;
   width: 100%;
   border-radius: 0 0 16px 4px;
   @media (max-width: 600px) {
