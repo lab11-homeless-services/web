@@ -13,7 +13,7 @@ import image4 from '../img/hygiene.png'
 import image8 from '../img/employment.png'
 
 const ListOfCatsContainer = styled.div`
-  width: 37%;
+  width: 43%;
   @media(max-width: 1024px) {
     width: 100%;
     margin-bottom: 5%;
