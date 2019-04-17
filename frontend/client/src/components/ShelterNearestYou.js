@@ -129,7 +129,7 @@ const ViewMapButton = styled.div`
 const mapStyles = {
   map: {
     width: "485px",
-    height: "85%"
+    height: "340px"
   }
 };
 
