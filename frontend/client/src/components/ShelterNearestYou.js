@@ -27,11 +27,17 @@ const ShelterNearestCard = styled.div`
     margin-left: 2%;
     margin-top: -4%;
   }
+  @media(max-width: 600px) {
+    margin-top: 5%;
+    flex-direction: column-reverse;
+    height: 620px;
+    border: 1px solid black;
+  }
 `;
 
 const ShelterInfoContainer = styled.div`
   width: 65%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   h3 {
@@ -44,6 +50,13 @@ const ShelterInfoContainer = styled.div`
     font-size: 1.2rem;
     font-weight: bold;
     margin: 5% 0 0 3%;
+  }
+  @media(max-width: 600px) {
+    width: 100%;
+    height: auto;
+    h3 {
+      margin-left: 3%;
+    }
   }
 `;
 
@@ -124,6 +137,16 @@ const ShelterInfoButtons = styled.div`
   @media(max-width: 1024px) {
     margin-top: 5%;
   }
+  @media(max-width: 900px) {
+    flex-direction: column;
+  }
+  @media(max-width: 600px) {
+    margin-bottom: 3%;
+    justify-content: space-evenly;
+    margin-left: 12%;
+    flex-direction: row;
+
+  }
 `;
 
 const ViewMapButton = styled.div`
@@ -138,12 +161,18 @@ const ViewMapButton = styled.div`
   color: #414361;
   cursor: pointer;
   box-shadow: inset 1px 1px 0px 0px #00000050;
+  margin-left: 4%;
   p {
     margin: 0 0 0 7%;
     font-weight: bold;
   }
   @media(max-width: 1024px) {
     margin-top: 3%;
+    margin-left: 3%;
+  }
+  @media(max-width: 600px) {
+    margin-bottom: 0;
+    margin-left: 3%;
   }
 `;
 
@@ -151,10 +180,16 @@ const MapDiv = styled.div`
   width: 485px;
   height: 85%;
 
-  @media(max-width: 1024) {
+  @media(max-width: 1024px) {
     width: 500px;
-    height: 200px;
+    height: 300px;
   }
+  @media(max-width: 600px) {
+    width: 90%;
+    margin-left: 1.5%;
+    padding-bottom: 6%;
+  }
+
 `
 
 // const mapStyles = {

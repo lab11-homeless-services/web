@@ -15,6 +15,10 @@ bottom: 0;
   @media (max-width: 600px) {
 display: none;
   }
+@media(max-width: 1024px) {
+  position: relative;
+  margin-top: 5%;
+}
 `;
 
 const FooterText = styled.p`
@@ -23,6 +27,7 @@ const FooterText = styled.p`
   font-size: 13px;
 
   @media (max-width: 600px) {
+  @media(max-width: 600px) {
     display: none;
   }
 `;

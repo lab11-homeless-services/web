@@ -18,7 +18,7 @@ const FakeSearchInput = styled.input`
   padding-left: 15px;
   font-size: 14px;
   border-radius: 2px;
-  border: none;
+  border: 1px solid lightgrey;
   box-shadow: 2px 4px 10px 2px #00000050;
   color: #9b9b9b;
 `;
