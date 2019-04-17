@@ -111,7 +111,7 @@ const PreviousButton = styled.div`
   cursor: pointer;
 
   @media (max-width: 600px) {
-    width: 480px
+    width: 352px
     justify-content: center;
   }
 `;
