@@ -15,6 +15,9 @@ const LandingViewContainer = styled.div`
   margin: 0 auto;
   display: flex;
   overflow-x: hidden;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const LandingSearchContainer = styled.div`
@@ -22,24 +25,34 @@ const LandingSearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 3%;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const LandingImageContainer = styled.div`
   width: 48%;
   height: 100vh;
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 55%
+  }
 `;
 
 const LandingHeader = styled.h1`
   font-size: 1.2rem;
   margin: 20% 0 0 2%;
   width: 100%;
+  @media (max-width: 1024px) {
+    margin: 25% 0 0 0;
+  }
 `;
 
 const LandingSearchInput = styled.div`
   margin: 15% 0 0 2%;
   width: 100%;
   @media (max-width: 1024px) {
-    margin: 15% 0 0 0;
+    margin: 8% 0 0 0;
   }
 `;
 
@@ -53,6 +66,10 @@ const LandingLanguageSelectionContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     margin-left: 7%;
+  };
+  @media (max-width: 600px) {
+    width: 70%;
+    margin: 10% 0 0 14%;
   }
 `;
 
@@ -88,17 +105,29 @@ const LogoContainer = styled.div`
   border-radius: 4px 65px 0 0;
   display: flex;
   align-items: center;
+  @media (max-width: 600px) {
+    height: 22%;
+    border-radius: 0;
+    justify-content: center;
+  }
 `;
 
 const LandingCTAImg = styled.img`
-  height: 60%;
+  height: 55%;
   width: 100%;
   border-radius: 0 0 16px 4px;
+  @media (max-width: 600px) {
+    height: 100%;
+    border-radius: 0;
+  }
 `;
 
 const LandingLogoImg = styled.img`
   width: 45%;
   margin: 0 0 0 7%;
+  @media (max-width: 600px) {
+    margin: 0;
+  }
 `;
 
 const LandingNavBar = styled.div`
@@ -106,6 +135,9 @@ const LandingNavBar = styled.div`
   justify-content: space-between;
   width: 95%;
   margin-top: 9%;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const LandingNavBarText = styled.div`
