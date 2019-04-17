@@ -1,17 +1,15 @@
-import React, { useReducer, useEffect, useContext, useState } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import {
   GoogleMapProvider,
   InfoWindow,
   MapBox,
-  Marker,
-  GoogleMapContext
+  Marker
 } from "@googlemap-react/core";
 import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import latlngDist from "latlng-distance";
 import styled from "styled-components";
 import ViewDetailsButton from "../components/ViewDetailsButton.js";
-import { Link } from "react-router-dom";
 
 const ShelterNearestCard = styled.div`
   border-radius: 2px;
