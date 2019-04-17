@@ -27,6 +27,10 @@ const SingleResourceCard = styled.div`
   @media (max-width: 1024px) {
     height: 862px;
   }
+
+  @media (max-width: 600px) {
+    height: auto;
+  }
 `;
 
 const Info = styled.div`
@@ -39,6 +43,11 @@ const Info = styled.div`
     width: 50%;
     padding-left: 4%;
     height: 326px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -56,6 +65,12 @@ const DetailsServices = styled.div`
   @media (max-width: 1024px) {
     width: 45%;
     padding-top: 45px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    height: auto;
+    padding: 50px 4%;
   }
 `;
 
@@ -77,6 +92,10 @@ const PrintButton = styled.div`
   font-size: 1.2rem;
   width: 120px;
   cursor: pointer;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const PreviousButton = styled.div`
@@ -90,6 +109,11 @@ const PreviousButton = styled.div`
   font-size: 1.2rem;
   width: 200px;
   cursor: pointer;
+
+  @media (max-width: 600px) {
+    width: 480px
+    justify-content: center;
+  }
 `;
 
 const ViewMap = styled.div`
@@ -103,6 +127,11 @@ const ViewMap = styled.div`
   font-size: 1.2rem;
   width: 145px;
   cursor: pointer;
+
+  @media (max-width: 600px) {
+    width: 92%;
+    justify-content: center;
+  }
 `;
 
 const ButtonsDiv = styled.div`
@@ -167,13 +196,6 @@ const ListText = styled.div`
   width: 100%;
 `;
 
-// const mapStyles = {
-//   map: {
-//     width: "383px",
-//     height: "363px"
-//   }
-// };
-
 const SingleResource = props => {
   const [state, setState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -236,8 +258,6 @@ const SingleResource = props => {
     `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
   );
 
-  //   const style = Object.assign({}, mapStyles.map);
-
   const { google } = props;
 
   if (resource !== undefined) {
@@ -273,9 +293,6 @@ const SingleResource = props => {
     );
 
     async function callback(response, status) {
-      // See Parsing the Results for
-      // the basics of a callback function..
-
       if (
         response &&
         response.rows.length > 0 &&
@@ -292,9 +309,6 @@ const SingleResource = props => {
     }
 
     async function otherCallback(response, status) {
-      // See Parsing the Results for
-      // the basics of a callback function..
-
       if (
         response &&
         response.rows.length > 0 &&
@@ -344,14 +358,14 @@ const SingleResource = props => {
         <Info>
           <Title>{resource.name}</Title>
           <InfoText>
-            <i class="fas fa-map-marker-alt" />
+            <i className="fas fa-map-marker-alt" />
             {resource.address}
           </InfoText>
 
           <div className="travel-time">
             {state.walkingTime.length && state.transitTime.length > 0 ? (
               <InfoText>
-                <i class="fas fa-bus" />
+                <i className="fas fa-bus" />
                 {state.transitTime}
                 <i class="fas fa-walking" /> {state.walkingTime}
               </InfoText>
@@ -367,10 +381,12 @@ const SingleResource = props => {
               {resource.hours}
             </InfoText>
           </div>
-          <ViewMap onClick={() => openMap()}>
-            <i class="fas fa-location-arrow" />
-            View Map
-          </ViewMap>
+          <div className="map-button">
+            <ViewMap onClick={() => openMap()}>
+              <i className="fas fa-location-arrow" />
+              View Map
+            </ViewMap>
+          </div>
         </Info>
         {resource.details && resource.services ? (
           <DetailsServices>
@@ -441,7 +457,6 @@ const SingleResource = props => {
         )}
         <div className="maps">
           <MapBox
-            //   style={style}
             apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
             className="map-box"
             opts={{
@@ -475,13 +490,15 @@ const SingleResource = props => {
         />
         <ButtonsDiv>
           <NavLink to={`/home/${category}`}>
-            <PreviousButton>
-              <i class="fas fa-arrow-left" />
-              Previous Page
-            </PreviousButton>
+            <div className="previous-button">
+              <PreviousButton>
+                <i className="fas fa-arrow-left" />
+                Previous Page
+              </PreviousButton>
+            </div>
           </NavLink>
           <PrintButton>
-            <i class="fas fa-print" />
+            <i className="fas fa-print" />
             PRINT
           </PrintButton>
         </ButtonsDiv>
