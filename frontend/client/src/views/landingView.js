@@ -102,7 +102,7 @@ const LandingLanguageImage = styled.img`
 `;
 
 const LogoContainer = styled.div`
-  height: 28%;
+  height: 30%;
   width: 100%;
   background-color: #414361;
   border-radius: 4px 60px 0 0;
