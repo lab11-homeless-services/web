@@ -25,7 +25,7 @@ const SingleResourceCard = styled.div`
   padding: 2%;
 
   @media (max-width: 1024px) {
-    height: 845px;
+    height: 862px;
   }
 `;
 
@@ -109,7 +109,9 @@ const ButtonsDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-top: 39px;
+  @media (max-width: 1024px) {
+    padding: 40px 45px 40px 37px;
+  }
 `;
 
 const InfoText = styled.div`
