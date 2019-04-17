@@ -14,7 +14,7 @@ const SingleResourceContainer = styled.div`
 
 const SingleResourceView = props => {
   return (
-    <div>
+    <div className="blah">
       <Header />
       <TabNavforSubView props={props} />
       <SingleResourceContainer>

@@ -12,7 +12,7 @@ import styled from "styled-components";
 
 const SingleResourceCard = styled.div`
   border-radius: 3px;
-  height: 501px;
+  height: 530px;
   display: flex;
   margin: 0 auto;
   margin-bottom: 100px;
@@ -23,6 +23,10 @@ const SingleResourceCard = styled.div`
   box-shadow: 1px 1px 3px 1px #ccc;
   border-radius: 3px;
   padding: 2%;
+
+  @media (max-width: 1024px) {
+    height: 845px;
+  }
 `;
 
 const Info = styled.div`
@@ -30,6 +34,12 @@ const Info = styled.div`
   width: 32%;
   color: #4a4a4a;
   padding-top: 45px;
+
+  @media (max-width: 1024px) {
+    width: 50%;
+    padding-left: 4%;
+    height: 326px;
+  }
 `;
 
 const Title = styled.div`
@@ -42,6 +52,11 @@ const DetailsServices = styled.div`
   height: 361px;
   width: 32%;
   margin-right: 3%;
+
+  @media (max-width: 1024px) {
+    width: 45%;
+    padding-top: 45px;
+  }
 `;
 
 const DetailsTitles = styled.div`
@@ -94,6 +109,7 @@ const ButtonsDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-top: 39px;
 `;
 
 const InfoText = styled.div`
@@ -149,12 +165,12 @@ const ListText = styled.div`
   width: 100%;
 `;
 
-const mapStyles = {
-  map: {
-    width: "384px",
-    height: "363px"
-  }
-};
+// const mapStyles = {
+//   map: {
+//     width: "383px",
+//     height: "363px"
+//   }
+// };
 
 const SingleResource = props => {
   const [state, setState] = useReducer(
@@ -218,7 +234,7 @@ const SingleResource = props => {
     `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
   );
 
-  const style = Object.assign({}, mapStyles.map);
+  //   const style = Object.assign({}, mapStyles.map);
 
   const { google } = props;
 
@@ -323,11 +339,6 @@ const SingleResource = props => {
   return (
     <SingleResourceCard>
       <GoogleMapProvider>
-        {/* <div>
-          <div>
-            <div style={style}>Loading map...</div>
-          </div>
-        </div> */}
         <Info>
           <Title>{resource.name}</Title>
           <InfoText>
@@ -394,18 +405,52 @@ const SingleResource = props => {
                 ))
               : null}
           </DetailsServices>
-        ) : null}
-        <MapBox
-          style={style}
-          apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
-          opts={{
-            center: {
-              lat: state.resourceLocation.lat,
-              lng: state.resourceLocation.lon
-            },
-            zoom: 14
-          }}
-        />
+        ) : (
+          <DetailsServices>
+            <DetailsTitles>
+              <ServiceButton
+                showingDetails={state.showingDetails}
+                showingServices={state.showingServices}
+                onClick={showServices}
+              >
+                Services
+              </ServiceButton>
+              <DetailsButton
+                showingDetails={state.showingDetails}
+                showingServices={state.showingServices}
+                onClick={showDetails}
+              >
+                Details
+              </DetailsButton>
+            </DetailsTitles>
+            {state.showingDetails === true ? (
+              <ServiceList>
+                <ListNumber>{1}</ListNumber>
+                <ListText>No details to display</ListText>
+              </ServiceList>
+            ) : null}
+            {state.showingServices === true ? (
+              <ServiceList>
+                <ListNumber>1</ListNumber>
+                <ListText>No services to display</ListText>
+              </ServiceList>
+            ) : null}
+          </DetailsServices>
+        )}
+        <div className="maps">
+          <MapBox
+            //   style={style}
+            apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
+            className="map-box"
+            opts={{
+              center: {
+                lat: state.resourceLocation.lat,
+                lng: state.resourceLocation.lon
+              },
+              zoom: 14
+            }}
+          />
+        </div>
         <InfoWindow
           anchorId="marker"
           opts={{

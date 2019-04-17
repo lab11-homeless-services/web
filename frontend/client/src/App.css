@@ -302,3 +302,10 @@ table {
   border-radius: 2px;
   display: none;
 }
+
+.maps {
+  width: 383px;
+  height: 363px;
+  position: relative;
+  overflow: hidden;
+}
