@@ -15,6 +15,7 @@ const DetailsButton = styled.div`
   padding: 0 10px 0 5px;
   font-size: .9rem;
   font-weight: bold;
+  box-shadow: 1px 1px 4px 2px #00000050;
 `;
 
 const ViewDetailsButton = props => {
