@@ -11,12 +11,25 @@ justify-content: flex-end;
 align-items: center;
 position: fixed;
 bottom: 0;
+
+  @media (max-width: 600px) {
+display: none;
+  }
+@media(max-width: 1024px) {
+  position: relative;
+  margin-top: 5%;
+}
 `;
 
 const FooterText = styled.p`
   margin-right: 50px;
   padding: 5px;
   font-size: 13px;
+
+  @media (max-width: 600px) {
+  @media(max-width: 600px) {
+    display: none;
+  }
 `;
 const Footer = () => {
   return (
