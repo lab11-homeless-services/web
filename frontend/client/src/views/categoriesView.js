@@ -11,6 +11,9 @@ const InfoContainer = styled.div`
   max-width: 1366px;
   width: 100%;
   margin: 0 auto;
+  @media(max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 const CategoriesView = props => {
