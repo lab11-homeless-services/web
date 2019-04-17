@@ -53,9 +53,13 @@ const TabNav = props => {
           return (
             <div className='subcatbtn'>
               <Tabs className="test">
-                <StyledSubCatIcon src={afterSchool} alt="after school"/>
-                <div class="vl"></div>
-                <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                <div className='subcatIcon'>
+                  <StyledSubCatIcon src={afterSchool} alt="after school"/>
+                  <div class="vl"></div>
+                </div>
+                <div className='subCatLink'>
+                  <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                </div>
               </Tabs>
             </div>
             );
@@ -65,9 +69,13 @@ const TabNav = props => {
           return (
             <div className='subcatbtn'>
               <Tabs className="test">
-                <StyledSubCatIcon src={abuse} alt="domestic violence"/>
-                <div class="vl"></div>
-                <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                <div className='subcatIcon'>
+                  <StyledSubCatIcon src={abuse} alt="domestic violence"/>
+                  <div class="vl"></div>
+                </div>
+                <div className='subCatLink'>
+                  <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                </div>
               </Tabs>
             </div>
             );
@@ -77,22 +85,17 @@ const TabNav = props => {
           return (
             <div className='subcatbtn'>
               <Tabs className="test">
-                <StyledSubCatIcon src={socialServices} alt="social services"/>
-                <div class="vl"></div>
-                <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                <div className='subcatIcon'>
+                  <StyledSubCatIcon src={socialServices} alt="social services"/>
+                  <div class="vl"></div>
+                </div>
+                <div className='subCatLink'>
+                  <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                </div>
               </Tabs>
             </div>
             );
         }
-        console.log("tabs", Object.keys)
-        return (
-          <div className='subcatbtn'>
-            <Tabs className="test">
-              <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
-            </Tabs>
-          </div>
-            
-          );
       })}
     </TabContainer>
     );
