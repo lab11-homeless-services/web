@@ -45,6 +45,9 @@ const LandingHeader = styled.h1`
   width: 100%;
   @media (max-width: 1024px) {
     margin: 25% 0 0 0;
+  };
+  @media (max-width: 600px) {
+    margin: 30% 0 0 0;
   }
 `;
 
