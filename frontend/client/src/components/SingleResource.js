@@ -30,6 +30,7 @@ const SingleResourceCard = styled.div`
 
   @media (max-width: 600px) {
     height: auto;
+    margin-bottom: 20px;
   }
 `;
 
@@ -111,7 +112,7 @@ const PreviousButton = styled.div`
   cursor: pointer;
 
   @media (max-width: 600px) {
-    width: 352px
+    width: 450px
     justify-content: center;
   }
 `;
