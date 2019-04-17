@@ -47,7 +47,7 @@ const LandingHeader = styled.h1`
     margin: 25% 0 0 0;
   };
   @media (max-width: 600px) {
-    margin: 30% 0 0 0;
+    margin: 27% 0 0 0;
   }
 `;
 
@@ -71,8 +71,9 @@ const LandingLanguageSelectionContainer = styled.div`
     margin-left: 7%;
   };
   @media (max-width: 600px) {
-    width: 70%;
-    margin: 10% 0 0 14%;
+    width: 100%;
+    margin: 9% 0 7% 0;
+    justify-content: space-evenly;
   }
 `;
 
@@ -92,6 +93,12 @@ const LandingLanguageSelectionButton = styled.div`
     width: 200px;
     height: 75px;
     margin: 0 0 20% 0;
+  }
+  @media (max-width: 600px) {
+    width: 150px;
+    height: 45px;
+    margin: 0 0 20% 0;
+    font-size: 1.2rem;
   }
 `;
 
@@ -158,6 +165,9 @@ const LandingFooter = styled.div`
   height: 30px;
   position: fixed;
   bottom: 0;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const LandingView = () => {
