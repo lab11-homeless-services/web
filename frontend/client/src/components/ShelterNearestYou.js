@@ -15,14 +15,18 @@ import { Link } from "react-router-dom";
 
 const ShelterNearestCard = styled.div`
   border-radius: 2px;
-  height: 63%;
+  height: 359px;
   width: 96%;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin: 13% 0 0 5%;
+  margin: 15% 0 0 5%;
   box-shadow: 1px 2px 8px 1px #00000050;
   padding-right: 2%;
+  @media(max-width: 1024px) {
+    margin-left: 2%;
+    margin-top: -4%;
+  }
 `;
 
 const ShelterInfoContainer = styled.div`
@@ -54,6 +58,17 @@ const ShelterAddress = styled.div`
 `;
 
 const TransportationInfoContainer = styled.div`
+  display: flex;
+  margin: 5% 0 0 3%;
+  color: #414361;
+  p {
+    margin: 1% 0 0 2%;
+    font-size: 0.75rem;
+    margin-left: 5%;
+  }
+`;
+
+const LoadingParagraph = styled.p`
   display: flex;
   margin: 5% 0 0 3%;
   color: #414361;
@@ -104,8 +119,11 @@ const ShelterInfoButtons = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 21% 0 0 3%;
+  margin: 15% 0 0 3%;
   width: 77%;
+  @media(max-width: 1024px) {
+    margin-top: 5%;
+  }
 `;
 
 const ViewMapButton = styled.div`
@@ -124,15 +142,26 @@ const ViewMapButton = styled.div`
     margin: 0 0 0 7%;
     font-weight: bold;
   }
+  @media(max-width: 1024px) {
+    margin-top: 3%;
+  }
 `;
 
-const mapStyles = {
-  map: {
-    width: "485px",
-    height: "85%"
-  }
-};
+const MapDiv = styled.div`
+  width: 485px;
+  height: 85%;
 
+  @media(max-width: 1024) {
+    width: 500px;
+    height: 200px;
+  }
+`
+
+// const mapStyles = {
+//   map: {
+
+//   }
+// };
 const SheltersNearestYou = props => {
   const [state, setState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -184,7 +213,7 @@ const SheltersNearestYou = props => {
     `https://empact-e511a.firebaseio.com/shelters/all.json`
   );
 
-  const style = Object.assign({}, mapStyles.map);
+  // const style = Object.assign({}, mapStyles.map);
 
   let newShelters = [];
   let id = 0;
@@ -295,8 +324,9 @@ const SheltersNearestYou = props => {
             <div style={style}>Loading map...</div>
           </div>
         </div> */}
+        <MapDiv>
         <MapBox
-          style={style}
+          // style={style}
           apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
           opts={{
             center: {
@@ -306,6 +336,7 @@ const SheltersNearestYou = props => {
             zoom: 14
           }}
         />
+        </MapDiv>
         <InfoWindow
           anchorId="marker"
           opts={{
@@ -352,7 +383,7 @@ const SheltersNearestYou = props => {
                 </WalkingInfo>
               </TransportationInfoContainer>
             ) : (
-              "Travel Time Loading"
+              <LoadingParagraph>Travel Time Loading</LoadingParagraph>
             )}
           </div>
           {newShelters.length > 0 ? (
