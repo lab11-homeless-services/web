@@ -38,12 +38,22 @@ const LandingHeader = styled.h1`
 const LandingSearchInput = styled.div`
   margin: 15% 0 0 2%;
   width: 100%;
+  @media (max-width: 1024px) {
+    margin: 15% 0 0 0;
+  }
 `;
 
 const LandingLanguageSelectionContainer = styled.div`
   display: flex;
   width: 71%;
+  margin-top: 20%
   justify-content: space-between;
+  @media (max-width: 1024px) {
+    width: 79%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 7%;
+  }
 `;
 
 const LandingLanguageSelectionButton = styled.div`
@@ -57,7 +67,12 @@ const LandingLanguageSelectionButton = styled.div`
   align-items: center;
   font-size: 1.7rem;
   color: white;
-  margin: 70% 0 0 38%;
+  margin: 0 0 0 38%;
+  @media (max-width: 1024px) {
+    width: 200px;
+    height: 75px;
+    margin: 0 0 20% 0;
+  }
 `;
 
 const LandingLanguageImage = styled.img`
