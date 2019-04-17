@@ -17,12 +17,13 @@ const HeaderContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 175px;
+  width: 60%;
   height: 50px;
-  margin-left: 15px;
+  margin-left: 2%;
 `;
 
 const LanguageSelection = styled.div`
+  display: none;
   background-color: #ffffff;
   color: #656176;
   width: 5%;
@@ -43,6 +44,7 @@ const LanguageSelectionImage = styled.img`
   height: 20px;
   width: 10%;
   margin-left: 2%;
+  display: none;
 `;
 
 const Header = () => {
@@ -56,7 +58,7 @@ const Header = () => {
         {/* {spanish.spanish === true ? <div>Inicio</div> : <div>Home</div>} */}
       </Link>
       <SearchBar />
-      <LanguageSelection
+      {/* <LanguageSelection
         onClick={() =>
           dispatch({
             type: "setSpanish",
@@ -66,7 +68,7 @@ const Header = () => {
       >
         {spanish.spanish === true ? <p>English</p> : <p>Español?</p>}
         <LanguageSelectionImage src={touch} />
-      </LanguageSelection>
+      </LanguageSelection> */}
     </HeaderContainer>
   );
 };
