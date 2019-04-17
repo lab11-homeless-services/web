@@ -309,3 +309,10 @@ table {
   position: relative;
   overflow: hidden;
 }
+
+@media (max-width: 1024px) {
+  .maps {
+    width: 91%;
+    margin: 0 4%;
+  }
+}
