@@ -14,9 +14,9 @@ import image8 from '../img/employment.png'
 
 const ListOfCatsContainer = styled.div`
   width: 37%;
-  border: 1px solid black;
   @media(max-width: 1024px) {
     width: 100%;
+    margin-bottom: 5%;
   }
 `;
 
@@ -25,7 +25,10 @@ const CategoryButtonContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 25%;
-  border: 1px solid black;
+  @media(max-width: 1024px) {
+    margin-bottom: 0;
+    justify-content: center;
+  }
 `;
 
 const CategoryButton = styled.div`
@@ -41,6 +44,7 @@ const CategoryButton = styled.div`
   text-align: center;
   border: 1px solid white;
   box-shadow: 1px 2px 4px 2px #00000050;
+
   p {
     color: white;
     margin-top: 7%;
