@@ -118,6 +118,7 @@ const ViewMapButton = styled.div`
   justify-content: center;
   font-size: 0.75rem;
   color: #414361;
+  cursor: pointer;
   p {
     margin: 0 0 0 7%;
     font-weight: bold;
