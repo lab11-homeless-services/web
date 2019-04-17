@@ -45,7 +45,7 @@ const CategoryButton = styled.div`
 const CategoryButtonsHeader = styled.h2`
   font-size: 26px;
   font-weight: bold;
-  margin: 19% 0 4% 4%;
+  margin: 22% 0 4% 4%;
 `;
 
 const StyledImage = styled.img`
