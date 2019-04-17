@@ -34,20 +34,20 @@ const ShelterInfoContainer = styled.div`
     color: #414361;
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 5% 0 0 3%;
+    margin: 8% 0 0 3%;
   }
   h4 {
     font-size: 1.2rem;
     font-weight: bold;
-    margin: 6% 0 0 3%;
+    margin: 5% 0 0 3%;
   }
 `;
 
 const ShelterAddress = styled.div`
   display: flex;
-  margin: 8% 0 0 3%;
-  font-size: 0.8rem;
-  font-weight: bold;
+  margin: 6% 0 0 3%;
+  font-size: 0.75rem;
+  color: #414361;
   p {
     margin-top: 1%;
   }
@@ -55,18 +55,18 @@ const ShelterAddress = styled.div`
 
 const TransportationInfoContainer = styled.div`
   display: flex;
-  margin: 4% 0 0 3%;
+  margin: 5% 0 0 3%;
+  color: #414361;
   p {
-    margin: 2% 0 0 2%;
-    font-size: 0.7rem;
-    font-weight: bold;
+    margin: 1% 0 0 2%;
+    font-size: 0.75rem;
     margin-left: 5%;
   }
 `;
 
 const TransitInfo = styled.div`
   display: flex;
-  width: 33%;
+  width: 34%;
   border-right: 1px solid lightgrey;
   p {
     margin-left: 10%;
@@ -76,23 +76,23 @@ const TransitInfo = styled.div`
 const WalkingInfo = styled.div`
   display: flex;
   width: 50%;
-  margin-left: 2%;
+  margin-left: 4%;
 `;
 
 const PhoneHoursContainer = styled.div`
   margin: 5% 0 0 3%;
   display: flex;
+  color: #414361;
   p {
-    font-size: .7rem;
+    font-size: 0.75rem;
     margin: 2% 0 0 10%;
-    font-weight: bold;
   }
 `;
 
 const PhoneInfo = styled.div`
-  width: 45%;
+  width: 34%;
   display: flex;
-  border-right: 1px solid lightgrey;;
+  border-right: 1px solid lightgrey;
 `;
 
 const HoursInfo = styled.div`
@@ -102,7 +102,26 @@ const HoursInfo = styled.div`
 
 const ShelterInfoButtons = styled.div`
   display: flex;
-  margin: 18% 0 0 3%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 21% 0 0 3%;
+  width: 77%;
+`;
+
+const ViewMapButton = styled.div`
+  border: 1px solid lightgrey;
+  width: 35%;
+  height: 40px;
+  margin: 3% 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #414361;
+  p {
+    margin: 0 0 0 7%;
+    font-weight: bold;
+  }
 `;
 
 const mapStyles = {
@@ -322,11 +341,11 @@ const SheltersNearestYou = props => {
             {state.walkingTime.length && state.transitTime.length > 0 ? (
               <TransportationInfoContainer>
                 <TransitInfo>
-                  <i class="fas fa-bus" />
+                  <i class="fas fa-bus fa-sm" />
                   <p>Transit: {state.transitTime}</p>
                 </TransitInfo>
                 <WalkingInfo>
-                  <i class="fas fa-walking" />
+                  <i class="fas fa-walking fa-lg" />
                   <p>Walking: {state.walkingTime}</p>
                 </WalkingInfo>
               </TransportationInfoContainer>
@@ -349,10 +368,13 @@ const SheltersNearestYou = props => {
             <div>Loading Info</div>
           )}
           <ShelterInfoButtons>
-          {newShelters.length > 0 ? (
-            <ViewDetailsButton props={newShelters[0].id} />
-          ) : null}
-          <div onClick={() => openMap()}>View Map</div>
+            {newShelters.length > 0 ? (
+              <ViewDetailsButton props={newShelters[0].id} />
+            ) : null}
+            <ViewMapButton onClick={() => openMap()}>
+              <i class="fas fa-location-arrow fa-lg" />
+              <p>View Map</p>
+            </ViewMapButton>
           </ShelterInfoButtons>
         </ShelterInfoContainer>
       </GoogleMapProvider>

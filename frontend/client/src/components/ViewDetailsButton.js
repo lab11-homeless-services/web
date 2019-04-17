@@ -9,9 +9,12 @@ const DetailsButton = styled.div`
   color: white;
   background-color: #414361;
   border-radius: 5px;
-  height: 25px;
-  width: 75%;
-  margin-top: 10px;
+  height: 40px;
+  width: 165px;
+  margin: 10px 0 0 0;
+  padding: 0 10px 0 5px;
+  font-size: .9rem;
+  font-weight: bold;
 `;
 
 const ViewDetailsButton = props => {
@@ -20,7 +23,7 @@ const ViewDetailsButton = props => {
     <Link to={`/home/shelters/all/${id}`}>
       <DetailsButton>
         <i class="fas fa-external-link-alt" />
-        View Details
+        VIEW DETAILS
       </DetailsButton>
     </Link>
   );
