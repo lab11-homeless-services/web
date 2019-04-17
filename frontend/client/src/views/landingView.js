@@ -9,7 +9,8 @@ import landingImage from "../img/ctaLandingView.png";
 import logo from "../img/logo.png";
 
 const LandingViewContainer = styled.div`
-  width: 1366px;
+  max-width: 1366px;
+  width: 100%;
   height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -29,7 +30,7 @@ const LandingImageContainer = styled.div`
 `;
 
 const LandingHeader = styled.h1`
-  font-size: 18px;
+  font-size: 1.2rem;
   margin: 20% 0 0 2%;
   width: 100%;
 `;
@@ -40,10 +41,9 @@ const LandingSearchInput = styled.div`
 `;
 
 const LandingLanguageSelectionContainer = styled.div`
-  width: 485px;
   display: flex;
+  width: 71%;
   justify-content: space-between;
-  margin: 21% 0 0 11%;
 `;
 
 const LandingLanguageSelectionButton = styled.div`
@@ -55,14 +55,15 @@ const LandingLanguageSelectionButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 26px;
+  font-size: 1.7rem;
   color: white;
+  margin: 70% 0 0 38%;
 `;
 
 const LandingLanguageImage = styled.img`
-  width: 30px;
-  height: 35px;
-  margin-left: 20px;
+  width: 16%;
+  height: 50%;
+  margin-left: 10%;
 `;
 
 const LogoContainer = styled.div`
@@ -81,7 +82,7 @@ const LandingCTAImg = styled.img`
 `;
 
 const LandingLogoImg = styled.img`
-  width: 275px;
+  width: 45%;
   margin: 0 0 0 7%;
 `;
 
@@ -89,7 +90,7 @@ const LandingNavBar = styled.div`
   display: flex;
   justify-content: space-between;
   width: 95%;
-  margin-top: 8%;
+  margin-top: 9%;
 `;
 
 const LandingNavBarText = styled.div`
