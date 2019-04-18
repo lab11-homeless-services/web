@@ -4,12 +4,35 @@
   font-size: 62.5%;
 }
 
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: bold;
+  font-weight: 600;
+  src: local("SF Pro Display"), local("SF-Pro-Display-Bold"),
+    url(./homeless-fonts/SF-Pro-Display-Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./homeless-fonts/SF-Pro-Display-Regular.otf") format("opentype"),
+    local("SF Pro Display");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: lighter;
+  font-weight: 100;
+  src: local("SF Pro Display"), local("SF-Pro-Display-Light"),
+    url(./homeless-fonts/SF-Pro-Display-Light.otf) format("opentype");
+}
+
 .App {
-  font-family: "SF Pro Display", sans-serif;
+  font-family: "SF Pro Display", Helvetica;
   margin: 0 auto;
 }
 /* ==== Breadcrumb Nav ==== */
-
 
 .tablinks {
   text-decoration: none;
@@ -53,11 +76,9 @@
 }
 .subCatLink {
   display: flex;
-
 }
 
 /* ==== Search Modal ==== */
-
 
 .modal {
   position: fixed;
@@ -160,7 +181,6 @@
   display: none;
 }
 
-
 /* ==== Single Resource ==== */
 .fa-map-marker-alt {
   padding-right: 4%;
@@ -212,4 +232,3 @@
     padding-right: 10px;
   }
 }
-

@@ -21,11 +21,11 @@ const ShelterNearestCard = styled.div`
   margin: 15% 0 0 5%;
   box-shadow: 1px 2px 8px 1px #00000050;
   padding-right: 2%;
-  @media(max-width: 1024px) {
+  @media (max-width: 1024px) {
     margin-left: 2%;
     margin-top: -4%;
   }
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     margin-top: 5%;
     flex-direction: column-reverse;
     height: 620px;
@@ -49,7 +49,7 @@ const ShelterInfoContainer = styled.div`
     font-weight: bold;
     margin: 5% 0 0 3%;
   }
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     width: 100%;
     height: auto;
     h3 {
@@ -132,18 +132,17 @@ const ShelterInfoButtons = styled.div`
   justify-content: space-between;
   margin: 15% 0 0 3%;
   width: 77%;
-  @media(max-width: 1024px) {
+  @media (max-width: 1024px) {
     margin-top: 5%;
   }
-  @media(max-width: 900px) {
+  @media (max-width: 900px) {
     flex-direction: column;
   }
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     margin-bottom: 3%;
     justify-content: space-evenly;
     margin-left: 12%;
     flex-direction: row;
-
   }
 `;
 
@@ -164,11 +163,11 @@ const ViewMapButton = styled.div`
     margin: 0 0 0 7%;
     font-weight: bold;
   }
-  @media(max-width: 1024px) {
+  @media (max-width: 1024px) {
     margin-top: 3%;
     margin-left: 3%;
   }
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     margin-bottom: 0;
     margin-left: 3%;
   }
@@ -178,17 +177,16 @@ const MapDiv = styled.div`
   width: 485px;
   height: 85%;
 
-  @media(max-width: 1024px) {
+  @media (max-width: 1024px) {
     width: 500px;
     height: 300px;
   }
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     width: 90%;
     margin-left: 1.5%;
     padding-bottom: 6%;
   }
-
-`
+`;
 
 // const mapStyles = {
 //   map: {
@@ -358,17 +356,17 @@ const SheltersNearestYou = props => {
           </div>
         </div> */}
         <MapDiv>
-        <MapBox
-          // style={style}
-          apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
-          opts={{
-            center: {
-              lat: Number(state.resourceLocation.lat),
-              lng: Number(state.resourceLocation.lon)
-            },
-            zoom: 14
-          }}
-        />
+          <MapBox
+            // style={style}
+            apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
+            opts={{
+              center: {
+                lat: Number(state.resourceLocation.lat),
+                lng: Number(state.resourceLocation.lon)
+              },
+              zoom: 14
+            }}
+          />
         </MapDiv>
         <InfoWindow
           anchorId="marker"

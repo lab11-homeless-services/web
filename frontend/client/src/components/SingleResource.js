@@ -12,7 +12,6 @@ import styled from "styled-components";
 
 const SingleResourceCard = styled.div`
   border-radius: 3px;
-  height: 530px;
   display: flex;
   margin: 0 auto;
   margin-bottom: 100px;
@@ -24,12 +23,7 @@ const SingleResourceCard = styled.div`
   border-radius: 3px;
   padding: 2%;
 
-  @media (max-width: 1024px) {
-    height: 862px;
-  }
-
   @media (max-width: 600px) {
-    height: auto;
     margin-bottom: 20px;
   }
 `;
@@ -56,6 +50,7 @@ const Title = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
   padding-bottom: 31px;
+  letter-spacing: 2px;
 `;
 
 const DetailsServices = styled.div`
@@ -93,6 +88,7 @@ const PrintButton = styled.div`
   font-size: 1.2rem;
   width: 120px;
   cursor: pointer;
+  letter-spacing: 2px;
 
   @media (max-width: 600px) {
     display: none;
@@ -110,6 +106,7 @@ const PreviousButton = styled.div`
   font-size: 1.2rem;
   width: 200px;
   cursor: pointer;
+  letter-spacing: 1px;
 
   @media (max-width: 600px) {
     width: 450px
