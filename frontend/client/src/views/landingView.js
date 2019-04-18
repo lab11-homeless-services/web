@@ -43,6 +43,7 @@ const LandingHeader = styled.h1`
   font-size: 1.2rem;
   margin: 20% 0 0 2%;
   width: 100%;
+  letter-spacing: 2px;
   @media (max-width: 1024px) {
     margin: 25% 0 0 0;
   };
@@ -89,6 +90,7 @@ const LandingLanguageSelectionButton = styled.div`
   font-size: 1.7rem;
   color: white;
   margin: 0 0 0 38%;
+  letter-spacing: 2px;
   @media (max-width: 1024px) {
     width: 200px;
     height: 75px;
@@ -146,6 +148,7 @@ const LandingNavBar = styled.div`
   justify-content: space-between;
   width: 95%;
   margin-top: 9%;
+  letter-spacing: 2px;
   @media (max-width: 600px) {
     display: none;
   }
