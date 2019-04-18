@@ -23,7 +23,12 @@ class App extends Component {
     });
     // sets initial app state to render in English
     const initialState = {
-      spanish: false
+      spanish: false,
+      breakpoints: {
+        desktop: 1366,
+        tablet: 1024,
+        mobile: 600
+      }
     };
 
     // creates logic to combine reducers
