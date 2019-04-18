@@ -155,8 +155,15 @@ const LandingNavBarText = styled.div`
   color: #414361;
   font-size: .7rem;
   display: flex;
+
   p {
     margin-left: 10px;
+  }
+
+  @media (max-width: 800px) {
+    i {
+      display: none;
+    }
   }
 `;
 
