@@ -9,8 +9,12 @@ import styled from "styled-components";
 const InfoContainer = styled.div`
   display: flex;
   max-width: 1366px;
-  width: 100%;
+  width: 98%;
   margin: 0 auto;
+  padding-right: 1%;
+  @media(max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 const CategoriesView = props => {

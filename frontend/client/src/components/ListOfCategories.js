@@ -13,7 +13,11 @@ import image4 from '../img/hygiene.png'
 import image8 from '../img/employment.png'
 
 const ListOfCatsContainer = styled.div`
-  width: 37%;
+  width: 43%;
+  @media(max-width: 1024px) {
+    width: 100%;
+    margin-bottom: 5%;
+  }
 `;
 
 const CategoryButtonContainer = styled.div`
@@ -21,6 +25,10 @@ const CategoryButtonContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 25%;
+  @media(max-width: 1024px) {
+    margin-bottom: 0;
+    justify-content: center;
+  }
 `;
 
 const CategoryButton = styled.div`
@@ -36,6 +44,7 @@ const CategoryButton = styled.div`
   text-align: center;
   border: 1px solid white;
   box-shadow: 1px 2px 4px 2px #00000050;
+
   p {
     color: white;
     margin-top: 7%;
@@ -45,7 +54,13 @@ const CategoryButton = styled.div`
 const CategoryButtonsHeader = styled.h2`
   font-size: 26px;
   font-weight: bold;
-  margin: 22% 0 4% 4%;
+  margin: 19% 0 4% 4%;
+  @media(max-width: 1024px) {
+    margin: 0;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    text-align: center;
+  }
 `;
 
 const StyledImage = styled.img`

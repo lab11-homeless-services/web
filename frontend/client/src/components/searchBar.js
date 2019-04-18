@@ -20,12 +20,21 @@ const FakeSearchInput = styled.input`
   border-radius: 2px;
   box-shadow: 1px 2px 4px 2px #00000050;
   color: #9b9b9b;
+
+  @media (max-width: 600px) {
+    width: 400px;
+    display: flex;
 `;
 
 const FakeSearchInputContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin-left: 4%;
+
+    @media (max-width: 600px) {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
 `;
 
 const FakeSearchButton = styled.div`
@@ -38,7 +47,7 @@ const FakeSearchButton = styled.div`
   background-color: #656176;
   border-radius: 2px;
   color: white;
-  margin: 0 70px 0 5px;
+  margin: 0 5% 0 2%;
   box-shadow: 1px 2px 4px 2px #00000050;
 `;
 

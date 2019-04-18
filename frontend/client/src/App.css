@@ -1,6 +1,7 @@
 
 * {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 .App {
@@ -49,42 +50,8 @@
 
 }
 
-/* ==== Maps ==== */
-
-.fa-map-marker-alt {
-  padding-right: 4%;
-  font-size: 1.3rem;
-}
-.fa-bus {
-  padding-right: 4%;
-  font-size: 1.3rem;
-}
-
-.travel-time .fa-walking {
-  padding-left: 11%;
-  font-size: 1.7rem;
-  padding-right: 4%;
-}
-
-.info-hours .fa-clock {
-  padding-left: 10%;
-  padding-right: 4%;
-  font-size: 1.3rem;
-}
-
-.info-hours .fa-phone {
-  padding-right: 4%;
-  font-size: 1.3rem;
-}
-
-.maps {
-  width: 383px;
-  height: 363px;
-  position: relative;
-  overflow: hidden;
-}
-
 /* ==== Search Modal ==== */
+
 
 .modal {
   position: fixed;
@@ -187,4 +154,56 @@
   display: none;
 }
 
+
+/* ==== Single Resource ==== */
+.fa-map-marker-alt {
+  padding-right: 4%;
+  font-size: 1.3rem;
+}
+
+.fa-bus {
+  padding-right: 4%;
+  font-size: 1.3rem;
+}
+
+.travel-time .fa-walking {
+  padding-left: 11%;
+  font-size: 1.7rem;
+  padding-right: 4%;
+}
+
+.info-hours .fa-clock {
+  padding-left: 10%;
+  padding-right: 4%;
+  font-size: 1.3rem;
+}
+
+.info-hours .fa-phone {
+  padding-right: 4%;
+  font-size: 1.3rem;
+}
+
+.maps {
+  width: 383px;
+  height: 363px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .maps {
+    width: 91%;
+    margin: 0 4%;
+  }
+}
+
+@media (max-width: 600px) {
+  .map-button .fa-location-arrow {
+    padding-right: 10px;
+  }
+
+  .previous-button .fa-arrow-left {
+    padding-right: 10px;
+  }
+}
 
