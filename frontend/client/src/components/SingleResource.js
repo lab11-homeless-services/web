@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect, useState } from "react";
+
 import {
   GoogleMapProvider,
   InfoWindow,
@@ -339,6 +340,10 @@ const SingleResource = props => {
     );
   };
 
+  const printPage = e => {
+    window.print();
+  };
+
   const showServices = e => {
     e.preventDefault();
     setState({
@@ -506,7 +511,7 @@ const SingleResource = props => {
               </PreviousButton>
             </div>
           </NavLink>
-          <PrintButton>
+          <PrintButton onClick={() => printPage()}>
             <i className="fas fa-print" />
             PRINT
           </PrintButton>
