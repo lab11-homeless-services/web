@@ -36,6 +36,7 @@ const TabNav = props => {
         <div className='back2cat'>
           <NavLink to={`/home/`}>Back to Categories</NavLink>
         </div>
+      <SubCatContainer>
       {Object.keys(subCats).map(subCat => {
         if (subCat === '_all' ) {
           return(
@@ -44,11 +45,9 @@ const TabNav = props => {
               <BreadcrumbMainCat cat={id}/>
               </MainCatBTN>
               <i class="fas fa-arrow-right"></i>
-            </div>
-            
+            </div> 
           )
         }
-
         if (subCat === 'after_school') {
           return (
             <div className='subcatbtn'>
@@ -62,9 +61,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'domestic_violence') {
           return (
             <div className='subcatbtn'>
@@ -78,9 +76,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'social_services') {
           return (
             <div className='subcatbtn'>
@@ -94,9 +91,10 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
       })}
+      </SubCatContainer>
     </TabContainer>
     );
    }
@@ -112,6 +110,7 @@ const TabNav = props => {
         <div className='back2cat'>
           <NavLink to={`/home/`}>Back to Categories</NavLink>
         </div>
+      <SubCatContainer>
       {Object.keys(subCats).map(subCat => {
         if (subCat === 'all' ) {
           return(
@@ -137,9 +136,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'women') {
           return (
             <div className='subcatbtn'>
@@ -153,7 +151,7 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
         if (subCat === 'youth') {
           return (
@@ -168,9 +166,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'clinics') {
           return (
             <div className='subcatbtn'>
@@ -184,9 +181,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'emergency') {
           return (
             <div className='subcatbtn'>
@@ -200,9 +196,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'hiv') {
           return (
             <div className='subcatbtn'>
@@ -216,9 +211,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'mental_health') {
           return (
             <div className='subcatbtn'>
@@ -232,9 +226,8 @@ const TabNav = props => {
                 </div>
                 </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'rehab') {
           return (
             <div className='subcatbtn'>
@@ -248,9 +241,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'food_pantries') {
           return (
             <div className='subcatbtn'>
@@ -264,9 +256,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'food_stamps') {
           return (
             <div className='subcatbtn'>
@@ -280,9 +271,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'bathrooms') {
           return (
             <div className='subcatbtn'>
@@ -296,9 +286,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'showers') {
           return (
             <div className='subcatbtn'>
@@ -312,9 +301,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'ged') {
           return (
             <div className='subcatbtn'>
@@ -328,9 +316,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'public_computers') {
           return (
             <div className='subcatbtn'>
@@ -344,9 +331,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
         if (subCat === 'benefits') {
           return (
             <div className='subcatbtn'>
@@ -360,12 +346,8 @@ const TabNav = props => {
                 </div>
               </Tabs>
             </div>
-            );
+          );
         }
-
-
-
-
         return (
           <div className='subcatbtn'>
             <Tabs className="test">
@@ -373,8 +355,9 @@ const TabNav = props => {
             </Tabs>
           </div>
             
-          );
+        );
       })}
+      </SubCatContainer>
     </TabContainer>
   );
 };
@@ -382,12 +365,20 @@ const TabNav = props => {
 export default TabNav;
 
 const TabContainer = styled.div`
-  width: 90%;
   height: 90px;
   margin: 3%;
   display: flex;
   justify-content: left;
   align-items: center; 
+`
+const SubCatContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `
 const Tabs = styled.div` 
   display: flex;
