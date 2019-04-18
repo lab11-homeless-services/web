@@ -26,6 +26,7 @@ const SingleResourceCard = styled.div`
 
   @media (max-width: 600px) {
     margin-bottom: 20px;
+    margin-top: 40px;
   }
 `;
 
