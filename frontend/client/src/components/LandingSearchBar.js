@@ -49,6 +49,7 @@ const FakeSearchButton = styled.div`
   box-shadow: 2px 4px 10px 2px #00000050;
   @media (max-width: 1024px) {
     font-size: .9rem;
+    display: none;
   }
 `;
 
