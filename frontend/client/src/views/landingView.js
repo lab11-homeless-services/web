@@ -47,7 +47,7 @@ const LandingHeader = styled.h1`
     margin: 25% 0 0 0;
   };
   @media (max-width: 600px) {
-    margin: 27% 0 0 0;
+    margin: 33% 0 0 0;
   }
 `;
 
