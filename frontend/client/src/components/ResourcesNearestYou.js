@@ -4,39 +4,84 @@ import axios from "axios";
 import latlngDist from "latlng-distance";
 import styled from "styled-components";
 
-const ResourcesNearestYouContainer = styled.div`
-  margin: 100px auto;
+const DetailsButton = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #9b9b9b;
+  background-color: #d6d8dc;
+  width: 50%;
+  height: 100%;
+  margin: 10px;
+  margin-left: 25%;
+  padding: 1%;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px 1px #ccc;
+  @media (max-width: 1024px) {
+    width: 40%;
+    height: 80%;
+  }
+`;
+
+const ResourceCardDetail = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  margin-bottom: 2%;
+  color: #9b9b9b;
+  width: 90%;
+  &:first-child {
+    margin-left: 5%;
+    color: #414361;
+    font-size: 110%;
+  }
+`;
+
+const ResourceCardCopy = styled.div`
+  margin-left: 25%;
 `;
 
 const ResourcesNearestYouCard = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 400px;
+  justify-content: space-between;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 30%;
   height: 300px;
-  border: 0.25px solid black;
-  box-shadow: 1px 1px 3px 1px #ccc;
+  box-shadow: 0px 0px 0px 1px #ccc;
   border-radius: 3px;
+  &:hover {
+    border: 0.25px solid black;
+    box-shadow: 1px 1px 3px 1px #ccc;
+  }
+  &:hover ${DetailsButton} {
+    color: white;
+    background-color: #414361;
+  }
+  &:hover ${ResourceCardDetail} {
+    color: #414361;
+  }
+  @media (max-width: 1024px) {
+    height: 250px;
+  }
+  @media (max-width: 600px) {
+    height: 33%;
+    width: 80%;
+    margin: 5%;
+    padding-left: 5%;
+  }
 `;
 
-const ResourceCardDetail = styled.div`
-  margin: 10px;
-`;
-
-const DetailsButton = styled.div`
+const ResourcesNearestYouContainer = styled.div`
+  margin: 100px auto;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  color: white;
-  background-color: #414361;
-  width: 50%;
-  height: 100%;
-  margin: 10px;
-  margin-left: 25%;
-  border-radius: 5px;
-  box-shadow: 0px 1px 3px 1px #ccc;
+  justify-content: space-around;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const ResourcesNearestYou = props => {
@@ -121,9 +166,21 @@ const ResourcesNearestYou = props => {
     sortArrayOfObjects(newResources, "distance");
     console.log(newResources);
     let list = [];
-    for (let i = 0; i < 3; i++) {
-      list.push(newResources[i]);
+    if (window.innerWidth <= props.breakpoints.tablet) {
+      for (let i = 0; i < 2; i++) {
+        list.push(newResources[i]);
+      }
+    } else {
+      for (let i = 0; i < 3; i++) {
+        list.push(newResources[i]);
+      }
     }
+
+    // const breakpoints = {
+    //   desktop: 1366,
+    //   tablet: 1024,
+    //   mobile: 600
+    // };
 
     return (
       <ResourcesNearestYouContainer>
@@ -132,16 +189,18 @@ const ResourcesNearestYou = props => {
           if (item && item.name) {
             return (
               <ResourcesNearestYouCard>
-                <ResourceCardDetail>{item.name}</ResourceCardDetail>
-                <ResourceCardDetail>
-                  <i class="fas fa-map-marker-alt" /> {item.address}
-                </ResourceCardDetail>
-                <ResourceCardDetail>
-                  <i class="fas fa-phone" /> {item.phone}
-                </ResourceCardDetail>
-                <ResourceCardDetail>
-                  <i class="fas fa-clock" /> {item.hours}
-                </ResourceCardDetail>
+                <ResourceCardCopy className="copy">
+                  <ResourceCardDetail>{item.name}</ResourceCardDetail>
+                  <ResourceCardDetail>
+                    <i class="fas fa-map-marker-alt" /> {item.address}
+                  </ResourceCardDetail>
+                  <ResourceCardDetail>
+                    <i class="fas fa-phone" /> {item.phone}
+                  </ResourceCardDetail>
+                  <ResourceCardDetail>
+                    <i class="fas fa-clock" /> {item.hours}
+                  </ResourceCardDetail>
+                </ResourceCardCopy>
                 <Link to={`/home/${category}/_all/${item.id}`}>
                   <DetailsButton>
                     <i class="fas fa-external-link-alt" /> View Details
