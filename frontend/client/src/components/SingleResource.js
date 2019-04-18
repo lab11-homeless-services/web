@@ -250,7 +250,7 @@ const SingleResource = props => {
           });
         });
       }
-    }, []);
+    }, [url]);
     return data;
   }
 
