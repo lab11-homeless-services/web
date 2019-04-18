@@ -166,15 +166,10 @@ const ResourcesNearestYou = props => {
     sortArrayOfObjects(newResources, "distance");
     console.log(newResources);
     let list = [];
-    if (window.innerWidth <= props.breakpoints.tablet) {
-      for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
         list.push(newResources[i]);
-      }
-    } else {
-      for (let i = 0; i < 3; i++) {
-        list.push(newResources[i]);
-      }
     }
+    
 
     // const breakpoints = {
     //   desktop: 1366,
