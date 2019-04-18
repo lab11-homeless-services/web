@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -210,16 +209,21 @@
 }
 
 .maps {
-  width: 383px;
+  width: 32%;
   height: 363px;
+  padding-top: 30px;
   position: relative;
   overflow: hidden;
+}
+
+.single-resource-container {
+  width: 100%;
 }
 
 @media (max-width: 1024px) {
   .maps {
     width: 91%;
-    margin: 0 4%;
+    margin: 20px 4% 0 4%;
   }
 }
 
@@ -228,7 +232,18 @@
     padding-right: 10px;
   }
 
+  .previous-button {
+    width: 100%;
+    justify-content: center;
+  }
+
   .previous-button .fa-arrow-left {
     padding-right: 10px;
+  }
+
+  .button-div a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }

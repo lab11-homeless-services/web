@@ -14,11 +14,13 @@ const SingleResourceContainer = styled.div`
 
 const SingleResourceView = props => {
   return (
-    <div className="blah">
+    <div>
       <Header />
       <TabNavforSubView props={props} />
       <SingleResourceContainer>
-        <SingleResource props={props} />
+        <div className="single-resource-container">
+          <SingleResource props={props} />
+        </div>
       </SingleResourceContainer>
       <Footer />
     </div>

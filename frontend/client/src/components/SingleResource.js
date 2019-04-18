@@ -56,17 +56,19 @@ const Title = styled.div`
 const DetailsServices = styled.div`
   height: 361px;
   width: 32%;
+  padding-top: 31px;
   margin-right: 3%;
 
   @media (max-width: 1024px) {
     width: 45%;
     padding-top: 45px;
+    margin-bottom: 20px;
   }
 
   @media (max-width: 600px) {
-    width: 100%;
     height: auto;
-    padding: 50px 4%;
+    width: 100%;
+    padding: 50px 4% 0 4%;
   }
 `;
 
@@ -109,7 +111,9 @@ const PreviousButton = styled.div`
   letter-spacing: 1px;
 
   @media (max-width: 600px) {
-    width: 450px
+    margin: 20px 4%;
+    padding: 20px 10px;
+    width: 92%;
     justify-content: center;
   }
 `;
@@ -129,6 +133,7 @@ const ViewMap = styled.div`
   @media (max-width: 600px) {
     width: 92%;
     justify-content: center;
+    padding: 20px 10px;
   }
 `;
 
@@ -136,8 +141,14 @@ const ButtonsDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
   @media (max-width: 1024px) {
     padding: 40px 45px 40px 37px;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    justify-content: center;
+    padding: 0;
   }
 `;
 
@@ -486,7 +497,7 @@ const SingleResource = props => {
             }
           }}
         />
-        <ButtonsDiv>
+        <ButtonsDiv className="button-div">
           <NavLink to={`/home/${category}`}>
             <div className="previous-button">
               <PreviousButton>
