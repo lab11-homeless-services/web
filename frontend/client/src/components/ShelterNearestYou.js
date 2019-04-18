@@ -45,7 +45,7 @@ const ShelterInfoContainer = styled.div`
     color: #414361;
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 0 0 0 3%;
+    margin: 2% 0 0 3%;
     letter-spacing: 1px;
   }
 
