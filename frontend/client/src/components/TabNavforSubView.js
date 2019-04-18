@@ -397,9 +397,7 @@ const SubCatContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 90%;
-  @media (max-width: 600px) {
-    display: none;
-  }
+  
 `
 const Tabs = styled.div` 
   display: flex;

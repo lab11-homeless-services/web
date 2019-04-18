@@ -32,10 +32,12 @@ const TabNav = props => {
     // Use fetch returns an Object, so Object.keys is used to map over the object's keys
     return (
       <TabContainer>
+        <BackToCatContainer>
         <i class="fas fa-arrow-left"></i>
         <div className='back2cat'>
           <NavLink to={`/home/`}>Back to Categories</NavLink>
         </div>
+        </BackToCatContainer>
       <SubCatContainer>
       {Object.keys(subCats).map(subCat => {
         if (subCat === '_all' ) {
@@ -106,10 +108,12 @@ const TabNav = props => {
     // Use fetch returns an Object, so Object.keys is used to map over the object's keys
     return (
       <TabContainer>
+        <BackToCatContainer>
         <i class="fas fa-arrow-left"></i>
         <div className='back2cat'>
           <NavLink to={`/home/`}>Back to Categories</NavLink>
         </div>
+        </BackToCatContainer>
       <SubCatContainer>
       {Object.keys(subCats).map(subCat => {
         if (subCat === 'all' ) {
@@ -370,6 +374,11 @@ const TabContainer = styled.div`
   display: flex;
   justify-content: left;
   align-items: center; 
+  @media (max-width: 600px) {
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
 `
 const SubCatContainer = styled.div`
   display: flex;
@@ -377,7 +386,9 @@ const SubCatContainer = styled.div`
   flex-wrap: wrap;
   width: 90%;
   @media (max-width: 600px) {
-    display: none;
+    width: 100%;
+    justify-content: center;
+    margin-top 
   }
 `
 const Tabs = styled.div` 
@@ -389,6 +400,10 @@ const Tabs = styled.div`
   margin-left: 20px;
   border: #9b9b9b solid 1px;
   box-shadow: 1px 1px 1px 1px #00000050;
+  @media (max-width: 600px) {
+    margin: 0 0 0 0;
+
+  }
 `;
 const MainCatBTN = styled.div`
   width: 70px;
@@ -400,9 +415,22 @@ const MainCatBTN = styled.div`
   border: 1px solid white;
   margin-left: 10px;
   box-shadow: 1px 2px 4px 2px #00000050;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const StyledSubCatIcon = styled.img`
   width: 35px;
   margin: 3px;
-`
+`;
+
+const BackToCatContainer = styled.div`
+  display: flex;
+  align-items: center;
+  @media (max-width: 600px) {
+    display: flex;
+    width: 40%;
+    align-items: center;
+  }
+`;
