@@ -32,8 +32,9 @@ const ResourceCardDetail = styled.div`
   width: 90%;
   &:first-child {
     margin-left: 5%;
-    color: #414361;
+    color: #323131;
     font-size: 110%;
+    font-weight: bold;
   }
 `;
 
@@ -60,7 +61,7 @@ const ResourcesNearestYouCard = styled.div`
     background-color: #414361;
   }
   &:hover ${ResourceCardDetail} {
-    color: #414361;
+    color: #4a4a4a;
   }
   @media (max-width: 1024px) {
     height: 250px;
@@ -168,15 +169,8 @@ const ResourcesNearestYou = props => {
     console.log(newResources);
     let list = [];
     for (let i = 0; i < 3; i++) {
-        list.push(newResources[i]);
+      list.push(newResources[i]);
     }
-    
-
-    // const breakpoints = {
-    //   desktop: 1366,
-    //   tablet: 1024,
-    //   mobile: 600
-    // };
 
     return (
       <ResourcesNearestYouContainer>
@@ -191,7 +185,8 @@ const ResourcesNearestYou = props => {
                     <i class="fas fa-map-marker-alt" /> {item.address}
                   </ResourceCardDetail>
                   <ResourceCardDetail>
-                    <i class="fas fa-phone" /> {item.phone}
+                    <i class="fas fa-phone" />
+                    {item.phone}
                   </ResourceCardDetail>
                   <ResourceCardDetail>
                     <i class="fas fa-clock" /> {item.hours}
