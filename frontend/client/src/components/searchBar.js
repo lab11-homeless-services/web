@@ -139,7 +139,7 @@ const Modal = ({ close, show, children }) => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        {children}
+       <div onClick={close}>{children}</div>
         <div className="closeButton" onClick={close}>
           X
         </div>
