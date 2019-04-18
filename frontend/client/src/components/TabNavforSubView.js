@@ -382,24 +382,22 @@ const TabNavforSubView = props => {
 export default TabNavforSubView
 
 const TabContainer = styled.div`
-  width: 100%;
+  width: 90%;
   height: 90px;
-  margin-top: 18px;
+  margin: 3%;
   display: flex;
   justify-content: left;
   align-items: center; 
 `
-
 const Tabs = styled.div` 
   display: flex;
   justify-content: space-between;
   background-color: white;
-  width: 150px;
-  height: 50px;
-  margin: 20px;
+  width: 140px;
+  height: 45px;
+  margin-left: 20px;
   border: #9b9b9b solid 1px;
   box-shadow: 1px 1px 1px 1px #00000050;
-
 `;
 const MainCatBTN = styled.div`
   width: 70px;

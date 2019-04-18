@@ -37,7 +37,9 @@
 .tablinks {
   text-decoration: none;
   font-size: 0.6rem;
-  margin: 19px 15px;
+  margin-top: 19px;
+  padding-right: 5px;
+  color: #4a4a4a;
 }
 .back2cat {
   height: 25px;
@@ -62,7 +64,11 @@
 }
 .vl {
   border-left: 1.5px solid grey;
-  height: 49px;
+  height: 44px;
+}
+.subcatbtn {
+  width: 150px;
+  height: 50px;
 }
 .subcatIcon {
   display: flex;
