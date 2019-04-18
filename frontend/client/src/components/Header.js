@@ -14,7 +14,6 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: #414361;
-
   @media (max-width: 600px) {
     flex-direction: column;
     align-items: center;
@@ -25,9 +24,8 @@ const HeaderContainer = styled.div`
 
 const Logo = styled.img`
   width: 60%;
-  height: 50px;
+  height: 60px;
   margin-left: 3%;
-
   @media (max-width: 600px) {
     margin: 15px 22%;
     width: 55%;
@@ -47,7 +45,6 @@ const LanguageSelection = styled.div`
   align-items: center;
   font-size: 18px;
   box-shadow: 1px 2px 4px 2px #00000050;
-
   @media (max-width: 1024px) {
     display: none;
   }

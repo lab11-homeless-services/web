@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ResourceListContainer = styled.div`
-  margin: 100px auto;
+  padding: 5% 0 0 5%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
