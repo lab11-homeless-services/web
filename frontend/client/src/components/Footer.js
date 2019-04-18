@@ -10,7 +10,7 @@ height: 60px;
 justify-content: flex-end;
 align-items: center;
 bottom: 0;
-
+position: fixed;
   @media (max-width: 600px) {
 display: none;
   }

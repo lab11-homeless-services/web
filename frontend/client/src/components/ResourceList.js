@@ -40,6 +40,9 @@ const ResourceListCard = styled.div`
   box-shadow: 0px 0px 0px 1px #ccc;
   border-radius: 3px;
   margin-top: 20px;
+
+  @media (max-width: 600px) {
+    margin-top: 0;
   &:hover {
     border: 0.25px solid black;
     box-shadow: 1px 1px 3px 1px #ccc;
