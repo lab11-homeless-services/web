@@ -135,20 +135,14 @@ table {
   font-family: "SF Pro Display", sans-serif;
   margin: 0 auto;
 }
-.subcatbtn {
-  width: 100px;
-  text-align: end;
-  height: 30px;
-  margin: 20px;
-  border: #9b9b9b solid 1px;
-}
+/* ==== Breadcrumb Nav ==== */
+
 
 .tablinks {
   text-decoration: none;
-  font-size: 0.75rem;
-  text-align: right;
+  font-size: 0.6rem;
+  margin: 19px 15px;
 }
-
 .back2cat {
   height: 25px;
   padding: 10px 5px 0 5px;
@@ -157,14 +151,12 @@ table {
   margin-right: 50px;
   margin-left: 10px;
 }
-
 .back2catJobs {
   padding-right: 50px;
   font-size: 0.8rem;
   letter-spacing: 1px;
   margin-left: 10px;
 }
-
 .right-arrow {
   display: flex;
   justify-content: flex-start;
@@ -172,8 +164,21 @@ table {
 .fa-arrow-right {
   margin: 30px 0 30px 30px;
 }
+.vl {
+  border-left: 1.5px solid grey;
+  height: 49px;
+}
+.subcatIcon {
+  display: flex;
+  background-color: #656176;
+}
+.subCatLink {
+  display: flex;
 
-/* =========================== Search Modal ========================== */
+}
+
+/* ==== Search Modal ==== */
+
 
 .modal {
   position: fixed;
@@ -276,7 +281,8 @@ table {
   display: none;
 }
 
-/* =========================== Single Resource ========================== */
+
+/* ==== Single Resource ==== */
 .fa-map-marker-alt {
   padding-right: 4%;
   font-size: 1.3rem;
@@ -327,3 +333,4 @@ table {
     padding-right: 10px;
   }
 }
+

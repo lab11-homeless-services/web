@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useFetch from "../functions/useFetch";
 import styled from "styled-components";
 
