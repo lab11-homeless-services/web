@@ -38,6 +38,7 @@ const TabNavforSubView = props => {
         <div className='back2cat'>
           <NavLink to={`/home/`}>Back to Categories</NavLink>
         </div>
+      <SubCatContainer>
       {Object.keys(subCats).map(subCat => {
         if (subCat === '_all' ) {
           return(
@@ -99,6 +100,7 @@ const TabNavforSubView = props => {
             );
         }
       })}
+      </SubCatContainer>
     </TabContainer>
     );
    }
@@ -112,6 +114,7 @@ const TabNavforSubView = props => {
       <div className='back2cat'>
         <NavLink to={`/home/`}>Back to Categories</NavLink>
       </div>
+    <SubCatContainer>
     {Object.keys(subCats).map(subCat => {
       if (subCat === 'all' ) {
         return(
@@ -375,6 +378,7 @@ const TabNavforSubView = props => {
           
         );
     })}
+    </SubCatContainer>
   </TabContainer>
 );
 }
@@ -382,12 +386,20 @@ const TabNavforSubView = props => {
 export default TabNavforSubView
 
 const TabContainer = styled.div`
-  width: 90%;
   height: 90px;
   margin: 3%;
   display: flex;
   justify-content: left;
   align-items: center; 
+`
+const SubCatContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `
 const Tabs = styled.div` 
   display: flex;
