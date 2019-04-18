@@ -16,6 +16,7 @@ const DetailsButton = styled.div`
   font-size: .9rem;
   font-weight: bold;
   box-shadow: 1px 1px 4px 2px #00000050;
+  letter-spacing: 1px;
 `;
 
 const ViewDetailsButton = props => {
