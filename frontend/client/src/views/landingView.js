@@ -15,6 +15,7 @@ const LandingViewContainer = styled.div`
   margin: 0 auto;
   display: flex;
   overflow-x: hidden;
+
   @media (max-width: 600px) {
     flex-direction: column;
   }
@@ -25,6 +26,7 @@ const LandingSearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 3%;
+
   @media (max-width: 600px) {
     width: 100%;
   }
@@ -33,9 +35,10 @@ const LandingSearchContainer = styled.div`
 const LandingImageContainer = styled.div`
   width: 48%;
   height: 100vh;
+
   @media (max-width: 600px) {
     width: 100%;
-    height: 55%
+    height: 55%;
   }
 `;
 
@@ -44,9 +47,11 @@ const LandingHeader = styled.h1`
   margin: 20% 0 0 2%;
   width: 100%;
   letter-spacing: 2px;
+
   @media (max-width: 1024px) {
     margin: 25% 0 0 0;
-  };
+  }
+
   @media (max-width: 600px) {
     margin: 33% 0 0 0;
   }
@@ -55,6 +60,7 @@ const LandingHeader = styled.h1`
 const LandingSearchInput = styled.div`
   margin: 15% 0 0 2%;
   width: 100%;
+
   @media (max-width: 1024px) {
     margin: 8% 0 0 0;
   }
@@ -65,12 +71,14 @@ const LandingLanguageSelectionContainer = styled.div`
   width: 71%;
   margin-top: 20%
   justify-content: space-between;
+
   @media (max-width: 1024px) {
     width: 79%;
     flex-wrap: wrap;
     justify-content: center;
     margin-left: 7%;
   };
+
   @media (max-width: 600px) {
     width: 100%;
     margin: 9% 0 7% 0;
@@ -91,11 +99,13 @@ const LandingLanguageSelectionButton = styled.div`
   color: white;
   margin: 0 0 0 38%;
   letter-spacing: 2px;
+
   @media (max-width: 1024px) {
     width: 200px;
     height: 75px;
     margin: 0 0 20% 0;
   }
+
   @media (max-width: 600px) {
     width: 150px;
     height: 45px;
@@ -117,6 +127,7 @@ const LogoContainer = styled.div`
   border-radius: 4px 60px 0 0;
   display: flex;
   align-items: center;
+
   @media (max-width: 600px) {
     height: 22%;
     border-radius: 0;
@@ -128,6 +139,7 @@ const LandingCTAImg = styled.img`
   height: 63%;
   width: 100%;
   border-radius: 0 0 16px 4px;
+
   @media (max-width: 600px) {
     height: 100%;
     width: 100%;
@@ -138,6 +150,7 @@ const LandingCTAImg = styled.img`
 const LandingLogoImg = styled.img`
   width: 45%;
   margin: 0 0 0 7%;
+
   @media (max-width: 600px) {
     margin: 0;
   }
@@ -149,6 +162,7 @@ const LandingNavBar = styled.div`
   width: 95%;
   margin-top: 9%;
   letter-spacing: 2px;
+
   @media (max-width: 600px) {
     display: none;
   }
@@ -156,7 +170,7 @@ const LandingNavBar = styled.div`
 
 const LandingNavBarText = styled.div`
   color: #414361;
-  font-size: .7rem;
+  font-size: 0.7rem;
   display: flex;
 
   p {
@@ -176,6 +190,7 @@ const LandingFooter = styled.div`
   height: 30px;
   position: fixed;
   bottom: 0;
+
   @media (max-width: 600px) {
     display: none;
   }
@@ -197,19 +212,19 @@ const LandingView = () => {
         <LandingSearchContainer>
           <LandingNavBar>
             <LandingNavBarText>
-              <i class="fas fa-book-reader fa-lg" /> 
+              <i class="fas fa-book-reader fa-lg" />
               <p>ABOUT US</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="fas fa-user-friends fa-lg" /> 
+              <i class="fas fa-user-friends fa-lg" />
               <p>VOLUNTEER</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="far fa-handshake fa-lg" /> 
+              <i class="far fa-handshake fa-lg" />
               <p>OUR PARTNERS</p>
             </LandingNavBarText>
             <LandingNavBarText>
-              <i class="far fa-envelope fa-lg" /> 
+              <i class="far fa-envelope fa-lg" />
               <p>CONTACT US</p>
             </LandingNavBarText>
           </LandingNavBar>

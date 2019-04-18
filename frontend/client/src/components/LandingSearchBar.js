@@ -48,8 +48,9 @@ const FakeSearchButton = styled.div`
   margin: 0 0 0 2%;
   box-shadow: 2px 4px 10px 2px #00000050;
   letter-spacing: 1px;
+
   @media (max-width: 1024px) {
-    font-size: .9rem;
+    font-size: 0.9rem;
     display: none;
   }
 `;
