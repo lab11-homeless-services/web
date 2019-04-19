@@ -20,8 +20,12 @@ const FakeSearchInput = styled.input`
   border-radius: 2px;
   box-shadow: 1px 2px 4px 2px #00000050;
   color: #9b9b9b;
+  @media (max-width: 1024px) {
+    margin-right: 28%;
+  }
 
   @media (max-width: 600px) {
+    margin-right: 0;
     width: 100%;
     display: flex;
 `;
@@ -29,7 +33,7 @@ const FakeSearchInput = styled.input`
 const FakeSearchInputContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 4%;
+  justify-content: center;
 
     @media (max-width: 600px) {
     width: 100%;
