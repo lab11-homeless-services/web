@@ -109,7 +109,7 @@ const LoadingParagraph = styled.p`
   
   p {
     margin: 1% 0 0 2%;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin-left: 5%;
     color: #4A4A4A
   }

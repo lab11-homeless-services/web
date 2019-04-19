@@ -33,6 +33,10 @@ const FakeInputContainer = styled.div`
   position: relative;
   width: 475px;
   height: 65px;
+
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
 `;
 
 const FakeSearchButton = styled.div`
@@ -52,6 +56,7 @@ const FakeSearchButton = styled.div`
   @media (max-width: 1024px) {
     font-size: 0.9rem;
     display: none;
+    margin: 0;
   }
 `;
 

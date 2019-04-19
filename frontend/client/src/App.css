@@ -76,6 +76,7 @@
 .subcatbtn {
   width: 150px;
   height: 50px;
+  margin: .75%;
 }
 .subcatIcon {
   display: flex;
@@ -102,6 +103,7 @@
   background-color: #9b9b9b;
   opacity: 0.975;
   z-index: 1;
+  border-radius: 2px;
 }
 
 .modal-main {
@@ -129,6 +131,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  border-radius: 100px;
 }
 
 .modal-landing .closeButton {
@@ -241,6 +244,7 @@
     width: 91%;
     margin: 20px 4% 0 4%;
   }
+
   #moveOnOver {
   padding-left: 16.5%;
   }
@@ -278,6 +282,19 @@
   .subcatbtn {
     margin: 5% 2.5% 0 2.5%;
   }
+
+  .modal {
+    position: fixed;
+    top: 5%;
+    left: 12.5%;
+    width: 75%;
+    height: 75%;
+    background-color: #9b9b9b;
+    opacity: 0.975;
+    z-index: 1;
+    border-radius: 2px;
+  }
+  
   #moveOnOver {
   padding-left: 0;
   }
