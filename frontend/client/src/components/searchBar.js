@@ -170,7 +170,6 @@ const Modal = ({ close, show, children }) => {
         <div>{children}</div>
 
         <div className="closeButton" onClick={close}>
-          X
         </div>
       </section>
     </div>

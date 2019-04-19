@@ -196,6 +196,12 @@
   border-radius: 2px;
   display: none;
 }
+.ais-SearchBox-reset {
+  display: none;
+}
+.ais-SearchBox-resetIcon {
+  display: none;
+}
 
 /* ==== Single Resource ==== */
 .fa-map-marker-alt {
@@ -246,7 +252,7 @@
   }
 
   #moveOnOver {
-  padding-left: 16.5%;
+  padding-left: 81.5%;
   }
 }
 
