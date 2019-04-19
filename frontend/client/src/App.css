@@ -191,28 +191,33 @@
 .fa-map-marker-alt {
   padding-right: 4%;
   font-size: 1.3rem;
+  color: #414361;
 }
 
 .fa-bus {
   padding-right: 4%;
   font-size: 1.3rem;
+  color: #414361;
 }
 
 .travel-time .fa-walking {
   padding-left: 11%;
   font-size: 1.7rem;
   padding-right: 4%;
+  color: #414361;
 }
 
 .info-hours .fa-clock {
   padding-left: 10%;
   padding-right: 4%;
   font-size: 1.3rem;
+  color: #414361;
 }
 
 .info-hours .fa-phone {
   padding-right: 4%;
   font-size: 1.3rem;
+  color: #414361;
 }
 
 .maps {
@@ -225,6 +230,10 @@
 
 .single-resource-container {
   width: 100%;
+}
+
+.map-button .fa-location-arrow {
+  color: #414361;
 }
 
 /* ==== Tablet Styles ==== */

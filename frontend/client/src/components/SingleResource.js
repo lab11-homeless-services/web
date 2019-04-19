@@ -51,8 +51,9 @@ const Info = styled.div`
 const Title = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
+  color: #323131
   padding-bottom: 31px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 `;
 
 const DetailsServices = styled.div`
