@@ -23,12 +23,11 @@ const HeaderContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 60%;
-  height: 60px;
+  width: 185px;
   margin-left: 3%;
   @media (max-width: 600px) {
     margin: 15px 22%;
-    width: 55%;
+    margin-left: 0;
   }
 `;
 

@@ -1,8 +1,11 @@
+/* ==== Global Styles ==== */
+
 * {
   box-sizing: border-box;
   font-size: 62.5%;
 }
 
+/* ==== Font Styles ==== */
 @font-face {
   font-family: "SF Pro Display";
   font-style: bold;
@@ -27,11 +30,13 @@
     url(./homeless-fonts/SF-Pro-Display-Light.otf) format("opentype");
 }
 
+/* ==== App Styles ==== */
 .App {
   font-family: "SF Pro Display", Helvetica;
   margin: 0 auto;
   height: auto;
 }
+
 /* ==== Breadcrumb Nav ==== */
 
 .tablinks {
@@ -235,6 +240,8 @@
   width: 100%;
 }
 
+/* ==== Tablet Styles ==== */
+
 @media (max-width: 1024px) {
   .maps {
     width: 91%;
@@ -245,6 +252,7 @@
   }
 }
 
+/* ==== Mobile Styles ==== */
 @media (max-width: 600px) {
   .map-button .fa-location-arrow {
     padding-right: 10px;
@@ -278,5 +286,14 @@
   }
   #moveOnOver {
   padding-left: 0;
+  }
+}
+
+/* ==== Print Styles ==== */
+
+@media print {
+  .maps {
+    width: 100%;
+    margin-top: 200px;
   }
 }

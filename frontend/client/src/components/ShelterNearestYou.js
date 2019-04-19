@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect, useState } from "react";
+
 import {
   GoogleMapProvider,
   InfoWindow,
@@ -13,18 +14,20 @@ import ViewDetailsButton from "../components/ViewDetailsButton.js";
 
 const ShelterNearestCard = styled.div`
   border-radius: 2px;
-  height: 359px;
+  height: 385px;
   width: 96%;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin: 15% 0 0 5%;
+  margin: 14% 0 0 5%;
   box-shadow: 1px 2px 8px 1px #00000050;
   padding-right: 2%;
+  
   @media (max-width: 1024px) {
     margin-left: 2%;
     margin-top: -4%;
   }
+
   @media (max-width: 600px) {
     margin-top: 5%;
     flex-direction: column-reverse;
@@ -38,20 +41,27 @@ const ShelterInfoContainer = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
+
   h3 {
     color: #414361;
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 8% 0 0 3%;
+    margin: 2% 0 0 3%;
+    letter-spacing: 1px;
   }
+
   h4 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    margin: 5% 0 0 3%;
+    margin: 6% 0 0 3%;
+    color: #323131
+    letter-spacing: 1px;
   }
+
   @media (max-width: 600px) {
     width: 100%;
     height: auto;
+
     h3 {
       margin-left: 3%;
     }
@@ -60,22 +70,35 @@ const ShelterInfoContainer = styled.div`
 
 const ShelterAddress = styled.div`
   display: flex;
-  margin: 6% 0 0 3%;
-  font-size: 0.75rem;
-  color: #414361;
+  margin: 7% 0 0 3%;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  
+  i {
+    color: #414361;
+  }
+
   p {
     margin-top: 1%;
+    color: #4A4A4A
   }
 `;
 
 const TransportationInfoContainer = styled.div`
   display: flex;
-  margin: 5% 0 0 3%;
+  margin: 6% 0 0 3%;
   color: #414361;
+  letter-spacing: 1px;
+
+  i {
+    color: #414361;
+  }
+  
   p {
     margin: 1% 0 0 2%;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin-left: 5%;
+    color: #4A4A4A
   }
 `;
 
@@ -83,19 +106,22 @@ const LoadingParagraph = styled.p`
   display: flex;
   margin: 5% 0 0 3%;
   color: #414361;
+  
   p {
     margin: 1% 0 0 2%;
     font-size: 0.75rem;
     margin-left: 5%;
+    color: #4A4A4A
   }
 `;
 
 const TransitInfo = styled.div`
   display: flex;
-  width: 34%;
+  width: 44%;
   border-right: 1px solid lightgrey;
+  
   p {
-    margin-left: 10%;
+    margin-left: 4%;
   }
 `;
 
@@ -106,17 +132,23 @@ const WalkingInfo = styled.div`
 `;
 
 const PhoneHoursContainer = styled.div`
-  margin: 5% 0 0 3%;
+  margin: 6% 0 0 3%;
   display: flex;
-  color: #414361;
+  letter-spacing: 1px;
+
+  i {
+    color: #414361;
+  }
+  
   p {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin: 2% 0 0 10%;
+    color: #4A4A4A;
   }
 `;
 
 const PhoneInfo = styled.div`
-  width: 34%;
+  width: 41%;
   display: flex;
   border-right: 1px solid lightgrey;
 `;
@@ -131,13 +163,16 @@ const ShelterInfoButtons = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 15% 0 0 3%;
-  width: 77%;
+  width: 85%;
+  
   @media (max-width: 1024px) {
     margin-top: 5%;
   }
+
   @media (max-width: 900px) {
     flex-direction: column;
   }
+
   @media (max-width: 600px) {
     margin-bottom: 3%;
     justify-content: space-evenly;
@@ -148,25 +183,32 @@ const ShelterInfoButtons = styled.div`
 
 const ViewMapButton = styled.div`
   border: 1px solid lightgrey;
-  width: 35%;
+  width: 50%;
   height: 40px;
   margin: 3% 0 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
-  color: #414361;
+  font-size: 0.9rem;
   cursor: pointer;
   box-shadow: inset 1px 1px 0px 0px #00000050;
-  margin-left: 4%;
+  margin-left: 10%;
+  letter-spacing: 1px;
+
+  i {
+    color: #414361;
+  }
+  
   p {
     margin: 0 0 0 7%;
-    font-weight: bold;
+    color: #4A4A4A;
   }
+
   @media (max-width: 1024px) {
     margin-top: 3%;
     margin-left: 3%;
   }
+
   @media (max-width: 600px) {
     margin-bottom: 0;
     margin-left: 3%;
@@ -181,6 +223,7 @@ const MapDiv = styled.div`
     width: 500px;
     height: 300px;
   }
+
   @media (max-width: 600px) {
     width: 90%;
     margin-left: 1.5%;

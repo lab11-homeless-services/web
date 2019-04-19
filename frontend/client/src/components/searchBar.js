@@ -13,28 +13,33 @@ const searchClient = algoliasearch(
 );
 
 const FakeSearchInput = styled.input`
-  width: 500px;
+  width: 43%;
   height: 60px;
-  padding-left: 15px;
+  padding-left: 3%;
   font-size: 14px;
   border-radius: 2px;
   box-shadow: 1px 2px 4px 2px #00000050;
   color: #9b9b9b;
+  @media (max-width: 1024px) {
+    margin-right: 28%;
+  }
 
   @media (max-width: 600px) {
-    width: 400px;
+    margin-right: 0;
+    width: 100%;
     display: flex;
 `;
 
 const FakeSearchInputContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 4%;
+  justify-content: center;
 
     @media (max-width: 600px) {
     width: 100%;
     display: flex;
     margin-bottom: 20px;
+    margin-left: 0;
 `;
 
 const FakeSearchButton = styled.div`
@@ -49,6 +54,10 @@ const FakeSearchButton = styled.div`
   color: white;
   margin: 0 5% 0 2%;
   box-shadow: 1px 2px 4px 2px #00000050;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const InstantSearchContainer = styled.div`
@@ -73,6 +82,10 @@ const StyledHit = styled.div`
   margin-bottom: 2%;
   font-size: 1.6rem;
   color: white;
+`;
+
+const Search = styled.div`
+  width: 90%;
 `;
 
 const hitCom = props => {
@@ -109,26 +122,24 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <main>
-          <Modal show={this.state.searchEnabled} close={this.disableSearch}>
-            <InstantSearchContainer className="mainSearch">
-              <InstantSearch indexName="empact" searchClient={searchClient}>
-                <SearchBoxContainer>
-                  <SearchBox />
-                </SearchBoxContainer>
-                <SearchResultsContainer>
-                  <Hits hitComponent={hitCom} />
-                </SearchResultsContainer>
-              </InstantSearch>
-            </InstantSearchContainer>
-          </Modal>
-          <FakeSearchInputContainer onClick={this.enableSearch}>
-            <FakeSearchInput placeholder="search for resources you need" />
-            <FakeSearchButton>SEARCH</FakeSearchButton>
-          </FakeSearchInputContainer>
-        </main>
-      </div>
+      <Search>
+        <Modal show={this.state.searchEnabled} close={this.disableSearch}>
+          <InstantSearchContainer className="mainSearch">
+            <InstantSearch indexName="empact" searchClient={searchClient}>
+              <SearchBoxContainer>
+                <SearchBox />
+              </SearchBoxContainer>
+              <SearchResultsContainer>
+                <Hits hitComponent={hitCom} />
+              </SearchResultsContainer>
+            </InstantSearch>
+          </InstantSearchContainer>
+        </Modal>
+        <FakeSearchInputContainer onClick={this.enableSearch}>
+          <FakeSearchInput placeholder="search for resources you need" />
+          <FakeSearchButton>SEARCH</FakeSearchButton>
+        </FakeSearchInputContainer>
+      </Search>
     );
   }
 }
@@ -139,7 +150,9 @@ const Modal = ({ close, show, children }) => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
+
        <div>{children}</div>
+
         <div className="closeButton" onClick={close}>
         </div>
       </section>
