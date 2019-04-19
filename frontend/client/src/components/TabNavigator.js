@@ -74,7 +74,7 @@ const TabNav = props => {
                   <div class="vl"></div>
                 </div>
                 <div className='subCatLink'>
-                  <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                  <NavLink className="tablinks" id='unacceptableLength' to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
                 </div>
               </Tabs>
             </div>
@@ -142,10 +142,25 @@ const TabNav = props => {
             </div>
           );
         }
-        if (subCat === 'women') {
+        if (subCat === 'women' && id === "health_care") {
           return (
-            <div className='subcatbtn'>
-              <Tabs className="test">
+            <div className='subcatbtn' id="moveOnOver" >
+              <Tabs >
+                <div className='subcatIcon'>
+                  <StyledSubCatIcon src={woman} alt="woman"/>
+                  <div class="vl"></div>
+                </div>
+                <div className='subCatLink'>
+                  <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                </div>
+              </Tabs>
+            </div>
+          );
+        } 
+        if(subCat === 'women' && id === "shelters"){
+          return (
+            <div className='subcatbtn' >
+              <Tabs >
                 <div className='subcatIcon'>
                   <StyledSubCatIcon src={woman} alt="woman"/>
                   <div class="vl"></div>
@@ -234,14 +249,14 @@ const TabNav = props => {
         }
         if (subCat === 'rehab') {
           return (
-            <div className='subcatbtn'>
-              <Tabs className="test">
+            <div className='subcatbtn' id='moveOnOver'>
+              <Tabs >
                 <div className='subcatIcon'>
                   <StyledSubCatIcon src={rehab} alt="rehab"/>
                   <div class="vl"></div>
                 </div>
                 <div className='subCatLink'>
-                  <NavLink className="tablinks" to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                  <NavLink className="tablinks"  to={`/home/${id}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
                 </div>
               </Tabs>
             </div>
