@@ -29,6 +29,10 @@ const LandingSearchContainer = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0%;
   }
 `;
 
@@ -53,7 +57,7 @@ const LandingHeader = styled.h1`
   }
 
   @media (max-width: 600px) {
-    margin: 33% 0 0 0;
+    margin: 33% 0 0 3%;
   }
 `;
 
@@ -64,6 +68,12 @@ const LandingSearchInput = styled.div`
   @media (max-width: 1024px) {
     margin: 8% 0 0 0;
   }
+
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: center;
+    margin-left: 1.5%;
+  }
 `;
 
 const LandingLanguageSelectionContainer = styled.div`
@@ -71,7 +81,7 @@ const LandingLanguageSelectionContainer = styled.div`
   width: 71%;
   margin-top: 20%
   justify-content: space-between;
-
+  
   @media (max-width: 1024px) {
     width: 79%;
     flex-wrap: wrap;
@@ -178,6 +188,7 @@ const LandingNavBarText = styled.div`
   }
 
   @media (max-width: 800px) {
+    
     i {
       display: none;
     }
@@ -190,7 +201,7 @@ const LandingFooter = styled.div`
   height: 30px;
   position: fixed;
   bottom: 0;
-
+  
   @media (max-width: 600px) {
     display: none;
   }

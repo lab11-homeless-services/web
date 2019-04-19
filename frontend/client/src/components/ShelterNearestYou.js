@@ -31,8 +31,7 @@ const ShelterNearestCard = styled.div`
   @media (max-width: 600px) {
     margin-top: 5%;
     flex-direction: column-reverse;
-    height: 620px;
-    border: 1px solid black;
+    height: 675px;
   }
 `;
 
@@ -63,7 +62,7 @@ const ShelterInfoContainer = styled.div`
     height: auto;
 
     h3 {
-      margin-left: 3%;
+      margin: 0 0 0 3%;
     }
   }
 `;
@@ -109,7 +108,7 @@ const LoadingParagraph = styled.p`
   
   p {
     margin: 1% 0 0 2%;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin-left: 5%;
     color: #4A4A4A
   }

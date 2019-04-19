@@ -33,6 +33,10 @@ const FakeInputContainer = styled.div`
   position: relative;
   width: 475px;
   height: 65px;
+
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
 `;
 
 const FakeSearchButton = styled.div`
@@ -52,6 +56,7 @@ const FakeSearchButton = styled.div`
   @media (max-width: 1024px) {
     font-size: 0.9rem;
     display: none;
+    margin: 0;
   }
 `;
 
@@ -64,19 +69,36 @@ const SearchBoxContainer = styled.div`
   justify-content: center;
   width: 75%;
   margin-left: 12.5%;
+
+  @media (max-width: 600px) {
+    margin-left: 5%;
+  }
 `;
 
 const SearchResultsContainer = styled.div`
   padding: 5% 0 0 0;
   height: 83vh;
   width: 100vw;
-  padding-left: 10%;
+
+  @media (max-width: 600px) {
+    width: 70%;
+  }
 `;
 
 const StyledHit = styled.div`
   margin-bottom: 2%;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: white;
+
+  @media (max-width: 1024px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 const hitCom = props => {
