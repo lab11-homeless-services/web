@@ -43,12 +43,13 @@
   text-decoration: none;
   font-size: 0.6rem;
   margin-top: 19px;
-  padding-right: 5px;
+  width: 96px;
   color: #4a4a4a;
+  text-align: center;
 }
 .back2cat {
   height: 25px;
-  padding: 10px 5px 0 5px;
+  padding: 10px 5px 0;
   font-size: 0.6rem;
   letter-spacing: 1px;
   margin-right: 50px;
@@ -83,6 +84,12 @@
 .subCatLink {
   display: flex;
 }
+#unacceptableLength {
+  width: 96px;
+  padding-right: 0;
+}
+
+
 
 /* ==== Search Modal ==== */
 
@@ -234,6 +241,9 @@
     width: 91%;
     margin: 20px 4% 0 4%;
   }
+  #moveOnOver {
+  padding-left: 16.5%;
+  }
 }
 
 /* ==== Mobile Styles ==== */
@@ -267,6 +277,9 @@
 
   .subcatbtn {
     margin: 5% 2.5% 0 2.5%;
+  }
+  #moveOnOver {
+  padding-left: 0;
   }
 }
 
