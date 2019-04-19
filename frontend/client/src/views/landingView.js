@@ -26,7 +26,6 @@ const LandingSearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 3%;
-  border: 1px solid red;
 
   @media (max-width: 600px) {
     width: 100%;
@@ -65,7 +64,6 @@ const LandingHeader = styled.h1`
 const LandingSearchInput = styled.div`
   margin: 15% 0 0 2%;
   width: 100%;
-  border: 1px solid green;
 
   @media (max-width: 1024px) {
     margin: 8% 0 0 0;

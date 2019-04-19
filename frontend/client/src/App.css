@@ -100,7 +100,7 @@
   left: 12.5%;
   width: 75%;
   height: 75%;
-  background-color: #9b9b9b;
+  background-color: #656176;
   opacity: 0.975;
   z-index: 1;
   border-radius: 2px;
@@ -283,16 +283,14 @@
     margin: 5% 2.5% 0 2.5%;
   }
 
-  .modal {
-    position: fixed;
-    top: 5%;
-    left: 12.5%;
-    width: 75%;
-    height: 75%;
-    background-color: #9b9b9b;
-    opacity: 0.975;
-    z-index: 1;
-    border-radius: 2px;
+  .modal-main .closeButton {
+    font-size: 1.8rem;
+    left: 15%;
+  }
+
+  .modal-landing .closeButton {
+    font-size: 1.8rem;
+    left: 15%;
   }
   
   #moveOnOver {
