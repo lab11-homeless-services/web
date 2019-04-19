@@ -17,6 +17,10 @@ const DetailsButton = styled.div`
   padding: 1%;
   border-radius: 5px;
   box-shadow: 0px 1px 3px 1px #ccc;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   @media (max-width: 1024px) {
     width: 40%;
     height: 80%;
@@ -28,12 +32,20 @@ const ResourceCardDetail = styled.div`
   align-items: center;
   margin-left: 5%;
   margin-bottom: 2%;
+  font-size: 0.9rem;
   color: #9b9b9b;
   width: 90%;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  i {
+    padding-right: 10px;
+  }
   &:first-child {
     margin-left: 5%;
     color: #323131;
-    font-size: 110%;
+    font-size: 1.3rem;
     font-weight: bold;
   }
 `;
@@ -50,18 +62,39 @@ const ResourcesNearestYouCard = styled.div`
   padding-bottom: 2%;
   width: 30%;
   height: 300px;
+  border: 0.25px solid black;
   box-shadow: 0px 0px 0px 1px #ccc;
   border-radius: 3px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   &:hover {
     border: 0.25px solid black;
     box-shadow: 1px 1px 3px 1px #ccc;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
   }
   &:hover ${DetailsButton} {
     color: white;
     background-color: #414361;
+    font-weight: bold;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
   }
   &:hover ${ResourceCardDetail} {
     color: #4a4a4a;
+    i {
+      color: #414361;
+    }
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
   }
   @media (max-width: 1024px) {
     height: 250px;
@@ -75,6 +108,8 @@ const ResourcesNearestYouCard = styled.div`
 `;
 
 const ResourcesNearestYouContainer = styled.div`
+  max-width: 1366px;
+  width: 100%;
   margin: 100px auto;
   display: flex;
   justify-content: space-around;
@@ -82,7 +117,7 @@ const ResourcesNearestYouContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px auto
+    margin: 20px auto;
   }
 `;
 
@@ -182,14 +217,14 @@ const ResourcesNearestYou = props => {
                 <ResourceCardCopy className="copy">
                   <ResourceCardDetail>{item.name}</ResourceCardDetail>
                   <ResourceCardDetail>
-                    <i class="fas fa-map-marker-alt" /> {item.address}
+                    <i class="fas fa-map-marker-alt" /> <p>{item.address}</p>
                   </ResourceCardDetail>
                   <ResourceCardDetail>
                     <i class="fas fa-phone" />
-                    {item.phone}
+                    <p>{item.phone}</p>
                   </ResourceCardDetail>
                   <ResourceCardDetail>
-                    <i class="fas fa-clock" /> {item.hours}
+                    <i class="fas fa-clock" /> <p>{item.hours}</p>
                   </ResourceCardDetail>
                 </ResourceCardCopy>
                 <Link to={`/home/${category}/_all/${item.id}`}>
