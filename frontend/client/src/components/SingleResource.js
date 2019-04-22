@@ -93,6 +93,17 @@ const PrintButton = styled.div`
   width: 120px;
   cursor: pointer;
   letter-spacing: 2px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  &:hover {
+    box-shadow: 1px 2px 4px 2px #00000050;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
 
   @media (max-width: 600px) {
     display: none;
@@ -111,6 +122,17 @@ const PreviousButton = styled.div`
   width: 200px;
   cursor: pointer;
   letter-spacing: 1px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  &:hover {
+    box-shadow: 1px 1px 3px 1px #ccc;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
 
   @media (max-width: 600px) {
     margin: 20px 4%;
@@ -131,6 +153,17 @@ const ViewMap = styled.div`
   font-size: 1.2rem;
   width: 145px;
   cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  &:hover {
+    box-shadow: 1px 1px 3px 1px #ccc;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
 
   @media (max-width: 600px) {
     width: 92%;
