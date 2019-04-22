@@ -202,6 +202,12 @@
 .ais-SearchBox-resetIcon {
   display: none;
 }
+/* ==== Landing Page ====  */
+.subscript{
+  margin-top: 9px;
+  margin-left: 80px;
+  color: white;
+}
 
 /* ==== Single Resource ==== */
 .fa-map-marker-alt {
