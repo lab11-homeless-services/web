@@ -101,7 +101,6 @@ const LandingLanguageSelectionButton = styled.div`
   height: 75px;
   background-color: #414361;
   border-radius: 4px;
-  box-shadow: 1px 2px 4px 2px #00000050;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,6 +108,18 @@ const LandingLanguageSelectionButton = styled.div`
   color: white;
   margin: 0 0 0 38%;
   letter-spacing: 2px;
+  box-shadow: 0px 1px 3px 1px #ccc;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  &:hover {
+    box-shadow: 1px 2px 4px 2px #00000050;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
 
   @media (max-width: 1024px) {
     width: 200px;
@@ -188,7 +199,6 @@ const LandingNavBarText = styled.div`
   }
 
   @media (max-width: 800px) {
-    
     i {
       display: none;
     }
@@ -201,7 +211,7 @@ const LandingFooter = styled.div`
   height: 30px;
   position: fixed;
   bottom: 0;
-  
+
   @media (max-width: 600px) {
     display: none;
   }
