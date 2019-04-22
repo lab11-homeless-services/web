@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import latlngDist from "latlng-distance";
 import styled from "styled-components";
@@ -108,7 +109,8 @@ const ResourcesNearestYou = props => {
       centerAroundCurrentLocation: false,
       visible: true,
       zoom: 14,
-      timeTravel: ""
+      walkingTime: [],
+      transitTime: []
     }
   );
   let listOfResources = [];
@@ -234,15 +236,91 @@ const ResourcesNearestYou = props => {
     };
 
     sortArrayOfObjects(newResources, "distance");
-    console.log(newResources);
+    console.log("newResources", newResources);
     let list = [];
     for (let i = 0; i < 3; i++) {
       list.push(newResources[i]);
     }
 
+    const firstShelter = list[0];
+    const secondShelter = list[1];
+    const thirdShelter = list[2];
+
+    const { google } = props;
+
+    if (firstShelter !== undefined) {
+      let destinationOne = new google.maps.LatLng(
+        firstShelter.latitude,
+        firstShelter.longitude
+      );
+
+      let destinationTwo = new google.maps.LatLng(
+        secondShelter.latitude,
+        secondShelter.longitude
+      );
+      let destinationThree = new google.maps.LatLng(
+        thirdShelter.latitude,
+        thirdShelter.longitude
+      );
+      let origin = new google.maps.LatLng(
+        state.currentLocation.lat,
+        state.currentLocation.lon
+      );
+
+      let service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destinationOne, destinationTwo, destinationThree],
+          travelMode: "WALKING",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        callback
+      );
+
+      let nextService = new google.maps.DistanceMatrixService();
+      nextService.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destinationOne, destinationTwo, destinationThree],
+          travelMode: "TRANSIT",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        otherCallback
+      );
+
+      async function callback(response, status) {
+        if (response && response.rows.length) {
+          setState({
+            walkingTime: [
+              response.rows[0].elements[0].duration.text,
+              response.rows[0].elements[1].duration.text,
+              response.rows[0].elements[2].duration.text
+            ]
+          });
+        }
+      }
+
+      async function otherCallback(response, status) {
+        if (
+          response &&
+          response.rows.length > 0 &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS"
+        ) {
+          setState({
+            transitTime: [
+              response.rows[0].elements[0].duration.text,
+              response.rows[0].elements[1].duration.text,
+              response.rows[0].elements[2].duration.text
+            ]
+          });
+        }
+      }
+    }
+    console.log("transit time", state.transitTime[0]);
     return (
       <ResourcesNearestYouContainer>
-        {list.map(item => {
+        {list.map((item, i) => {
           console.log("item", item);
           if (item && item.name) {
             return (
@@ -251,10 +329,13 @@ const ResourcesNearestYou = props => {
                 <ResourceCardDetail>
                   <i class="fas fa-map-marker-alt" /> {item.address}
                 </ResourceCardDetail>
-                <ResourceCardDetail>
-                  <i class="fas fa-phone" /> {item.phone}
+                <ResourceCardDetail className="travel-times">
+                  <i class="fas fa-bus fa-sm" />
+                  {state.transitTime[i]}
+                  <i class="fas fa-walking fa-lg" /> {state.walkingTime[i]}
                 </ResourceCardDetail>
                 <ResourceCardDetail>
+                  <i class="fas fa-phone" /> {item.phone}
                   <i class="fas fa-clock" /> {item.hours}
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>
@@ -273,4 +354,6 @@ const ResourcesNearestYou = props => {
   }
 };
 
-export default ResourcesNearestYou;
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
+})(ResourcesNearestYou);

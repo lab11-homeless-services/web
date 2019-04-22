@@ -43,12 +43,13 @@
   text-decoration: none;
   font-size: 0.6rem;
   margin-top: 19px;
-  padding-right: 5px;
+  width: 96px;
   color: #4a4a4a;
+  text-align: center;
 }
 .back2cat {
   height: 25px;
-  padding: 10px 5px 0 5px;
+  padding: 10px 5px 0;
   font-size: 0.6rem;
   letter-spacing: 1px;
   margin-right: 50px;
@@ -75,6 +76,7 @@
 .subcatbtn {
   width: 150px;
   height: 50px;
+  margin: 0.75%;
 }
 .subcatIcon {
   display: flex;
@@ -82,6 +84,10 @@
 }
 .subCatLink {
   display: flex;
+}
+#unacceptableLength {
+  width: 96px;
+  padding-right: 0;
 }
 
 /* ==== Search Modal ==== */
@@ -92,9 +98,10 @@
   left: 12.5%;
   width: 75%;
   height: 75%;
-  background-color: #9b9b9b;
+  background-color: #656176;
   opacity: 0.975;
   z-index: 1;
+  border-radius: 2px;
 }
 
 .modal-main {
@@ -122,6 +129,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  border-radius: 100px;
 }
 
 .modal-landing .closeButton {
@@ -186,38 +194,45 @@
   border-radius: 2px;
   display: none;
 }
+.ais-SearchBox-reset {
+  display: none;
+}
+.ais-SearchBox-resetIcon {
+  display: none;
+}
+/* ==== Landing Page ====  */
+.subscript {
+  margin-top: 9px;
+  margin-left: 80px;
+  color: white;
+}
 
 /* ==== Single Resource ==== */
 .fa-map-marker-alt {
   padding-right: 4%;
   font-size: 1.3rem;
-  color: #414361;
 }
 
 .fa-bus {
   padding-right: 4%;
   font-size: 1.3rem;
-  color: #414361;
 }
 
 .travel-time .fa-walking {
   padding-left: 11%;
   font-size: 1.7rem;
   padding-right: 4%;
-  color: #414361;
 }
 
 .info-hours .fa-clock {
   padding-left: 10%;
   padding-right: 4%;
   font-size: 1.3rem;
-  color: #414361;
 }
 
 .info-hours .fa-phone {
   padding-right: 4%;
   font-size: 1.3rem;
-  color: #414361;
 }
 
 .maps {
@@ -232,9 +247,7 @@
   width: 100%;
 }
 
-.map-button .fa-location-arrow {
-  color: #414361;
-}
+/* ==== Resources Near You ==== */
 
 /* ==== Tablet Styles ==== */
 
@@ -242,6 +255,10 @@
   .maps {
     width: 91%;
     margin: 20px 4% 0 4%;
+  }
+
+  #moveOnOver {
+    padding-left: 81.5%;
   }
 }
 
@@ -276,6 +293,20 @@
 
   .subcatbtn {
     margin: 5% 2.5% 0 2.5%;
+  }
+
+  .modal-main .closeButton {
+    font-size: 1.8rem;
+    left: 15%;
+  }
+
+  .modal-landing .closeButton {
+    font-size: 1.8rem;
+    left: 15%;
+  }
+
+  #moveOnOver {
+    padding-left: 0;
   }
 }
 
