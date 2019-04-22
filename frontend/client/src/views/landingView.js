@@ -137,7 +137,8 @@ const LogoContainer = styled.div`
   background-color: #414361;
   border-radius: 4px 60px 0 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
   @media (max-width: 600px) {
     height: 22%;
@@ -159,6 +160,7 @@ const LandingCTAImg = styled.img`
 `;
 
 const LandingLogoImg = styled.img`
+  display: flex;
   width: 45%;
   margin: 0 0 0 7%;
 
@@ -218,6 +220,7 @@ const LandingView = () => {
         <LandingImageContainer>
           <LogoContainer>
             <LandingLogoImg src={logo} />
+            <p className='subscript'>Serving the boroughs of NYC</p>
           </LogoContainer>
           <LandingCTAImg src={landingImage} alt="" />
         </LandingImageContainer>
