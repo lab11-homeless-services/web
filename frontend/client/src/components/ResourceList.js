@@ -16,16 +16,27 @@ const ResourceDetailsButton = styled.div`
   padding: 5px;
   border-radius: 5px;
   box-shadow: 0px 1px 3px 1px #ccc;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 `;
 
 const ResourceListCardDetails = styled.div`
   margin: 10px;
-  font-size: 12px;
+  font-size: 0.9rem;
   color: #9b9b9b;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  i {
+    padding-right: 10px;
+  }
   &:first-child {
     margin-left: 5%;
     color: #323131;
-    font-size: 110%;
+    font-size: 1.3rem;
     font-weight: bold;
   }
 `;
@@ -33,16 +44,19 @@ const ResourceListCardDetails = styled.div`
 const ResourceListCard = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 300px;
-  height: 225px;
+  justify-content: space-between;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 350px;
+  height: 262.5px;
   border: 0.25px solid black;
   box-shadow: 0px 0px 0px 1px #ccc;
   border-radius: 3px;
   margin-top: 20px;
-
-  @media (max-width: 600px) {
-    margin-top: 0;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   &:hover {
     border: 0.25px solid black;
     box-shadow: 1px 1px 3px 1px #ccc;
@@ -50,10 +64,24 @@ const ResourceListCard = styled.div`
   &:hover ${ResourceDetailsButton} {
     color: white;
     background-color: #414361;
+    font-weight: bold;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
   }
   &:hover ${ResourceListCardDetails} {
     color: #4a4a4a;
+    i{
+      color: #414361;
+    }
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
   }
+  @media (max-width: 600px) {
+    margin-top: 10px;
 `;
 
 const ResourceListContainer = styled.div`

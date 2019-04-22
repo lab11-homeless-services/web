@@ -51,69 +51,55 @@ const TabNavforSubView = props => {
               );
             }
 
-            if (subCat === "after_school") {
+            if (subCat === 'after_school') {
               return (
-                <div className="subcatbtn">
-                  <Tabs className="test">
-                    <div className="subcatIcon">
-                      <StyledSubCatIcon src={afterSchool} alt="after school" />
-                      <div class="vl" />
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs className="test">
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={afterSchool} alt="after school"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
                     </div>
-                    <div className="subCatLink">
-                      <NavLink
-                        className="tablinks"
-                        to={`/home/${cat}/${subCat}`}
-                      >
-                        {subCat.replace(/_/g, " ").toUpperCase()}
-                      </NavLink>
-                    </div>
-                  </Tabs>
-                </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
               );
             }
-
-            if (subCat === "domestic_violence") {
+            if (subCat === 'domestic_violence') {
               return (
-                <div className="subcatbtn">
-                  <Tabs className="test">
-                    <div className="subcatIcon">
-                      <StyledSubCatIcon src={abuse} alt="domestic violence" />
-                      <div class="vl" />
-                    </div>
-                    <div className="subCatLink">
-                      <NavLink
-                        className="tablinks"
-                        to={`/home/${cat}/${subCat}`}
-                      >
-                        {subCat.replace(/_/g, " ").toUpperCase()}
-                      </NavLink>
-                    </div>
-                  </Tabs>
-                </div>
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs className="test">
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={abuse} alt="domestic violence"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" id='unacceptableLength' to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
               );
             }
-
-            if (subCat === "social_services") {
+            if (subCat === 'social_services') {
               return (
-                <div className="subcatbtn">
-                  <Tabs className="test">
-                    <div className="subcatIcon">
-                      <StyledSubCatIcon
-                        src={socialServices}
-                        alt="social services"
-                      />
-                      <div class="vl" />
-                    </div>
-                    <div className="subCatLink">
-                      <NavLink
-                        className="tablinks"
-                        to={`/home/${cat}/${subCat}`}
-                      >
-                        {subCat.replace(/_/g, " ").toUpperCase()}
-                      </NavLink>
-                    </div>
-                  </Tabs>
-                </div>
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs className="test">
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={socialServices} alt="social services"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
               );
             }
           })}
@@ -145,284 +131,278 @@ const TabNavforSubView = props => {
               </div>
             );
           }
-          if (subCat === "men") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={man} alt="man" />
-                    <div class="vl" />
+              if (subCat === 'men') {
+                return (
+                  <NavLink to={`/home/${cat}/${subCat}`}>
+                    <div className='subcatbtn'>
+                      <Tabs>
+                        <div className='subcatIcon'>
+                          <StyledSubCatIcon src={man} alt="man"/>
+                          <div class="vl"></div>
+                        </div>
+                        <div className='subCatLink'>
+                          <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                        </div>
+                      </Tabs>
+                    </div>
+                  </NavLink>
+                );
+              }
+              if (subCat === 'women' && cat === "health_care") {
+                return (
+                  <NavLink to={`/home/${cat}/${subCat}`}>
+                    <div className='subcatbtn' id="moveOnOver" >
+                      <Tabs >
+                        <div className='subcatIcon'>
+                          <StyledSubCatIcon src={woman} alt="woman"/>
+                          <div class="vl"></div>
+                        </div>
+                        <div className='subCatLink'>
+                          <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                        </div>
+                      </Tabs>
+                    </div>
+                  </NavLink>
+                );
+              } 
+              if(subCat === 'women' && cat === "shelters"){
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn' >
+                    <Tabs >
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={woman} alt="woman"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
                   </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "women") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={woman} alt="woman" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-          if (subCat === "youth") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={youth} alt="youth" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "clinics") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={clinics} alt="clinics" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "emergency") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={emergency} alt="emergency" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "hiv") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={hiv} alt="hiv" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "mental_health") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={mental} alt="mental health" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "rehab") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={rehab} alt="rehab" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "food_pantries") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={pantry} alt="food pantries" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "food_stamps") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={stamps} alt="food stamps" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "bathrooms") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={bathroom} alt="bathrooms" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "showers") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={shower} alt="showers" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "ged") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={ged} alt="GED" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "public_computers") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={computers} alt="computers" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          if (subCat === "benefits") {
-            return (
-              <div className="subcatbtn">
-                <Tabs className="test">
-                  <div className="subcatIcon">
-                    <StyledSubCatIcon src={benefits} alt="benefits" />
-                    <div class="vl" />
-                  </div>
-                  <div className="subCatLink">
-                    <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                      {subCat.replace(/_/g, " ").toUpperCase()}
-                    </NavLink>
-                  </div>
-                </Tabs>
-              </div>
-            );
-          }
-
-          return (
-            <div className="subcatbtn">
-              <Tabs className="test">
-                <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>
-                  {subCat.replace(/_/g, " ").toUpperCase()}
                 </NavLink>
-              </Tabs>
-            </div>
-          );
+              );
+            }
+            if (subCat === 'youth') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={youth} alt="youth"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'clinics') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={clinics} alt="clinics"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'emergency') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={emergency} alt="emergency"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'hiv') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={hiv} alt="hiv"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'mental_health') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={mental} alt="mental health"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'rehab') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn' id='moveOnOver'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={mental} alt="rehab"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <NavLink className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</NavLink>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'food_pantries') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={pantry} alt="food pantries"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'food_stamps') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={stamps} alt="food stamps"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'bathrooms') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={bathroom} alt="bathrooms"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'showers') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={shower} alt="showers"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'ged') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={ged} alt="GED"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'public_computers') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                  <div className='subcatbtn'>
+                    <Tabs>
+                      <div className='subcatIcon'>
+                        <StyledSubCatIcon src={computers} alt="computers"/>
+                        <div class="vl"></div>
+                      </div>
+                      <div className='subCatLink'>
+                        <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                      </div>
+                    </Tabs>
+                  </div>
+                </NavLink>
+              );
+            }
+            if (subCat === 'benefits') {
+              return (
+                <NavLink to={`/home/${cat}/${subCat}`}>
+                <div className='subcatbtn'>
+                  <Tabs>
+                    <div className='subcatIcon'>
+                      <StyledSubCatIcon src={benefits} alt="benefits"/>
+                      <div class="vl"></div>
+                    </div>
+                    <div className='subCatLink'>
+                      <p className="tablinks" to={`/home/${cat}/${subCat}`}>{subCat.replace(/_/g, ' ').toUpperCase()}</p>
+                    </div>
+                  </Tabs>
+                </div>
+                </NavLink>
+              );
+            }
         })}
       </SubCatContainer>
     </TabContainer>

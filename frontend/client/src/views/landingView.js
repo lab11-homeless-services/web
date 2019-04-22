@@ -29,6 +29,10 @@ const LandingSearchContainer = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0%;
   }
 `;
 
@@ -53,7 +57,7 @@ const LandingHeader = styled.h1`
   }
 
   @media (max-width: 600px) {
-    margin: 33% 0 0 0;
+    margin: 33% 0 0 3%;
   }
 `;
 
@@ -64,6 +68,12 @@ const LandingSearchInput = styled.div`
   @media (max-width: 1024px) {
     margin: 8% 0 0 0;
   }
+
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: center;
+    margin-left: 1.5%;
+  }
 `;
 
 const LandingLanguageSelectionContainer = styled.div`
@@ -71,7 +81,7 @@ const LandingLanguageSelectionContainer = styled.div`
   width: 71%;
   margin-top: 20%
   justify-content: space-between;
-
+  
   @media (max-width: 1024px) {
     width: 79%;
     flex-wrap: wrap;
@@ -91,7 +101,6 @@ const LandingLanguageSelectionButton = styled.div`
   height: 75px;
   background-color: #414361;
   border-radius: 4px;
-  box-shadow: 1px 2px 4px 2px #00000050;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,6 +108,18 @@ const LandingLanguageSelectionButton = styled.div`
   color: white;
   margin: 0 0 0 38%;
   letter-spacing: 2px;
+  box-shadow: 0px 1px 3px 1px #ccc;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  &:hover {
+    box-shadow: 1px 2px 4px 2px #00000050;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
 
   @media (max-width: 1024px) {
     width: 200px;
@@ -118,6 +139,7 @@ const LandingLanguageImage = styled.img`
   width: 16%;
   height: 50%;
   margin-left: 10%;
+  color: white;
 `;
 
 const LogoContainer = styled.div`
@@ -126,7 +148,8 @@ const LogoContainer = styled.div`
   background-color: #414361;
   border-radius: 4px 60px 0 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
   @media (max-width: 600px) {
     height: 22%;
@@ -148,6 +171,7 @@ const LandingCTAImg = styled.img`
 `;
 
 const LandingLogoImg = styled.img`
+  display: flex;
   width: 45%;
   margin: 0 0 0 7%;
 
@@ -206,6 +230,7 @@ const LandingView = () => {
         <LandingImageContainer>
           <LogoContainer>
             <LandingLogoImg src={logo} />
+            <p className='subscript'>Serving the boroughs of NYC</p>
           </LogoContainer>
           <LandingCTAImg src={landingImage} alt="" />
         </LandingImageContainer>

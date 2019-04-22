@@ -22,7 +22,7 @@ const ShelterNearestCard = styled.div`
   margin: 14% 0 0 5%;
   box-shadow: 1px 2px 8px 1px #00000050;
   padding-right: 2%;
-  
+
   @media (max-width: 1024px) {
     margin-left: 2%;
     margin-top: -4%;
@@ -31,8 +31,7 @@ const ShelterNearestCard = styled.div`
   @media (max-width: 600px) {
     margin-top: 5%;
     flex-direction: column-reverse;
-    height: 620px;
-    border: 1px solid black;
+    height: 675px;
   }
 `;
 
@@ -63,7 +62,7 @@ const ShelterInfoContainer = styled.div`
     height: auto;
 
     h3 {
-      margin-left: 3%;
+      margin: 0 0 0 3%;
     }
   }
 `;
@@ -73,14 +72,14 @@ const ShelterAddress = styled.div`
   margin: 7% 0 0 3%;
   font-size: 0.9rem;
   letter-spacing: 1px;
-  
+
   i {
     color: #414361;
   }
 
   p {
     margin-top: 1%;
-    color: #4A4A4A
+    color: #4a4a4a;
   }
 `;
 
@@ -93,12 +92,12 @@ const TransportationInfoContainer = styled.div`
   i {
     color: #414361;
   }
-  
+
   p {
     margin: 1% 0 0 2%;
     font-size: 0.9rem;
     margin-left: 5%;
-    color: #4A4A4A
+    color: #4a4a4a;
   }
 `;
 
@@ -106,12 +105,12 @@ const LoadingParagraph = styled.p`
   display: flex;
   margin: 5% 0 0 3%;
   color: #414361;
-  
+
   p {
     margin: 1% 0 0 2%;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin-left: 5%;
-    color: #4A4A4A
+    color: #4a4a4a;
   }
 `;
 
@@ -119,7 +118,7 @@ const TransitInfo = styled.div`
   display: flex;
   width: 44%;
   border-right: 1px solid lightgrey;
-  
+
   p {
     margin-left: 4%;
   }
@@ -139,11 +138,11 @@ const PhoneHoursContainer = styled.div`
   i {
     color: #414361;
   }
-  
+
   p {
     font-size: 0.9rem;
     margin: 2% 0 0 10%;
-    color: #4A4A4A;
+    color: #4a4a4a;
   }
 `;
 
@@ -164,7 +163,7 @@ const ShelterInfoButtons = styled.div`
   justify-content: space-between;
   margin: 15% 0 0 3%;
   width: 85%;
-  
+
   @media (max-width: 1024px) {
     margin-top: 5%;
   }
@@ -194,14 +193,25 @@ const ViewMapButton = styled.div`
   box-shadow: inset 1px 1px 0px 0px #00000050;
   margin-left: 10%;
   letter-spacing: 1px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  &:hover {
+    box-shadow: 1px 1px 3px 1px #ccc;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
 
   i {
     color: #414361;
   }
-  
+
   p {
     margin: 0 0 0 7%;
-    color: #4A4A4A;
+    color: #4a4a4a;
   }
 
   @media (max-width: 1024px) {
