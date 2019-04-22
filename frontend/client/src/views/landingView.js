@@ -128,6 +128,7 @@ const LandingLanguageImage = styled.img`
   width: 16%;
   height: 50%;
   margin-left: 10%;
+  color: white;
 `;
 
 const LogoContainer = styled.div`
