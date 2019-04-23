@@ -64,10 +64,6 @@ const ResourceCardDetail = styled.div`
   }
 `;
 
-const ResourceCardCopy = styled.div`
-  margin-left: 25%;
-`;
-
 const ResourcesNearestYouCard = styled.div`
   display: flex;
   flex-direction: column;

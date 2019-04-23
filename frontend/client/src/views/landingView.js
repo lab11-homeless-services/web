@@ -5,7 +5,7 @@ import { useStateValue } from "../state/state";
 import styled from "styled-components";
 
 import touch from "../img/touch.png";
-import landingImage from "../img/ctaLandingView.png";
+import landingImage from "../img/landingImage.jpg";
 import logo from "../img/logo.png";
 
 const LandingViewContainer = styled.div`
@@ -39,7 +39,10 @@ const LandingSearchContainer = styled.div`
 
 const LandingImageContainer = styled.div`
   width: 48%;
-  height: 100vh;
+  height: auto;
+  @media (max-width: 1024px) {
+    width: ;
+  }
 
   @media (max-width: 600px) {
     width: 100%;
@@ -52,7 +55,7 @@ const LandingHeader = styled.h1`
   margin: 20% 0 0 2%;
   width: 90%;
   letter-spacing: 3px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   font-weight: lighter;
   line-height: 30px;
 
@@ -165,7 +168,6 @@ const LogoContainer = styled.div`
 `;
 
 const LandingCTAImg = styled.img`
-  height: 63%;
   width: 100%;
   border-radius: 0 0 16px 4px;
 
@@ -248,7 +250,7 @@ const LandingView = () => {
         <LandingImageContainer>
           <LogoContainer>
             <LandingLogoImg src={logo} />
-            <p className='subscript'>Serving the boroughs of NYC</p>
+            <p className="subscript">Serving the boroughs of NYC</p>
           </LogoContainer>
           <LandingCTAImg src={landingImage} alt="" />
         </LandingImageContainer>
@@ -271,7 +273,10 @@ const LandingView = () => {
               <p>CONTACT US</p>
             </LandingNavBarText>
           </LandingNavBar>
-          <LandingHeader>Extending empathy through technology to connect people experiencing homelessness to critical information.</LandingHeader>
+          <LandingHeader>
+            Extending empathy through technology to connect people experiencing
+            homelessness to critical information.
+          </LandingHeader>
           <LandingSearchInput>
             <LandingSearchBar />
           </LandingSearchInput>
