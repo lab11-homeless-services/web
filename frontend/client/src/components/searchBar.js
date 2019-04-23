@@ -16,10 +16,11 @@ const FakeSearchInput = styled.input`
   width: 43%;
   height: 60px;
   padding-left: 3%;
-  font-size: 14px;
+  font-size: .9rem;
+  font-weight: lighter;
   border-radius: 2px;
   box-shadow: 1px 2px 4px 2px #00000050;
-  color: #9b9b9b;
+  color: #9B9B9B;
   @media (max-width: 1024px) {
     margin-right: 28%;
   }

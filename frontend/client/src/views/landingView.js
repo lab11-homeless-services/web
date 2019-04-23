@@ -48,10 +48,13 @@ const LandingImageContainer = styled.div`
 `;
 
 const LandingHeader = styled.h1`
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin: 20% 0 0 2%;
-  width: 100%;
-  letter-spacing: 2px;
+  width: 75%;
+  letter-spacing: 4px;
+  color: #4A4A4A;
+  font-weight: lighter;
+  line-height: 30px;
 
   @media (max-width: 1024px) {
     margin: 25% 0 0 0;
@@ -63,7 +66,7 @@ const LandingHeader = styled.h1`
 `;
 
 const LandingSearchInput = styled.div`
-  margin: 15% 0 0 2%;
+  margin: 10% 0 0 2%;
   width: 100%;
 
   @media (max-width: 1024px) {
@@ -254,7 +257,7 @@ const LandingView = () => {
               <p>CONTACT US</p>
             </LandingNavBarText>
           </LandingNavBar>
-          <LandingHeader>Search and find resources...</LandingHeader>
+          <LandingHeader>Extending empathy through technology to connect people experiencing homelessness to critical information.</LandingHeader>
           <LandingSearchInput>
             <LandingSearchBar />
           </LandingSearchInput>
