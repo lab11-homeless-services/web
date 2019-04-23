@@ -19,8 +19,19 @@ const FakeSearchInput = styled.input`
   font-size: 14px;
   border-radius: 2px;
   border: 1px solid lightgrey;
-  box-shadow: 2px 4px 10px 2px #00000050;
+  box-shadow: 0px 1px 3px 1px #ccc;
   color: #9b9b9b;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  &:hover {
+    box-shadow: 2px 4px 10px 2px #00000050;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
 `;
 
 const FakeSearchInputContainer = styled.div`
