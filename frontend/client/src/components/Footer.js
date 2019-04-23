@@ -25,11 +25,12 @@ position: fixed;
 const FooterText = styled.p`
   margin-right: 50px;
   padding: 5px;
-  font-size: .75rem;
+  font-size: .7rem;
+  font-weight: lighter;
   letter-spacing: 2px;
 
   i {
-    margin-right: 5px;
+    margin-right: 10px;
   }
 
   @media(max-width: 600px) {
