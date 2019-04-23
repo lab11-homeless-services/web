@@ -164,6 +164,10 @@ const HourDetails = styled.div`
   }
 `;
 
+const WrapDetails = styled.div`
+  flex-wrap: wrap;
+`;
+
 const ResourcesNearestYou = props => {
   const paths = props.props.location.pathname.split("/");
   let category = paths[2];
@@ -517,11 +521,15 @@ const ResourcesNearestYou = props => {
                 <ResourceCardDetail className="travel-times">
                   <PhoneDetails>
                     <i class="fas fa-phone" />
-                    <p>{item.phone ? item.phone : "Unavailable"}</p>
+                    <WrapDetails>
+                      <p>{item.phone ? item.phone : "Unavailable"}</p>
+                    </WrapDetails>
                   </PhoneDetails>
                   <HourDetails>
                     <i class="fas fa-clock" />
-                    <p>{item.hours ? item.hours : "Unavailable"}</p>
+                    <WrapDetails>
+                      <p>{item.hours ? item.hours : "Unavailable"}</p>
+                    </WrapDetails>
                   </HourDetails>
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>
