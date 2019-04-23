@@ -21,7 +21,7 @@ const ShelterNearestCard = styled.div`
   align-items: center;
   margin: 14% 0 0 5%;
   box-shadow: 1px 2px 8px 1px #00000050;
-  padding-right: 2%;
+  padding: 0 2% 0 1%;
 
   @media (max-width: 1024px) {
     margin-left: 2%;
