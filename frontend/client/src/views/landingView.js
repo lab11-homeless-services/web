@@ -50,7 +50,7 @@ const LandingImageContainer = styled.div`
 const LandingHeader = styled.h1`
   font-size: 1.15rem;
   margin: 20% 0 0 2%;
-  width: 75%;
+  width: 90%;
   letter-spacing: 4px;
   color: #4A4A4A;
   font-weight: lighter;
@@ -58,10 +58,12 @@ const LandingHeader = styled.h1`
 
   @media (max-width: 1024px) {
     margin: 25% 0 0 0;
+    width: 100%;
   }
 
   @media (max-width: 600px) {
     margin: 33% 0 0 3%;
+    width: 100%;
   }
 `;
 
@@ -82,7 +84,7 @@ const LandingSearchInput = styled.div`
 
 const LandingLanguageSelectionContainer = styled.div`
   display: flex;
-  width: 71%;
+  width: 75%;
   margin-top: 20%
   justify-content: space-between;
   
@@ -110,7 +112,7 @@ const LandingLanguageSelectionButton = styled.div`
   align-items: center;
   font-size: 1.7rem;
   color: white;
-  margin: 0 0 0 38%;
+  margin: 0 25px 0 38%;
   letter-spacing: 2px;
   box-shadow: 0px 1px 3px 1px #ccc;
   -webkit-transition-duration: 0.3s;
