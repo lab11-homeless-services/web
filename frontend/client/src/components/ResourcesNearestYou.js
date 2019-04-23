@@ -149,23 +149,20 @@ const Title = styled.div`
 const PhoneDetails = styled.div`
   width: 35%;
   display: flex;
-
-  p {
-    margin-left: 5%;
-  }
 `;
 
 const HourDetails = styled.div`
   display: flex;
   align-items: center;
-
-  p {
-    margin-left: 5%;
-  }
+  width: 60%;
 `;
 
 const WrapDetails = styled.div`
   flex-wrap: wrap;
+  
+  p {
+    margin-left: 5%;
+  }
 `;
 
 const ResourcesNearestYou = props => {
