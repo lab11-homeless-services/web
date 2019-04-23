@@ -248,6 +248,28 @@
 }
 
 /* ==== Resources Near You ==== */
+.travel-times .fa-walking {
+  padding-left: 5%;
+  padding-right: 4%;
+}
+
+.travel-times .fa-clock {
+  padding-left: 5%;
+  padding-right: 4%;
+}
+
+.travel-times .fa-phone {
+  padding-right: 4%;
+}
+
+:hover.resource-container .fa-external-link-alt {
+  color: #fff;
+}
+
+.details-button .fa-external-link-alt {
+  font-size: 1.4rem;
+  color: #9b9b9b;
+}
 
 /* ==== Tablet Styles ==== */
 

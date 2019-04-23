@@ -9,7 +9,7 @@ const DetailsButton = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  color: #9b9b9b;
+  color: #323131;
   background-color: #d6d8dc;
   width: 50%;
   height: 100%;
@@ -17,15 +17,23 @@ const DetailsButton = styled.div`
   margin-left: 25%;
   padding: 1%;
   border-radius: 5px;
-  box-shadow: 0px 1px 3px 1px #ccc;
+  box-shadow: 0px 1px 3px 1px #888;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+
   @media (max-width: 1024px) {
-    width: 40%;
+    width: 63%;
     height: 80%;
+    margin: 0 auto;
+    padding: 12px 2%;
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
   }
 `;
 
 const ResourceCardDetail = styled.div`
-  display: flex;
   align-items: center;
   margin-left: 5%;
   margin-bottom: 2%;
@@ -34,8 +42,12 @@ const ResourceCardDetail = styled.div`
   &:first-child {
     margin-left: 5%;
     color: #323131;
-    font-size: 110%;
+    font-size: 1.3rem;
     font-weight: bold;
+    letter-spacing: 1px;
+  }
+  @media (max-width: 600px) {
+    padding: 10px 0;
   }
 `;
 
@@ -64,14 +76,11 @@ const ResourcesNearestYouCard = styled.div`
   &:hover ${ResourceCardDetail} {
     color: #4a4a4a;
   }
-  @media (max-width: 1024px) {
-    height: 250px;
-  }
   @media (max-width: 600px) {
-    height: 33%;
-    width: 80%;
+    width: 90%;
     margin: 5%;
-    padding-left: 5%;
+    padding: 30px 3%;
+    height: auto;
   }
 `;
 
@@ -79,11 +88,25 @@ const ResourcesNearestYouContainer = styled.div`
   margin: 100px auto;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   @media (max-width: 600px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px auto
+    margin: 20px auto;
+  }
+`;
+
+const Title = styled.div`
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #414361;
+  margin: 0px 3% 40px 3%;
+  width: 100%;
+  @media (max-width: 600px) {
+    width: 80%;
+    margin: 20px 0 10px 0;
+    text-align: center;
   }
 `;
 
@@ -177,7 +200,6 @@ const ResourcesNearestYou = props => {
     return (
       <ResourcesNearestYouContainer>
         {list.map(item => {
-          console.log("item", item);
           if (item && item.name) {
             return (
               <ResourcesNearestYouCard>
@@ -236,7 +258,7 @@ const ResourcesNearestYou = props => {
     };
 
     sortArrayOfObjects(newResources, "distance");
-    console.log("newResources", newResources);
+
     let list = [];
     for (let i = 0; i < 3; i++) {
       list.push(newResources[i]);
@@ -249,6 +271,7 @@ const ResourcesNearestYou = props => {
     const { google } = props;
 
     if (firstShelter !== undefined) {
+      console.log(firstShelter);
       let destinationOne = new google.maps.LatLng(
         firstShelter.latitude,
         firstShelter.longitude
@@ -290,6 +313,7 @@ const ResourcesNearestYou = props => {
       );
 
       async function callback(response, status) {
+        console.log(response);
         if (response && response.rows.length) {
           setState({
             walkingTime: [
@@ -302,10 +326,13 @@ const ResourcesNearestYou = props => {
       }
 
       async function otherCallback(response, status) {
+        console.log("otherCallback", response);
         if (
           response &&
           response.rows.length > 0 &&
-          response.rows[0].elements[0].status !== "ZERO_RESULTS"
+          response.rows[0].elements[0].status !== "ZERO_RESULTS" &&
+          response.rows[0].elements[1].status !== "ZERO_RESULTS" &&
+          response.rows[0].elements[2].status !== "ZERO_RESULTS"
         ) {
           setState({
             transitTime: [
@@ -317,14 +344,14 @@ const ResourcesNearestYou = props => {
         }
       }
     }
-    console.log("transit time", state.transitTime[0]);
+
     return (
       <ResourcesNearestYouContainer>
+        <Title>RESOURCES NEAR YOU - {category.toUpperCase()}</Title>
         {list.map((item, i) => {
-          console.log("item", item);
           if (item && item.name) {
             return (
-              <ResourcesNearestYouCard>
+              <ResourcesNearestYouCard className="resource-container">
                 <ResourceCardDetail>{item.name}</ResourceCardDetail>
                 <ResourceCardDetail>
                   <i class="fas fa-map-marker-alt" /> {item.address}
@@ -334,13 +361,13 @@ const ResourcesNearestYou = props => {
                   {state.transitTime[i]}
                   <i class="fas fa-walking fa-lg" /> {state.walkingTime[i]}
                 </ResourceCardDetail>
-                <ResourceCardDetail>
+                <ResourceCardDetail className="travel-times">
                   <i class="fas fa-phone" /> {item.phone}
                   <i class="fas fa-clock" /> {item.hours}
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>
-                  <DetailsButton>
-                    <i class="fas fa-external-link-alt" /> View Details
+                  <DetailsButton className="details-button">
+                    <i class="fas fa-external-link-alt" /> VIEW DETAILS
                   </DetailsButton>
                 </Link>
               </ResourcesNearestYouCard>
