@@ -91,6 +91,10 @@ const ResourceListContainer = styled.div`
   flex-wrap: wrap;
   height: 80%;
   width: 90%;
+
+  @media (max-width: 600px) {
+    padding: 5% 0 30px 5%;
+  }
 `;
 
 const ResourceList = props => {
