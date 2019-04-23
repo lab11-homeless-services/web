@@ -71,7 +71,6 @@
   height: 44px;
 }
 .subcatbtn {
-
   width: 170px;
 }
 .subcatIcon {
@@ -85,7 +84,6 @@
   width: 96px;
   padding-right: 0;
 }
-
 
 /* ==== Translation Coming Soon Modal ==== */
 .spanishModal {
@@ -118,7 +116,6 @@
   margin-left: -50%;
   margin-top: 55px;
 }
-
 
 /* ==== Search Modal ==== */
 
@@ -231,7 +228,7 @@
   display: none;
 }
 /* ==== Landing Page ====  */
-.subscript{
+.subscript {
   margin-top: 9px;
   margin-left: 70px;
   color: white;
@@ -315,6 +312,16 @@
   #moveOnOver {
     padding-left: 81.5%;
   }
+
+  .subscript {
+    margin-top: 9px;
+    margin-left: 21%;
+    color: #fff;
+    font-style: italic;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    font-size: 1rem;
+  }
 }
 
 /* ==== Mobile Styles ==== */
@@ -362,6 +369,11 @@
 
   #moveOnOver {
     padding-left: 0;
+  }
+
+  .subscript {
+    margin: 0 auto;
+    padding-top: 10px;
   }
 }
 

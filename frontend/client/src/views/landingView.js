@@ -27,7 +27,7 @@ const LandingSearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 3%;
-
+  justify-content: center;
   @media (max-width: 600px) {
     width: 100%;
     display: flex;
@@ -40,6 +40,8 @@ const LandingSearchContainer = styled.div`
 const LandingImageContainer = styled.div`
   width: 48%;
   height: auto;
+  background: #414361;
+  border-radius: 0 60px 100px 0;
   @media (max-width: 1024px) {
     width: ;
   }
@@ -52,7 +54,7 @@ const LandingImageContainer = styled.div`
 
 const LandingHeader = styled.h1`
   font-size: 1.15rem;
-  margin: 20% 0 0 2%;
+  left-margin: 2%;
   width: 90%;
   letter-spacing: 3px;
   color: #4a4a4a;
@@ -73,6 +75,7 @@ const LandingHeader = styled.h1`
 const LandingSearchInput = styled.div`
   margin: 10% 0 0 2%;
   width: 100%;
+  padding-right: 3%;
 
   @media (max-width: 1024px) {
     margin: 8% 0 0 0;
@@ -148,7 +151,7 @@ const LandingLanguageImage = styled.img`
   width: 16%;
   height: 50%;
   margin-left: 10%;
-  color: white;
+  color: #414361;
 `;
 
 const LogoContainer = styled.div`
@@ -161,19 +164,18 @@ const LogoContainer = styled.div`
   justify-content: center;
 
   @media (max-width: 600px) {
-    height: 22%;
+    height: 39%;
     border-radius: 0;
     justify-content: center;
+    align-items: center;
   }
 `;
 
 const LandingCTAImg = styled.img`
   width: 100%;
-  border-radius: 0 0 16px 4px;
 
   @media (max-width: 600px) {
     width: 100%;
-    border-radius: 0;
   }
 `;
 
@@ -187,17 +189,17 @@ const LandingLogoImg = styled.img`
   }
 `;
 
-const LandingNavBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 95%;
-  margin-top: 9%;
-  letter-spacing: 2px;
+// const LandingNavBar = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   width: 95%;
+//   margin-top: 9%;
+//   letter-spacing: 2px;
 
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
+//   @media (max-width: 600px) {
+//     display: none;
+//   }
+// `;
 
 const LandingNavBarText = styled.div`
   color: #414361;
@@ -254,7 +256,7 @@ const LandingView = () => {
           <LandingCTAImg src={landingImage} alt="" />
         </LandingImageContainer>
         <LandingSearchContainer>
-          <LandingNavBar>
+          {/* <LandingNavBar>
             <LandingNavBarText>
               <i class="fas fa-book-reader fa-lg" />
               <p>ABOUT US</p>
@@ -271,7 +273,7 @@ const LandingView = () => {
               <i class="far fa-envelope fa-lg" />
               <p>CONTACT US</p>
             </LandingNavBarText>
-          </LandingNavBar>
+          </LandingNavBar> */}
           <LandingHeader>
             Extending empathy through technology to connect people experiencing
             homelessness to critical information.
