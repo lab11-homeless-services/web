@@ -51,7 +51,7 @@ const LandingHeader = styled.h1`
   font-size: 1.15rem;
   margin: 20% 0 0 2%;
   width: 90%;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: #4A4A4A;
   font-weight: lighter;
   line-height: 30px;

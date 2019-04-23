@@ -38,6 +38,7 @@ const DetailsButton = styled.div`
 
 const ResourceCardDetail = styled.div`
   align-items: center;
+  display: flex;
   margin-left: 5%;
   margin-bottom: 2%;
   font-size: 0.9rem;
@@ -142,6 +143,24 @@ const Title = styled.div`
     width: 80%;
     margin: 20px 0 10px 0;
     text-align: center;
+  }
+`;
+
+const PhoneDetails = styled.div`
+  width: 35%;
+  display: flex;
+
+  p {
+    margin-left: 5%;
+  }
+`;
+
+const HourDetails = styled.div`
+  display: flex;
+  align-items: center;
+
+  p {
+    margin-left: 5%;
   }
 `;
 
@@ -397,8 +416,14 @@ const ResourcesNearestYou = props => {
                   <i class="fas fa-walking fa-lg" /> {state.walkingTime[i]}
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
-                  <i class="fas fa-phone" /> {item.phone}
-                  <i class="fas fa-clock" /> {item.hours}
+                  <PhoneDetails>
+                    <i class="fas fa-phone" /> 
+                    <p>{item.phone}</p>
+                  </PhoneDetails>
+                  <HourDetails>
+                    <i class="fas fa-clock" /> 
+                    <p>{item.hours}</p>
+                  </HourDetails>
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>
                   <DetailsButton className="details-button">
