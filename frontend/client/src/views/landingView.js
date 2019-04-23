@@ -39,6 +39,10 @@ const LandingSearchContainer = styled.div`
 
 const LandingImageContainer = styled.div`
   width: 48%;
+  height: auto;
+  @media (max-width: 1024px) {
+    width: ;
+  }
 
   @media (max-width: 600px) {
     width: 100%;
@@ -164,7 +168,6 @@ const LogoContainer = styled.div`
 `;
 
 const LandingCTAImg = styled.img`
-  height: 63%;
   width: 100%;
   border-radius: 0 0 16px 4px;
 
