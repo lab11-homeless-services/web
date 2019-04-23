@@ -422,6 +422,9 @@ const TabContainer = styled.div`
     flex-direction: column;
     margin-bottom: 0;
   }
+  @media print {
+    display: none;
+  }
 `;
 const SubCatContainer = styled.div`
   display: flex;
