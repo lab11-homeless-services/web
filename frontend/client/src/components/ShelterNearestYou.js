@@ -119,11 +119,11 @@ const LoadingParagraph = styled.p`
 
 const TransitInfo = styled.div`
   display: flex;
-  width: 44%;
+  width: 43%;
   border-right: 1px solid lightgrey;
 
   p {
-    margin-left: 4%;
+    margin-left: 7%;
   }
 `;
 
@@ -151,13 +151,15 @@ const PhoneHoursContainer = styled.div`
 `;
 
 const PhoneInfo = styled.div`
-  width: 41%;
+  width: 43%;
   display: flex;
+  align-items: center;
   border-right: 1px solid lightgrey;
 `;
 
 const HoursInfo = styled.div`
   display: flex;
+  align-items: center;
   margin: 0 0 0 4%;
 `;
 
@@ -463,11 +465,11 @@ const SheltersNearestYou = props => {
               <TransportationInfoContainer>
                 <TransitInfo>
                   <i class="fas fa-bus fa-sm" />
-                  <p>Transit: {state.transitTime}</p>
+                  <p>{state.transitTime}</p>
                 </TransitInfo>
                 <WalkingInfo>
                   <i class="fas fa-walking fa-lg" />
-                  <p>Walking: {state.walkingTime}</p>
+                  <p>{state.walkingTime}</p>
                 </WalkingInfo>
               </TransportationInfoContainer>
             ) : (
