@@ -71,6 +71,7 @@ const ShelterAddress = styled.div`
   display: flex;
   margin: 7% 0 0 3%;
   font-size: 0.9rem;
+  font-weight: lighter;
   letter-spacing: 1px;
 
   i {
@@ -95,6 +96,7 @@ const TransportationInfoContainer = styled.div`
 
   p {
     margin: 1% 0 0 2%;
+    font-weight: lighter;
     font-size: 0.9rem;
     margin-left: 5%;
     color: #4a4a4a;
@@ -108,6 +110,7 @@ const LoadingParagraph = styled.p`
 
   p {
     margin: 1% 0 0 2%;
+    font-weight: lighter;
     font-size: 0.9rem;
     margin-left: 5%;
     color: #4a4a4a;
@@ -141,6 +144,7 @@ const PhoneHoursContainer = styled.div`
 
   p {
     font-size: 0.9rem;
+    font-weight: lighter;
     margin: 2% 0 0 10%;
     color: #4a4a4a;
   }
