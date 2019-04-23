@@ -271,7 +271,7 @@ const TabNav = props => {
               <div className='subcatbtn' id='moveOnOver'>
                 <Tabs>
                   <div className='subcatIcon'>
-                    <StyledSubCatIcon src={mental} alt="rehab"/>
+                    <StyledSubCatIcon src={rehab} alt="rehab"/>
                     <div class="vl"></div>
                   </div>
                   <div className='subCatLink'>
@@ -440,7 +440,6 @@ const Tabs = styled.div`
   height: 45px;
   margin-left: 20px;
   border: #9b9b9b solid 1px;
-  box-shadow: 1px 1px 1px 1px #00000050;
   @media (max-width: 600px) {
     margin: 0 0 0 0;
 
