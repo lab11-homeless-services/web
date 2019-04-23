@@ -90,8 +90,6 @@
   padding-right: 0;
 }
 
-
-
 /* ==== Search Modal ==== */
 
 .modal {
@@ -249,6 +247,8 @@
   width: 100%;
 }
 
+/* ==== Resources Near You ==== */
+
 /* ==== Tablet Styles ==== */
 
 @media (max-width: 1024px) {
@@ -259,6 +259,7 @@
 
   #moveOnOver {
   padding-left: 81.5%;
+
   }
 }
 
