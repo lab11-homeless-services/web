@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import LandingSearchBar from "../components/LandingSearchBar";
 import { NavLink } from "react-router-dom";
 import { useStateValue } from "../state/state";
@@ -219,7 +219,19 @@ const LandingFooter = styled.div`
 
 const LandingView = () => {
   //Gains access to reducers and state
-  const [{ spanish }, dispatch] = useStateValue();
+  // const [{ spanish }, dispatch] = useStateValue();
+  // const [state, setState] = useReducer(
+  //   (state, newState) => ({ ...state, ...newState }),
+  //   { displayModal: false }
+  // );
+
+  const [displayModal, setState] = useState(false);
+
+  const closeModal = e => {
+    e.preventDefault();
+    setState(false);
+  };
+  console.log(displayModal);
 
   return (
     <div>
@@ -260,15 +272,10 @@ const LandingView = () => {
                 <LandingLanguageImage src={touch} />
               </LandingLanguageSelectionButton>
             </NavLink>
-            <NavLink to="/home">
+            <NavLink to="">
               <LandingLanguageSelectionButton
-                spanish={spanish.spanish}
-                onClick={() =>
-                  dispatch({
-                    type: "setSpanish",
-                    language: true
-                  })
-                }
+                // spanish={spanish.spanish}
+                onClick={() => setState(true)}
               >
                 <p>Español?</p>
                 <LandingLanguageImage src={touch} />
@@ -278,6 +285,27 @@ const LandingView = () => {
         </LandingSearchContainer>
       </LandingViewContainer>
       <LandingFooter />
+      <Modal show={displayModal} close={closeModal}>
+        <h2>La Traducción al Español vendrá pronto!</h2>
+        <h4>Spanish Translation Coming Soon!</h4>
+      </Modal>
+    </div>
+  );
+};
+
+const Modal = ({ close, show, children }) => {
+  const showHideClassName = show
+    ? "spanishModal display-block"
+    : "spanishModal display-none";
+
+  return (
+    <div className={showHideClassName}>
+      <section className="modal-language">
+        {children}
+        <div className="closeModalButton" onClick={close}>
+          X
+        </div>
+      </section>
     </div>
   );
 };

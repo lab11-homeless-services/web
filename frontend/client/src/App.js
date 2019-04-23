@@ -11,6 +11,7 @@ import SubCategoryList from "./views/subCategoryList";
 //State
 import { StateProvider } from "./state/state";
 import languageReducer from "./reducers/languageReducer";
+import modalReducer from "./reducers/modalReducer.js";
 //styles
 import "./App.css";
 
@@ -28,19 +29,21 @@ class App extends Component {
         desktop: 1366,
         tablet: 1024,
         mobile: 600
-      }
+      },
+      displayModal: false
     };
 
     // creates logic to combine reducers
-    const mainReducer = ({ spanish }, action) => ({
-      spanish: languageReducer(spanish, action)
+    const mainReducer = ({ spanish, displayModal }, action) => ({
+      spanish: languageReducer(spanish, action),
+      displayModal: modalReducer(displayModal, action)
     });
 
     return (
       // App must be wrapped in StateProvider to approximate Redux functionality
       // creates a global store and sends state throughout the app
       // gives access to reducers to interact w/ state throughout app
-      <StateProvider initialState={initialState} reducer={mainReducer}>
+      <StateProvider initialState={initialState} reducer={modalReducer}>
         <div className="App">
           <Route exact path="/" render={props => <LandingView {...props} />} />
           <Route

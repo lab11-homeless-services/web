@@ -173,7 +173,7 @@ class SearchBar extends React.Component {
   }
 }
 
-const Modal = ({ close, show, children }) => {
+export const Modal = ({ close, show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
