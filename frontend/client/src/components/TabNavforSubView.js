@@ -43,9 +43,7 @@ const TabNavforSubView = props => {
             if (subCat === "_all") {
               return (
                 <div className="right-arrow">
-                  <MainCatBTN>
                     <BreadcrumbMainCat cat={cat} />
-                  </MainCatBTN>
                   <i class="fas fa-arrow-right" />
                 </div>
               );
@@ -124,9 +122,7 @@ const TabNavforSubView = props => {
           if (subCat === "all") {
             return (
               <div className="right-arrow">
-                <MainCatBTN>
-                  <BreadcrumbMainCat cat={cat} />
-                </MainCatBTN>
+                <BreadcrumbMainCat cat={cat} />
                 <i class="fas fa-arrow-right" />
               </div>
             );
@@ -273,7 +269,7 @@ const TabNavforSubView = props => {
                   <div className='subcatbtn' id='moveOnOver'>
                     <Tabs>
                       <div className='subcatIcon'>
-                        <StyledSubCatIcon src={mental} alt="rehab"/>
+                        <StyledSubCatIcon src={rehab} alt="rehab"/>
                         <div class="vl"></div>
                       </div>
                       <div className='subCatLink'>
@@ -422,6 +418,9 @@ const TabContainer = styled.div`
     flex-direction: column;
     margin-bottom: 0;
   }
+  @media print {
+    display: none;
+  }
 `;
 const SubCatContainer = styled.div`
   display: flex;
@@ -442,23 +441,8 @@ const Tabs = styled.div`
   height: 45px;
   margin-left: 20px;
   border: #9b9b9b solid 1px;
-  box-shadow: 1px 1px 1px 1px #00000050;
   @media (max-width: 600px) {
     margin: 0 0 0 0;
-  }
-`;
-const MainCatBTN = styled.div`
-  width: 70px;
-  height: 70px;
-  background-color: #414361;
-  border-radius: 10px;
-  font-size: 12px;
-  text-align: center;
-  border: 1px solid white;
-  margin-left: 10px;
-  box-shadow: 1px 2px 4px 2px #00000050;
-  @media (max-width: 600px) {
-    display: none;
   }
 `;
 

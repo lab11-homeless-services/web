@@ -143,21 +143,26 @@ const Title = styled.div`
 `;
 
 const PhoneDetails = styled.div`
-  width: 35%;
+  width: 37%;
   display: flex;
-
-  p {
-    margin-left: 5%;
+  
+  i {
+    margin-right: 10px;
   }
 `;
 
 const HourDetails = styled.div`
   display: flex;
   align-items: center;
+  width: 65%;
 
-  p {
-    margin-left: 5%;
+  i {
+    margin-right: 15px;
   }
+`;
+
+const WrapDetails = styled.div`
+  flex-wrap: wrap;
 `;
 
 const ResourcesNearestYou = props => {
@@ -513,11 +518,15 @@ const ResourcesNearestYou = props => {
                 <ResourceCardDetail className="travel-times">
                   <PhoneDetails>
                     <i class="fas fa-phone" />
-                    <p>{item.phone ? item.phone : "Unavailable"}</p>
+                    <WrapDetails>
+                      <p>{item.phone ? item.phone : "Unavailable"}</p>
+                    </WrapDetails>
                   </PhoneDetails>
                   <HourDetails>
                     <i class="fas fa-clock" />
-                    <p>{item.hours ? item.hours : "Unavailable"}</p>
+                    <WrapDetails>
+                      <p>{item.hours ? item.hours : "Unavailable"}</p>
+                    </WrapDetails>
                   </HourDetails>
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>

@@ -21,6 +21,7 @@ const FakeSearchInput = styled.input`
   border-radius: 2px;
   box-shadow: 1px 2px 4px 2px #00000050;
   color: #9B9B9B;
+
   @media (max-width: 1024px) {
     margin-right: 28%;
   }
@@ -29,6 +30,11 @@ const FakeSearchInput = styled.input`
     margin-right: 0;
     width: 100%;
     display: flex;
+  }
+
+  @media print {
+    display: none;
+  }
 `;
 
 const FakeSearchInputContainer = styled.div`
