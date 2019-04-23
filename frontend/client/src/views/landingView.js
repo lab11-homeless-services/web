@@ -172,7 +172,6 @@ const LandingCTAImg = styled.img`
   border-radius: 0 0 16px 4px;
 
   @media (max-width: 600px) {
-    height: 100%;
     width: 100%;
     border-radius: 0;
   }
