@@ -203,8 +203,11 @@
 /* ==== Landing Page ====  */
 .subscript{
   margin-top: 9px;
-  margin-left: 80px;
+  margin-left: 70px;
   color: white;
+  font-style: italic;
+  font-weight: lighter;
+  letter-spacing: 1px;
 }
 
 /* ==== Single Resource ==== */

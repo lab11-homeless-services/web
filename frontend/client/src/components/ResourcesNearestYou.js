@@ -41,6 +41,7 @@ const ResourceCardDetail = styled.div`
   margin-left: 5%;
   margin-bottom: 2%;
   font-size: 0.9rem;
+  font-weight: lighter;
   color: #9b9b9b;
   width: 90%;
   -webkit-transition-duration: 0.3s;
