@@ -79,6 +79,17 @@
 }
 .subCatLink {
   display: flex;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.subCatLink:hover > .tablinks {
+  color: white;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 #unacceptableLength {
   width: 96px;
@@ -369,6 +380,7 @@
 
   #moveOnOver {
     padding-left: 0;
+
   }
 
   .subscript {
