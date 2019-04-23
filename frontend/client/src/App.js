@@ -18,10 +18,10 @@ import "./App.css";
 class App extends Component {
   render() {
     // this allows us to access firebase functions to interact w/ db
-    firebase.initializeApp({
-      apiKey: "AIzaSyCAq8hud84J37D5gyYY0KscH4kY85Y61II",
-      databaseURL: "https://empact-e511a.firebaseio.com/"
-    });
+    // firebase.initializeApp({
+    //   apiKey: "AIzaSyCAq8hud84J37D5gyYY0KscH4kY85Y61II",
+    //   databaseURL: "https://empact-e511a.firebaseio.com/"
+    // });
     // sets initial app state to render in English
     const initialState = {
       spanish: false,
