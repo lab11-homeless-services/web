@@ -18,6 +18,7 @@ const LandingViewContainer = styled.div`
 
   @media (max-width: 600px) {
     flex-direction: column;
+    margin-bottom: 30px;
   }
 `;
 
@@ -47,22 +48,27 @@ const LandingImageContainer = styled.div`
 `;
 
 const LandingHeader = styled.h1`
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin: 20% 0 0 2%;
-  width: 100%;
-  letter-spacing: 2px;
+  width: 90%;
+  letter-spacing: 3px;
+  color: #4A4A4A;
+  font-weight: lighter;
+  line-height: 30px;
 
   @media (max-width: 1024px) {
     margin: 25% 0 0 0;
+    width: 100%;
   }
 
   @media (max-width: 600px) {
     margin: 33% 0 0 3%;
+    width: 100%;
   }
 `;
 
 const LandingSearchInput = styled.div`
-  margin: 15% 0 0 2%;
+  margin: 10% 0 0 2%;
   width: 100%;
 
   @media (max-width: 1024px) {
@@ -78,7 +84,7 @@ const LandingSearchInput = styled.div`
 
 const LandingLanguageSelectionContainer = styled.div`
   display: flex;
-  width: 71%;
+  width: 75%;
   margin-top: 20%
   justify-content: space-between;
   
@@ -106,7 +112,7 @@ const LandingLanguageSelectionButton = styled.div`
   align-items: center;
   font-size: 1.7rem;
   color: white;
-  margin: 0 0 0 38%;
+  margin: 0 25px 0 38%;
   letter-spacing: 2px;
   box-shadow: 0px 1px 3px 1px #ccc;
   -webkit-transition-duration: 0.3s;
@@ -139,6 +145,7 @@ const LandingLanguageImage = styled.img`
   width: 16%;
   height: 50%;
   margin-left: 10%;
+  color: white;
 `;
 
 const LogoContainer = styled.div`
@@ -147,7 +154,8 @@ const LogoContainer = styled.div`
   background-color: #414361;
   border-radius: 4px 60px 0 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
   @media (max-width: 600px) {
     height: 22%;
@@ -169,6 +177,7 @@ const LandingCTAImg = styled.img`
 `;
 
 const LandingLogoImg = styled.img`
+  display: flex;
   width: 45%;
   margin: 0 0 0 7%;
 
@@ -239,6 +248,7 @@ const LandingView = () => {
         <LandingImageContainer>
           <LogoContainer>
             <LandingLogoImg src={logo} />
+            <p className='subscript'>Serving the boroughs of NYC</p>
           </LogoContainer>
           <LandingCTAImg src={landingImage} alt="" />
         </LandingImageContainer>
@@ -261,7 +271,7 @@ const LandingView = () => {
               <p>CONTACT US</p>
             </LandingNavBarText>
           </LandingNavBar>
-          <LandingHeader>Search and find resources...</LandingHeader>
+          <LandingHeader>Extending empathy through technology to connect people experiencing homelessness to critical information.</LandingHeader>
           <LandingSearchInput>
             <LandingSearchBar />
           </LandingSearchInput>

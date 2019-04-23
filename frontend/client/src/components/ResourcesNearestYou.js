@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import latlngDist from "latlng-distance";
 import styled from "styled-components";
@@ -8,7 +9,7 @@ const DetailsButton = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  color: #9b9b9b;
+  color: #323131;
   background-color: #d6d8dc;
   width: 50%;
   height: 100%;
@@ -16,23 +17,32 @@ const DetailsButton = styled.div`
   margin-left: 25%;
   padding: 1%;
   border-radius: 5px;
-  box-shadow: 0px 1px 3px 1px #ccc;
+  box-shadow: 0px 1px 3px 1px #888;
+  letter-spacing: 1px;
+  font-size: 1rem;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
   @media (max-width: 1024px) {
-    width: 40%;
+    width: 63%;
     height: 80%;
+    margin: 0 auto;
+    padding: 12px 2%;
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
   }
 `;
 
 const ResourceCardDetail = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   margin-left: 5%;
   margin-bottom: 2%;
   font-size: 0.9rem;
+  font-weight: lighter;
   color: #9b9b9b;
   width: 90%;
   -webkit-transition-duration: 0.3s;
@@ -47,6 +57,10 @@ const ResourceCardDetail = styled.div`
     color: #323131;
     font-size: 1.3rem;
     font-weight: bold;
+    letter-spacing: 1px;
+  }
+  @media (max-width: 600px) {
+    padding: 10px 0;
   }
 `;
 
@@ -96,14 +110,11 @@ const ResourcesNearestYouCard = styled.div`
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;
   }
-  @media (max-width: 1024px) {
-    height: 250px;
-  }
   @media (max-width: 600px) {
-    height: 33%;
-    width: 80%;
+    width: 90%;
     margin: 5%;
-    padding-left: 5%;
+    padding: 30px 3%;
+    height: auto;
   }
 `;
 
@@ -113,11 +124,43 @@ const ResourcesNearestYouContainer = styled.div`
   margin: 100px auto;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   @media (max-width: 600px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 20px auto;
+  }
+`;
+
+const Title = styled.div`
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #414361;
+  margin: 0px 3% 40px 3%;
+  width: 100%;
+  @media (max-width: 600px) {
+    width: 80%;
+    margin: 20px 0 10px 0;
+    text-align: center;
+  }
+`;
+
+const PhoneDetails = styled.div`
+  width: 35%;
+  display: flex;
+
+  p {
+    margin-left: 5%;
+  }
+`;
+
+const HourDetails = styled.div`
+  display: flex;
+  align-items: center;
+
+  p {
+    margin-left: 5%;
   }
 `;
 
@@ -143,9 +186,12 @@ const ResourcesNearestYou = props => {
       centerAroundCurrentLocation: false,
       visible: true,
       zoom: 14,
-      timeTravel: ""
+      walkingTime: [],
+      transitTime: []
     }
   );
+
+  //axios request for list of resources
   let listOfResources = [];
   function fetcher(url) {
     const [data, setData] = useState([]);
@@ -171,11 +217,13 @@ const ResourcesNearestYou = props => {
     return data;
   }
 
+  //Fetching Outreach services. Requires a separate fetch from other categories because of subcategory formatting
   if (category === "outreach_services") {
     listOfResources = fetcher(
       `https://empact-e511a.firebaseio.com/${category}/_all.json`
     );
 
+    //Calculating distances away from user and saving resource object to a new array
     let newResources = [];
     let id = 0;
 
@@ -194,6 +242,7 @@ const ResourcesNearestYou = props => {
       id++;
     }
 
+    //Sorting the resources based on distance
     const sortArrayOfObjects = (arr, key) => {
       return arr.sort((a, b) => {
         return a[key] - b[key];
@@ -201,35 +250,120 @@ const ResourcesNearestYou = props => {
     };
 
     sortArrayOfObjects(newResources, "distance");
-    console.log(newResources);
+
+    //Saving the first 3 resources to a new array
     let list = [];
     for (let i = 0; i < 3; i++) {
       list.push(newResources[i]);
     }
+    const firstShelter = list[0];
+    const secondShelter = list[1];
+    const thirdShelter = list[2];
+
+    const { google } = props;
+
+    if (firstShelter !== undefined) {
+      console.log(firstShelter);
+      let destinationOne = new google.maps.LatLng(
+        firstShelter.latitude,
+        firstShelter.longitude
+      );
+
+      let destinationTwo = new google.maps.LatLng(
+        secondShelter.latitude,
+        secondShelter.longitude
+      );
+      let destinationThree = new google.maps.LatLng(
+        thirdShelter.latitude,
+        thirdShelter.longitude
+      );
+      let origin = new google.maps.LatLng(
+        state.currentLocation.lat,
+        state.currentLocation.lon
+      );
+
+      let service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destinationOne, destinationTwo, destinationThree],
+          travelMode: "WALKING",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        callback
+      );
+
+      let nextService = new google.maps.DistanceMatrixService();
+      nextService.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destinationOne, destinationTwo, destinationThree],
+          travelMode: "TRANSIT",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        otherCallback
+      );
+
+      async function callback(response, status) {
+        console.log(response);
+        if (response && response.rows.length) {
+          setState({
+            walkingTime: [
+              response.rows[0].elements[0].duration.text,
+              response.rows[0].elements[1].duration.text,
+              response.rows[0].elements[2].duration.text
+            ]
+          });
+        }
+      }
+
+      async function otherCallback(response, status) {
+        console.log("otherCallback", response);
+        if (
+          response &&
+          response.rows.length > 0 &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS" &&
+          response.rows[0].elements[1].status !== "ZERO_RESULTS" &&
+          response.rows[0].elements[2].status !== "ZERO_RESULTS"
+        ) {
+          setState({
+            transitTime: [
+              response.rows[0].elements[0].duration.text,
+              response.rows[0].elements[1].duration.text,
+              response.rows[0].elements[2].duration.text
+            ]
+          });
+        }
+      }
+    }
 
     return (
       <ResourcesNearestYouContainer>
-        {list.map(item => {
-          console.log("item", item);
+        <Title>RESOURCES NEAR YOU - OUTREACH SERVICES</Title>
+        {list.map((item, i) => {
           if (item && item.name) {
             return (
-              <ResourcesNearestYouCard>
-                <ResourceCardCopy className="copy">
-                  <ResourceCardDetail>{item.name}</ResourceCardDetail>
-                  <ResourceCardDetail>
-                    <i class="fas fa-map-marker-alt" /> <p>{item.address}</p>
-                  </ResourceCardDetail>
-                  <ResourceCardDetail>
-                    <i class="fas fa-phone" />
-                    <p>{item.phone}</p>
-                  </ResourceCardDetail>
-                  <ResourceCardDetail>
-                    <i class="fas fa-clock" /> <p>{item.hours}</p>
-                  </ResourceCardDetail>
-                </ResourceCardCopy>
-                <Link to={`/home/${category}/_all/${item.id}`}>
-                  <DetailsButton>
-                    <i class="fas fa-external-link-alt" /> View Details
+              <ResourcesNearestYouCard className="resource-container">
+                <ResourceCardDetail>{item.name}</ResourceCardDetail>
+                <ResourceCardDetail>
+                  <i class="fas fa-map-marker-alt" />
+                  {item.address ? item.address : "Unavailable"}
+                </ResourceCardDetail>
+                <ResourceCardDetail className="travel-times">
+                  <i class="fas fa-bus fa-sm" />
+                  {state.transitTime[i] ? state.transitTime[i] : "Unavailable"}
+                  <i class="fas fa-walking fa-lg" />
+                  {state.walkingTime[i] ? state.walkingTime[i] : "Unavailable"}
+                </ResourceCardDetail>
+                <ResourceCardDetail className="travel-times">
+                  <i class="fas fa-phone" />
+                  {item.phone ? item.phone : "Unavailable"}
+                  <i class="fas fa-clock" />{" "}
+                  {item.hours ? item.hours : "Unavailable"}
+                </ResourceCardDetail>
+                <Link to={`/home/${category}/all/${item.id}`}>
+                  <DetailsButton className="details-button">
+                    <i class="fas fa-external-link-alt" /> VIEW DETAILS
                   </DetailsButton>
                 </Link>
               </ResourcesNearestYouCard>
@@ -269,32 +403,130 @@ const ResourcesNearestYou = props => {
     };
 
     sortArrayOfObjects(newResources, "distance");
-    console.log(newResources);
+
     let list = [];
     for (let i = 0; i < 3; i++) {
       list.push(newResources[i]);
     }
 
+    const firstShelter = list[0];
+    const secondShelter = list[1];
+    const thirdShelter = list[2];
+
+    const { google } = props;
+
+    if (firstShelter !== undefined) {
+      console.log(firstShelter);
+      let destinationOne = new google.maps.LatLng(
+        firstShelter.latitude,
+        firstShelter.longitude
+      );
+
+      let destinationTwo = new google.maps.LatLng(
+        secondShelter.latitude,
+        secondShelter.longitude
+      );
+      let destinationThree = new google.maps.LatLng(
+        thirdShelter.latitude,
+        thirdShelter.longitude
+      );
+      let origin = new google.maps.LatLng(
+        state.currentLocation.lat,
+        state.currentLocation.lon
+      );
+
+      let service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destinationOne, destinationTwo, destinationThree],
+          travelMode: "WALKING",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        callback
+      );
+
+      let nextService = new google.maps.DistanceMatrixService();
+      nextService.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destinationOne, destinationTwo, destinationThree],
+          travelMode: "TRANSIT",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        otherCallback
+      );
+
+      async function callback(response, status) {
+        console.log(response);
+        if (
+          response &&
+          response.rows.length > 0 &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS" &&
+          response.rows[0].elements[1].status !== "ZERO_RESULTS" &&
+          response.rows[0].elements[2].status !== "ZERO_RESULTS"
+        ) {
+          setState({
+            walkingTime: [
+              response.rows[0].elements[0].duration.text,
+              response.rows[0].elements[1].duration.text,
+              response.rows[0].elements[2].duration.text
+            ]
+          });
+        }
+      }
+
+      async function otherCallback(response, status) {
+        console.log("otherCallback", response);
+        if (
+          response &&
+          response.rows.length > 0 &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS" &&
+          response.rows[0].elements[1].status !== "ZERO_RESULTS" &&
+          response.rows[0].elements[2].status !== "ZERO_RESULTS"
+        ) {
+          setState({
+            transitTime: [
+              response.rows[0].elements[0].duration.text,
+              response.rows[0].elements[1].duration.text,
+              response.rows[0].elements[2].duration.text
+            ]
+          });
+        }
+      }
+    }
+
     return (
       <ResourcesNearestYouContainer>
-        {list.map(item => {
-          console.log("item", item);
+        <Title>RESOURCES NEAR YOU - {category.toUpperCase()}</Title>
+        {list.map((item, i) => {
           if (item && item.name) {
             return (
-              <ResourcesNearestYouCard>
+              <ResourcesNearestYouCard className="resource-container">
                 <ResourceCardDetail>{item.name}</ResourceCardDetail>
                 <ResourceCardDetail>
-                  <i class="fas fa-map-marker-alt" /> {item.address}
+                  <i class="fas fa-map-marker-alt" />
+                  {item.address ? item.address : "Unavailable"}
                 </ResourceCardDetail>
-                <ResourceCardDetail>
-                  <i class="fas fa-phone" /> {item.phone}
+                <ResourceCardDetail className="travel-times">
+                  <i class="fas fa-bus fa-sm" />
+                  {state.transitTime[i] ? state.transitTime[i] : "Unavailable"}
+                  <i class="fas fa-walking fa-lg" />
+                  {state.walkingTime[i] ? state.walkingTime[i] : "Unavailable"}
                 </ResourceCardDetail>
-                <ResourceCardDetail>
-                  <i class="fas fa-clock" /> {item.hours}
+                <ResourceCardDetail className="travel-times">
+                  <PhoneDetails>
+                    <i class="fas fa-phone" />
+                    <p>{item.phone ? item.phone : "Unavailable"}</p>
+                  </PhoneDetails>
+                  <HourDetails>
+                    <i class="fas fa-clock" />
+                    <p>{item.hours ? item.hours : "Unavailable"}</p>
+                  </HourDetails>
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>
-                  <DetailsButton>
-                    <i class="fas fa-external-link-alt" /> View Details
+                  <DetailsButton className="details-button">
+                    <i class="fas fa-external-link-alt" /> VIEW DETAILS
                   </DetailsButton>
                 </Link>
               </ResourcesNearestYouCard>
@@ -308,4 +540,6 @@ const ResourcesNearestYou = props => {
   }
 };
 
-export default ResourcesNearestYou;
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
+})(ResourcesNearestYou);

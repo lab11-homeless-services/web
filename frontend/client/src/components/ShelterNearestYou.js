@@ -21,7 +21,7 @@ const ShelterNearestCard = styled.div`
   align-items: center;
   margin: 14% 0 0 5%;
   box-shadow: 1px 2px 8px 1px #00000050;
-  padding-right: 2%;
+  padding: 0 2% 0 1%;
 
   @media (max-width: 1024px) {
     margin-left: 2%;
@@ -71,6 +71,7 @@ const ShelterAddress = styled.div`
   display: flex;
   margin: 7% 0 0 3%;
   font-size: 0.9rem;
+  font-weight: lighter;
   letter-spacing: 1px;
 
   i {
@@ -95,6 +96,7 @@ const TransportationInfoContainer = styled.div`
 
   p {
     margin: 1% 0 0 2%;
+    font-weight: lighter;
     font-size: 0.9rem;
     margin-left: 5%;
     color: #4a4a4a;
@@ -108,6 +110,7 @@ const LoadingParagraph = styled.p`
 
   p {
     margin: 1% 0 0 2%;
+    font-weight: lighter;
     font-size: 0.9rem;
     margin-left: 5%;
     color: #4a4a4a;
@@ -116,11 +119,11 @@ const LoadingParagraph = styled.p`
 
 const TransitInfo = styled.div`
   display: flex;
-  width: 44%;
+  width: 43%;
   border-right: 1px solid lightgrey;
 
   p {
-    margin-left: 4%;
+    margin-left: 7%;
   }
 `;
 
@@ -141,19 +144,22 @@ const PhoneHoursContainer = styled.div`
 
   p {
     font-size: 0.9rem;
+    font-weight: lighter;
     margin: 2% 0 0 10%;
     color: #4a4a4a;
   }
 `;
 
 const PhoneInfo = styled.div`
-  width: 41%;
+  width: 43%;
   display: flex;
+  align-items: center;
   border-right: 1px solid lightgrey;
 `;
 
 const HoursInfo = styled.div`
   display: flex;
+  align-items: center;
   margin: 0 0 0 4%;
 `;
 
@@ -459,11 +465,11 @@ const SheltersNearestYou = props => {
               <TransportationInfoContainer>
                 <TransitInfo>
                   <i class="fas fa-bus fa-sm" />
-                  <p>Transit: {state.transitTime}</p>
+                  <p>{state.transitTime}</p>
                 </TransitInfo>
                 <WalkingInfo>
                   <i class="fas fa-walking fa-lg" />
-                  <p>Walking: {state.walkingTime}</p>
+                  <p>{state.walkingTime}</p>
                 </WalkingInfo>
               </TransportationInfoContainer>
             ) : (

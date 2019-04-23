@@ -43,9 +43,7 @@ const TabNav = props => {
         if (subCat === '_all' ) {
           return(
             <div className='right-arrow'>
-              <MainCatBTN>
               <BreadcrumbMainCat cat={id}/>
-              </MainCatBTN>
               <i class="fas fa-arrow-right"></i>
             </div> 
           )
@@ -125,9 +123,7 @@ const TabNav = props => {
         if (subCat === 'all' ) {
           return(
             <div className='right-arrow'>
-              <MainCatBTN>
               <BreadcrumbMainCat cat={id}/>
-              </MainCatBTN>
               <i class="fas fa-arrow-right"></i>
             </div>
             
@@ -448,20 +444,6 @@ const Tabs = styled.div`
   @media (max-width: 600px) {
     margin: 0 0 0 0;
 
-  }
-`;
-const MainCatBTN = styled.div`
-  width: 70px;
-  height: 70px;
-  background-color: #414361;
-  border-radius: 10px;
-  font-size: 12px;
-  text-align: center;
-  border: 1px solid white;
-  margin-left: 10px;
-  box-shadow: 1px 2px 4px 2px #00000050;
-  @media (max-width: 600px) {
-    display: none;
   }
 `;
 

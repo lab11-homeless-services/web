@@ -9,6 +9,19 @@ import image5 from '../img/outreach.png'
 import image4 from '../img/hygiene.png'
 import image8 from '../img/employment.png'
 
+const StyledCont = styled.div`
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    background-color: #414361;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin-left: 10px;
+    box-shadow: 1px 2px 4px 2px #00000050;
+    @media (max-width: 600px) {
+    display: none;
+    }
+`
 const StyledImage = styled.img`
     width: 60%;
     margin-top: 15%;
@@ -28,9 +41,6 @@ const StyledNameHealth = styled.p`
     color: white;
     font-size: .6rem;
     margin-top: 5%;
-    width: 40%;
-    margin-left: 22%;
-    display: flex;
 `
 
 const StyledImageHygiene = styled.img`
@@ -59,66 +69,66 @@ const StyledNameLegal = styled.p`
 const BreadcrumbMainCat = props => {
     if (props.cat === 'shelters') {
         return (
-            <div>
+            <StyledCont>
                 <StyledImage src={image1} alt=""/>
                 <StyledName>SHELTER</StyledName>
-            </div>
+            </StyledCont>
         )
     }
     if (props.cat === "health_care") {
         return (
-            <div>
+            <StyledCont>
                 <StyledImageHealth src={image2} alt=""/>
                 <StyledNameHealth>HEALTH CARE</StyledNameHealth>
-            </div>
+            </StyledCont>
         ) 
     }
     if (props.cat === "food") {
         return (
-            <div>
+            <StyledCont>
                 <StyledImage src={image3} alt=""/>
                 <StyledName>FOOD</StyledName>
-            </div>
+            </StyledCont>
         ) 
     }
     if (props.cat === "hygiene") {
         return (
-            <div>
+            <StyledCont>
                 <StyledImageHygiene src={image4} alt=""/>
                 <StyledName>HYGIENE</StyledName>
-            </div>
+            </StyledCont>
         ) 
     }
     if (props.cat === "outreach_services") {
         return (
-            <div>
+            <StyledCont>
                 <StyledImageOutreach src={image5} alt=""/>
                 <StyledName>OUTREACH SERVICES</StyledName>
-            </div>
+            </StyledCont>
         ) 
     }
     if (props.cat === "education") {
         return (
-            <div>
+            <StyledCont>
                 <StyledImage src={image6} alt=""/>
                 <StyledName>EDUCATION</StyledName>
-            </div>
+            </StyledCont>
         ) 
     }
     if (props.cat === "legal_administrative") {
         return (
-            <div>
+            <StyledCont>
                 <StyledImageLegal src={image7} alt=""/>
                 <StyledNameLegal>LEGAL</StyledNameLegal>
-            </div>
+            </StyledCont>
         ) 
     }
     if (props.cat === "jobs") {
         return (
-            <div>
+            <StyledCont>
                 <StyledImage src={image8} alt=""/>
                 <StyledName>JOBS</StyledName>
-            </div>
+            </StyledCont>
         ) 
     }
 }
