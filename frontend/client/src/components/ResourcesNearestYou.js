@@ -147,22 +147,26 @@ const Title = styled.div`
 `;
 
 const PhoneDetails = styled.div`
-  width: 35%;
+  width: 37%;
   display: flex;
+  
+  i {
+    margin-right: 10px;
+  }
 `;
 
 const HourDetails = styled.div`
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 65%;
+
+  i {
+    margin-right: 15px;
+  }
 `;
 
 const WrapDetails = styled.div`
   flex-wrap: wrap;
-  
-  p {
-    margin-left: 5%;
-  }
 `;
 
 const ResourcesNearestYou = props => {
