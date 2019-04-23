@@ -28,6 +28,10 @@ const SingleResourceCard = styled.div`
     margin-bottom: 20px;
     margin-top: 40px;
   }
+
+  @media print {
+    margin-top: -200px;
+  }
 `;
 
 const Info = styled.div`
@@ -141,6 +145,10 @@ const PreviousButton = styled.div`
     width: 92%;
     justify-content: center;
   }
+
+  @media print {
+    display: none;
+  }
 `;
 
 const ViewMap = styled.div`
@@ -170,6 +178,10 @@ const ViewMap = styled.div`
     width: 92%;
     justify-content: center;
     padding: 20px 10px;
+  }
+
+  @media print {
+    display: none;
   }
 `;
 

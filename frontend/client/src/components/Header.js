@@ -29,6 +29,9 @@ const Logo = styled.img`
     margin: 15px 22%;
     margin-left: 0;
   }
+  @media print {
+    display: none;
+  }
 `;
 
 const LanguageSelection = styled.div`
