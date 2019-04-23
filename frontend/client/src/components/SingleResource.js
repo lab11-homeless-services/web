@@ -299,261 +299,518 @@ const SingleResource = props => {
   const subCat = paths[3];
   const singleResource = paths[4];
 
-  const resource = fetcher(
-    `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
-  );
-
-  const { google } = props;
-
-  if (resource !== undefined) {
-    let destination = new google.maps.LatLng(
-      resource.latitude,
-      resource.longitude
-    );
-    let origin = new google.maps.LatLng(
-      state.currentLocation.lat,
-      state.currentLocation.lon
+  if (category !== "outreach_services") {
+    const resource = fetcher(
+      `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
     );
 
-    let service = new google.maps.DistanceMatrixService();
-    service.getDistanceMatrix(
-      {
-        origins: [origin],
-        destinations: [destination],
-        travelMode: "WALKING",
-        unitSystem: google.maps.UnitSystem.IMPERIAL
-      },
-      callback
-    );
+    const { google } = props;
 
-    let nextService = new google.maps.DistanceMatrixService();
-    nextService.getDistanceMatrix(
-      {
-        origins: [origin],
-        destinations: [destination],
-        travelMode: "TRANSIT",
-        unitSystem: google.maps.UnitSystem.IMPERIAL
-      },
-      otherCallback
-    );
+    if (resource !== undefined) {
+      let destination = new google.maps.LatLng(
+        resource.latitude,
+        resource.longitude
+      );
+      let origin = new google.maps.LatLng(
+        state.currentLocation.lat,
+        state.currentLocation.lon
+      );
 
-    async function callback(response, status) {
-      if (
-        response &&
-        response.rows.length > 0 &&
-        response.rows[0].elements[0].status !== "ZERO_RESULTS"
-      ) {
-        setState({
-          resourceLocation: {
-            lat: Number(resource.latitude),
-            lon: Number(resource.longitude)
-          },
-          walkingTime: response.rows[0].elements[0].duration.text
-        });
+      let service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destination],
+          travelMode: "WALKING",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        callback
+      );
+
+      let nextService = new google.maps.DistanceMatrixService();
+      nextService.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destination],
+          travelMode: "TRANSIT",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        otherCallback
+      );
+
+      async function callback(response, status) {
+        if (
+          response &&
+          response.rows.length > 0 &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS"
+        ) {
+          setState({
+            resourceLocation: {
+              lat: Number(resource.latitude),
+              lon: Number(resource.longitude)
+            },
+            walkingTime: response.rows[0].elements[0].duration.text
+          });
+        }
+      }
+
+      async function otherCallback(response, status) {
+        if (
+          response &&
+          response.rows.length > 0 &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS"
+        ) {
+          setState({
+            transitTime: response.rows[0].elements[0].duration.text
+          });
+        }
       }
     }
 
-    async function otherCallback(response, status) {
-      if (
-        response &&
-        response.rows.length > 0 &&
-        response.rows[0].elements[0].status !== "ZERO_RESULTS"
-      ) {
-        setState({
-          transitTime: response.rows[0].elements[0].duration.text
-        });
-      }
-    }
-  }
+    const openMap = e => {
+      const name = resource.name.split(" ").join("+");
+      const address = resource.address.split(" ").join("+");
 
-  const openMap = e => {
-    const name = resource.name.split(" ").join("+");
-    const address = resource.address.split(" ").join("+");
+      window.open(
+        `https://www.google.com/maps/search/?api=1&query=${name}+${address}`
+      );
+    };
 
-    window.open(
-      `https://www.google.com/maps/search/?api=1&query=${name}+${address}`
-    );
-  };
+    const printPage = e => {
+      window.print();
+    };
 
-  const printPage = e => {
-    window.print();
-  };
+    const showServices = e => {
+      e.preventDefault();
+      setState({
+        ...state,
+        showingDetails: false,
+        showingServices: true,
+        active: true,
+        inactive: false
+      });
+    };
 
-  const showServices = e => {
-    e.preventDefault();
-    setState({
-      ...state,
-      showingDetails: false,
-      showingServices: true,
-      active: true,
-      inactive: false
-    });
-  };
+    const showDetails = e => {
+      e.preventDefault();
+      setState({
+        ...state,
+        showingDetails: true,
+        showingServices: false,
+        active: true,
+        inactive: false
+      });
+    };
 
-  const showDetails = e => {
-    e.preventDefault();
-    setState({
-      ...state,
-      showingDetails: true,
-      showingServices: false,
-      active: true,
-      inactive: false
-    });
-  };
-
-  return (
-    <SingleResourceCard>
-      <GoogleMapProvider>
-        <Info>
-          <Title>{resource.name}</Title>
-          <InfoText>
-            <i className="fas fa-map-marker-alt" />
-            {resource.address}
-          </InfoText>
-
-          <div className="travel-time">
-            {state.walkingTime.length && state.transitTime.length > 0 ? (
-              <InfoText>
-                <i className="fas fa-bus" />
-                {state.transitTime}
-                <i class="fas fa-walking" /> {state.walkingTime}
-              </InfoText>
-            ) : (
-              "Travel Time Loading"
-            )}
-          </div>
-          <div className="info-hours">
+    return (
+      <SingleResourceCard>
+        <GoogleMapProvider>
+          <Info>
+            <Title>{resource.name}</Title>
             <InfoText>
-              <i class="fas fa-phone" />
-              {resource.phone}
-              <i class="fas fa-clock" />
-              {resource.hours}
+              <i className="fas fa-map-marker-alt" />
+              {resource.address}
             </InfoText>
+
+            <div className="travel-time">
+              {state.walkingTime.length && state.transitTime.length > 0 ? (
+                <InfoText>
+                  <i className="fas fa-bus" />
+                  {state.transitTime}
+                  <i class="fas fa-walking" /> {state.walkingTime}
+                </InfoText>
+              ) : (
+                "Unavailable"
+              )}
+            </div>
+            <div className="info-hours">
+              <InfoText>
+                <i class="fas fa-phone" />
+                {resource.phone}
+                <i class="fas fa-clock" />
+                {resource.hours}
+              </InfoText>
+            </div>
+            <div className="map-button">
+              <ViewMap onClick={() => openMap()}>
+                <i className="fas fa-location-arrow" />
+                View Map
+              </ViewMap>
+            </div>
+          </Info>
+          {resource.details && resource.services ? (
+            <DetailsServices>
+              <DetailsTitles>
+                <ServiceButton
+                  showingDetails={state.showingDetails}
+                  showingServices={state.showingServices}
+                  onClick={showServices}
+                >
+                  Services
+                </ServiceButton>
+                <DetailsButton
+                  showingDetails={state.showingDetails}
+                  showingServices={state.showingServices}
+                  onClick={showDetails}
+                >
+                  Details
+                </DetailsButton>
+              </DetailsTitles>
+              {state.showingDetails === true
+                ? resource.details.map((detail, i) => (
+                    <ServiceList>
+                      <ListNumber>{i + 1}</ListNumber>
+                      <ListText>{detail}</ListText>
+                    </ServiceList>
+                  ))
+                : null}
+              {state.showingServices === true
+                ? resource.services.map((service, i) => (
+                    <ServiceList>
+                      <ListNumber>{i + 1}</ListNumber>
+                      <ListText>{service}</ListText>
+                    </ServiceList>
+                  ))
+                : null}
+            </DetailsServices>
+          ) : (
+            <DetailsServices>
+              <DetailsTitles>
+                <ServiceButton
+                  showingDetails={state.showingDetails}
+                  showingServices={state.showingServices}
+                  onClick={showServices}
+                >
+                  Services
+                </ServiceButton>
+                <DetailsButton
+                  showingDetails={state.showingDetails}
+                  showingServices={state.showingServices}
+                  onClick={showDetails}
+                >
+                  Details
+                </DetailsButton>
+              </DetailsTitles>
+              {state.showingDetails === true ? (
+                <ServiceList>
+                  <ListNumber>{1}</ListNumber>
+                  <ListText>No details to display</ListText>
+                </ServiceList>
+              ) : null}
+              {state.showingServices === true ? (
+                <ServiceList>
+                  <ListNumber>1</ListNumber>
+                  <ListText>No services to display</ListText>
+                </ServiceList>
+              ) : null}
+            </DetailsServices>
+          )}
+          <div className="maps">
+            <MapBox
+              apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
+              className="map-box"
+              opts={{
+                center: {
+                  lat: state.resourceLocation.lat,
+                  lng: state.resourceLocation.lon
+                },
+                zoom: 14
+              }}
+            />
           </div>
-          <div className="map-button">
-            <ViewMap onClick={() => openMap()}>
-              <i className="fas fa-location-arrow" />
-              View Map
-            </ViewMap>
-          </div>
-        </Info>
-        {resource.details && resource.services ? (
-          <DetailsServices>
-            <DetailsTitles>
-              <ServiceButton
-                showingDetails={state.showingDetails}
-                showingServices={state.showingServices}
-                onClick={showServices}
-              >
-                Services
-              </ServiceButton>
-              <DetailsButton
-                showingDetails={state.showingDetails}
-                showingServices={state.showingServices}
-                onClick={showDetails}
-              >
-                Details
-              </DetailsButton>
-            </DetailsTitles>
-            {state.showingDetails === true
-              ? resource.details.map((detail, i) => (
-                  <ServiceList>
-                    <ListNumber>{i + 1}</ListNumber>
-                    <ListText>{detail}</ListText>
-                  </ServiceList>
-                ))
-              : null}
-            {state.showingServices === true
-              ? resource.services.map((service, i) => (
-                  <ServiceList>
-                    <ListNumber>{i + 1}</ListNumber>
-                    <ListText>{service}</ListText>
-                  </ServiceList>
-                ))
-              : null}
-          </DetailsServices>
-        ) : (
-          <DetailsServices>
-            <DetailsTitles>
-              <ServiceButton
-                showingDetails={state.showingDetails}
-                showingServices={state.showingServices}
-                onClick={showServices}
-              >
-                Services
-              </ServiceButton>
-              <DetailsButton
-                showingDetails={state.showingDetails}
-                showingServices={state.showingServices}
-                onClick={showDetails}
-              >
-                Details
-              </DetailsButton>
-            </DetailsTitles>
-            {state.showingDetails === true ? (
-              <ServiceList>
-                <ListNumber>{1}</ListNumber>
-                <ListText>No details to display</ListText>
-              </ServiceList>
-            ) : null}
-            {state.showingServices === true ? (
-              <ServiceList>
-                <ListNumber>1</ListNumber>
-                <ListText>No services to display</ListText>
-              </ServiceList>
-            ) : null}
-          </DetailsServices>
-        )}
-        <div className="maps">
-          <MapBox
-            apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
-            className="map-box"
+          <InfoWindow
+            anchorId="marker"
             opts={{
-              center: {
+              content: resource ? resource.name : null,
+              position: {
                 lat: state.resourceLocation.lat,
                 lng: state.resourceLocation.lon
-              },
-              zoom: 14
+              }
+            }}
+            visible
+          />
+          <Marker
+            id="marker"
+            opts={{
+              position: {
+                lat: state.resourceLocation.lat,
+                lng: state.resourceLocation.lon
+              }
             }}
           />
-        </div>
-        <InfoWindow
-          anchorId="marker"
-          opts={{
-            content: resource ? resource.name : null,
-            position: {
-              lat: state.resourceLocation.lat,
-              lng: state.resourceLocation.lon
-            }
-          }}
-          visible
-        />
-        <Marker
-          id="marker"
-          opts={{
-            position: {
-              lat: state.resourceLocation.lat,
-              lng: state.resourceLocation.lon
-            }
-          }}
-        />
-        <ButtonsDiv className="button-div">
-          <NavLink to={`/home/${category}`}>
-            <div className="previous-button">
-              <PreviousButton>
-                <i className="fas fa-arrow-left" />
-                Previous Page
-              </PreviousButton>
+          <ButtonsDiv className="button-div">
+            <NavLink to={`/home/${category}`}>
+              <div className="previous-button">
+                <PreviousButton>
+                  <i className="fas fa-arrow-left" />
+                  Previous Page
+                </PreviousButton>
+              </div>
+            </NavLink>
+            <PrintButton onClick={() => printPage()}>
+              <i className="fas fa-print" />
+              PRINT
+            </PrintButton>
+          </ButtonsDiv>
+        </GoogleMapProvider>
+      </SingleResourceCard>
+    );
+  } else {
+    const resource = fetcher(
+      `https://empact-e511a.firebaseio.com/${category}/_all/${singleResource}.json`
+    );
+    const { google } = props;
+
+    if (resource !== undefined) {
+      let destination = new google.maps.LatLng(
+        resource.latitude,
+        resource.longitude
+      );
+      let origin = new google.maps.LatLng(
+        state.currentLocation.lat,
+        state.currentLocation.lon
+      );
+
+      let service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destination],
+          travelMode: "WALKING",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        callback
+      );
+
+      let nextService = new google.maps.DistanceMatrixService();
+      nextService.getDistanceMatrix(
+        {
+          origins: [origin],
+          destinations: [destination],
+          travelMode: "TRANSIT",
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        },
+        otherCallback
+      );
+
+      async function callback(response, status) {
+        if (
+          response &&
+          response.rows.length > 0 &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS"
+        ) {
+          setState({
+            resourceLocation: {
+              lat: Number(resource.latitude),
+              lon: Number(resource.longitude)
+            },
+            walkingTime: response.rows[0].elements[0].duration.text
+          });
+        }
+      }
+
+      async function otherCallback(response, status) {
+        if (
+          response &&
+          response.rows.length > 0 &&
+          response.rows[0].elements[0].status !== "ZERO_RESULTS"
+        ) {
+          setState({
+            transitTime: response.rows[0].elements[0].duration.text
+          });
+        }
+      }
+    }
+
+    const openMap = e => {
+      const name = resource.name.split(" ").join("+");
+      const address = resource.address.split(" ").join("+");
+
+      window.open(
+        `https://www.google.com/maps/search/?api=1&query=${name}+${address}`
+      );
+    };
+
+    const printPage = e => {
+      window.print();
+    };
+
+    const showServices = e => {
+      e.preventDefault();
+      setState({
+        ...state,
+        showingDetails: false,
+        showingServices: true,
+        active: true,
+        inactive: false
+      });
+    };
+
+    const showDetails = e => {
+      e.preventDefault();
+      setState({
+        ...state,
+        showingDetails: true,
+        showingServices: false,
+        active: true,
+        inactive: false
+      });
+    };
+
+    return (
+      <SingleResourceCard>
+        <GoogleMapProvider>
+          <Info>
+            <Title>{resource.name}</Title>
+            <InfoText>
+              <i className="fas fa-map-marker-alt" />
+              {resource.address}
+            </InfoText>
+
+            <div className="travel-time">
+              {state.walkingTime.length && state.transitTime.length > 0 ? (
+                <InfoText>
+                  <i className="fas fa-bus" />
+                  {state.transitTime}
+                  <i class="fas fa-walking" /> {state.walkingTime}
+                </InfoText>
+              ) : (
+                "Unavailable"
+              )}
             </div>
-          </NavLink>
-          <PrintButton onClick={() => printPage()}>
-            <i className="fas fa-print" />
-            PRINT
-          </PrintButton>
-        </ButtonsDiv>
-      </GoogleMapProvider>
-    </SingleResourceCard>
-  );
+            <div className="info-hours">
+              <InfoText>
+                <i class="fas fa-phone" />
+                {resource.phone}
+                <i class="fas fa-clock" />
+                {resource.hours}
+              </InfoText>
+            </div>
+            <div className="map-button">
+              <ViewMap onClick={() => openMap()}>
+                <i className="fas fa-location-arrow" />
+                View Map
+              </ViewMap>
+            </div>
+          </Info>
+          {resource.details && resource.services ? (
+            <DetailsServices>
+              <DetailsTitles>
+                <ServiceButton
+                  showingDetails={state.showingDetails}
+                  showingServices={state.showingServices}
+                  onClick={showServices}
+                >
+                  Services
+                </ServiceButton>
+                <DetailsButton
+                  showingDetails={state.showingDetails}
+                  showingServices={state.showingServices}
+                  onClick={showDetails}
+                >
+                  Details
+                </DetailsButton>
+              </DetailsTitles>
+              {state.showingDetails === true
+                ? resource.details.map((detail, i) => (
+                    <ServiceList>
+                      <ListNumber>{i + 1}</ListNumber>
+                      <ListText>{detail}</ListText>
+                    </ServiceList>
+                  ))
+                : null}
+              {state.showingServices === true
+                ? resource.services.map((service, i) => (
+                    <ServiceList>
+                      <ListNumber>{i + 1}</ListNumber>
+                      <ListText>{service}</ListText>
+                    </ServiceList>
+                  ))
+                : null}
+            </DetailsServices>
+          ) : (
+            <DetailsServices>
+              <DetailsTitles>
+                <ServiceButton
+                  showingDetails={state.showingDetails}
+                  showingServices={state.showingServices}
+                  onClick={showServices}
+                >
+                  Services
+                </ServiceButton>
+                <DetailsButton
+                  showingDetails={state.showingDetails}
+                  showingServices={state.showingServices}
+                  onClick={showDetails}
+                >
+                  Details
+                </DetailsButton>
+              </DetailsTitles>
+              {state.showingDetails === true ? (
+                <ServiceList>
+                  <ListNumber>{1}</ListNumber>
+                  <ListText>No details to display</ListText>
+                </ServiceList>
+              ) : null}
+              {state.showingServices === true ? (
+                <ServiceList>
+                  <ListNumber>1</ListNumber>
+                  <ListText>No services to display</ListText>
+                </ServiceList>
+              ) : null}
+            </DetailsServices>
+          )}
+          <div className="maps">
+            <MapBox
+              apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
+              className="map-box"
+              opts={{
+                center: {
+                  lat: state.resourceLocation.lat,
+                  lng: state.resourceLocation.lon
+                },
+                zoom: 14
+              }}
+            />
+          </div>
+          <InfoWindow
+            anchorId="marker"
+            opts={{
+              content: resource ? resource.name : null,
+              position: {
+                lat: state.resourceLocation.lat,
+                lng: state.resourceLocation.lon
+              }
+            }}
+            visible
+          />
+          <Marker
+            id="marker"
+            opts={{
+              position: {
+                lat: state.resourceLocation.lat,
+                lng: state.resourceLocation.lon
+              }
+            }}
+          />
+          <ButtonsDiv className="button-div">
+            <NavLink to={`/home/${category}`}>
+              <div className="previous-button">
+                <PreviousButton>
+                  <i className="fas fa-arrow-left" />
+                  Previous Page
+                </PreviousButton>
+              </div>
+            </NavLink>
+            <PrintButton onClick={() => printPage()}>
+              <i className="fas fa-print" />
+              PRINT
+            </PrintButton>
+          </ButtonsDiv>
+        </GoogleMapProvider>
+      </SingleResourceCard>
+    );
+  }
 };
 
 export default GoogleApiWrapper({
