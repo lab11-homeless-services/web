@@ -159,6 +159,7 @@ const ViewMap = styled.div`
   border-radius: 3px;
   border: 1px solid #ccc;
   padding: 10px;
+  margin-top: 5%;
   font-size: 1.2rem;
   width: 145px;
   cursor: pointer;
