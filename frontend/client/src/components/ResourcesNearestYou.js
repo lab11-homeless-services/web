@@ -142,12 +142,46 @@ const Title = styled.div`
   }
 `;
 
-const PhoneDetails = styled.div`
-  width: 37%;
+const AddressDetails = styled.div`
   display: flex;
-  
+  align-items: center;
+  width: 90%;
+  letter-spacing: 1px;
+`;
+
+const WalkingDetails = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 3%;
+  width: 50%;
+  letter-spacing: 1px;
+
   i {
-    margin-right: 10px;
+    margin-right: 5%;
+  }
+`;
+
+const TransitDetails = styled.div`
+  display: flex;
+  width: 42%;
+  align-items: center;
+  border-right: 1px solid #dfdfdf;
+  letter-spacing: 1px;
+
+  i {
+    margin-right: 2%;
+  }
+`;
+
+const PhoneDetails = styled.div`
+  width: 45%;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #dfdfdf;
+  letter-spacing: 1px;
+
+  i {
+    margin-right: 5%;
   }
 `;
 
@@ -155,9 +189,11 @@ const HourDetails = styled.div`
   display: flex;
   align-items: center;
   width: 65%;
+  margin-left: 3%;
+  letter-spacing: 1px;
 
   i {
-    margin-right: 15px;
+    margin-right: 3%;
   }
 `;
 
@@ -506,14 +542,28 @@ const ResourcesNearestYou = props => {
               <ResourcesNearestYouCard className="resource-container">
                 <ResourceCardDetail>{item.name}</ResourceCardDetail>
                 <ResourceCardDetail>
-                  <i class="fas fa-map-marker-alt" />
-                  {item.address ? item.address : "Unavailable"}
+                  <AddressDetails>
+                    <i class="fas fa-map-marker-alt" />
+                    <p>{item.address ? item.address : "Unavailable"}</p>
+                  </AddressDetails>
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
-                  <i class="fas fa-bus fa-sm" />
-                  {state.transitTime[i] ? state.transitTime[i] : "Unavailable"}
-                  <i class="fas fa-walking fa-lg" />
-                  {state.walkingTime[i] ? state.walkingTime[i] : "Unavailable"}
+                  <TransitDetails>
+                    <i class="fas fa-bus fa-sm" />
+                    <p>
+                      {state.transitTime[i]
+                        ? state.transitTime[i]
+                        : "Unavailable"}
+                    </p>
+                  </TransitDetails>
+                  <WalkingDetails>
+                    <i class="fas fa-walking fa-lg" />
+                    <p>
+                      {state.walkingTime[i]
+                        ? state.walkingTime[i]
+                        : "Unavailable"}
+                    </p>
+                  </WalkingDetails>
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
                   <PhoneDetails>
