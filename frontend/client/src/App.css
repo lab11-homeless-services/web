@@ -91,6 +91,7 @@
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
+
 #unacceptableLength {
   width: 96px;
   padding-right: 0;
@@ -334,6 +335,13 @@
     font-size: 1rem;
   }
 }
+/* ==== Upright Tablet ==== */
+@media (max-width: 800px) {
+  #moveYouth {
+    padding-left: 143px;
+  }
+}
+
 
 /* ==== Mobile Styles ==== */
 @media (max-width: 600px) {
