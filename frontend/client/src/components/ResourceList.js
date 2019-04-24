@@ -21,6 +21,7 @@ const ResourceDetailsButton = styled.div`
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
+
   @media (max-width: 1024px) {
     width: 63%;
     margin: 0 auto;
@@ -82,7 +83,7 @@ const ResourceListCard = styled.div`
   &:hover ${ResourceListCardDetails} {
     color: #4a4a4a;
     i{
-      color: #414361;
+      color: #fff;
     }
     -webkit-transition-duration: 0.2s;
     -moz-transition-duration: 0.2s;

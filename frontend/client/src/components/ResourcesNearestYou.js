@@ -13,13 +13,13 @@ const DetailsButton = styled.div`
   background-color: #d6d8dc;
   width: 50%;
   height: 100%;
-  margin: 10px;
+  margin: 5px 10px;
   margin-left: 25%;
   padding: 1%;
   border-radius: 5px;
   box-shadow: 0px 1px 3px 1px #888;
   letter-spacing: 1px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
@@ -384,28 +384,36 @@ const ResourcesNearestYou = props => {
                 <ResourceCardDetail>{item.name}</ResourceCardDetail>
                 <ResourceCardDetail>
                   <AddressDetails>
-                  <i class="fas fa-map-marker-alt" />
-                  <p>{item.address ? item.address : "Unavailable"}</p>
+                    <i class="fas fa-map-marker-alt" />
+                    <p>{item.address ? item.address : "Unavailable"}</p>
                   </AddressDetails>
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
-                <TransitDetails>
-                  <i class="fas fa-bus fa-sm" />
-                  <p>{state.transitTime[i] ? state.transitTime[i] : "Unavailable"}</p>
+                  <TransitDetails>
+                    <i class="fas fa-bus fa-sm" />
+                    <p>
+                      {state.transitTime[i]
+                        ? state.transitTime[i]
+                        : "Unavailable"}
+                    </p>
                   </TransitDetails>
                   <WalkingDetails>
-                  <i class="fas fa-walking fa-lg" />
-                  <p>{state.walkingTime[i] ? state.walkingTime[i] : "Unavailable"}</p>
+                    <i class="fas fa-walking fa-lg" />
+                    <p>
+                      {state.walkingTime[i]
+                        ? state.walkingTime[i]
+                        : "Unavailable"}
+                    </p>
                   </WalkingDetails>
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
-                <PhoneDetails>
-                  <i class="fas fa-phone" />
-                  <p>{item.phone ? item.phone : "Unavailable"}</p>
+                  <PhoneDetails>
+                    <i class="fas fa-phone" />
+                    <p>{item.phone ? item.phone : "Unavailable"}</p>
                   </PhoneDetails>
                   <HourDetails>
-                  <i class="fas fa-clock" />{" "}
-                  <p>{item.hours ? item.hours : "Unavailable"}</p>
+                    <i class="fas fa-clock" />{" "}
+                    <p>{item.hours ? item.hours : "Unavailable"}</p>
                   </HourDetails>
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>
