@@ -47,11 +47,14 @@
   color: #4a4a4a;
   text-align: center;
 }
+.back2cat a {
+  color: #4a4a4a;
+}
 .back2cat {
   height: 25px;
   width: 135px;
   padding: 10px 0 0 7px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .back2catJobs {
   padding-right: 50px;
@@ -368,8 +371,8 @@
     display: none;
   }
 
-  .back2cat {
-    margin-right: 8%;
+  .fa-arrow-left {
+    padding-top: 10px;
   }
 
   .subcatbtn {
