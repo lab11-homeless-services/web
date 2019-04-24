@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import useFetch from "../functions/useFetch";
 import styled from "styled-components";
 import BreadcrumbMainCat from "../components/BreadcrumbMainCat";
+// import { woman, man, youth, clinics, emergency, hiv, mental, rehab, stamps, bathroom, shower, afterSchool, abuse, socialServices, ged, computers, benefits, pantry } from '../img/subcatimg/subcatimgs'
 import man from "../img/subcatimg/man.png";
 import woman from "../img/subcatimg/woman.png";
 import youth from "../img/subcatimg/youth.png";
@@ -165,7 +166,7 @@ const TabNav = props => {
           if (subCat === "women" && id === "health_care") {
             return (
               <NavLink to={`/home/${id}/${subCat}`}>
-                <div className="subcatbtn" id="moveOnOver">
+                <div className="subcatbtn" id="moveOnOver" id='thirdRow'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={woman} alt="woman" />
@@ -263,7 +264,7 @@ const TabNav = props => {
           if (subCat === "hiv") {
             return (
               <NavLink to={`/home/${id}/${subCat}`}>
-                <div className="subcatbtn">
+                <div className="subcatbtn" id='moveYouth'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={hiv} alt="hiv" />
@@ -282,7 +283,8 @@ const TabNav = props => {
           if (subCat === "mental_health") {
             return (
               <NavLink to={`/home/${id}/${subCat}`}>
-                <div className="subcatbtn">
+                <div className="subcatbtn"
+                id='moveYouth'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={mental} alt="mental health" />
@@ -304,7 +306,7 @@ const TabNav = props => {
           if (subCat === "rehab") {
             return (
               <NavLink to={`/home/${id}/${subCat}`}>
-                <div className="subcatbtn" id="moveOnOver">
+                <div className="subcatbtn" id="moveOnOver" id='thirdRow'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={rehab} alt="rehab" />
@@ -465,7 +467,7 @@ const TabNav = props => {
 export default TabNav;
 
 const TabContainer = styled.div`
-  margin: 3%;
+  margin: 3% auto;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -488,6 +490,9 @@ const SubCatContainer = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     justify-content: center;
+  }
+  @media (max-width: 800px) {
+    width: 65%;
   }
 `;
 const Tabs = styled.div`
@@ -523,6 +528,8 @@ const StyledSubCatIcon = styled.img`
 const BackToCatContainer = styled.div`
   display: flex;
   align-items: center;
+  padding-left: 1%;
+  padding-bottom: .5%;
   @media (max-width: 600px) {
     display: flex;
     width: 100%;
@@ -530,5 +537,8 @@ const BackToCatContainer = styled.div`
     align-items: center;
     margin: 10px 0;
     padding: 5px;
+  }
+  @media (max-width: 800px) {
+    padding-bottom: 17%;
   }
 `;
