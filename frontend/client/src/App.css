@@ -106,7 +106,6 @@
   height: 27%;
   background-color: white;
   z-index: 1;
-  /* border: 2px solid #4a4a4a; */
   border-radius: 5px;
   box-shadow: 1px 1px 4px 2px #00000050;
 }
@@ -363,7 +362,6 @@
     padding-left: 143px;
   }
 }
-
 
 /* ==== Mobile Styles ==== */
 @media (max-width: 600px) {
