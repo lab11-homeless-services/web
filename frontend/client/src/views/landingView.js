@@ -5,7 +5,7 @@ import { useStateValue } from "../state/state";
 import styled from "styled-components";
 
 import touch from "../img/touch.png";
-import landingImage from "../img/landingImage.jpg";
+import landingImage from "../img/landingPageImg.jpg";
 import logo from "../img/logo.png";
 
 const LandingViewContainer = styled.div`
@@ -53,7 +53,7 @@ const LandingImageContainer = styled.div`
 
 const LandingHeader = styled.h1`
   font-size: 1.15rem;
-  left-margin: 2%;
+  margin-left: 2%;
   width: 90%;
   letter-spacing: 3px;
   color: #4a4a4a;
@@ -66,7 +66,7 @@ const LandingHeader = styled.h1`
   }
 
   @media (max-width: 600px) {
-    margin: 33% 0 0 3%;
+    padding: 90px 3% 20px 10%;
     width: 100%;
   }
 `;
@@ -83,6 +83,7 @@ const LandingSearchInput = styled.div`
   @media (max-width: 600px) {
     display: flex;
     justify-content: center;
+    padding-bottom: 80px;
     margin-left: 1.5%;
   }
 `;
@@ -102,7 +103,7 @@ const LandingLanguageSelectionContainer = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
-    margin: 9% 0 7% 0;
+    margin: 40px 0 40px 0;
     justify-content: space-evenly;
   }
 `;
@@ -143,12 +144,12 @@ const LandingLanguageSelectionButton = styled.div`
     height: 45px;
     margin: 0 0 20% 0;
     font-size: 1.2rem;
+    padding: 30px 3%;
   }
 `;
 
 const LandingLanguageImage = styled.img`
   width: 16%;
-  height: 50%;
   margin-left: 10%;
   color: #414361;
 `;
