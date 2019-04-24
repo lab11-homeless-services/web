@@ -342,7 +342,6 @@
   }
 }
 
-
 /* ==== Mobile Styles ==== */
 @media (max-width: 600px) {
   .map-button .fa-location-arrow {
@@ -396,7 +395,7 @@
 
   .subscript {
     margin: 0 auto;
-    padding-top: 10px;
+    padding: 10px 2%;
   }
 }
 
