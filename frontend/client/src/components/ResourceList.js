@@ -83,7 +83,7 @@ const ResourceListCard = styled.div`
   &:hover ${ResourceListCardDetails} {
     color: #4a4a4a;
     i{
-      color: #fff;
+      color: #414361;
     }
     -webkit-transition-duration: 0.2s;
     -moz-transition-duration: 0.2s;
@@ -129,7 +129,7 @@ const ResourceList = props => {
         id++;
         console.log("resource:", resource);
         return (
-          <ResourceListCard>
+          <ResourceListCard className="resource-container">
             <ResourceListCardDetails>{resource.name}</ResourceListCardDetails>
             <ResourceListCardDetails>
               <i class="fas fa-map-marker-alt" /> {resource.address}
