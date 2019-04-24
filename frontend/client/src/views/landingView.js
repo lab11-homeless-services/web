@@ -197,6 +197,7 @@ const LandingLogoImg = styled.img`
 
 //   @media (max-width: 600px) {
 //     display: none;
+//
 //   }
 // `;
 
