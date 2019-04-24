@@ -488,7 +488,6 @@ const SubCatContainer = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     justify-content: center;
-    margin-top 
   }
 `;
 const Tabs = styled.div`

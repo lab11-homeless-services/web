@@ -466,7 +466,6 @@ const TabNavforSubView = props => {
 export default TabNavforSubView;
 
 const TabContainer = styled.div`
-  height: 90px;
   margin: 3%;
   display: flex;
   justify-content: left;
@@ -478,6 +477,7 @@ const TabContainer = styled.div`
     height: auto;
     flex-direction: column;
     margin-bottom: 0;
+    margin-top: 0;
   }
   @media print {
     display: none;
@@ -491,7 +491,6 @@ const SubCatContainer = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     justify-content: center;
-    margin-top 
   }
 `;
 const Tabs = styled.div`
@@ -502,7 +501,6 @@ const Tabs = styled.div`
   height: 45px;
   margin-left: 20px;
   border: #9b9b9b solid 1px;
-  // box-shadow: inset 1px 1px 0px 0px #00000050;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
@@ -530,7 +528,10 @@ const BackToCatContainer = styled.div`
   align-items: center;
   @media (max-width: 600px) {
     display: flex;
-    width: 40%;
+    width: 100%;
+    justify-content: center;
     align-items: center;
+    margin: 10px 0;
+    padding: 5px;
   }
 `;
