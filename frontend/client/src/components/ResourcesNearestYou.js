@@ -189,7 +189,7 @@ const HourDetails = styled.div`
   display: flex;
   align-items: center;
   width: 65%;
-  margin-left: 3%;
+  margin-left: 4%;
   letter-spacing: 1px;
 
   i {
