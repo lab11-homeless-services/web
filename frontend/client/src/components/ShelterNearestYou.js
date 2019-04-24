@@ -87,7 +87,7 @@ const ShelterAddress = styled.div`
 
 const TransportationInfoContainer = styled.div`
   display: flex;
-  margin: 6% 0 0 3%;
+  margin: 8% 0 0 3%;
   color: #414361;
   letter-spacing: 1px;
 
@@ -120,18 +120,18 @@ const LoadingParagraph = styled.p`
 
 const TransitInfo = styled.div`
   display: flex;
-  width: 43%;
-  border-right: 1px solid lightgrey;
+  width: 45%;
+  border-right: 1px solid #dfdfdf;
 
   p {
-    margin-left: 7%;
+    margin-left: 10%;
   }
 `;
 
 const WalkingInfo = styled.div`
   display: flex;
   width: 50%;
-  margin-left: 4%;
+  margin-left: 5%;
 `;
 
 const PhoneHoursContainer = styled.div`
@@ -155,7 +155,7 @@ const PhoneInfo = styled.div`
   width: 43%;
   display: flex;
   align-items: center;
-  border-right: 1px solid lightgrey;
+  border-right: 1px solid #dfdfdf;
 `;
 
 const HoursInfo = styled.div`
