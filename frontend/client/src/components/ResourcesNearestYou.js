@@ -383,20 +383,30 @@ const ResourcesNearestYou = props => {
               <ResourcesNearestYouCard className="resource-container">
                 <ResourceCardDetail>{item.name}</ResourceCardDetail>
                 <ResourceCardDetail>
+                  <AddressDetails>
                   <i class="fas fa-map-marker-alt" />
-                  {item.address ? item.address : "Unavailable"}
+                  <p>{item.address ? item.address : "Unavailable"}</p>
+                  </AddressDetails>
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
+                <TransitDetails>
                   <i class="fas fa-bus fa-sm" />
-                  {state.transitTime[i] ? state.transitTime[i] : "Unavailable"}
+                  <p>{state.transitTime[i] ? state.transitTime[i] : "Unavailable"}</p>
+                  </TransitDetails>
+                  <WalkingDetails>
                   <i class="fas fa-walking fa-lg" />
-                  {state.walkingTime[i] ? state.walkingTime[i] : "Unavailable"}
+                  <p>{state.walkingTime[i] ? state.walkingTime[i] : "Unavailable"}</p>
+                  </WalkingDetails>
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
+                <PhoneDetails>
                   <i class="fas fa-phone" />
-                  {item.phone ? item.phone : "Unavailable"}
+                  <p>{item.phone ? item.phone : "Unavailable"}</p>
+                  </PhoneDetails>
+                  <HourDetails>
                   <i class="fas fa-clock" />{" "}
-                  {item.hours ? item.hours : "Unavailable"}
+                  <p>{item.hours ? item.hours : "Unavailable"}</p>
+                  </HourDetails>
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>
                   <DetailsButton className="details-button">
