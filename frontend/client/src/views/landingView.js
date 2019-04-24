@@ -43,7 +43,6 @@ const LandingImageContainer = styled.div`
   background: #414361;
   border-radius: 0 60px 100px 0;
   @media (max-width: 1024px) {
-    width: ;
   }
 
   @media (max-width: 600px) {
