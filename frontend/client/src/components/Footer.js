@@ -40,7 +40,7 @@ const FooterText = styled.p`
 const Footer = () => {
   return (
     <FooterBar>
-      <FooterText>
+      {/* <FooterText>
         <i class="fas fa-book-reader fa-lg" /> ABOUT US
       </FooterText>
       <FooterText>
@@ -51,7 +51,7 @@ const Footer = () => {
       </FooterText>
       <FooterText>
         <i class="far fa-envelope fa-lg" /> CONTACT US
-      </FooterText>
+      </FooterText> */}
     </FooterBar>
   );
 };
