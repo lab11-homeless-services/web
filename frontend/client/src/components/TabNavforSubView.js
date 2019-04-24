@@ -203,7 +203,8 @@ const TabNavforSubView = props => {
           if (subCat === "youth") {
             return (
               <NavLink to={`/home/${cat}/${subCat}`}>
-                <div className="subcatbtn">
+                <div className="subcatbtn"
+                id='moveYouth'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={youth} alt="youth" />
@@ -470,6 +471,9 @@ const TabContainer = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
+  @media (max-width: 800px) {
+    margin-top: 50px;
+  }
   @media (max-width: 600px) {
     height: auto;
     flex-direction: column;

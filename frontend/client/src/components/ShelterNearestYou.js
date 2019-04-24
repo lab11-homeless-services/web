@@ -31,7 +31,8 @@ const ShelterNearestCard = styled.div`
   @media (max-width: 600px) {
     margin-top: 5%;
     flex-direction: column-reverse;
-    height: 675px;
+    height: auto;
+    padding: 40px 3% 30px 3%;
   }
 `;
 
@@ -179,10 +180,9 @@ const ShelterInfoButtons = styled.div`
   }
 
   @media (max-width: 600px) {
-    margin-bottom: 3%;
     justify-content: space-evenly;
-    margin-left: 12%;
     flex-direction: row;
+    margin: 40px auto;
   }
 `;
 
@@ -227,7 +227,9 @@ const ViewMapButton = styled.div`
 
   @media (max-width: 600px) {
     margin-bottom: 0;
-    margin-left: 3%;
+    margin-left: 5%;
+    padding: 25px 10%;
+    text-align: center;
   }
 `;
 
@@ -492,7 +494,10 @@ const SheltersNearestYou = props => {
           )}
           <ShelterInfoButtons>
             {newShelters.length > 0 ? (
-              <ViewDetailsButton props={newShelters[0].id} />
+              <ViewDetailsButton
+                className="shelter-nearest-button"
+                props={newShelters[0].id}
+              />
             ) : null}
             <ViewMapButton onClick={() => openMap()}>
               <i class="fas fa-location-arrow fa-lg" />
