@@ -465,7 +465,6 @@ const TabNav = props => {
 export default TabNav;
 
 const TabContainer = styled.div`
-  height: 90px;
   margin: 3%;
   display: flex;
   justify-content: left;
@@ -489,7 +488,6 @@ const SubCatContainer = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     justify-content: center;
-    margin-top 
   }
 `;
 const Tabs = styled.div`
@@ -527,8 +525,10 @@ const BackToCatContainer = styled.div`
   align-items: center;
   @media (max-width: 600px) {
     display: flex;
-    width: 42%;
+    width: 100%;
+    justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin: 10px 0;
+    padding: 5px;
   }
 `;

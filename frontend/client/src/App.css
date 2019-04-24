@@ -47,11 +47,14 @@
   color: #4a4a4a;
   text-align: center;
 }
+.back2cat a {
+  color: #4a4a4a;
+}
 .back2cat {
   height: 25px;
   width: 135px;
   padding: 10px 0 0 7px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .back2catJobs {
   padding-right: 50px;
@@ -100,33 +103,54 @@
 /* ==== Translation Coming Soon Modal ==== */
 .spanishModal {
   position: fixed;
-  top: 5%;
-  left: 12.5%;
+  top: 10%;
+  left: 25%;
   width: 25%;
-  height: 25%;
-  background-color: #656176;
+  height: 27%;
+  background-color: white;
   z-index: 1;
-  border-radius: 3px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px 2px #00000050;
 }
 
 .modal-language {
+  color: #4a4a4a;
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   border-radius: 100px;
+  padding: 20px 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-language h2 {
+  font-size: 1.6rem;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+.modal-language h4 {
+  font-size: 1.4rem;
+  width: 90%;
+  margin-left: 5%;
+  font-style: italic;
 }
 
 .modal-language .closeModalButton {
   position: relative;
-  font-size: 2.3rem;
+  width: 10%;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: white;
+  color: #4a4a4a;
   top: 0;
   right: 0;
-  margin-left: -50%;
-  margin-top: 55px;
+  margin-left: 45%;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
 /* ==== Search Modal ==== */
@@ -367,8 +391,8 @@
     display: none;
   }
 
-  .back2cat {
-    margin-right: 8%;
+  .fa-arrow-left {
+    padding-top: 10px;
   }
 
   .subcatbtn {
