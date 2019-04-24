@@ -28,6 +28,10 @@ const DetailsButton = styled.div`
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;
   }
+  @media (max-width: 600px) {
+    height: auto;
+    padding: 20px 10%;
+  }
 `;
 
 const ViewDetailsButton = props => {

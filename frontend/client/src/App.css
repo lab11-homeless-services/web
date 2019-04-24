@@ -91,6 +91,7 @@
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
+
 #unacceptableLength {
   width: 96px;
   padding-right: 0;
@@ -263,7 +264,7 @@
 /* ==== Landing Page ====  */
 .subscript {
   margin-top: 9px;
-  margin-left: 70px;
+  margin-left: 21%;
   color: white;
   font-style: italic;
   font-weight: lighter;
@@ -345,7 +346,24 @@
   #moveOnOver {
     padding-left: 81.5%;
   }
+
+  .subscript {
+    margin-top: 9px;
+    margin-left: 21%;
+    color: #fff;
+    font-style: italic;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    font-size: 1rem;
+  }
 }
+/* ==== Upright Tablet ==== */
+@media (max-width: 800px) {
+  #moveYouth {
+    padding-left: 143px;
+  }
+}
+
 
 /* ==== Mobile Styles ==== */
 @media (max-width: 600px) {
@@ -392,6 +410,15 @@
 
   #moveOnOver {
     padding-left: 0;
+  }
+
+  #moveYouth {
+    padding-left: 0;
+  }
+
+  .subscript {
+    margin: 0 auto;
+    padding-top: 10px;
   }
 }
 
