@@ -120,18 +120,18 @@ const LoadingParagraph = styled.p`
 
 const TransitInfo = styled.div`
   display: flex;
-  width: 43%;
+  width: 45%;
   border-right: 1px solid #dfdfdf;
 
   p {
-    margin-left: 7%;
+    margin-left: 10%;
   }
 `;
 
 const WalkingInfo = styled.div`
   display: flex;
   width: 50%;
-  margin-left: 4%;
+  margin-left: 5%;
 `;
 
 const PhoneHoursContainer = styled.div`
