@@ -384,28 +384,36 @@ const ResourcesNearestYou = props => {
                 <ResourceCardDetail>{item.name}</ResourceCardDetail>
                 <ResourceCardDetail>
                   <AddressDetails>
-                  <i class="fas fa-map-marker-alt" />
-                  <p>{item.address ? item.address : "Unavailable"}</p>
+                    <i class="fas fa-map-marker-alt" />
+                    <p>{item.address ? item.address : "Unavailable"}</p>
                   </AddressDetails>
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
-                <TransitDetails>
-                  <i class="fas fa-bus fa-sm" />
-                  <p>{state.transitTime[i] ? state.transitTime[i] : "Unavailable"}</p>
+                  <TransitDetails>
+                    <i class="fas fa-bus fa-sm" />
+                    <p>
+                      {state.transitTime[i]
+                        ? state.transitTime[i]
+                        : "Unavailable"}
+                    </p>
                   </TransitDetails>
                   <WalkingDetails>
-                  <i class="fas fa-walking fa-lg" />
-                  <p>{state.walkingTime[i] ? state.walkingTime[i] : "Unavailable"}</p>
+                    <i class="fas fa-walking fa-lg" />
+                    <p>
+                      {state.walkingTime[i]
+                        ? state.walkingTime[i]
+                        : "Unavailable"}
+                    </p>
                   </WalkingDetails>
                 </ResourceCardDetail>
                 <ResourceCardDetail className="travel-times">
-                <PhoneDetails>
-                  <i class="fas fa-phone" />
-                  <p>{item.phone ? item.phone : "Unavailable"}</p>
+                  <PhoneDetails>
+                    <i class="fas fa-phone" />
+                    <p>{item.phone ? item.phone : "Unavailable"}</p>
                   </PhoneDetails>
                   <HourDetails>
-                  <i class="fas fa-clock" />{" "}
-                  <p>{item.hours ? item.hours : "Unavailable"}</p>
+                    <i class="fas fa-clock" />{" "}
+                    <p>{item.hours ? item.hours : "Unavailable"}</p>
                   </HourDetails>
                 </ResourceCardDetail>
                 <Link to={`/home/${category}/all/${item.id}`}>
