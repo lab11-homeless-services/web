@@ -13,13 +13,13 @@ const DetailsButton = styled.div`
   background-color: #d6d8dc;
   width: 50%;
   height: 100%;
-  margin: 10px;
+  margin: 5px 10px;
   margin-left: 25%;
   padding: 1%;
   border-radius: 5px;
   box-shadow: 0px 1px 3px 1px #888;
   letter-spacing: 1px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
