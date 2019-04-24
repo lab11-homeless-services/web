@@ -47,7 +47,8 @@ const LandingImageContainer = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
-    height: 55%;
+    height: auto;
+    border-radius: 0;
   }
 `;
 
@@ -164,10 +165,11 @@ const LogoContainer = styled.div`
   justify-content: center;
 
   @media (max-width: 600px) {
-    height: 39%;
+    height: auto;
     border-radius: 0;
     justify-content: center;
     align-items: center;
+    padding: 30px 0;
   }
 `;
 

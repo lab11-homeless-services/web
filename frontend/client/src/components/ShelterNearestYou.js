@@ -30,6 +30,7 @@ const ShelterNearestCard = styled.div`
 
   @media (max-width: 600px) {
     margin-top: 5%;
+    margin-bottom: 20px;
     flex-direction: column-reverse;
     height: auto;
     padding: 40px 3% 30px 3%;

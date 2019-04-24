@@ -7,19 +7,30 @@ const ResourceDetailsButton = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  color: #9b9b9b;
+  color: #323131;
   background-color: #d6d8dc;
-  width: 25%;
-  height: 100%;
-  margin-bottom: 5px;
-  margin-left: 37.5%;
-  padding: 5px;
+  width: 50%;
+  margin: 10px;
+  margin-left: 25%;
+  padding: 10px 1%;
   border-radius: 5px;
-  box-shadow: 0px 1px 3px 1px #ccc;
+  box-shadow: 0px 1px 3px 1px #888;
+  letter-spacing: 1px;
+  font-size: 1rem;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
+
+  @media (max-width: 1024px) {
+    width: 63%;
+    margin: 0 auto;
+    padding: 12px 2%;
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+  }
 `;
 
 const ResourceListCardDetails = styled.div`
@@ -45,10 +56,9 @@ const ResourceListCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 2%;
+  padding-top: 20px;
   padding-bottom: 2%;
   width: 350px;
-  height: 262.5px;
   border: 0.25px solid black;
   box-shadow: 0px 0px 0px 1px #ccc;
   border-radius: 3px;
@@ -82,6 +92,7 @@ const ResourceListCard = styled.div`
   }
   @media (max-width: 600px) {
     margin-top: 10px;
+    padding-bottom: 30px;
 `;
 
 const ResourceListContainer = styled.div`
@@ -89,7 +100,6 @@ const ResourceListContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  height: 80%;
   width: 90%;
 
   @media (max-width: 600px) {
@@ -119,7 +129,7 @@ const ResourceList = props => {
         id++;
         console.log("resource:", resource);
         return (
-          <ResourceListCard>
+          <ResourceListCard className="resource-container">
             <ResourceListCardDetails>{resource.name}</ResourceListCardDetails>
             <ResourceListCardDetails>
               <i class="fas fa-map-marker-alt" /> {resource.address}
@@ -133,7 +143,7 @@ const ResourceList = props => {
               {resource.hours ? resource.hours : "Unavailable"}
             </ResourceListCardDetails>
             <Link to={`/home/${category}/${subCat}/${resourceId}`}>
-              <ResourceDetailsButton>
+              <ResourceDetailsButton className="details-button">
                 <i class="fas fa-external-link-alt" /> View
               </ResourceDetailsButton>
             </Link>
