@@ -91,10 +91,7 @@
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-.subCatLink:active {
-  background-color: red;
-  color: white;
-}
+
 #unacceptableLength {
   width: 96px;
   padding-right: 0;
