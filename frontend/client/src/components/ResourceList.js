@@ -125,10 +125,12 @@ const ResourceList = props => {
               <i class="fas fa-map-marker-alt" /> {resource.address}
             </ResourceListCardDetails>
             <ResourceListCardDetails>
-              <i class="fas fa-phone" /> {resource.phone}
+              <i class="fas fa-phone" />{" "}
+              {resource.phone ? resource.phone : "Unavailable"}
             </ResourceListCardDetails>
             <ResourceListCardDetails>
-              <i class="fas fa-clock" /> {resource.hours}
+              <i class="fas fa-clock" />{" "}
+              {resource.hours ? resource.hours : "Unavailable"}
             </ResourceListCardDetails>
             <Link to={`/home/${category}/${subCat}/${resourceId}`}>
               <ResourceDetailsButton>

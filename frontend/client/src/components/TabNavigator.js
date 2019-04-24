@@ -477,6 +477,8 @@ const TabContainer = styled.div`
     height: auto;
     flex-direction: column;
     margin-bottom: 0;
+    margin-top: 0;
+
   }
 `;
 const SubCatContainer = styled.div`
@@ -525,7 +527,8 @@ const BackToCatContainer = styled.div`
   align-items: center;
   @media (max-width: 600px) {
     display: flex;
-    width: 40%;
+    width: 42%;
     align-items: center;
+    margin-top: 10px;
   }
 `;
