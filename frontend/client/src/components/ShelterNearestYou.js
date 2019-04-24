@@ -125,7 +125,7 @@ const TransitInfo = styled.div`
   border-right: 1px solid #dfdfdf;
 
   p {
-    margin-left: 9%;
+    margin-left: 8%;
   }
 `;
 
