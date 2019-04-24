@@ -466,7 +466,7 @@ const TabNavforSubView = props => {
 export default TabNavforSubView;
 
 const TabContainer = styled.div`
-  margin: 3%;
+  margin: 3% auto;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -526,6 +526,8 @@ const StyledSubCatIcon = styled.img`
 const BackToCatContainer = styled.div`
   display: flex;
   align-items: center;
+  padding-left: 1%;
+  padding-bottom: .5%
   @media (max-width: 600px) {
     display: flex;
     width: 100%;
