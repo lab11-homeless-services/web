@@ -36,7 +36,10 @@ EmPact is an application for resources for people experiencing homelessness in N
 
 ## About Us
 
-![Olu](./img/olu2.jpg) ![Audrey](./img/audrey.jpg) ![Jonah](./img/jonah2.jpg) ![Emily](./img/emily.jpg) ![Matt](./img/Matt.jpg) ![Josh](./img/josh.png) ![Pat](./img/Pat.jpg) ![Caitlin](./img/caitlin.jpg)
+![Olu](./img/olu2.jpg) ![Audrey](./img/audrey.jpg)
+![Jonah](./img/jonah2.jpg) ![Emily](./img/emily.jpg)
+![Pat](./img/Pat.jpg) ![Caitlin](./img/caitlin.jpg)
+![Matt](./img/Matt.jpg) ![Josh](./img/josh.png)
 
 ### OLU Durojaiye - UX Designer
 
