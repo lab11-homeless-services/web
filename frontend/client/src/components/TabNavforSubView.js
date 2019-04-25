@@ -165,7 +165,7 @@ const TabNavforSubView = props => {
           if (subCat === "women" && cat === "health_care") {
             return (
               <NavLink to={`/home/${cat}/${subCat}`}>
-                <div className="subcatbtn" id="moveOnOver">
+                <div className="subcatbtn moveOnOver" id='thirdRow'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={woman} alt="woman" />
@@ -264,7 +264,7 @@ const TabNavforSubView = props => {
           if (subCat === "hiv") {
             return (
               <NavLink to={`/home/${cat}/${subCat}`}>
-                <div className="subcatbtn">
+                <div className="subcatbtn" id='moveYouth'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={hiv} alt="hiv" />
@@ -283,7 +283,7 @@ const TabNavforSubView = props => {
           if (subCat === "mental_health") {
             return (
               <NavLink to={`/home/${cat}/${subCat}`}>
-                <div className="subcatbtn">
+                <div className="subcatbtn" id='moveYouth'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={mental} alt="mental health" />
@@ -305,7 +305,7 @@ const TabNavforSubView = props => {
           if (subCat === "rehab") {
             return (
               <NavLink to={`/home/${cat}/${subCat}`}>
-                <div className="subcatbtn" id="moveOnOver">
+                <div className="subcatbtn moveOnOver" id='thirdRow'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={rehab} alt="rehab" />
@@ -491,6 +491,9 @@ const SubCatContainer = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     justify-content: center;
+  }
+  @media (max-width: 800px) {
+    width: 65%;
   }
 `;
 const Tabs = styled.div`

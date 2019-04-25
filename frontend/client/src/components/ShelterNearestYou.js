@@ -125,7 +125,7 @@ const TransitInfo = styled.div`
   border-right: 1px solid #dfdfdf;
 
   p {
-    margin-left: 10%;
+    margin-left: 8%;
   }
 `;
 
@@ -470,11 +470,11 @@ const SheltersNearestYou = props => {
               <TransportationInfoContainer>
                 <TransitInfo>
                   <i class="fas fa-bus fa-sm" />
-                  <p>{state.transitTime}</p>
+                  <p>{state.transitTime ? state.transitTime : "Unavailable"}</p>
                 </TransitInfo>
                 <WalkingInfo>
                   <i class="fas fa-walking fa-lg" />
-                  <p>{state.walkingTime}</p>
+                  <p>{state.walkingTime ? state.walkingTime : "Unavailable"}</p>
                 </WalkingInfo>
               </TransportationInfoContainer>
             ) : (
