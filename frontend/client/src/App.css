@@ -51,9 +51,9 @@
   color: #4a4a4a;
 }
 .back2cat {
-  height: 25px;
+  align-items: baseline;
   width: 135px;
-  padding: 10px 0 0 7px;
+  padding: 0 0 0 7px;
   font-size: 16px;
 }
 .back2catJobs {
