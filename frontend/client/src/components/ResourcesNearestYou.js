@@ -553,7 +553,9 @@ const ResourcesNearestYou = props => {
 
     return (
       <ResourcesNearestYouContainer>
-        <Title>RESOURCES NEAR YOU - {category.toUpperCase()}</Title>
+        <Title>
+          RESOURCES NEAR YOU - {category.replace(/_/g, " ").toUpperCase()}
+        </Title>
         {list.map((item, i) => {
           if (item && item.name) {
             return (

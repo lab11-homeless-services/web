@@ -457,7 +457,9 @@ const SheltersNearestYou = props => {
               <h4>{newShelters[0].name}</h4>
               <ShelterAddress>
                 <i class="fas fa-map-marker-alt" />
-                <p>{firstShelter.address}</p>
+                <p>
+                  {firstShelter.address ? firstShelter.address : "Unavailable"}
+                </p>
               </ShelterAddress>
             </div>
           ) : (
@@ -483,11 +485,11 @@ const SheltersNearestYou = props => {
             <PhoneHoursContainer>
               <PhoneInfo>
                 <i class="fas fa-phone" />
-                <p>{firstShelter.phone}</p>
+                <p>{firstShelter.phone ? firstShelter.phone : "Unavailable"}</p>
               </PhoneInfo>
               <HoursInfo>
                 <i class="fas fa-clock" />
-                <p>{firstShelter.hours}</p>
+                <p>{firstShelter.hours ? firstShelter.hours : "Unavailable"}</p>
               </HoursInfo>
             </PhoneHoursContainer>
           ) : (
