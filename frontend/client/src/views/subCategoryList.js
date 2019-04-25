@@ -1,4 +1,7 @@
+// importing React
 import React from "react";
+
+// importing components
 import Header from "../components/Header.js";
 import ResourceList from "../components/ResourceList";
 import TabNavforSubView from "../components/TabNavforSubView";

@@ -108,15 +108,16 @@ const ResourceListContainer = styled.div`
 `;
 
 const ResourceList = props => {
-  //Setting List of resources on state as an empty array
+  // Setting List of resources on state as an empty array
   let [listOfResources] = useState([]);
 
+  // Setting up ability to access parts required to construct url to hit with a get request
   const paths = props.props.location.pathname.split("/");
   let category = paths[2];
   let subCat = paths[3];
   let url = `https://empact-e511a.firebaseio.com/${category}/${subCat}.json`;
 
-  //   listOfResources = useCallback(useFetchSingle(url));
+  // Using hook to set an array with resources
   listOfResources = useFetchSingle(url);
 
   // Created an id to reference a resources that auto increments
@@ -125,9 +126,11 @@ const ResourceList = props => {
   return (
     <ResourceListContainer>
       {listOfResources.map(resource => {
+        // Mapping over resources and creating a variable to be set to the id, will use it to create a Link
         let resourceId = id;
+
+        // Incrementing the ID
         id++;
-        console.log("resource:", resource);
         return (
           <ResourceListCard className="resource-container">
             <ResourceListCardDetails>{resource.name}</ResourceListCardDetails>
@@ -142,6 +145,7 @@ const ResourceList = props => {
               <i class="fas fa-clock" />{" "}
               {resource.hours ? resource.hours : "Unavailable"}
             </ResourceListCardDetails>
+            {/* Using the variables set from pathname and ID to construct a link */}
             <Link to={`/home/${category}/${subCat}/${resourceId}`}>
               <ResourceDetailsButton className="details-button">
                 <i class="fas fa-external-link-alt" /> View

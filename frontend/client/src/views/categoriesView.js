@@ -1,9 +1,13 @@
+// importing React
 import React from "react";
-//imported components
+
+// importing components
 import Header from "../components/Header.js";
 import ListOfCats from "../components/ListOfCategories.js";
 import SheltersNearestYou from "../components/ShelterNearestYou";
 import Footer from "../components/Footer";
+
+// styles
 import styled from "styled-components";
 
 const InfoContainer = styled.div`
