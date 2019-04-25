@@ -42,6 +42,7 @@ const LandingImageContainer = styled.div`
   height: auto;
   background: #414361;
   border-radius: 0 60px 100px 0;
+  overflow: hidden;
   @media (max-width: 1024px) {
   }
 
@@ -49,6 +50,7 @@ const LandingImageContainer = styled.div`
     width: 100%;
     height: auto;
     border-radius: 0;
+    overflow: visible;
   }
 `;
 
@@ -308,8 +310,7 @@ const LandingView = () => {
         <h2>La Traducción al Español vendrá pronto!</h2>
         <h4>Spanish Translation Coming Soon!</h4>
       </Modal>
-      <ModalOverlay show={displayModal}>
-      </ModalOverlay>
+      <ModalOverlay show={displayModal} />
     </div>
   );
 };
@@ -332,12 +333,8 @@ const Modal = ({ close, show, children }) => {
 };
 
 const ModalOverlay = ({ close, show }) => {
-  const showHideClassName = show ? "modalOverlay" : null
-  return(
-    <div className={showHideClassName}>
-
-    </div>
-  )
-}
+  const showHideClassName = show ? "modalOverlay" : null;
+  return <div className={showHideClassName} />;
+};
 
 export default LandingView;

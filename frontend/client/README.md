@@ -1,68 +1,91 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# EmPact
 
-## Available Scripts
+## [Deployed Site]: (https://empact.netlify.com/)
 
-In the project directory, you can run:
+## Mission Statement
 
-### `npm start`
+EmPact is about extending empathy through technology to connect people experiencing homelessness to critical information and resources. Our goal is to improve accessibility, increase impact, and empower our users.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+EmPact is an application for resources for people experiencing homelessness in New York City. The focus of the design is on accessibility, keeping in mind that users of this app may have physical or mental disabilities, so providing accessibility features such as color considerations for colorblind users and descriptive icons for people who cannot read or do not speak English. The interface is simple and easy to interact with for those who are not proficient with technology. The application is fully responsive and is available for use in libraries on desktop computers, on mobile phones, and on kiosks(tablets) in locations where the rate of homelessness is high.
 
-### `npm test`
+## See Back End ReadMe for interacting with the Firebase database.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+- Firebase database
+- React w/ Hooks
+- Google Maps API (Apply for a new API key here: https://developers.google.com/maps/documentation/javascript/get-api-key)
+- Google Distance Matrix
+- googlemap-react NPM Package (https://github.com/googlemap-react/googlemap-react)
+- Algolia Search
+- Styled Components
+- Axios
+- Enzyme
+- latlng-distance (https://github.com/raslan1994/latlng-distance)
+- react-instantsearch-dom (https://github.com/algolia/react-instantsearch)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Initialization
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- `yarn install` will pull in all the node_modules you need.
+- `yarn start` will start a development server on your `http://localhost:3000`.
+- If yarn asks you to select different port with some error message, just select `Y` and it will pull it up on port 3001. This simply means you have a development server up and running on that port already.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## About Us
 
-### `npm run eject`
+![Olu](./img/olu2.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### OLU Durojaiye - UX Designer
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[github]: (https://github.com/slimbugz)
+[linkedin]: (https://www.linkedin.com/in/oluduro/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Audrey](./img/audrey.jpg)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Audrey Welch - iOS Developer
 
-## Learn More
+[github]: (https://github.com/audreywelch)
+[linkedin]: (www.linkedin.com/in/audrey-welch-ios)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Jonah](./img/jonah1.jpg)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Jonah Bergevin - iOS Developer
 
-### Code Splitting
+[github]: (https://github.com/JDB0rg)
+[linkedin]: (https://www.linkedin.com/in/jonah-bergevin/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+![Emily](./img/emily.jpg)
 
-### Analyzing the Bundle Size
+### Emily McClanahan - Web Developer
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+[github]: (https://github.com/VivaCode)
+[linkedin]: (https://www.linkedin.com/in/emily-mcclanahan-9a816940/)
 
-### Making a Progressive Web App
+![Matt](./img/Matt.jpg
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Matthew Feldman - Web Developer
 
-### Advanced Configuration
+[github]: (https://github.com/matt0418)
+[linkedin]: (https://www.linkedin.com/in/matthew-r-feldman/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+![Josh](./img/josh.png)
 
-### Deployment
+### Josh Armantrout - Web Developer
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+[github]: (https://github.com/josharmantrout91)
+[linkedin]: (https://www.linkedin.com/in/josh-armantrout-11b732a6/)
 
-### `npm run build` fails to minify
+![Pat](./img/Pat.jpg)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Patrick McNulty - Web Developer
+
+[github]: (https://github.com/McNultyPT)
+[linkedin]: (https://www.linkedin.com/in/pat-mcnulty-2ab73717b/)
+
+![Caitlin](./img/caitlin.jpg)
+
+### Caitlin Giguere - Web Developer
+
+[github]: (https://github.com/caitlin-g)
+[linkedin]: (https://www.linkedin.com/in/caitlingiguere/)

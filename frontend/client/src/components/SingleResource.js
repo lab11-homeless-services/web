@@ -70,6 +70,7 @@ const DetailsServices = styled.div`
     width: 45%;
     padding-top: 45px;
     margin-bottom: 20px;
+    padding-left: 3%;
   }
 
   @media (max-width: 600px) {
@@ -422,26 +423,23 @@ const SingleResource = props => {
             <Title>{resource.name}</Title>
             <InfoText>
               <i className="fas fa-map-marker-alt" />
-              {resource.address}
+              {resource.address ? resource.address : "Unavailable"}
             </InfoText>
 
             <div className="travel-time">
-              {state.walkingTime.length && state.transitTime.length > 0 ? (
-                <InfoText>
-                  <i className="fas fa-bus" />
-                  {state.transitTime}
-                  <i class="fas fa-walking" /> {state.walkingTime}
-                </InfoText>
-              ) : (
-                "Unavailable"
-              )}
+              <InfoText>
+                <i className="fas fa-bus" />
+                {state.transitTime ? state.transitTime : "Unavailable"}
+                <i class="fas fa-walking" />
+                {state.walkingTime ? state.walkingTime : "Unavailable"}
+              </InfoText>
             </div>
             <div className="info-hours">
               <InfoText>
                 <i class="fas fa-phone" />
-                {resource.phone}
+                {resource.phone ? resource.phone : "Unavailable"}
                 <i class="fas fa-clock" />
-                {resource.hours}
+                {resource.hours ? resource.hours : "Unavailable"}
               </InfoText>
             </div>
             <div className="map-button">
@@ -677,26 +675,23 @@ const SingleResource = props => {
             <Title>{resource.name}</Title>
             <InfoText>
               <i className="fas fa-map-marker-alt" />
-              {resource.address}
+              {resource.address ? resource.address : "Unavailable"}
             </InfoText>
 
             <div className="travel-time">
-              {state.walkingTime.length && state.transitTime.length > 0 ? (
-                <InfoText>
-                  <i className="fas fa-bus" />
-                  {state.transitTime}
-                  <i class="fas fa-walking" /> {state.walkingTime}
-                </InfoText>
-              ) : (
-                "Unavailable"
-              )}
+              <InfoText>
+                <i className="fas fa-bus" />
+                {state.transitTime ? state.transitTime : "Unavailable"}
+                <i class="fas fa-walking" />
+                {state.walkingTime ? state.walkingTime : "Unavailable"}
+              </InfoText>
             </div>
             <div className="info-hours">
               <InfoText>
                 <i class="fas fa-phone" />
-                {resource.phone}
+                {resource.phone ? resource.phone : "Unavailable"}
                 <i class="fas fa-clock" />
-                {resource.hours}
+                {resource.hours ? resource.hours : "Unavailable"}
               </InfoText>
             </div>
             <div className="map-button">
