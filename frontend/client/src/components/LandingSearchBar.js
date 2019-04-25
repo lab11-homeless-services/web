@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
+// Importing requirements to make Algolia Search work
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
+//Importing component to handle each hit coming in from the searcg
+import HitComponent from './HitComponent'
 
 import "../App.css";
 
+//Setting up empact id key and api key to allow it to connect to the index
 const searchClient = algoliasearch(
-  "QD6TWFQZCN",
-  "028bde3e8ce26fd3245e84b3807905b9"
+  "QD6TWFQZCN", //Empact ID
+  "028bde3e8ce26fd3245e84b3807905b9" //API key
 );
 
 const FakeSearchInput = styled.input`
@@ -97,40 +100,16 @@ const SearchResultsContainer = styled.div`
   }
 `;
 
-const StyledHit = styled.div`
-  margin-bottom: 2%;
-  font-size: 1.4rem;
-  color: white;
-
-  @media (max-width: 1024px) {
-    font-size: 1.2rem;
-  }
-
-  @media (max-width: 600px) {
-    font-size: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-  }
-`;
-
-const hitCom = props => {
-  return (
-    <Link to={`/home/shelters/all/${props.hit.linkId}`}>
-      <div>
-        <StyledHit>{props.hit.name}</StyledHit>
-      </div>
-    </Link>
-  );
-};
-
 class SearchBar extends React.Component {
   constructor() {
     super();
+    //Creating state to display the search or only render the fake input.
     this.state = {
       searchEnabled: false
     };
   }
 
+  //Function to allow displaying modal with search
   enableSearch = e => {
     e.preventDefault();
     this.setState({
@@ -138,6 +117,7 @@ class SearchBar extends React.Component {
     });
   };
 
+  //Function to disable displaying the modal with search
   disableSearch = e => {
     e.preventDefault();
     this.setState({
@@ -151,12 +131,13 @@ class SearchBar extends React.Component {
         <main>
           <Modal show={this.state.searchEnabled} close={this.disableSearch}>
             <InstantSearchContainer className="landingSearch">
+            {/* Instant search needs the name of the index and the search client passed to it to work */}
               <InstantSearch indexName="empact" searchClient={searchClient}>
                 <SearchBoxContainer>
                   <SearchBox />
                 </SearchBoxContainer>
                 <SearchResultsContainer>
-                  <Hits hitComponent={hitCom} />
+                  <Hits hitComponent={HitComponent} />
                 </SearchResultsContainer>
               </InstantSearch>
             </InstantSearchContainer>
@@ -174,7 +155,10 @@ class SearchBar extends React.Component {
   }
 }
 
+// Modal to display search results, passing in three objects
 export const Modal = ({ close, show, children }) => {
+
+  // Setting up a toggling className
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (

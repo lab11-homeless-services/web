@@ -1,10 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-
 import { Link } from "react-router-dom";
+
+// Dependencies for search
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 
+// Styles
+import styled from "styled-components";
 import "../App.css";
 
 const searchClient = algoliasearch(
@@ -145,6 +147,7 @@ class SearchBar extends React.Component {
   };
 
   render() {
+    console.log(this.state.searchEnabled)
     return (
       <Search>
         <Modal show={this.state.searchEnabled} close={this.disableSearch}>
@@ -154,7 +157,7 @@ class SearchBar extends React.Component {
                 <SearchBox />
               </SearchBoxContainer>
               <SearchResultsContainer>
-                <Hits hitComponent={hitCom} />
+                <Hits hitComponent={hitCom}/>
               </SearchResultsContainer>
             </InstantSearch>
           </InstantSearchContainer>
