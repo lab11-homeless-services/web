@@ -1,5 +1,7 @@
+//importing React
 import React from "react";
-//imported components
+
+//importing components
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import TabNav from "../components/TabNavigator";

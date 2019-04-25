@@ -1,5 +1,8 @@
+// importing React/React Hooks/Axios
 import React, { useReducer, useEffect, useState } from "react";
+import axios from "axios";
 
+// importing Google Maps
 import {
   GoogleMapProvider,
   InfoWindow,
@@ -7,10 +10,16 @@ import {
   Marker
 } from "@googlemap-react/core";
 import { GoogleApiWrapper } from "google-maps-react";
-import axios from "axios";
+
+// importing latlng-distance for distance matrix
 import latlngDist from "latlng-distance";
-import styled from "styled-components";
+
+// importing components
 import ViewDetailsButton from "../components/ViewDetailsButton.js";
+
+// styles
+import styled from "styled-components";
+
 
 const ShelterNearestCard = styled.div`
   border-radius: 2px;
@@ -204,6 +213,7 @@ const ViewMapButton = styled.div`
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
+
   &:hover {
     box-shadow: 1px 1px 3px 1px #ccc;
     -webkit-transition-duration: 0.2s;
@@ -250,12 +260,9 @@ const MapDiv = styled.div`
   }
 `;
 
-// const mapStyles = {
-//   map: {
-
-//   }
-// };
 const SheltersNearestYou = props => {
+
+  // creating state in functional component
   const [state, setState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -277,7 +284,10 @@ const SheltersNearestYou = props => {
       transitTime: ""
     }
   );
+
   let listOfShelters = [];
+
+  // function to get shelter data and set to state
   function fetcher(url) {
     const [data, setData] = useState([]);
     async function getResources() {
@@ -285,6 +295,8 @@ const SheltersNearestYou = props => {
       const data = await response.data;
       setData(data);
     }
+
+    // getting current position of user
     useEffect(() => {
       getResources();
       if (navigator && navigator.geolocation) {
@@ -302,15 +314,16 @@ const SheltersNearestYou = props => {
     return data;
   }
 
+  // setting listOfShelters array to shelters in database
   listOfShelters = fetcher(
     `https://empact-e511a.firebaseio.com/shelters/all.json`
   );
 
-  // const style = Object.assign({}, mapStyles.map);
-
   let newShelters = [];
   let id = 0;
 
+  // iterating over listOfShelters and finding distance of shelters from user's
+  // current location then pushing results into newShelters array
   for (let i = 0; i < listOfShelters.length; i++) {
     const lat = Number(listOfShelters[i].latitude);
     const lon = Number(listOfShelters[i].longitude);
@@ -326,17 +339,22 @@ const SheltersNearestYou = props => {
     id++;
   }
 
+  // function to sort an array
   const sortArrayOfObjects = (arr, key) => {
     return arr.sort((a, b) => {
       return a[key] - b[key];
     });
   };
 
+  // sorting newShelters array by closest distance to user's current location
   sortArrayOfObjects(newShelters, "distance");
 
+  // setting firstShelter to first shelter in sorted newShelters array
   const firstShelter = newShelters[0];
   const { google } = props;
 
+  // setting destination in google maps to firstShelter variable and origin to
+  // user's current location
   if (firstShelter !== undefined) {
     let destination = new google.maps.LatLng(
       firstShelter.latitude,
@@ -347,7 +365,11 @@ const SheltersNearestYou = props => {
       state.currentLocation.lon
     );
 
+    // setting service variable to Google Maps Distance Matrix
     let service = new google.maps.DistanceMatrixService();
+
+    // making call to Google Distance Matrix to get walking time based on user's origin
+    // and shelter closest to user
     service.getDistanceMatrix(
       {
         origins: [origin],
@@ -358,6 +380,8 @@ const SheltersNearestYou = props => {
       callback
     );
 
+    // making call to Google Distance Matrix to get transit time based on user's origin
+    // and shelter closest to user
     let nextService = new google.maps.DistanceMatrixService();
     nextService.getDistanceMatrix(
       {
@@ -369,6 +393,8 @@ const SheltersNearestYou = props => {
       otherCallback
     );
 
+    // setting resourceLocation on state to firstShelter coordinates and 
+    // setting walkingTime on state to Google Distance Matrix results
     async function callback(response, status) {
       // See Parsing the Results for
       // the basics of a callback function..
@@ -384,6 +410,7 @@ const SheltersNearestYou = props => {
       }
     }
 
+    // setting transitTime on state to Google Distance Matrix results
     async function otherCallback(response, status) {
       // See Parsing the Results for
       // the basics of a callback function..
@@ -400,6 +427,7 @@ const SheltersNearestYou = props => {
     }
   }
 
+  // opening map with name and address of firstShelter
   const openMap = e => {
     const name = firstShelter.name.split(" ").join("+");
     const address = firstShelter.address.split(" ").join("+");
@@ -412,14 +440,8 @@ const SheltersNearestYou = props => {
   return (
     <ShelterNearestCard>
       <GoogleMapProvider>
-        {/* <div>
-          <div>
-            <div style={style}>Loading map...</div>
-          </div>
-        </div> */}
         <MapDiv>
           <MapBox
-            // style={style}
             apiKey="AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
             opts={{
               center: {

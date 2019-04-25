@@ -6,6 +6,7 @@
 }
 
 /* ==== Font Styles ==== */
+
 @font-face {
   font-family: "SF Pro Display";
   font-style: bold;
@@ -31,6 +32,7 @@
 }
 
 /* ==== App Styles ==== */
+
 .App {
   font-family: "SF Pro Display", Helvetica;
   margin: 0 auto;
@@ -101,6 +103,7 @@
 }
 
 /* ==== Translation Coming Soon Modal ==== */
+
 .spanishModal {
   position: fixed;
   /* top: 10%;
@@ -278,6 +281,7 @@
   display: none;
 }
 /* ==== Landing Page ====  */
+
 .subscript {
   margin-top: 9px;
   margin-left: 21%;
@@ -288,6 +292,7 @@
 }
 
 /* ==== Single Resource ==== */
+
 .fa-map-marker-alt {
   padding-right: 4%;
   font-size: 1.3rem;
@@ -328,6 +333,7 @@
 }
 
 /* ==== Resources Near You ==== */
+
 .travel-times .fa-walking {
   padding-left: 5%;
   padding-right: 4%;
@@ -386,48 +392,10 @@
     border-radius: 5px;
     box-shadow: 1px 1px 4px 2px #00000050;
   }
-
-  /* .modal-language {
-    color: #4a4a4a;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border-radius: 100px;
-    padding: 20px 10px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .modal-language h2 {
-    font-size: 1.6rem;
-    width: 90%;
-    margin-left: 5%;
-    margin-bottom: 5%;
-  }
-  
-  .modal-language h4 {
-    font-size: 1.4rem;
-    width: 90%;
-    margin-left: 5%;
-    font-style: italic;
-  }
-  
-  .modal-language .closeModalButton {
-    position: relative;
-    width: 10%;
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #4a4a4a;
-    top: 0;
-    right: 0;
-    margin-left: 45%;
-    margin-top: 15px;
-    cursor: pointer;
-  } */
 }
+
 /* ==== Upright Tablet ==== */
+
 @media (max-width: 800px) {
   #moveYouth {
     padding-left: 143px;
@@ -439,6 +407,7 @@
 }
 
 /* ==== Mobile Styles ==== */
+
 @media (max-width: 600px) {
   .map-button .fa-location-arrow {
     padding-right: 10px;

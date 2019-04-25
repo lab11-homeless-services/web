@@ -1,8 +1,13 @@
+// importing React
 import React from "react";
+
+// importing components
 import Header from "../components/Header.js";
 import TabNavforSubView from "../components/TabNavforSubView";
 import SingleResource from "../components/SingleResource";
 import Footer from "../components/Footer";
+
+// styles
 import styled from "styled-components";
 
 const SingleResourceContainer = styled.div`

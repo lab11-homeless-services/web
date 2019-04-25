@@ -1,12 +1,18 @@
+// importing React/React Hooks/NavLink
 import React, { useReducer, useState, useEffect } from "react";
-import LandingSearchBar from "../components/LandingSearchBar";
-import { NavLink } from "react-router-dom";
 import { useStateValue } from "../state/state";
-import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
+//importing components
+import LandingSearchBar from "../components/LandingSearchBar";
+
+// images
 import touch from "../img/touch.png";
 import landingImage from "../img/landingPageImg.jpg";
 import logo from "../img/logo.png";
+
+// styles
+import styled from "styled-components";
 
 const LandingViewContainer = styled.div`
   max-width: 1366px;
@@ -37,22 +43,35 @@ const LandingSearchContainer = styled.div`
   }
 `;
 
-const LandingImageContainer = styled.div`
-  width: 48%;
-  height: auto;
-  background: #414361;
-  border-radius: 0 60px 100px 0;
-  overflow: hidden;
-  @media (max-width: 1024px) {
-  }
+// styling for navbar
+// const LandingNavBar = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   width: 95%;
+//   margin-top: 9%;
+//   letter-spacing: 2px;
 
-  @media (max-width: 600px) {
-    width: 100%;
-    height: auto;
-    border-radius: 0;
-    overflow: visible;
-  }
-`;
+//   @media (max-width: 600px) {
+//     display: none;
+//
+//   }
+// `;
+
+// const LandingNavBarText = styled.div`
+//   color: #414361;
+//   font-size: 0.7rem;
+//   display: flex;
+
+//   p {
+//     margin-left: 10px;
+//   }
+
+//   @media (max-width: 800px) {
+//     i {
+//       display: none;
+//     }
+//   }
+// `;
 
 const LandingHeader = styled.h1`
   font-size: 1.15rem;
@@ -151,10 +170,21 @@ const LandingLanguageSelectionButton = styled.div`
   }
 `;
 
-const LandingLanguageImage = styled.img`
-  width: 16%;
-  margin-left: 10%;
-  color: #414361;
+const LandingImageContainer = styled.div`
+  width: 48%;
+  height: auto;
+  background: #414361;
+  border-radius: 0 60px 100px 0;
+  overflow: hidden;
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    overflow: visible;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -175,14 +205,6 @@ const LogoContainer = styled.div`
   }
 `;
 
-const LandingCTAImg = styled.img`
-  width: 100%;
-
-  @media (max-width: 600px) {
-    width: 100%;
-  }
-`;
-
 const LandingLogoImg = styled.img`
   display: flex;
   width: 45%;
@@ -193,33 +215,18 @@ const LandingLogoImg = styled.img`
   }
 `;
 
-// const LandingNavBar = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   width: 95%;
-//   margin-top: 9%;
-//   letter-spacing: 2px;
+const LandingCTAImg = styled.img`
+  width: 100%;
 
-//   @media (max-width: 600px) {
-//     display: none;
-//
-//   }
-// `;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+`;
 
-const LandingNavBarText = styled.div`
+const LandingLanguageImage = styled.img`
+  width: 16%;
+  margin-left: 10%;
   color: #414361;
-  font-size: 0.7rem;
-  display: flex;
-
-  p {
-    margin-left: 10px;
-  }
-
-  @media (max-width: 800px) {
-    i {
-      display: none;
-    }
-  }
 `;
 
 const LandingFooter = styled.div`
@@ -235,6 +242,7 @@ const LandingFooter = styled.div`
 `;
 
 const LandingView = () => {
+
   //Gains access to reducers and state
   // const [{ spanish }, dispatch] = useStateValue();
   // const [state, setState] = useReducer(
@@ -242,13 +250,13 @@ const LandingView = () => {
   //   { displayModal: false }
   // );
 
+  // toggles display of spanish modal
   const [displayModal, setState] = useState(false);
 
   const closeModal = e => {
     e.preventDefault();
     setState(false);
   };
-  console.log(displayModal);
 
   return (
     <div>
@@ -261,6 +269,7 @@ const LandingView = () => {
           <LandingCTAImg src={landingImage} alt="" />
         </LandingImageContainer>
         <LandingSearchContainer>
+          {/* code for navbar above header */}
           {/* <LandingNavBar>
             <LandingNavBarText>
               <i class="fas fa-book-reader fa-lg" />
@@ -315,6 +324,7 @@ const LandingView = () => {
   );
 };
 
+// modal for spanish language selection
 const Modal = ({ close, show, children }) => {
   const showHideClassName = show
     ? "spanishModal display-block"
@@ -332,6 +342,8 @@ const Modal = ({ close, show, children }) => {
   );
 };
 
+
+// modal overlay
 const ModalOverlay = ({ close, show }) => {
   const showHideClassName = show ? "modalOverlay" : null;
   return <div className={showHideClassName} />;
