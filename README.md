@@ -37,6 +37,12 @@ EmPact is an application for resources for people experiencing homelessness in N
 ## About Us
 
 ![Olu](./img/olu2.jpg) ![Audrey](./img/audrey.jpg)
+
+### OLU Durojaiye - UX Designer ### Audrey Welch - iOS Developer
+
+github: https://github.com/slimbugz github: https://github.com/audreywelch
+linkedin: https://www.linkedin.com/in/oluduro/ linkedin: www.linkedin.com/in/audrey-welch-ios
+
 ![Jonah](./img/jonah2.jpg) ![Emily](./img/emily.jpg)
 ![Pat](./img/Pat.jpg) ![Caitlin](./img/caitlin.jpg)
 ![Matt](./img/Matt.jpg) ![Josh](./img/josh.png)
