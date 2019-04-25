@@ -184,7 +184,7 @@ const TabNav = props => {
           if (subCat === "women" && id === "shelters") {
             return (
               <NavLink to={`/home/${id}/${subCat}`}>
-                <div className="subcatbtn" >
+                <div className="subcatbtn smWmPhone" >
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={woman} alt="woman" />
@@ -282,7 +282,7 @@ const TabNav = props => {
           if (subCat === "mental_health") {
             return (
               <NavLink to={`/home/${id}/${subCat}`}>
-                <div className="subcatbtn"
+                <div className="subcatbtn mentalHealth" 
                 id='moveYouth'>
                   <Tabs>
                     <div className="subcatIcon">
@@ -493,6 +493,9 @@ const SubCatContainer = styled.div`
   @media (max-width: 800px) {
     width: 65%;
   }
+  @media ( max-width: 700px ) {
+    width: 73%;
+  }
 `;
 const Tabs = styled.div`
   display: flex;
@@ -538,6 +541,9 @@ const BackToCatContainer = styled.div`
     padding: 5px;
   }
   @media (max-width: 800px) {
-    padding-bottom: 17%;
+
+  
   }
 `;
+// padding-bottom: ${{BreadcrumbMainCat} === 'health_care' ? '17%' : '6%'};
+//  ;
