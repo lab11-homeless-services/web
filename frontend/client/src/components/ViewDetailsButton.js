@@ -1,5 +1,8 @@
+// importing React/Link
 import React from "react";
 import { Link } from "react-router-dom";
+
+// styles
 import styled from "styled-components";
 
 const DetailsButton = styled.div`
@@ -21,6 +24,7 @@ const DetailsButton = styled.div`
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
   letter-spacing: 1px;
+
   &:hover {
     box-shadow: 1px 1px 4px 2px #00000050;
     -webkit-transition-duration: 0.2s;
@@ -28,6 +32,7 @@ const DetailsButton = styled.div`
     -o-transition-duration: 0.2s;
     transition-duration: 0.2s;
   }
+  
   @media (max-width: 600px) {
     height: auto;
     padding: 20px 10%;
