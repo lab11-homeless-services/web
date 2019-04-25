@@ -121,6 +121,11 @@ const ResourcesNearestYouContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+
+  @media (max-width: 1024px) {
+    padding-bottom: 50px;
+  }
+
   @media (max-width: 600px) {
     flex-direction: column;
     justify-content: center;

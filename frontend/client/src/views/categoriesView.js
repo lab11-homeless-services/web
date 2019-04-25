@@ -12,7 +12,8 @@ const InfoContainer = styled.div`
   width: 98%;
   margin: 0 auto;
   padding-right: 1%;
-  @media(max-width: 1024px) {
+  padding-bottom: 75px;
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
 `;

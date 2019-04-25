@@ -70,6 +70,7 @@ const DetailsServices = styled.div`
     width: 45%;
     padding-top: 45px;
     margin-bottom: 20px;
+    padding-left: 3%;
   }
 
   @media (max-width: 600px) {
@@ -426,12 +427,12 @@ const SingleResource = props => {
             </InfoText>
 
             <div className="travel-time">
-                <InfoText>
-                  <i className="fas fa-bus" />
-                  {state.transitTime ? state.transitTime : "Unavailable"}
-                  <i class="fas fa-walking" /> 
-                  {state.walkingTime ? state.walkingTime : "Unavailable"} 
-                </InfoText>
+              <InfoText>
+                <i className="fas fa-bus" />
+                {state.transitTime ? state.transitTime : "Unavailable"}
+                <i class="fas fa-walking" />
+                {state.walkingTime ? state.walkingTime : "Unavailable"}
+              </InfoText>
             </div>
             <div className="info-hours">
               <InfoText>
@@ -678,12 +679,12 @@ const SingleResource = props => {
             </InfoText>
 
             <div className="travel-time">
-                <InfoText>
-                  <i className="fas fa-bus" />
-                  {state.transitTime ? state.transitTime : "Unavailable"}
-                  <i class="fas fa-walking" /> 
-                  {state.walkingTime ? state.walkingTime : "Unavailable"}
-                </InfoText>
+              <InfoText>
+                <i className="fas fa-bus" />
+                {state.transitTime ? state.transitTime : "Unavailable"}
+                <i class="fas fa-walking" />
+                {state.walkingTime ? state.walkingTime : "Unavailable"}
+              </InfoText>
             </div>
             <div className="info-hours">
               <InfoText>
