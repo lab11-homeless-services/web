@@ -12,6 +12,8 @@ EmPact is an application for resources for people experiencing homelessness in N
 
 ## See Back End ReadMe for interacting with the Firebase database.
 
+[back end readme]: (https://github.com/labs11-homeless-services/web/blob/master/backend/README.md)
+
 ## Tech Stack
 
 - Firebase database
