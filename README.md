@@ -1,6 +1,6 @@
 # EmPact
 
-## [Deployed Site]: (https://empact.netlify.com/)
+## Deployed Site: https://empact.netlify.com/
 
 ## Mission Statement
 
@@ -12,7 +12,7 @@ EmPact is an application for resources for people experiencing homelessness in N
 
 ## See Back End ReadMe for interacting with the Firebase database.
 
-[back end readme]: (https://github.com/labs11-homeless-services/web/blob/master/backend/README.md)
+Back End Readme: https://github.com/labs11-homeless-services/web/blob/master/backend/README.md
 
 ## Tech Stack
 
@@ -40,54 +40,54 @@ EmPact is an application for resources for people experiencing homelessness in N
 
 ### OLU Durojaiye - UX Designer
 
-[github]: (https://github.com/slimbugz)
-[linkedin]: (https://www.linkedin.com/in/oluduro/)
+GitHub: https://github.com/slimbugz  
+LinkedIn: https://www.linkedin.com/in/oluduro
 
 ![Audrey](./img/audrey.jpg)
 
 ### Audrey Welch - iOS Developer
 
-[github]: (https://github.com/audreywelch)
-[linkedin]: (www.linkedin.com/in/audrey-welch-ios)
+GitHub: https://github.com/audreywelch  
+LinkedIn: www.linkedin.com/in/audrey-welch-ios
 
-![Jonah](./img/jonah1.jpg)
+![Jonah](./img/jonah2.jpg)
 
 ### Jonah Bergevin - iOS Developer
 
-[github]: (https://github.com/JDB0rg)
-[linkedin]: (https://www.linkedin.com/in/jonah-bergevin/)
+GitHub: https://github.com/JDB0rg  
+LinkedIn: https://www.linkedin.com/in/jonah-bergevin
 
 ![Emily](./img/emily.jpg)
 
 ### Emily McClanahan - Web Developer
 
-[github]: (https://github.com/VivaCode)
-[linkedin]: (https://www.linkedin.com/in/emily-mcclanahan-9a816940/)
+GitHub: https://github.com/VivaCode  
+LinkedIn: https://www.linkedin.com/in/emily-mcclanahan-9a816940
 
-![Matt](./img/Matt.jpg
+![Matt](./img/Matt.jpg)
 
 ### Matthew Feldman - Web Developer
 
-[github]: (https://github.com/matt0418)
-[linkedin]: (https://www.linkedin.com/in/matthew-r-feldman/)
+GitHub: https://github.com/matt0418  
+LinkedIn: https://www.linkedin.com/in/matthew-r-feldman/
 
 ![Josh](./img/josh.png)
 
 ### Josh Armantrout - Web Developer
 
-[github]: (https://github.com/josharmantrout91)
-[linkedin]: (https://www.linkedin.com/in/josh-armantrout-11b732a6/)
+GitHub: https://github.com/josharmantrout91  
+LinkedIn: https://www.linkedin.com/in/josh-armantrout-11b732a6/
 
 ![Pat](./img/Pat.jpg)
 
 ### Patrick McNulty - Web Developer
 
-[github]: (https://github.com/McNultyPT)
-[linkedin]: (https://www.linkedin.com/in/pat-mcnulty-2ab73717b/)
+GitHub: https://github.com/McNultyPT  
+LinkedIn: https://www.linkedin.com/in/pat-mcnulty-2ab73717b/
 
 ![Caitlin](./img/caitlin.jpg)
 
 ### Caitlin Giguere - Web Developer
 
-[github]: (https://github.com/caitlin-g)
-[linkedin]: (https://www.linkedin.com/in/caitlingiguere/)
+GitHub: https://github.com/caitlin-g  
+LinkedIn: https://www.linkedin.com/in/caitlingiguere/
