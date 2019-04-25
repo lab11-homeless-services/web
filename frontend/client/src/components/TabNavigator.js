@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import useFetch from "../functions/useFetch";
 import styled from "styled-components";
 import BreadcrumbMainCat from "../components/BreadcrumbMainCat";
-// import { woman, man, youth, clinics, emergency, hiv, mental, rehab, stamps, bathroom, shower, afterSchool, abuse, socialServices, ged, computers, benefits, pantry } from '../img/subcatimg/subcatimgs'
 import man from "../img/subcatimg/man.png";
 import woman from "../img/subcatimg/woman.png";
 import youth from "../img/subcatimg/youth.png";
@@ -96,7 +95,7 @@ const TabNav = props => {
             if (subCat === "social_services") {
               return (
                 <NavLink to={`/home/${id}/${subCat}`}>
-                  <div className="subcatbtn">
+                  <div className="subcatbtn" id='moveYouth'>
                     <Tabs className="test">
                       <div className="subcatIcon">
                         <StyledSubCatIcon
@@ -166,7 +165,7 @@ const TabNav = props => {
           if (subCat === "women" && id === "health_care") {
             return (
               <NavLink to={`/home/${id}/${subCat}`}>
-                <div className="subcatbtn" id="moveOnOver" id='thirdRow'>
+                <div className="subcatbtn moveOnOver" id='thirdRow'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={woman} alt="woman" />
@@ -306,7 +305,7 @@ const TabNav = props => {
           if (subCat === "rehab") {
             return (
               <NavLink to={`/home/${id}/${subCat}`}>
-                <div className="subcatbtn" id="moveOnOver" id='thirdRow'>
+                <div className="subcatbtn moveOnOver" id='thirdRow'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={rehab} alt="rehab" />

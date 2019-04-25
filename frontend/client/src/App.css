@@ -345,7 +345,7 @@
     margin: 20px 4% 0 4%;
   }
 
-  #moveOnOver {
+  .moveOnOver {
     padding-left: 81.5%;
   }
 
@@ -413,7 +413,7 @@
     left: 15%;
   }
 
-  #moveOnOver {
+  .moveOnOver {
     padding-left: 0;
   }
 
