@@ -308,6 +308,8 @@ const LandingView = () => {
         <h2>La Traducción al Español vendrá pronto!</h2>
         <h4>Spanish Translation Coming Soon!</h4>
       </Modal>
+      <ModalOverlay show={displayModal}>
+      </ModalOverlay>
     </div>
   );
 };
@@ -328,5 +330,14 @@ const Modal = ({ close, show, children }) => {
     </div>
   );
 };
+
+const ModalOverlay = ({ close, show }) => {
+  const showHideClassName = show ? "modalOverlay" : null
+  return(
+    <div className={showHideClassName}>
+
+    </div>
+  )
+}
 
 export default LandingView;
