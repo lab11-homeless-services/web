@@ -128,10 +128,12 @@ class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
+      // setting state to determing wether to display real search
       searchEnabled: false
     };
   }
 
+  // functions for toggling state of search display
   enableSearch = e => {
     e.preventDefault();
     this.setState({
@@ -147,16 +149,17 @@ class SearchBar extends React.Component {
   };
 
   render() {
-    console.log(this.state.searchEnabled)
     return (
       <Search>
         <Modal show={this.state.searchEnabled} close={this.disableSearch}>
           <InstantSearchContainer className="mainSearch">
+          {/* Instant seatrch requires an indexname and the search client */}
             <InstantSearch indexName="empact" searchClient={searchClient}>
               <SearchBoxContainer>
                 <SearchBox />
               </SearchBoxContainer>
               <SearchResultsContainer>
+                {/* Hits needs a hitComponent */}
                 <Hits hitComponent={hitCom}/>
               </SearchResultsContainer>
             </InstantSearch>
