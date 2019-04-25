@@ -40,54 +40,54 @@ Back End Readme: https://github.com/labs11-homeless-services/web/blob/master/bac
 
 ### OLU Durojaiye - UX Designer
 
-GitHub: https://github.com/slimbugz
-LinkedIn: https://www.linkedin.com/in/oluduro/
+GitHub: https://github.com/slimbugz  
+LinkedIn: https://www.linkedin.com/in/oluduro
 
 ![Audrey](./img/audrey.jpg)
 
 ### Audrey Welch - iOS Developer
 
-GitHub: https://github.com/audreywelch
-LinkedIn: (www.linkedin.com/in/audrey-welch-ios
+GitHub: https://github.com/audreywelch  
+LinkedIn: www.linkedin.com/in/audrey-welch-ios
 
 ![Jonah](./img/jonah2.jpg)
 
 ### Jonah Bergevin - iOS Developer
 
-GitHub: https://github.com/JDB0rg
-LinkedIn: https://www.linkedin.com/in/jonah-bergevin/
+GitHub: https://github.com/JDB0rg  
+LinkedIn: https://www.linkedin.com/in/jonah-bergevin
 
 ![Emily](./img/emily.jpg)
 
 ### Emily McClanahan - Web Developer
 
-GitHub: https://github.com/VivaCode)\
-LinkedIn: https://www.linkedin.com/in/emily-mcclanahan-9a816940/
+GitHub: https://github.com/VivaCode  
+LinkedIn: https://www.linkedin.com/in/emily-mcclanahan-9a816940
 
 ![Matt](./img/Matt.jpg)
 
 ### Matthew Feldman - Web Developer
 
-GitHub: https://github.com/matt0418
+GitHub: https://github.com/matt0418  
 LinkedIn: https://www.linkedin.com/in/matthew-r-feldman/
 
 ![Josh](./img/josh.png)
 
 ### Josh Armantrout - Web Developer
 
-GitHub: https://github.com/josharmantrout91
+GitHub: https://github.com/josharmantrout91  
 LinkedIn: https://www.linkedin.com/in/josh-armantrout-11b732a6/
 
 ![Pat](./img/Pat.jpg)
 
 ### Patrick McNulty - Web Developer
 
-GitHub: https://github.com/McNultyPT
+GitHub: https://github.com/McNultyPT  
 LinkedIn: https://www.linkedin.com/in/pat-mcnulty-2ab73717b/
 
 ![Caitlin](./img/caitlin.jpg)
 
 ### Caitlin Giguere - Web Developer
 
-GitHub: https://github.com/caitlin-g
+GitHub: https://github.com/caitlin-g  
 LinkedIn: https://www.linkedin.com/in/caitlingiguere/
