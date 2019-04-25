@@ -493,6 +493,11 @@
     padding-left: 0;
   }
 
+  #thirdRow {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
   .subscript {
     margin: 0 auto;
     padding: 10px 2%;
@@ -512,6 +517,20 @@
     box-shadow: 1px 1px 4px 2px #00000050;
   }
 }
+/* ==== Landscape Large Mobile ==== */
+@media ( max-width: 900px ) {
+  .mentalHealth {
+    padding-left: 81.5%;
+  }
+}
+
+/* ==== Landscape Small Mobile ==== */
+@media ( max-width: 700 ) {
+  .smWmPhone{
+    
+  }
+}
+
 
 /* ==== Print Styles ==== */
 

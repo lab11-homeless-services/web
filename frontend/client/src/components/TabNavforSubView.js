@@ -283,7 +283,7 @@ const TabNavforSubView = props => {
           if (subCat === "mental_health") {
             return (
               <NavLink to={`/home/${cat}/${subCat}`}>
-                <div className="subcatbtn" id='moveYouth'>
+                <div className="subcatbtn mentalHealth" id='moveYouth'>
                   <Tabs>
                     <div className="subcatIcon">
                       <StyledSubCatIcon src={mental} alt="mental health" />
