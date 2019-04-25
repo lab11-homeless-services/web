@@ -422,26 +422,23 @@ const SingleResource = props => {
             <Title>{resource.name}</Title>
             <InfoText>
               <i className="fas fa-map-marker-alt" />
-              {resource.address}
+              {resource.address ? resource.address : "Unavailable"}
             </InfoText>
 
             <div className="travel-time">
-              {state.walkingTime.length && state.transitTime.length > 0 ? (
                 <InfoText>
                   <i className="fas fa-bus" />
-                  {state.transitTime}
-                  <i class="fas fa-walking" /> {state.walkingTime}
+                  {state.transitTime ? state.transitTime : "Unavailable"}
+                  <i class="fas fa-walking" /> 
+                  {state.walkingTime ? state.walkingTime : "Unavailable"} 
                 </InfoText>
-              ) : (
-                "Unavailable"
-              )}
             </div>
             <div className="info-hours">
               <InfoText>
                 <i class="fas fa-phone" />
-                {resource.phone}
+                {resource.phone ? resource.phone : "Unavailable"}
                 <i class="fas fa-clock" />
-                {resource.hours}
+                {resource.hours ? resource.hours : "Unavailable"}
               </InfoText>
             </div>
             <div className="map-button">
@@ -677,26 +674,23 @@ const SingleResource = props => {
             <Title>{resource.name}</Title>
             <InfoText>
               <i className="fas fa-map-marker-alt" />
-              {resource.address}
+              {resource.address ? resource.address : "Unavailable"}
             </InfoText>
 
             <div className="travel-time">
-              {state.walkingTime.length && state.transitTime.length > 0 ? (
                 <InfoText>
                   <i className="fas fa-bus" />
-                  {state.transitTime}
-                  <i class="fas fa-walking" /> {state.walkingTime}
+                  {state.transitTime ? state.transitTime : "Unavailable"}
+                  <i class="fas fa-walking" /> 
+                  {state.walkingTime ? state.walkingTime : "Unavailable"}
                 </InfoText>
-              ) : (
-                "Unavailable"
-              )}
             </div>
             <div className="info-hours">
               <InfoText>
                 <i class="fas fa-phone" />
-                {resource.phone}
+                {resource.phone ? resource.phone : "Unavailable"}
                 <i class="fas fa-clock" />
-                {resource.hours}
+                {resource.hours ? resource.hours : "Unavailable"}
               </InfoText>
             </div>
             <div className="map-button">

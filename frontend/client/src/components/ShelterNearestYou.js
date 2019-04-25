@@ -125,7 +125,7 @@ const TransitInfo = styled.div`
   border-right: 1px solid #dfdfdf;
 
   p {
-    margin-left: 10%;
+    margin-left: 8%;
   }
 `;
 
@@ -457,7 +457,7 @@ const SheltersNearestYou = props => {
               <h4>{newShelters[0].name}</h4>
               <ShelterAddress>
                 <i class="fas fa-map-marker-alt" />
-                <p>{firstShelter.address}</p>
+                <p>{firstShelter.address ? firstShelter.address : "Unavailable"}</p>
               </ShelterAddress>
             </div>
           ) : (
@@ -468,11 +468,11 @@ const SheltersNearestYou = props => {
               <TransportationInfoContainer>
                 <TransitInfo>
                   <i class="fas fa-bus fa-sm" />
-                  <p>{state.transitTime}</p>
+                  <p>{state.transitTime ? state.transitTime : "Unavailable"}</p>
                 </TransitInfo>
                 <WalkingInfo>
                   <i class="fas fa-walking fa-lg" />
-                  <p>{state.walkingTime}</p>
+                  <p>{state.walkingTime ? state.walkingTime : "Unavailable"}</p>
                 </WalkingInfo>
               </TransportationInfoContainer>
             ) : (
@@ -483,11 +483,11 @@ const SheltersNearestYou = props => {
             <PhoneHoursContainer>
               <PhoneInfo>
                 <i class="fas fa-phone" />
-                <p>{firstShelter.phone}</p>
+                <p>{firstShelter.phone ? firstShelter.phone : "Unavailable"}</p>
               </PhoneInfo>
               <HoursInfo>
                 <i class="fas fa-clock" />
-                <p>{firstShelter.hours}</p>
+                <p>{firstShelter.hours ? firstShelter.hours : "Unavailable"}</p>
               </HoursInfo>
             </PhoneHoursContainer>
           ) : (
