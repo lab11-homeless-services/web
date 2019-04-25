@@ -1,8 +1,13 @@
+// Importing react and react related functions
 import React, { useReducer, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+// Dependencies that are needed for functionality for finding closest resource
 import { GoogleApiWrapper } from "google-maps-react";
 import axios from "axios";
 import latlngDist from "latlng-distance";
+
+// Styling
 import styled from "styled-components";
 
 const DetailsButton = styled.div`
@@ -206,11 +211,15 @@ const WrapDetails = styled.div`
   flex-wrap: wrap;
 `;
 
+
 const ResourcesNearestYou = props => {
+
+  // Gaining access to the category from the URL to be used to construct a get request url
   const paths = props.props.location.pathname.split("/");
   let category = paths[2];
   category = category.replace(/\s+/g, "_");
 
+  // Creating ability to have state in the functional component
   const [state, setState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -222,26 +231,22 @@ const ResourcesNearestYou = props => {
         lat: "",
         lon: ""
       },
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
-      centerAroundCurrentLocation: false,
-      visible: true,
-      zoom: 14,
       walkingTime: [],
       transitTime: []
     }
   );
 
-  //axios request for list of resources
-  let listOfResources = [];
+  // Creating a function to hold useEffect, and a function to make an axios request
   function fetcher(url) {
+    // Setting state with data equal to an open array, and a setData function
     const [data, setData] = useState([]);
     async function getResources() {
+      // Saving response and setting it to data
       const response = await axios.get(url);
       const data = await response.data;
       setData(data);
     }
+    // Use effect to determine when to call getResources() and set state of the current location of the user
     useEffect(() => {
       getResources();
       if (navigator && navigator.geolocation) {
@@ -255,10 +260,12 @@ const ResourcesNearestYou = props => {
           });
         });
       }
+      // Empty array to say only run and go through lifecycle event once.
     }, []);
     return data;
   }
 
+  let listOfResources = [];
   //Fetching Outreach services. Requires a separate fetch from other categories because of subcategory formatting
   if (category === "outreach_services") {
     listOfResources = fetcher(
@@ -298,32 +305,34 @@ const ResourcesNearestYou = props => {
     for (let i = 0; i < 3; i++) {
       list.push(newResources[i]);
     }
-    const firstShelter = list[0];
-    const secondShelter = list[1];
-    const thirdShelter = list[2];
+    const firstResource = list[0];
+    const secondResource = list[1];
+    const thirdResource = list[2];
 
+    // Gaining access to google props
     const { google } = props;
 
-    if (firstShelter !== undefined) {
-      console.log(firstShelter);
+    if (firstResource !== undefined) {
       let destinationOne = new google.maps.LatLng(
-        firstShelter.latitude,
-        firstShelter.longitude
+        firstResource.latitude,
+        firstResource.longitude
       );
 
       let destinationTwo = new google.maps.LatLng(
-        secondShelter.latitude,
-        secondShelter.longitude
+        secondResource.latitude,
+        secondResource.longitude
       );
       let destinationThree = new google.maps.LatLng(
-        thirdShelter.latitude,
-        thirdShelter.longitude
+        thirdResource.latitude,
+        thirdResource.longitude
       );
       let origin = new google.maps.LatLng(
         state.currentLocation.lat,
         state.currentLocation.lon
       );
 
+      // Setting up ability to make calls to the Distance Matrix to determing travelling times via Google
+      // for walking and transit
       let service = new google.maps.DistanceMatrixService();
       service.getDistanceMatrix(
         {
@@ -332,6 +341,7 @@ const ResourcesNearestYou = props => {
           travelMode: "WALKING",
           unitSystem: google.maps.UnitSystem.IMPERIAL
         },
+        // callback defined on line 360
         callback
       );
 
@@ -343,11 +353,11 @@ const ResourcesNearestYou = props => {
           travelMode: "TRANSIT",
           unitSystem: google.maps.UnitSystem.IMPERIAL
         },
+        // otherCallback defined on line 372
         otherCallback
       );
 
       async function callback(response, status) {
-        console.log(response);
         if (response && response.rows.length) {
           setState({
             walkingTime: [
@@ -360,7 +370,6 @@ const ResourcesNearestYou = props => {
       }
 
       async function otherCallback(response, status) {
-        console.log("otherCallback", response);
         if (
           response &&
           response.rows.length > 0 &&
@@ -435,12 +444,16 @@ const ResourcesNearestYou = props => {
       </ResourcesNearestYouContainer>
     );
   } else {
+    // Setting an array of the resources from a category
     listOfResources = fetcher(
       `https://empact-e511a.firebaseio.com/${category}/all.json`
     );
+
+    // Setting up starting variables
     let newResources = [];
     let id = 0;
 
+    // For loop for assiging variables to the object(resource) to be able to access
     for (let i = 0; i < listOfResources.length; i++) {
       const lat = Number(listOfResources[i].latitude);
       const lon = Number(listOfResources[i].longitude);
@@ -452,49 +465,57 @@ const ResourcesNearestYou = props => {
         latitude: lat,
         longitude: lon
       });
+      // Pushing to a new array
       newResources.push(resource);
+      //Incrementing ID
       id++;
     }
 
+    // Setting up sorting function
     const sortArrayOfObjects = (arr, key) => {
       return arr.sort((a, b) => {
         return a[key] - b[key];
       });
     };
 
+    // Sorting array by distance
     sortArrayOfObjects(newResources, "distance");
 
+    // Grabbing the first three resources and pushing it to list
     let list = [];
     for (let i = 0; i < 3; i++) {
       list.push(newResources[i]);
     }
 
-    const firstShelter = list[0];
-    const secondShelter = list[1];
-    const thirdShelter = list[2];
+    // Setting variable to each index position in the array
+    const firstResource = list[0];
+    const secondResource = list[1];
+    const thirdResource = list[2];
 
+    // Gaining access to google props
     const { google } = props;
 
-    if (firstShelter !== undefined) {
-      console.log(firstShelter);
+    // Setting up google latlng object needed for distance matrix
+    if (firstResource !== undefined) {
       let destinationOne = new google.maps.LatLng(
-        firstShelter.latitude,
-        firstShelter.longitude
+        firstResource.latitude,
+        firstResource.longitude
       );
 
       let destinationTwo = new google.maps.LatLng(
-        secondShelter.latitude,
-        secondShelter.longitude
+        secondResource.latitude,
+        secondResource.longitude
       );
       let destinationThree = new google.maps.LatLng(
-        thirdShelter.latitude,
-        thirdShelter.longitude
+        thirdResource.latitude,
+        thirdResource.longitude
       );
       let origin = new google.maps.LatLng(
         state.currentLocation.lat,
         state.currentLocation.lon
       );
 
+      // Setting up google distance matrix function
       let service = new google.maps.DistanceMatrixService();
       service.getDistanceMatrix(
         {
@@ -503,6 +524,7 @@ const ResourcesNearestYou = props => {
           travelMode: "WALKING",
           unitSystem: google.maps.UnitSystem.IMPERIAL
         },
+        // Callback defined on line 543
         callback
       );
 
@@ -514,11 +536,11 @@ const ResourcesNearestYou = props => {
           travelMode: "TRANSIT",
           unitSystem: google.maps.UnitSystem.IMPERIAL
         },
+        // otherCallback defined on line 561
         otherCallback
       );
 
       async function callback(response, status) {
-        console.log(response);
         if (
           response &&
           response.rows.length > 0 &&
@@ -537,7 +559,6 @@ const ResourcesNearestYou = props => {
       }
 
       async function otherCallback(response, status) {
-        console.log("otherCallback", response);
         if (
           response &&
           response.rows.length > 0 &&
@@ -620,6 +641,7 @@ const ResourcesNearestYou = props => {
   }
 };
 
+// HOC to gain access to google props
 export default GoogleApiWrapper({
   apiKey: "AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
 })(ResourcesNearestYou);
