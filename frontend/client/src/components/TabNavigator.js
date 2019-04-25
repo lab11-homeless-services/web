@@ -538,7 +538,9 @@ const BackToCatContainer = styled.div`
     padding: 5px;
   }
   @media (max-width: 800px) {
-    padding-bottom: ${{BreadcrumbMainCat} === 'health_care' ? '17%' : '1%'};
-     ;
+
+  
   }
 `;
+// padding-bottom: ${{BreadcrumbMainCat} === 'health_care' ? '17%' : '6%'};
+//  ;
