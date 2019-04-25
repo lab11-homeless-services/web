@@ -1,5 +1,14 @@
+//Importing React and React related functions
 import React, { useReducer, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
+//Importing Axios
+import axios from "axios";
+
+//Importing Styled Compomnents
+import styled from "styled-components";
+
+// Importing Google Maps packages.
 import {
   GoogleMapProvider,
   InfoWindow,
@@ -7,10 +16,8 @@ import {
   Marker
 } from "@googlemap-react/core";
 import { GoogleApiWrapper } from "google-maps-react";
-import { NavLink } from "react-router-dom";
-import axios from "axios";
-import styled from "styled-components";
 
+//Card Container
 const SingleResourceCard = styled.div`
   border-radius: 3px;
   display: flex;
@@ -34,6 +41,7 @@ const SingleResourceCard = styled.div`
   }
 `;
 
+// Container for info text
 const Info = styled.div`
   height: 400px;
   width: 32%;
@@ -52,6 +60,12 @@ const Info = styled.div`
   }
 `;
 
+//Info text
+const InfoText = styled.div`
+  padding-bottom: 30px;
+`;
+
+//Resource Name
 const Title = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
@@ -60,6 +74,7 @@ const Title = styled.div`
   letter-spacing: 1px;
 `;
 
+//Container for Details/Services Tab Nav
 const DetailsServices = styled.div`
   height: 361px;
   width: 32%;
@@ -80,11 +95,49 @@ const DetailsServices = styled.div`
   }
 `;
 
+// Titles on Details/Services Tab Nav
 const DetailsTitles = styled.div`
   display: flex;
   padding-bottom: 7px;
 `;
 
+//Details/Services list, number, and text styles
+const ServiceList = styled.div`
+  display: flex;
+  margin: 7px 0;
+  color: #4a4a4a;
+  align-items: center;
+  padding: 5px 0;
+`;
+
+const ListNumber = styled.div`
+  padding: 8px 15px;
+  background: #656176
+  color: white;
+`;
+const ListText = styled.div`
+  background: #f3f3f5;
+  padding: 8px 2%;
+  width: 100%;
+`;
+
+// Container for Print and Previous Button
+const ButtonsDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    padding: 40px 45px 40px 37px;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+  }
+`;
+
+//Buttons
 const PrintButton = styled.div`
   display: flex;
   justify-content: space-around;
@@ -187,25 +240,6 @@ const ViewMap = styled.div`
   }
 `;
 
-const ButtonsDiv = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  @media (max-width: 1024px) {
-    padding: 40px 45px 40px 37px;
-  }
-  @media (max-width: 600px) {
-    width: 100%;
-    justify-content: center;
-    padding: 0;
-  }
-`;
-
-const InfoText = styled.div`
-  padding-bottom: 30px;
-`;
-
 const ServiceButton = styled.div`
   width: 50%;
   height: 40px;
@@ -236,26 +270,8 @@ const DetailsButton = styled.div`
   color: ${state => (state.showingDetails === true ? "#fff" : "#4a4a4a")};
 `;
 
-const ServiceList = styled.div`
-  display: flex;
-  margin: 7px 0;
-  color: #4a4a4a;
-  align-items: center;
-  padding: 5px 0;
-`;
-
-const ListNumber = styled.div`
-  padding: 8px 15px;
-  background: #656176
-  color: white;
-`;
-const ListText = styled.div`
-  background: #f3f3f5;
-  padding: 8px 2%;
-  width: 100%;
-`;
-
 const SingleResource = props => {
+  // Setting Initial state
   const [state, setState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -267,10 +283,7 @@ const SingleResource = props => {
         lat: "",
         lon: ""
       },
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
-      centerAroundCurrentLocation: false,
+
       visible: true,
       zoom: 14,
       walkingTime: "",
@@ -281,12 +294,16 @@ const SingleResource = props => {
   );
 
   function fetcher(url) {
+    //Fetching resources
     const [data, setData] = useState([]);
     async function getResources() {
       const response = await axios.get(url);
       const data = await response.data;
       setData(data);
     }
+
+    //locating the user using geolocation and setting state to
+    //their current location
     useEffect(() => {
       getResources();
       if (navigator && navigator.geolocation) {
@@ -307,19 +324,25 @@ const SingleResource = props => {
   //Splits path name at backslash
   const paths = props.props.location.pathname.split("/");
 
-  //Accesses each piece of the pathname from the array createdabove
+  //Accesses each piece of the pathname from the array created above
   let category = paths[2];
   category = category.replace(/\s+/g, "_");
   const subCat = paths[3];
   const singleResource = paths[4];
 
+  // Outreach services' "all" subcategory is structure differently than the other
+  // categories to accomodate a change for iOS. It is "_all." This required a separate
+  // fetch. Seen below is the fetch for all other categories
   if (category !== "outreach_services") {
     const resource = fetcher(
       `https://empact-e511a.firebaseio.com/${category}/${subCat}/${singleResource}.json`
     );
 
+    /*-------Google Distance Matrix---------*/
     const { google } = props;
 
+    // Creating google maps latitude/logitude objects based on resouce location
+    // and user location
     if (resource !== undefined) {
       let destination = new google.maps.LatLng(
         resource.latitude,
@@ -330,6 +353,8 @@ const SingleResource = props => {
         state.currentLocation.lon
       );
 
+      // Calling the Google Distance Matrix to create a new distance matrix object
+      // for Walking
       let service = new google.maps.DistanceMatrixService();
       service.getDistanceMatrix(
         {
@@ -341,6 +366,8 @@ const SingleResource = props => {
         callback
       );
 
+      // Calling the Google Distance Matrix to create a new distance matrix object
+      // for Transit
       let nextService = new google.maps.DistanceMatrixService();
       nextService.getDistanceMatrix(
         {
@@ -352,6 +379,7 @@ const SingleResource = props => {
         otherCallback
       );
 
+      //Callback to set the state of resource location and walkingTime
       async function callback(response, status) {
         if (
           response &&
@@ -368,6 +396,7 @@ const SingleResource = props => {
         }
       }
 
+      //Callback to set the state of transitTime
       async function otherCallback(response, status) {
         if (
           response &&
@@ -381,6 +410,7 @@ const SingleResource = props => {
       }
     }
 
+    //Function to open map with "View Map Button"
     const openMap = e => {
       const name = resource.name.split(" ").join("+");
       const address = resource.address.split(" ").join("+");
@@ -390,10 +420,12 @@ const SingleResource = props => {
       );
     };
 
+    //Function to open print window when Print button is clicked
     const printPage = e => {
       window.print();
     };
 
+    //Function to show Serivices Tab
     const showServices = e => {
       e.preventDefault();
       setState({
@@ -405,6 +437,7 @@ const SingleResource = props => {
       });
     };
 
+    //Function to show Details Tab
     const showDetails = e => {
       e.preventDefault();
       setState({
@@ -567,6 +600,8 @@ const SingleResource = props => {
       </SingleResourceCard>
     );
   } else {
+    // Fetch for Outreach Serives Data. The code below this fetch is duplicated from the
+    // code above.
     const resource = fetcher(
       `https://empact-e511a.firebaseio.com/${category}/_all/${singleResource}.json`
     );
@@ -821,6 +856,8 @@ const SingleResource = props => {
   }
 };
 
+// This is needed to use the Google Maps API. Protect your key in the google cloud
+// services platform. You can restrict it to only work from certain URLs
 export default GoogleApiWrapper({
   apiKey: "AIzaSyD2VA4VZXz5Hj7mr7s4L8Oybt1rX2fp7f4"
 })(SingleResource);
