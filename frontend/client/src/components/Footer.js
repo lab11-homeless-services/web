@@ -17,7 +17,6 @@ position: fixed;
 }
 
 @media(max-width: 1024px) {
-  position: relative;
   margin-top: 5%;
 }
 `;
@@ -25,7 +24,7 @@ position: fixed;
 const FooterText = styled.p`
   margin-right: 50px;
   padding: 5px;
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-weight: lighter;
   letter-spacing: 2px;
 
@@ -33,7 +32,7 @@ const FooterText = styled.p`
     margin-right: 10px;
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     display: none;
   }
 `;
@@ -103,19 +102,19 @@ export default Footer;
 //   return (
 //     <FooterBar>
 //       <FooterText>
-//         <i class="fas fa-book-reader fa-lg" /> 
+//         <i class="fas fa-book-reader fa-lg" />
 //         <p>ABOUT US</p>
 //       </FooterText>
 //       <FooterText>
-//         <i class="fas fa-user-friends fa-lg" /> 
+//         <i class="fas fa-user-friends fa-lg" />
 //         <p>VOLUNTEER</p>
 //       </FooterText>
 //       <FooterText>
-//         <i class="far fa-handshake fa-lg" /> 
+//         <i class="far fa-handshake fa-lg" />
 //         <p>OUR PARTNERS</p>
 //       </FooterText>
 //       <FooterText>
-//         <i class="far fa-envelope fa-lg" /> 
+//         <i class="far fa-envelope fa-lg" />
 //         <p>CONTACT US</p>
 //       </FooterText>
 //     </FooterBar>
