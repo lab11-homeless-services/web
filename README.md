@@ -57,7 +57,7 @@ LinkedIn: www.linkedin.com/in/audrey-welch-ios
 GitHub: https://github.com/JDB0rg  
 LinkedIn: https://www.linkedin.com/in/jonah-bergevin
 
-![Emily](./img/emily.jpg)
+![Emily](./img/emily2.jpg)
 
 ### Emily McClanahan - Web Developer
 
